@@ -4,6 +4,7 @@
 addons/godot_super-wakatime
 addons/images
 addons/todo_manager
+ignore/
 
 # Godot-specific ignores
 .import/
