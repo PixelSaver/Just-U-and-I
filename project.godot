@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Just U and I"
-run/main_scene="uid://dnnka5th1gldj"
+run/main_scene="uid://ckb8k1luffm4h"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Art/icon.svg"
 
 [autoload]
 
 ProjectUISoundController="*res://addons/maaacks_ui_sound_controller/base/scenes/autoloads/project_ui_sound_controller.tscn"
+
+[display]
+
+window/size/viewport_width=1728
+window/size/viewport_height=972
 
 [editor_plugins]
 
