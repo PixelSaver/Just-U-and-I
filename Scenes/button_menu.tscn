@@ -7,17 +7,18 @@
 
 [node name="Button" type="Button" node_paths=PackedStringArray("button_border", "button_text", "button_bg")]
 material = SubResource("ShaderMaterial_n45e2")
-anchors_preset = 15
+custom_minimum_size = Vector2(400, 110)
+anchors_preset = -1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource("1_0kpiu")
 script = ExtResource("2_smycg")
 button_border = NodePath("HBoxContainer/ButtonBG/MarginContainer/ButtonBorder")
 button_text = NodePath("HBoxContainer/ButtonBG/MarginContainer/ButtonBorder/MarginContainer/ButtonText")
 button_bg = NodePath("HBoxContainer/ButtonBG")
+pos_offset = Vector2(50, 0)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -43,18 +44,16 @@ offset_top = -65.0
 offset_bottom = 65.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_left = 0
+theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 0
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MarginContainer/MarginContainer"]
 clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer"]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
@@ -111,5 +110,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

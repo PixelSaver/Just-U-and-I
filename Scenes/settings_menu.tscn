@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce6keox0ht203"]
+
+[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_8ef0u"]
+[ext_resource type="Script" uid="uid://ch10k1mmhi4u5" path="res://Scripts/settings_menu.gd" id="1_icv2g"]
+[ext_resource type="Script" uid="uid://bct1ag2l2n0uk" path="res://Scripts/button_settings.gd" id="3_7y5a0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icv2g"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y5a0"]
+bg_color = Color(0.168627, 0.564706, 0.992157, 1)
+skew = Vector2(-1, 0)
+
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("title", "button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_8ef0u")
+script = ExtResource("1_icv2g")
+title = NodePath("Title")
+button = NodePath("ButtonSettings")
+
+[node name="Title" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 97.0
+offset_right = 991.0
+offset_bottom = 217.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icv2g")
+
+[node name="MarginContainer" type="MarginContainer" parent="Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Title/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 100
+text = " SETTINGS"
+fit_content = true
+
+[node name="ButtonSettings" type="Button" parent="." node_paths=PackedStringArray("bg", "label")]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 252.0
+offset_right = 1105.0
+offset_bottom = 342.0
+script = ExtResource("3_7y5a0")
+bg = NodePath("Panel")
+label = NodePath("RichTextLabel")
+
+[node name="Panel" type="Panel" parent="ButtonSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7y5a0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ButtonSettings"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="mouse_entered" from="." to="ButtonSettings" method="_on_settings_menu_mouse_entered"]
+[connection signal="button_down" from="ButtonSettings" to="ButtonSettings" method="_on_button_down"]
+[connection signal="mouse_entered" from="ButtonSettings" to="ButtonSettings" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonSettings" to="ButtonSettings" method="_on_mouse_exited"]
