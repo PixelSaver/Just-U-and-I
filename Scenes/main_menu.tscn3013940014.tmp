@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://875cs4fxe4ua"]
+
+[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://tob66ucx2er1" path="res://Scripts/new_script.gd" id="2_1ehe0"]
+[ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
+[ext_resource type="PackedScene" uid="uid://osk1uxa28atn" path="res://Scenes/button.tscn" id="3_ce3w2"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_48xlc")
+script = ExtResource("2_n45e2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.167
+anchor_right = 0.615
+anchor_bottom = 0.724
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="GameLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_48xlc")
+bbcode_enabled = true
+text = "[font_size=70]This is a game"
+fit_content = true
+
+[node name="Button" parent="VBoxContainer" instance=ExtResource("3_ce3w2")]
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="TweenComponent2" type="Node" parent="VBoxContainer/OptionsButton"]
+script = ExtResource("2_1ehe0")
+metadata/_custom_type_script = "uid://tob66ucx2er1"
+
+[node name="ExtrasButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Extras
+"
+
+[node name="TweenComponent3" type="Node" parent="VBoxContainer/ExtrasButton"]
+script = ExtResource("2_1ehe0")
+metadata/_custom_type_script = "uid://tob66ucx2er1"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="TweenComponent4" type="Node" parent="VBoxContainer/QuitButton"]
+script = ExtResource("2_1ehe0")
+metadata/_custom_type_script = "uid://tob66ucx2er1"

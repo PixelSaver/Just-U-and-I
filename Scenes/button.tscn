@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://osk1uxa28atn"]
+
+[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_0kpiu"]
+[ext_resource type="Script" uid="uid://b04dl4m1n72ab" path="res://Scripts/button_tween.gd" id="2_smycg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
+
+[node name="Button" type="Button" node_paths=PackedStringArray("button_border", "button_text", "button_bg")]
+material = SubResource("ShaderMaterial_n45e2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("1_0kpiu")
+script = ExtResource("2_smycg")
+button_border = NodePath("HBoxContainer/ButtonBG/MarginContainer/ButtonBorder")
+button_text = NodePath("HBoxContainer/ButtonBG/MarginContainer/ButtonBorder/MarginContainer/ButtonText")
+button_bg = NodePath("HBoxContainer/ButtonBG")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -65.0
+offset_bottom = 65.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MarginContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonBG" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ButtonBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonBorder" type="Panel" parent="HBoxContainer/ButtonBG/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ButtonBG/MarginContainer/ButtonBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonText" type="RichTextLabel" parent="HBoxContainer/ButtonBG/MarginContainer/ButtonBorder/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+text = "Play"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

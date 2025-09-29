@@ -1,67 +1,104 @@
-[gd_scene load_steps=3 format=3 uid="uid://875cs4fxe4ua"]
+[gd_scene load_steps=4 format=3 uid="uid://875cs4fxe4ua"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
-[ext_resource type="Script" uid="uid://tob66ucx2er1" path="res://Scripts/new_script.gd" id="2_1ehe0"]
+[ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
+[ext_resource type="PackedScene" uid="uid://osk1uxa28atn" path="res://Scenes/button.tscn" id="3_ce3w2"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
 theme = ExtResource("1_48xlc")
+script = ExtResource("2_n45e2")
+button_placement_container = NodePath("VBoxContainer/Control3/VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.109
-anchor_top = 0.167
-anchor_right = 0.615
-anchor_bottom = 0.724
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.6
+anchor_bottom = 0.9
+offset_left = 227.2
+offset_right = 227.2
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.261799
+mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="Control" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Control" type="Control" parent="VBoxContainer/Control"]
 layout_mode = 2
 
-[node name="GameLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = -0.1
+anchor_right = 1.05
+anchor_bottom = 1.1
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0.564706, 0.992157, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Control"]
 layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Control"]
+layout_mode = 2
+
+[node name="GameLabel" type="RichTextLabel" parent="VBoxContainer/Control/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("1_48xlc")
 bbcode_enabled = true
-text = "[font_size=70]This is a game"
+text = "[font_size=70]JUST A UI"
 fit_content = true
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-text = "Play"
 
-[node name="TweenComponent" type="Node" parent="VBoxContainer/PlayButton"]
-script = ExtResource("2_1ehe0")
-metadata/_custom_type_script = "uid://tob66ucx2er1"
-
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer"]
 layout_mode = 2
-text = "Options
-"
+size_flags_vertical = 3
 
-[node name="TweenComponent2" type="Node" parent="VBoxContainer/OptionsButton"]
-script = ExtResource("2_1ehe0")
-metadata/_custom_type_script = "uid://tob66ucx2er1"
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
 
-[node name="ExtrasButton" type="Button" parent="VBoxContainer"]
+[node name="Button" parent="VBoxContainer/Control3/VBoxContainer" instance=ExtResource("3_ce3w2")]
+visible = false
 layout_mode = 2
-text = "Extras
-"
 
-[node name="TweenComponent3" type="Node" parent="VBoxContainer/ExtrasButton"]
-script = ExtResource("2_1ehe0")
-metadata/_custom_type_script = "uid://tob66ucx2er1"
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="Button2" parent="VBoxContainer/Control3/VBoxContainer" instance=ExtResource("3_ce3w2")]
+visible = false
 layout_mode = 2
-text = "Quit"
 
-[node name="TweenComponent4" type="Node" parent="VBoxContainer/QuitButton"]
-script = ExtResource("2_1ehe0")
-metadata/_custom_type_script = "uid://tob66ucx2er1"
+[node name="Button3" parent="VBoxContainer/Control3/VBoxContainer" instance=ExtResource("3_ce3w2")]
+visible = false
+layout_mode = 2
+
+[node name="Button4" parent="VBoxContainer/Control3/VBoxContainer" instance=ExtResource("3_ce3w2")]
+visible = false
+layout_mode = 2
+
+[editable path="VBoxContainer/Control3/VBoxContainer/Button"]

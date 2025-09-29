@@ -4,9 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://875cs4fxe4ua" path="res://Scenes/main_menu.tscn" id="2_bo1nx"]
 
 [node name="Main" type="CanvasLayer"]
+process_mode = 3
 
 [node name="UISoundController" type="Node" parent="."]
 script = ExtResource("1_jjgbg")
 metadata/_custom_type_script = "uid://b5oej1q4h7jvh"
 
 [node name="MainMenu" parent="." instance=ExtResource("2_bo1nx")]
+
+[node name="VBoxContainer" parent="MainMenu" index="0"]
+focus_mode = 2
+
+[node name="MarginContainer" parent="MainMenu/VBoxContainer" index="0"]
+focus_mode = 2
+
+[node name="GameLabel" parent="MainMenu/VBoxContainer/MarginContainer" index="0"]
+focus_mode = 2
+
+[editable path="MainMenu"]
