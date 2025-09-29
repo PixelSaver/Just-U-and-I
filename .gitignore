@@ -1,6 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 .nomedia
+addons/godot_super-wakatime
+addons/images
+addons/todo_manager
 
 # Godot-specific ignores
 .import/
