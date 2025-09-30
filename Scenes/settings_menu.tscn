@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce6keox0ht203"]
+[gd_scene load_steps=7 format=3 uid="uid://ce6keox0ht203"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_8ef0u"]
 [ext_resource type="Script" uid="uid://ch10k1mmhi4u5" path="res://Scripts/settings_menu.gd" id="1_icv2g"]
@@ -7,6 +7,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icv2g"]
 bg_color = Color(0, 0, 0, 1)
 skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2y1r"]
+bg_color = Color(0.6, 0.6, 0.6, 0.152941)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y5a0"]
 bg_color = Color(0.168627, 0.564706, 0.992157, 1)
@@ -58,17 +61,18 @@ layout_mode = 0
 offset_left = 305.0
 offset_top = 252.0
 offset_right = 1105.0
-offset_bottom = 342.0
+offset_bottom = 377.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2y1r")
 script = ExtResource("3_7y5a0")
 bg = NodePath("Panel")
 label = NodePath("RichTextLabel")
 
 [node name="Panel" type="Panel" parent="ButtonSettings"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 10.0
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

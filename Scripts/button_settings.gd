@@ -7,8 +7,10 @@ signal unhover(val:ButtonSettings)
 @export var bg : Panel
 @export var label : RichTextLabel
 var og_pos : Vector2 = Vector2.ZERO
+var og_size : Vector2 
 
-
+func _ready() -> void:
+	og_size = size
 
 func _on_button_down() -> void:
 	self_pressed.emit(self)

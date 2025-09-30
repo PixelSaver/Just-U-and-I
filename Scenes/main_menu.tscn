@@ -141,19 +141,15 @@ layout_mode = 2
 position = Vector2(423.448, 208.716)
 
 [node name="Button" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
-anchors_preset = 1
 offset_left = -400.0
 offset_top = 140.0
 offset_bottom = 250.0
 
 [node name="Button2" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
-anchors_preset = 1
 
 [node name="Button3" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
-anchors_preset = 1
 
 [node name="Button4" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
-anchors_preset = 1
 
 [node name="RestOfIt" type="Node2D" parent="TiltControl"]
 position = Vector2(19.7034, 58.0794)
