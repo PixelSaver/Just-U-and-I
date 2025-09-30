@@ -1,7 +1,6 @@
 extends Control
 class_name MainMenu
 
-#TODO Make the actual button scene
 const BUTTON_SCENE : PackedScene = preload("res://Scenes/button_menu.tscn")
 @export var button_placement_container : Node
 var buttons = []
@@ -32,6 +31,7 @@ func _on_pressed(val:ButtonMenu):
 			#TODO Add transition to OS
 			ui_reject_audio.play()
 			val.reject_anim()
+			notif_man.show_notification("Content [color=#2b90fd]UNFINISHED[/color]")
 		TITLES[1]: # Options
 			ui_enter.play()
 			handoff_to_setting()
