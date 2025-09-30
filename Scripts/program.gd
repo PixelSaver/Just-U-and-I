@@ -18,13 +18,14 @@ func _ready():
 	_on_mouse_exited()
 	self.pivot_offset = size/2
 
-func flash(rect:Vector2, i, pos):
+func flash(rect:Vector2, i, dur=1):
 	var flash = ColorRect.new()
 	flash.name = "flash"
 	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	flash.size = rect * 2.2
+	flash.size.y = rect.y * 2.2
+	flash.size.x = 800
 	flash.pivot_offset = flash.size/2
-	flash.position = -flash.size/2 - Vector2(0,50)
+	flash.position = -flash.size/3.3
 	flash.scale.y = rect.y
 	
 	flash.rotation = 45
@@ -32,9 +33,9 @@ func flash(rect:Vector2, i, pos):
 	add_child(flash)
 	
 	
-	var t = create_tween().set_trans(Tween.TRANS_CIRC)
-	t.set_ease(Tween.EASE_IN)
-	t.tween_property(flash, "size:x", 0, 0.4)
+	var t = create_tween().set_trans(Tween.TRANS_CUBIC)
+	t.set_ease(Tween.EASE_OUT)
+	t.tween_property(flash, "size:x", 0, dur+ i/8)
 	t.finished.connect(func(): 
 		if flash and is_instance_valid(flash):
 			flash.queue_free()
@@ -47,6 +48,8 @@ func _on_mouse_entered() -> void:
 		idle_tween.kill()
 	if hover_tween:
 		hover_tween.kill()
+	
+	flash(size, 0, 0.5)
 	
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(program_sprite, "position", sprite_og_pos, 0.3)

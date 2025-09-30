@@ -46,27 +46,83 @@ layout_mode = 0
 offset_left = 100.0
 offset_top = 150.0
 offset_right = 600.0
-offset_bottom = 350.0
+offset_bottom = 400.0
 
 [node name="Program2" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 550.0
-offset_right = 950.0
-offset_bottom = 750.0
+offset_left = 245.0
+offset_top = 420.0
+offset_right = 600.0
+offset_bottom = 660.0
 
 [node name="Program3" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
-offset_left = 600.0
-offset_top = 150.0
-offset_right = 900.0
-offset_bottom = 450.0
+offset_left = 180.0
+offset_top = 680.0
+offset_right = 600.0
+offset_bottom = 930.0
 
 [node name="Program4" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
-offset_left = 1000.0
-offset_top = 200.0
-offset_right = 1300.0
-offset_bottom = 850.0
+offset_left = 610.0
+offset_top = 150.0
+offset_right = 910.0
+offset_bottom = 930.0
+
+[node name="Program5" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1250.0
+offset_top = 430.0
+offset_right = 1380.0
+offset_bottom = 800.0
+
+[node name="Program11" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 430.0
+offset_right = 1240.0
+offset_bottom = 610.0
+
+[node name="Program12" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 620.0
+offset_right = 1240.0
+offset_bottom = 800.0
+
+[node name="Program6" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 150.0
+offset_right = 1380.0
+offset_bottom = 420.0
+
+[node name="Program7" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 150.0
+offset_right = 1840.0
+offset_bottom = 300.0
+
+[node name="Program9" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 810.0
+offset_right = 1840.0
+offset_bottom = 930.0
+
+[node name="Program8" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 390.0
+offset_right = 1840.0
+offset_bottom = 800.0
+
+[node name="Program10" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 310.0
+offset_right = 1840.0
+offset_bottom = 380.0
 
 [editable path="ProgramCont/Program"]

@@ -45,16 +45,7 @@ func load_programs():
 		p.hide()
 		p.spin_speed = [-0.1,0.1][randi() % 2]
 		
-		p.flash(rect[i], i, Vector2(size.y / 4, -size.y / 4))
-		#var flash = ColorRect.new()
-		#flash.name = "flash"
-		#flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		#flash.size = Vector2.ONE * (rect[i].length() * ((i + 1) * 2))
-		#flash.position = Vector2(size.y / 4, -size.y / 3 - 500)
-		#flash.rotation = 45
-		#flash.show_behind_parent = true
-		#p.add_child(flash)
-		#p.spin_speed = [-0.1, 0.1][randi() % 2]
+		p.flash(rect[i], i)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -86,7 +77,7 @@ func _physics_process(delta: float) -> void:
 			continue
 			
 		var p = programs[i] as Program
-		p.show()
+		p.show() 
 		
 		var t := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 		t.tween_property(p, "position", pos[i], 0.3)
