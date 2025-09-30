@@ -4,7 +4,7 @@ class_name NotificationManagerMenu
 @export var notification_scene: PackedScene  
 @export var spacing: float = 25
 @export var fade_duration: float = 0.5
-@export var display_duration: float = 2.0
+@export var display_duration: float = 200.0
 
 
 var notification_queue: Array[Node2D] = []
@@ -13,13 +13,24 @@ func _ready():
 	pass
 
 func show_notification(message: String):
+	if not notification_scene: return
 	var notif = notification_scene.instantiate() 
-	
-	if notification_scene:
-		notif.get_node("Label").text = message
+	var label = notif.get_node("Label") as RichTextLabel
 	
 	add_child(notif)
 	notification_queue.append(notif)
+	
+	# Update notification size
+	label.clear() 
+	label.append_text(message)
+	label.reset_size()
+	var size_x = label.size.x
+	print("size %s" % size_x)
+	notif.get_node("Control").size.x = size_x + 40
+	notif.position.x = -notif.get_node("Label").size.x + 265
+	
+	for tween in all_tweenables(notif):
+		tween.manual_init()
 	
 	_update_positions()
 	

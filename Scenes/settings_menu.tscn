@@ -84,11 +84,9 @@ offset_bottom = 131.0
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = SubResource("StyleBoxFlat_rahb6")
 
-[node name="Tweenable_115" type="Node" parent="Title/Panel3" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_115" parent="Title/Panel3" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 0.0370061
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="MarginContainer" type="MarginContainer" parent="Title"]
 layout_mode = 1
@@ -114,11 +112,9 @@ theme_override_font_sizes/normal_font_size = 100
 text = " SETTINGS"
 fit_content = true
 
-[node name="Tweenable_531" type="Node" parent="Title" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_531" parent="Title" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 1.19417
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="bgTitle" type="Node2D" parent="."]
 position = Vector2(91, 50)
@@ -131,11 +127,9 @@ offset_right = 258.487
 offset_bottom = 60.5284
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_859" type="Node" parent="bgTitle/Panel" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_859" parent="bgTitle/Panel" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 8.05771
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel5" type="Panel" parent="bgTitle"]
 offset_left = -203.967
@@ -144,11 +138,9 @@ offset_right = 190.033
 offset_bottom = 152.415
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_607" type="Node" parent="bgTitle/Panel5" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_607" parent="bgTitle/Panel5" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 6.023
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel6" type="Panel" parent="bgTitle"]
 offset_left = 208.033
@@ -157,11 +149,9 @@ offset_right = 236.033
 offset_bottom = 152.415
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_528" type="Node" parent="bgTitle/Panel6" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_528" parent="bgTitle/Panel6" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 9.89997
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel3" type="Panel" parent="bgTitle"]
 offset_left = 187.0
@@ -170,11 +160,9 @@ offset_right = 297.0
 offset_bottom = -232.0
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_282" type="Node" parent="bgTitle/Panel3" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_282" parent="bgTitle/Panel3" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 1.42136
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel9" type="Panel" parent="bgTitle"]
 offset_left = 348.604
@@ -183,11 +171,9 @@ offset_right = 509.604
 offset_bottom = -333.947
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_155" type="Node" parent="bgTitle/Panel9" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_155" parent="bgTitle/Panel9" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 16.919
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel8" type="Panel" parent="bgTitle"]
 offset_left = 387.0
@@ -196,11 +182,9 @@ offset_right = 595.0
 offset_bottom = -300.0
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_239" type="Node" parent="bgTitle/Panel8" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_239" parent="bgTitle/Panel8" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 10.9679
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel7" type="Panel" parent="bgTitle"]
 offset_left = 338.0
@@ -209,11 +193,9 @@ offset_right = 516.0
 offset_bottom = -226.0
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_323" type="Node" parent="bgTitle/Panel7" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_323" parent="bgTitle/Panel7" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 3.50374
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel4" type="Panel" parent="bgTitle"]
 offset_left = -70.0036
@@ -222,11 +204,9 @@ offset_right = 39.9964
 offset_bottom = -106.349
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_169" type="Node" parent="bgTitle/Panel4" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_169" parent="bgTitle/Panel4" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 11.1656
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel2" type="Panel" parent="bgTitle"]
 offset_left = 97.5807
@@ -236,11 +216,9 @@ offset_bottom = -212.316
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
 
-[node name="Tweenable_573" type="Node" parent="bgTitle/Panel2" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_573" parent="bgTitle/Panel2" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 5.89316
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel10" type="Panel" parent="bgTitle"]
 offset_left = 279.0
@@ -250,11 +228,9 @@ offset_bottom = 50.0
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
 
-[node name="Tweenable_823" type="Node" parent="bgTitle/Panel10" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_823" parent="bgTitle/Panel10" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 5.07645
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel11" type="Panel" parent="bgTitle"]
 offset_left = 666.095
@@ -264,11 +240,9 @@ offset_bottom = 224.777
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
 
-[node name="Tweenable_488" type="Node" parent="bgTitle/Panel11" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_488" parent="bgTitle/Panel11" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 16.5633
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ButtonSettings" type="Button" parent="." node_paths=PackedStringArray("bg", "label", "margin_label", "tip_panel", "tip_label")]
 layout_mode = 0
@@ -364,11 +338,9 @@ offset_bottom = -970.0
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_501" type="Node" parent="bgRight/Panel2" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_501" parent="bgRight/Panel2" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 12.561
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel3" type="Panel" parent="bgRight"]
 offset_left = 286.0
@@ -378,11 +350,9 @@ offset_bottom = -1117.0
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_526" type="Node" parent="bgRight/Panel3" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_526" parent="bgRight/Panel3" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 15.147
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel" type="Panel" parent="bgRight"]
 offset_left = 265.165
@@ -391,11 +361,9 @@ offset_right = 2258.17
 offset_bottom = -790.851
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_222" type="Node" parent="bgRight/Panel" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_222" parent="bgRight/Panel" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 10.1193
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel5" type="Panel" parent="bgRight"]
 offset_left = 798.324
@@ -404,11 +372,9 @@ offset_right = 1045.32
 offset_bottom = -898.698
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_491" type="Node" parent="bgRight/Panel5" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_491" parent="bgRight/Panel5" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 17.9782
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel6" type="Panel" parent="bgRight"]
 offset_left = 1074.8
@@ -417,11 +383,9 @@ offset_right = 1146.8
 offset_bottom = -956.548
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_227" type="Node" parent="bgRight/Panel6" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_227" parent="bgRight/Panel6" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 2.89797
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel7" type="Panel" parent="bgRight"]
 offset_left = 1091.77
@@ -430,11 +394,9 @@ offset_right = 1163.77
 offset_bottom = -878.925
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_47" type="Node" parent="bgRight/Panel7" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_47" parent="bgRight/Panel7" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 5.04665
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel8" type="Panel" parent="bgRight"]
 offset_left = 1278.0
@@ -443,11 +405,9 @@ offset_right = 1341.0
 offset_bottom = -940.0
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_25" type="Node" parent="bgRight/Panel8" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_25" parent="bgRight/Panel8" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 1.08842
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel4" type="Panel" parent="bgRight"]
 offset_left = 1346.0
@@ -457,11 +417,9 @@ offset_bottom = -873.0
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_905" type="Node" parent="bgRight/Panel4" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_905" parent="bgRight/Panel4" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 6.93797
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel9" type="Panel" parent="bgRight"]
 offset_left = 1383.81
@@ -470,11 +428,9 @@ offset_right = 1643.81
 offset_bottom = -953.669
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_11" type="Node" parent="bgRight/Panel9" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_11" parent="bgRight/Panel9" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 0.525514
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="bgLeft" type="Node2D" parent="."]
 position = Vector2(-1287, 446)
@@ -487,11 +443,9 @@ offset_right = 1415.0
 offset_bottom = -783.0
 color = Color(0, 0, 0, 0.247059)
 
-[node name="Tweenable_671" type="Node" parent="bgLeft/ColorRect" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_671" parent="bgLeft/ColorRect" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 0.00118681
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect2" type="ColorRect" parent="bgLeft"]
 offset_left = 1305.0
@@ -500,11 +454,9 @@ offset_right = 1395.0
 offset_bottom = -802.0
 color = Color(0, 0, 0, 0.247059)
 
-[node name="Tweenable_318" type="Node" parent="bgLeft/ColorRect2" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_318" parent="bgLeft/ColorRect2" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 14.8025
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect3" type="ColorRect" parent="bgLeft"]
 offset_left = 2249.96
@@ -513,11 +465,9 @@ offset_right = 2379.96
 offset_bottom = -1547.2
 color = Color(0.168627, 0.568627, 1, 0.247059)
 
-[node name="Tweenable_460" type="Node" parent="bgLeft/ColorRect3" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_460" parent="bgLeft/ColorRect3" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 0.000917884
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect4" type="ColorRect" parent="bgLeft"]
 offset_left = 2269.96
@@ -526,11 +476,9 @@ offset_right = 2359.96
 offset_bottom = -1566.2
 color = Color(0.168627, 0.568627, 1, 0.247059)
 
-[node name="Tweenable_603" type="Node" parent="bgLeft/ColorRect4" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_603" parent="bgLeft/ColorRect4" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 11.0965
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel9" type="Panel" parent="bgLeft"]
 offset_left = 1127.0
@@ -539,11 +487,9 @@ offset_right = 1167.0
 offset_bottom = -861.0
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_182" type="Node" parent="bgLeft/Panel9" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_182" parent="bgLeft/Panel9" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 10.0091
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel2" type="Panel" parent="bgLeft"]
 offset_left = 1028.84
@@ -553,11 +499,9 @@ offset_bottom = -962.782
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_893" type="Node" parent="bgLeft/Panel2" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_893" parent="bgLeft/Panel2" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 5.57886
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel14" type="Panel" parent="bgLeft"]
 offset_left = 1977.07
@@ -567,11 +511,9 @@ offset_bottom = -1312.82
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_126" type="Node" parent="bgLeft/Panel14" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_126" parent="bgLeft/Panel14" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 17.755
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel16" type="Panel" parent="bgLeft"]
 offset_left = 1467.95
@@ -581,11 +523,9 @@ offset_bottom = -988.962
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_97" type="Node" parent="bgLeft/Panel16" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_97" parent="bgLeft/Panel16" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 0.345328
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel11" type="Panel" parent="bgLeft"]
 offset_left = 898.961
@@ -595,11 +535,9 @@ offset_bottom = -925.723
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_326" type="Node" parent="bgLeft/Panel11" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_326" parent="bgLeft/Panel11" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 4.03597
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel6" type="Panel" parent="bgLeft"]
 offset_left = 1284.0
@@ -609,11 +547,9 @@ offset_bottom = -702.0
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_248" type="Node" parent="bgLeft/Panel6" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_248" parent="bgLeft/Panel6" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 2.62387
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel3" type="Panel" parent="bgLeft"]
 offset_left = 1366.13
@@ -622,11 +558,9 @@ offset_right = 1946.13
 offset_bottom = -951.322
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_151" type="Node" parent="bgLeft/Panel3" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_151" parent="bgLeft/Panel3" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 19.5262
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel4" type="Panel" parent="bgLeft"]
 offset_left = 1439.67
@@ -635,11 +569,9 @@ offset_right = 2085.67
 offset_bottom = -1092.41
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_1" type="Node" parent="bgLeft/Panel4" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_1" parent="bgLeft/Panel4" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 17.4164
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel17" type="Panel" parent="bgLeft"]
 offset_left = 1795.0
@@ -648,11 +580,9 @@ offset_right = 2294.0
 offset_bottom = -1203.0
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_765" type="Node" parent="bgLeft/Panel17" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_765" parent="bgLeft/Panel17" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 0.00234542
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel15" type="Panel" parent="bgLeft"]
 offset_left = 2032.93
@@ -661,11 +591,9 @@ offset_right = 2629.93
 offset_bottom = -1398.59
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_608" type="Node" parent="bgLeft/Panel15" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_608" parent="bgLeft/Panel15" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 19.9234
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel5" type="Panel" parent="bgLeft"]
 offset_left = 1378.86
@@ -674,11 +602,9 @@ offset_right = 1855.86
 offset_bottom = -846.612
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_104" type="Node" parent="bgLeft/Panel5" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_104" parent="bgLeft/Panel5" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 13.3517
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel7" type="Panel" parent="bgLeft"]
 offset_left = 1187.23
@@ -687,11 +613,9 @@ offset_right = 1293.23
 offset_bottom = -443.762
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_24" type="Node" parent="bgLeft/Panel7" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_24" parent="bgLeft/Panel7" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 10.563
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel10" type="Panel" parent="bgLeft"]
 offset_left = 1051.47
@@ -700,11 +624,9 @@ offset_right = 1095.47
 offset_bottom = -609.225
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_51" type="Node" parent="bgLeft/Panel10" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_51" parent="bgLeft/Panel10" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 0.46146
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel13" type="Panel" parent="bgLeft"]
 offset_left = 739.521
@@ -713,11 +635,9 @@ offset_right = 973.521
 offset_bottom = -892.481
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_633" type="Node" parent="bgLeft/Panel13" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_633" parent="bgLeft/Panel13" instance=ExtResource("4_fe37x")]
 dir = Vector2(-1, -1)
 speed = 6.01269
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel12" type="Panel" parent="bgLeft"]
 offset_left = 1211.0
@@ -727,11 +647,9 @@ offset_bottom = -508.0
 theme = ExtResource("1_7y5a0")
 theme_override_styles/panel = ExtResource("4_h2y1r")
 
-[node name="Tweenable_362" type="Node" parent="bgLeft/Panel12" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_362" parent="bgLeft/Panel12" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 0.931144
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel8" type="Panel" parent="bgLeft"]
 offset_left = 1273.0
@@ -740,11 +658,9 @@ offset_right = 1644.0
 offset_bottom = -631.0
 theme = ExtResource("1_7y5a0")
 
-[node name="Tweenable_177" type="Node" parent="bgLeft/Panel8" instance=ExtResource("4_fe37x")]
-script = ExtResource("5_jjs6x")
+[node name="Tweenable_177" parent="bgLeft/Panel8" instance=ExtResource("4_fe37x")]
 dir = Vector2(1, 1)
 speed = 0.12211
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="UISoundController" type="Node" parent="."]
 script = ExtResource("8_jjs6x")
