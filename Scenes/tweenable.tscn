@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://benst4a406d87"]
+
+[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="1_j31k3"]
+
+[node name="Tweenable" type="Node"]
+script = ExtResource("1_j31k3")
+metadata/_custom_type_script = "uid://4egkkeg4db5e"

@@ -1,25 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce6keox0ht203"]
+[gd_scene load_steps=13 format=3 uid="uid://ce6keox0ht203"]
 
 [ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="1_7y5a0"]
 [ext_resource type="Script" uid="uid://ch10k1mmhi4u5" path="res://Scripts/settings_menu.gd" id="1_icv2g"]
 [ext_resource type="Script" uid="uid://bct1ag2l2n0uk" path="res://Scripts/button_settings.gd" id="3_7y5a0"]
+[ext_resource type="StyleBox" uid="uid://copbpi1gvjbir" path="res://Assets/black_shadow_skew_box.tres" id="4_3etfd"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_fe37x"]
+[ext_resource type="StyleBox" uid="uid://cmf2cttxsnv2o" path="res://Assets/black_shadow_box.tres" id="4_h2y1r"]
+[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="5_jjs6x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icv2g"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rahb6"]
 bg_color = Color(0, 0, 0, 1)
-skew = Vector2(-1, 0)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_offset = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe37x"]
+bg_color = Color(0.966939, 0.966939, 0.966939, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_size = 6
+shadow_offset = Vector2(20, 20)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2y1r"]
-bg_color = Color(0.6, 0.6, 0.6, 0.152941)
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y5a0"]
 bg_color = Color(0.168627, 0.564706, 0.992157, 1)
 skew = Vector2(-1, 0)
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_offset = Vector2(-20, 20)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3etfd"]
 bg_color = Color(0, 0, 0, 0.239216)
 skew = Vector2(-1, 0)
 
-[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("title", "button")]
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("title", "button", "all_parents")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,14 +46,47 @@ theme = ExtResource("1_7y5a0")
 script = ExtResource("1_icv2g")
 title = NodePath("Title")
 button = NodePath("ButtonSettings")
+all_parents = [NodePath("bgLeft"), NodePath("bgRight"), NodePath("bgTitle"), NodePath("ButtonSettings"), NodePath("Title"), NodePath(".")]
+
+[node name="Bgbg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.345098, 0.235294, 0.447059, 1)
+
+[node name="Tweenable" type="Node" parent="Bgbg"]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 10.0
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Title" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 200.0
+offset_top = 100.0
 offset_right = 1000.0
-offset_bottom = 160.0
+offset_bottom = 240.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_icv2g")
+theme_override_styles/panel = ExtResource("4_3etfd")
+
+[node name="Panel3" type="Panel" parent="Title"]
+z_index = 1
+layout_mode = 0
+offset_left = -1350.0
+offset_top = 99.0
+offset_right = 643.0
+offset_bottom = 131.0
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rahb6")
+
+[node name="Tweenable_115" type="Node" parent="Title/Panel3" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 0.0370061
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="MarginContainer" type="MarginContainer" parent="Title"]
 layout_mode = 1
@@ -49,8 +97,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Title/MarginContainer"]
+z_index = 1
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.168627, 0.568627, 1, 1)
@@ -59,6 +111,162 @@ theme_override_constants/outline_size = 40
 theme_override_font_sizes/normal_font_size = 100
 text = " SETTINGS"
 fit_content = true
+
+[node name="Tweenable_531" type="Node" parent="Title" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 1.19417
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="bgTitle" type="Node2D" parent="."]
+position = Vector2(91, 50)
+rotation = 0.785398
+
+[node name="Panel" type="Panel" parent="bgTitle"]
+offset_left = -160.513
+offset_top = -136.472
+offset_right = 258.487
+offset_bottom = 60.5284
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_859" type="Node" parent="bgTitle/Panel" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 8.05771
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel5" type="Panel" parent="bgTitle"]
+offset_left = -203.967
+offset_top = 89.4153
+offset_right = 190.033
+offset_bottom = 152.415
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_607" type="Node" parent="bgTitle/Panel5" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 6.023
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel6" type="Panel" parent="bgTitle"]
+offset_left = 208.033
+offset_top = 89.4153
+offset_right = 236.033
+offset_bottom = 152.415
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_528" type="Node" parent="bgTitle/Panel6" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 9.89997
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel3" type="Panel" parent="bgTitle"]
+offset_left = 187.0
+offset_top = -320.0
+offset_right = 297.0
+offset_bottom = -232.0
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_282" type="Node" parent="bgTitle/Panel3" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 1.42136
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel9" type="Panel" parent="bgTitle"]
+offset_left = 348.604
+offset_top = -342.947
+offset_right = 509.604
+offset_bottom = -333.947
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_155" type="Node" parent="bgTitle/Panel9" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 16.919
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel8" type="Panel" parent="bgTitle"]
+offset_left = 386.787
+offset_top = -368.403
+offset_right = 539.787
+offset_bottom = -300.403
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_239" type="Node" parent="bgTitle/Panel8" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 10.9679
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel7" type="Panel" parent="bgTitle"]
+offset_left = 338.0
+offset_top = -314.0
+offset_right = 516.0
+offset_bottom = -226.0
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_323" type="Node" parent="bgTitle/Panel7" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 3.50374
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel4" type="Panel" parent="bgTitle"]
+offset_left = -70.0036
+offset_top = -303.349
+offset_right = 39.9964
+offset_bottom = -106.349
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_169" type="Node" parent="bgTitle/Panel4" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 11.1656
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel2" type="Panel" parent="bgTitle"]
+offset_left = 97.5807
+offset_top = -250.316
+offset_right = 236.581
+offset_bottom = -212.316
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
+
+[node name="Tweenable_573" type="Node" parent="bgTitle/Panel2" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 5.89316
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel10" type="Panel" parent="bgTitle"]
+offset_left = 279.0
+offset_top = 20.0
+offset_right = 306.0
+offset_bottom = 50.0
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
+
+[node name="Tweenable_823" type="Node" parent="bgTitle/Panel10" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 5.07645
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel11" type="Panel" parent="bgTitle"]
+offset_left = 666.095
+offset_top = 176.777
+offset_right = 717.095
+offset_bottom = 224.777
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
+
+[node name="Tweenable_488" type="Node" parent="bgTitle/Panel11" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 16.5633
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ButtonSettings" type="Button" parent="." node_paths=PackedStringArray("bg", "label", "margin_label", "tip_panel")]
 layout_mode = 0
@@ -141,22 +349,399 @@ theme_override_font_sizes/normal_font_size = 30
 text = "TIP: BUTTONS ARE FOR CLICKING"
 fit_content = true
 
-[node name="bg" type="Node2D" parent="."]
+[node name="bgRight" type="Node2D" parent="."]
+position = Vector2(-24, 31)
 rotation = 0.785398
-scale = Vector2(1, 1)
 
-[node name="ColorRect" type="ColorRect" parent="bg"]
-offset_left = 562.857
-offset_top = -975.807
-offset_right = 2020.86
-offset_bottom = -935.807
-
-[node name="Panel" type="Panel" parent="bg"]
-offset_left = 286.378
-offset_top = -1069.85
-offset_right = 2279.38
-offset_bottom = -1029.85
+[node name="Panel2" type="Panel" parent="bgRight"]
+offset_left = 286.0
+offset_top = -1070.0
+offset_right = 2279.0
+offset_bottom = -970.0
 theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_501" type="Node" parent="bgRight/Panel2" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 12.561
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel3" type="Panel" parent="bgRight"]
+offset_left = 286.0
+offset_top = -1138.0
+offset_right = 2279.0
+offset_bottom = -1117.0
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_526" type="Node" parent="bgRight/Panel3" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 15.147
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel" type="Panel" parent="bgRight"]
+offset_left = 265.165
+offset_top = -830.851
+offset_right = 2258.17
+offset_bottom = -790.851
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_222" type="Node" parent="bgRight/Panel" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 10.1193
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel5" type="Panel" parent="bgRight"]
+offset_left = 798.324
+offset_top = -1014.7
+offset_right = 1045.32
+offset_bottom = -898.698
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_491" type="Node" parent="bgRight/Panel5" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 17.9782
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel6" type="Panel" parent="bgRight"]
+offset_left = 1074.8
+offset_top = -1029.55
+offset_right = 1146.8
+offset_bottom = -956.548
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_227" type="Node" parent="bgRight/Panel6" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 2.89797
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel7" type="Panel" parent="bgRight"]
+offset_left = 1091.77
+offset_top = -907.925
+offset_right = 1163.77
+offset_bottom = -878.925
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_47" type="Node" parent="bgRight/Panel7" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 5.04665
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel8" type="Panel" parent="bgRight"]
+offset_left = 1278.0
+offset_top = -1018.0
+offset_right = 1341.0
+offset_bottom = -940.0
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_25" type="Node" parent="bgRight/Panel8" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 1.08842
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel4" type="Panel" parent="bgRight"]
+offset_left = 1346.0
+offset_top = -1064.0
+offset_right = 1997.0
+offset_bottom = -873.0
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_905" type="Node" parent="bgRight/Panel4" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 6.93797
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel9" type="Panel" parent="bgRight"]
+offset_left = 1383.81
+offset_top = -1031.67
+offset_right = 1643.81
+offset_bottom = -953.669
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_11" type="Node" parent="bgRight/Panel9" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 0.525514
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="bgLeft" type="Node2D" parent="."]
+position = Vector2(-1287, 446)
+rotation = 0.785398
+
+[node name="ColorRect" type="ColorRect" parent="bgLeft"]
+offset_left = 1285.0
+offset_top = -913.0
+offset_right = 1415.0
+offset_bottom = -783.0
+color = Color(0, 0, 0, 0.247059)
+
+[node name="Tweenable_671" type="Node" parent="bgLeft/ColorRect" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 0.00118681
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect2" type="ColorRect" parent="bgLeft"]
+offset_left = 1305.0
+offset_top = -895.0
+offset_right = 1395.0
+offset_bottom = -802.0
+color = Color(0, 0, 0, 0.247059)
+
+[node name="Tweenable_318" type="Node" parent="bgLeft/ColorRect2" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 14.8025
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect3" type="ColorRect" parent="bgLeft"]
+offset_left = 2249.96
+offset_top = -1677.2
+offset_right = 2379.96
+offset_bottom = -1547.2
+color = Color(0.168627, 0.568627, 1, 0.247059)
+
+[node name="Tweenable_460" type="Node" parent="bgLeft/ColorRect3" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 0.000917884
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect4" type="ColorRect" parent="bgLeft"]
+offset_left = 2269.96
+offset_top = -1659.2
+offset_right = 2359.96
+offset_bottom = -1566.2
+color = Color(0.168627, 0.568627, 1, 0.247059)
+
+[node name="Tweenable_603" type="Node" parent="bgLeft/ColorRect4" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 11.0965
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel9" type="Panel" parent="bgLeft"]
+offset_left = 1127.0
+offset_top = -1112.0
+offset_right = 1167.0
+offset_bottom = -861.0
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_182" type="Node" parent="bgLeft/Panel9" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 10.0091
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel2" type="Panel" parent="bgLeft"]
+offset_left = 1028.84
+offset_top = -1062.78
+offset_right = 1317.84
+offset_bottom = -962.782
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_893" type="Node" parent="bgLeft/Panel2" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 5.57886
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel14" type="Panel" parent="bgLeft"]
+offset_left = 1977.07
+offset_top = -1354.82
+offset_right = 2040.07
+offset_bottom = -1312.82
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_126" type="Node" parent="bgLeft/Panel14" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 17.755
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel16" type="Panel" parent="bgLeft"]
+offset_left = 1467.95
+offset_top = -1030.96
+offset_right = 1616.95
+offset_bottom = -988.962
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_97" type="Node" parent="bgLeft/Panel16" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 0.345328
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel11" type="Panel" parent="bgLeft"]
+offset_left = 898.961
+offset_top = -1025.72
+offset_right = 1000.96
+offset_bottom = -925.723
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_326" type="Node" parent="bgLeft/Panel11" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 4.03597
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel6" type="Panel" parent="bgLeft"]
+offset_left = 1284.0
+offset_top = -725.0
+offset_right = 1727.0
+offset_bottom = -702.0
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_248" type="Node" parent="bgLeft/Panel6" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 2.62387
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel3" type="Panel" parent="bgLeft"]
+offset_left = 1366.13
+offset_top = -967.322
+offset_right = 1946.13
+offset_bottom = -951.322
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_151" type="Node" parent="bgLeft/Panel3" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 19.5262
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel4" type="Panel" parent="bgLeft"]
+offset_left = 1439.67
+offset_top = -1155.41
+offset_right = 2085.67
+offset_bottom = -1092.41
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_1" type="Node" parent="bgLeft/Panel4" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 17.4164
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel17" type="Panel" parent="bgLeft"]
+offset_left = 1795.0
+offset_top = -1235.0
+offset_right = 2294.0
+offset_bottom = -1203.0
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_765" type="Node" parent="bgLeft/Panel17" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 0.00234542
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel15" type="Panel" parent="bgLeft"]
+offset_left = 2032.93
+offset_top = -1461.59
+offset_right = 2629.93
+offset_bottom = -1398.59
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_608" type="Node" parent="bgLeft/Panel15" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 19.9234
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel5" type="Panel" parent="bgLeft"]
+offset_left = 1378.86
+offset_top = -896.612
+offset_right = 1855.86
+offset_bottom = -846.612
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_104" type="Node" parent="bgLeft/Panel5" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 13.3517
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel7" type="Panel" parent="bgLeft"]
+offset_left = 1187.23
+offset_top = -881.762
+offset_right = 1293.23
+offset_bottom = -443.762
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_24" type="Node" parent="bgLeft/Panel7" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 10.563
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel10" type="Panel" parent="bgLeft"]
+offset_left = 1051.47
+offset_top = -1047.23
+offset_right = 1095.47
+offset_bottom = -609.225
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_51" type="Node" parent="bgLeft/Panel10" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 0.46146
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel13" type="Panel" parent="bgLeft"]
+offset_left = 739.521
+offset_top = -954.481
+offset_right = 973.521
+offset_bottom = -892.481
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_633" type="Node" parent="bgLeft/Panel13" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(-1, -1)
+speed = 6.01269
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel12" type="Panel" parent="bgLeft"]
+offset_left = 1211.0
+offset_top = -733.0
+offset_right = 1313.0
+offset_bottom = -508.0
+theme = ExtResource("1_7y5a0")
+theme_override_styles/panel = ExtResource("4_h2y1r")
+
+[node name="Tweenable_362" type="Node" parent="bgLeft/Panel12" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 0.931144
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Panel8" type="Panel" parent="bgLeft"]
+offset_left = 1273.0
+offset_top = -679.0
+offset_right = 1644.0
+offset_bottom = -631.0
+theme = ExtResource("1_7y5a0")
+
+[node name="Tweenable_177" type="Node" parent="bgLeft/Panel8" instance=ExtResource("4_fe37x")]
+script = ExtResource("5_jjs6x")
+dir = Vector2(1, 1)
+speed = 0.12211
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [connection signal="mouse_entered" from="." to="ButtonSettings" method="_on_settings_menu_mouse_entered"]
 [connection signal="button_down" from="ButtonSettings" to="ButtonSettings" method="_on_button_down"]

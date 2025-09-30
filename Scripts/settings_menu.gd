@@ -4,15 +4,18 @@ class_name SettingsMenu
 @export var title: Panel
 @export var button: ButtonSettings
 @export var offset : float = 50
+@export var all_parents : Array[Node] 
 var buttons : Array[ButtonSettings] = []
 const TITLES = ["SOUND VOLUME", "AUDIO VOLUME", "FULLSCREEN", "HOW TO PLAY"]
 var duration : float = 0.2
 
 func _ready() -> void:
+	
 	button.position = title.position + Vector2.ONE*200 + Vector2(0,15)
 	buttons.append(button)
 	button.label.text = TITLES[0]
 	button.og_pos = button.position
+	button.get_child
 	for i in range(3):
 		var inst = button.duplicate() as ButtonSettings
 		add_child(inst)
@@ -54,6 +57,21 @@ func _on_unhover(but:ButtonSettings):
 
 func _on_button_ready(but:ButtonSettings):
 	but.tip_panel.global_position = but.tip_pos + Vector2(offset, offset)
+
+func all_tweenables() -> Array[Tweenable]:
+	var out : Array[Tweenable] = []
+	for parent in all_parents:
+		for child in parent.get_children():
+			var n = child as Node
+			if child.get_child_count() == 0: continue
+			var tweenable_index = n.get_children().find_custom(
+				func(child) -> bool:
+					return child is Tweenable
+			)
+			if tweenable_index == -1: continue
+			var tweenable = n.get_children()[tweenable_index]
+			out.append(tweenable)
+	return out
 
 func _on_pressed(but:ButtonSettings):
 	pass
