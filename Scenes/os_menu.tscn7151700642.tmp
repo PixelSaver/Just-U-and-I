@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://cph0pd7hvoen1"]
+
+[ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
+[ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
+[ext_resource type="Script" uid="uid://dsk3xptj8ny1h" path="res://Scripts/program.gd" id="3_70lpx"]
+[ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="4_ydafb"]
+
+[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_8yt1f")
+script = ExtResource("2_ydafb")
+program_parent = NodePath("ProgramCont")
+
+[node name="Title" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 527.0
+offset_bottom = 171.0
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "JUI OS"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgramCont" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Program" type="Control" parent="ProgramCont" node_paths=PackedStringArray("program_sprite", "program_label")]
+clip_contents = true
+anchors_preset = 0
+offset_left = 391.0
+offset_top = 228.0
+offset_right = 865.0
+offset_bottom = 553.0
+mouse_filter = 2
+script = ExtResource("3_70lpx")
+program_sprite = NodePath("ProgramArt")
+program_label = NodePath("MarginContainer/RichTextLabel")
+
+[node name="Border" type="Panel" parent="ProgramCont/Program"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ProgramArt" type="Sprite2D" parent="ProgramCont/Program"]
+texture_filter = 1
+position = Vector2(308.5, 196.511)
+scale = Vector2(3.55682, 3.55682)
+texture = ExtResource("4_ydafb")
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgramCont/Program"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProgramCont/Program/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "What is up my dude"
+
+[node name="Program2" type="Control" parent="ProgramCont" node_paths=PackedStringArray("program_sprite", "program_label")]
+clip_contents = true
+anchors_preset = 0
+offset_left = 914.0
+offset_top = 230.0
+offset_right = 1388.0
+offset_bottom = 555.0
+mouse_filter = 2
+script = ExtResource("3_70lpx")
+program_sprite = NodePath("ProgramArt")
+program_label = NodePath("MarginContainer/RichTextLabel")
+
+[node name="Border" type="Panel" parent="ProgramCont/Program2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ProgramArt" type="Sprite2D" parent="ProgramCont/Program2"]
+texture_filter = 1
+position = Vector2(308.5, 196.511)
+scale = Vector2(3.55682, 3.55682)
+texture = ExtResource("4_ydafb")
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgramCont/Program2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProgramCont/Program2/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "What is up my dude"
+
+[connection signal="mouse_entered" from="ProgramCont/Program" to="ProgramCont/Program" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ProgramCont/Program" to="ProgramCont/Program" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ProgramCont/Program2" to="ProgramCont/Program2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ProgramCont/Program2" to="ProgramCont/Program2" method="_on_mouse_exited"]
