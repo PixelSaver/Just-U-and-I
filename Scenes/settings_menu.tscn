@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce6keox0ht203"]
+[gd_scene load_steps=8 format=3 uid="uid://ce6keox0ht203"]
 
-[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_8ef0u"]
+[ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="1_7y5a0"]
 [ext_resource type="Script" uid="uid://ch10k1mmhi4u5" path="res://Scripts/settings_menu.gd" id="1_icv2g"]
 [ext_resource type="Script" uid="uid://bct1ag2l2n0uk" path="res://Scripts/button_settings.gd" id="3_7y5a0"]
 
@@ -15,6 +15,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0.152941)
 bg_color = Color(0.168627, 0.564706, 0.992157, 1)
 skew = Vector2(-1, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3etfd"]
+bg_color = Color(0, 0, 0, 0.239216)
+skew = Vector2(-1, 0)
+
 [node name="SettingsMenu" type="Control" node_paths=PackedStringArray("title", "button")]
 layout_mode = 3
 anchors_preset = 15
@@ -23,17 +27,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("1_8ef0u")
+theme = ExtResource("1_7y5a0")
 script = ExtResource("1_icv2g")
 title = NodePath("Title")
 button = NodePath("ButtonSettings")
 
 [node name="Title" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 191.0
-offset_top = 97.0
-offset_right = 991.0
-offset_bottom = 217.0
+offset_left = 200.0
+offset_right = 1000.0
+offset_bottom = 160.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_icv2g")
 
@@ -50,13 +53,14 @@ theme_override_constants/margin_left = 50
 [node name="RichTextLabel" type="RichTextLabel" parent="Title/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.168627, 0.568627, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/normal_font_size = 100
 text = " SETTINGS"
 fit_content = true
 
-[node name="ButtonSettings" type="Button" parent="." node_paths=PackedStringArray("bg", "label")]
+[node name="ButtonSettings" type="Button" parent="." node_paths=PackedStringArray("bg", "label", "margin_label", "tip_panel")]
 layout_mode = 0
 offset_left = 305.0
 offset_top = 252.0
@@ -64,10 +68,13 @@ offset_right = 1105.0
 offset_bottom = 377.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_h2y1r")
 script = ExtResource("3_7y5a0")
-bg = NodePath("Panel")
-label = NodePath("RichTextLabel")
+bg = NodePath("ButtonBG")
+label = NodePath("MarginContainer/ButtonText")
+margin_label = NodePath("MarginContainer")
+tip_panel = NodePath("RevealMask/TipPanel")
 
-[node name="Panel" type="Panel" parent="ButtonSettings"]
+[node name="ButtonBG" type="Panel" parent="ButtonSettings"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.1
@@ -78,10 +85,78 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7y5a0")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ButtonSettings"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="ButtonSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 35
+
+[node name="ButtonText" type="RichTextLabel" parent="ButtonSettings/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RevealMask" type="Control" parent="ButtonSettings"]
+clip_contents = true
+layout_mode = 1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TipPanel" type="Panel" parent="ButtonSettings/RevealMask"]
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 1.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3etfd")
+
+[node name="MarginContainer" type="MarginContainer" parent="ButtonSettings/RevealMask/TipPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="TipText" type="RichTextLabel" parent="ButtonSettings/RevealMask/TipPanel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "TIP: BUTTONS ARE FOR CLICKING"
+fit_content = true
+
+[node name="bg" type="Node2D" parent="."]
+rotation = 0.785398
+scale = Vector2(1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+offset_left = 562.857
+offset_top = -975.807
+offset_right = 2020.86
+offset_bottom = -935.807
+
+[node name="Panel" type="Panel" parent="bg"]
+offset_left = 286.378
+offset_top = -1069.85
+offset_right = 2279.38
+offset_bottom = -1029.85
+theme = ExtResource("1_7y5a0")
 
 [connection signal="mouse_entered" from="." to="ButtonSettings" method="_on_settings_menu_mouse_entered"]
 [connection signal="button_down" from="ButtonSettings" to="ButtonSettings" method="_on_button_down"]
