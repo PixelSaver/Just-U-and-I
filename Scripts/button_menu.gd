@@ -12,10 +12,12 @@ var original_pos : Vector2
 @export var trans : Tween.TransitionType = Tween.TRANS_QUINT
 @export var tween_ease : Tween.EaseType = Tween.EASE_OUT
 @export var hbox : Control
+@export var mouse_catch : Control
 
 func _ready() -> void:
 	await get_tree().get_first_node_in_group("MainMenu").ready
 	original_pos = position
+	mouse_catch.position = -pos_offset
 
 var hovered : Tween
 func _on_mouse_entered() -> void:
@@ -30,10 +32,11 @@ func _on_mouse_entered() -> void:
 	hovered.tween_property(button_bg, "color", Color.WHITE, tween_duration)
 	
 	hovered.tween_property(self, "position", original_pos + pos_offset, tween_duration)
-	#size = Vector2(400,110) + pos_offset
-	#hbox.position = pos_offset
-	#hovered.tween_property(self, "size", size + pos_offset, tween_duration)
-	#hovered.tween_property(hbox, "position", pos_offset*2, tween_duration)
+	mouse_catch.mouse_filter = Control.MOUSE_FILTER_PASS
+	
+	if unhovered:
+		await unhovered.finished
+		unhovered.kill()
 
 var unhovered : Tween
 func _on_mouse_exited() -> void:
@@ -46,10 +49,8 @@ func _on_mouse_exited() -> void:
 	unhovered.tween_property(button_bg, "color", Color.BLACK, tween_duration)
 
 	unhovered.tween_property(self, "position", original_pos, tween_duration)
-	#size = Vector2(400,110)
-	hbox.position = Vector2.ZERO
-	#unhovered.tween_property(self, "size", Vector2(400,110), tween_duration)
-	#unhovered.tween_property(hbox, "position", Vector2.ZERO, tween_duration)
+	await get_tree().process_frame
+	mouse_catch.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	await unhovered.finished
 	unhovered.kill()
@@ -61,42 +62,42 @@ func _on_button_down() -> void:
 func _on_button_up() -> void:
 	pass # Replace with function body.
 
+signal rejected
 # Written with help from Claude AI
+var is_reject_animating: bool = false
+
 func reject_anim():
-	# Spring parameters
-	var spring_strength: float = 200.0
+	# Cancel any existing animation
+	if is_reject_animating:
+		is_reject_animating = false
+		await get_tree().process_frame  # Wait for the old one to clean up
+	
+	is_reject_animating = true
+	var spring_strength: float = 100.0
 	var damping: float = 12.0
-	var mass: float = 1.0
-	
-	# Initial impulse (throw the button)
-	var throw_distance: float = 30.0  # How far to throw it
-	var velocity: float = throw_distance * 50.0  # Initial velocity
-	var displacement: float = 0.0
-	var rest_x: float = 0.0  # Original x position
-	
-	# Store original position
-	var original_pos = button_bg.position
-	
-	# Spring simulation loop
+	var mass: float = 0.5
+	var dir = [-1, 1][randi() % 2]
+	var velocity: float = 1000.0 * dir
+	var displacement: float = hbox.position.x  # Start from current position!
 	var time: float = 0.0
-	var duration: float = 1.5  # Total animation time
+	var duration: float = 1.5
 	
-	while time < duration:
+	while time < duration and is_reject_animating:
 		var delta = get_process_delta_time()
 		
-		# Spring physics
-		var spring_force = -spring_strength * (displacement - rest_x)
+		var spring_force = -spring_strength * displacement
 		var damping_force = -damping * velocity
 		var acceleration = (spring_force + damping_force) / mass
 		
 		velocity += acceleration * delta
 		displacement += velocity * delta
 		
-		# Apply to button_bg
-		button_bg.position.x = original_pos.x + displacement
+		hbox.position.x = displacement
 		
 		time += delta
 		await get_tree().process_frame
 	
-	# Ensure it ends at rest position
-	button_bg.position = original_pos
+	# Only reset if this animation wasn't cancelled
+	if is_reject_animating:
+		hbox.position.x = 0.0
+		is_reject_animating = false

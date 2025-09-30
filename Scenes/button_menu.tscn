@@ -1,20 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://osk1uxa28atn"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_0kpiu"]
-[ext_resource type="Script" uid="uid://b04dl4m1n72ab" path="res://Scripts/button_tween.gd" id="2_smycg"]
+[ext_resource type="Script" uid="uid://b04dl4m1n72ab" path="res://Scripts/button_menu.gd" id="2_smycg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvrjg"]
 bg_color = Color(0.6, 0.6, 0.6, 0.360784)
 
-[node name="Button" type="Button" node_paths=PackedStringArray("button_border", "button_text", "button_bg", "hbox")]
+[node name="Button" type="Button" node_paths=PackedStringArray("button_border", "button_text", "button_bg", "hbox", "mouse_catch")]
 material = SubResource("ShaderMaterial_n45e2")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -403.0
-offset_right = 97.0
+offset_right = -3.0
 offset_bottom = 110.0
 grow_horizontal = 0
 theme = ExtResource("1_0kpiu")
@@ -25,6 +25,7 @@ button_text = NodePath("HBoxContainer/ButtonBG/MarginContainer/ButtonBorder/Marg
 button_bg = NodePath("HBoxContainer/ButtonBG")
 pos_offset = Vector2(50, 0)
 hbox = NodePath("HBoxContainer")
+mouse_catch = NodePath("ColorRect")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(400, 110)
@@ -35,6 +36,7 @@ offset_bottom = 110.0
 [node name="MarginContainer" type="Control" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
 layout_mode = 1
@@ -48,6 +50,7 @@ offset_top = -65.0
 offset_bottom = 65.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 5
@@ -56,9 +59,11 @@ theme_override_constants/margin_bottom = 0
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MarginContainer/MarginContainer"]
 clip_contents = true
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer"]
 layout_mode = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer/ColorRect"]
@@ -68,11 +73,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer/ColorRect/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ButtonBG" type="ColorRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -113,6 +120,16 @@ text = "Play"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

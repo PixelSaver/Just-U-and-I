@@ -29,10 +29,10 @@ func _on_pressed(val:ButtonMenu):
 			handoff_to_setting()
 		TITLES[1]: # Options
 			ui_reject_audio.play()
-			val.reject_anim
+			val.reject_anim()
 		TITLES[2]: # Extras
 			ui_reject_audio.play()
-			val.reject_anim
+			val.reject_anim()
 		TITLES[3]: # Quit
 			get_tree().quit()
 
