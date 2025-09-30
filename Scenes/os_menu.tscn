@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-text = "JUI OS"
+text = "JUIOS"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -42,3 +42,31 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Program" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 600.0
+offset_bottom = 350.0
+
+[node name="Program2" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 550.0
+offset_right = 950.0
+offset_bottom = 750.0
+
+[node name="Program3" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 150.0
+offset_right = 900.0
+offset_bottom = 450.0
+
+[node name="Program4" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 200.0
+offset_right = 1300.0
+offset_bottom = 850.0
+
+[editable path="ProgramCont/Program"]

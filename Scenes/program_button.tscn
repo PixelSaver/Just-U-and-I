@@ -12,13 +12,13 @@ offset_left = 391.0
 offset_top = 228.0
 offset_right = 865.0
 offset_bottom = 553.0
-mouse_filter = 1
 theme = ExtResource("1_xod1k")
 script = ExtResource("1_yly6v")
-program_sprite = NodePath("ProgramArt")
+program_sprite = NodePath("Border/Control/ProgramArt")
 program_label = NodePath("MarginContainer/RichTextLabel")
 
 [node name="Border" type="Panel" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,10 +27,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="ProgramArt" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="Border"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -414.0
+offset_top = -265.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="ProgramArt" type="Sprite2D" parent="Border/Control"]
 texture_filter = 1
-position = Vector2(308.5, 196.511)
-scale = Vector2(3.55682, 3.55682)
+position = Vector2(277.435, 157)
+scale = Vector2(3, 3)
 texture = ExtResource("2_xod1k")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

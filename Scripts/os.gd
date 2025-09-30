@@ -43,8 +43,9 @@ func load_programs():
 		p.position = pos[i] + Vector2(1000 + rect[i].x, rect[i].y / 2)
 		p.size = Vector2.ZERO
 		p.hide()
+		p.spin_speed = [-0.1,0.1][randi() % 2]
 		
-		p.flash(rect[i], i, Vector2(size.y / 4, -size.y / 3 - 50))
+		p.flash(rect[i], i, Vector2(size.y / 4, -size.y / 4))
 		#var flash = ColorRect.new()
 		#flash.name = "flash"
 		#flash.mouse_filter = Control.MOUSE_FILTER_IGNORE

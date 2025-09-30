@@ -16,22 +16,25 @@ var hover_tween : Tween
 func _ready():
 	sprite_og_pos = program_sprite.position
 	_on_mouse_exited()
+	self.pivot_offset = size/2
 
 func flash(rect:Vector2, i, pos):
 	var flash = ColorRect.new()
 	flash.name = "flash"
 	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	flash.size = Vector2.ONE * (rect.length() * ((i + 1) * 2))
-	flash.position = pos
+	flash.size = rect * 2.2
+	flash.pivot_offset = flash.size/2
+	flash.position = -flash.size/2 - Vector2(0,50)
+	flash.scale.y = rect.y
+	
 	flash.rotation = 45
 	flash.show_behind_parent = true
 	add_child(flash)
-	spin_speed = [-0.1, 0.1][randi() % 2]
 	
 	
-	var t = create_tween().set_trans(Tween.TRANS_QUINT)
-	t.set_ease(Tween.EASE_OUT)
-	t.tween_property(flash, "size:x", 0, 0.5)
+	var t = create_tween().set_trans(Tween.TRANS_CIRC)
+	t.set_ease(Tween.EASE_IN)
+	t.tween_property(flash, "size:x", 0, 0.4)
 	t.finished.connect(func(): 
 		if flash and is_instance_valid(flash):
 			flash.queue_free()
@@ -45,11 +48,18 @@ func _on_mouse_entered() -> void:
 	if hover_tween:
 		hover_tween.kill()
 	
-	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(program_sprite, "position", sprite_og_pos, 0.3)
+	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
 
 func _on_mouse_exited() -> void:
+	if hover_tween:
+		hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
+		hover_tween.tween_property(self, "scale", Vector2.ONE * 1.0, 0.3)
+		await hover_tween.finished
+		hover_tween.kill()
 	is_hovered = false
+	
 	if idle_tween:
 		idle_tween.kill()
 	
