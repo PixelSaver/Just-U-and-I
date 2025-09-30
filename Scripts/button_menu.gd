@@ -21,7 +21,6 @@ func _ready() -> void:
 
 var hovered : Tween
 func _on_mouse_entered() -> void:
-	#TODO Fix the fact that you can have the button go into a seizure when you hover in the right area (tweened away from but then exits)
 	if unhovered != null: unhovered.kill()
 	
 	hovered = create_tween().set_trans(trans)
@@ -66,7 +65,13 @@ signal rejected
 # Written with help from Claude AI
 var is_reject_animating: bool = false
 
+var rej_t : Tween
 func reject_anim():
+	if rej_t:
+		rej_t.kill()
+	rej_t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	rej_t.tween_property(self, "modulate", Color.RED, 0.1)
+	rej_t.tween_property(self, "modulate", Color.WHITE, 0.3)
 	# Cancel any existing animation
 	if is_reject_animating:
 		is_reject_animating = false
