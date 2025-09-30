@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3vy4r68f4hr1"]
+
+[ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_xod1k"]
+[ext_resource type="Script" uid="uid://dsk3xptj8ny1h" path="res://Scripts/program.gd" id="1_yly6v"]
+[ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_xod1k"]
+
+[node name="Program" type="Control" node_paths=PackedStringArray("program_sprite", "program_label")]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 391.0
+offset_top = 228.0
+offset_right = 865.0
+offset_bottom = 553.0
+mouse_filter = 1
+theme = ExtResource("1_xod1k")
+script = ExtResource("1_yly6v")
+program_sprite = NodePath("ProgramArt")
+program_label = NodePath("MarginContainer/RichTextLabel")
+
+[node name="Border" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ProgramArt" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(308.5, 196.511)
+scale = Vector2(3.55682, 3.55682)
+texture = ExtResource("2_xod1k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 40
+text = "What is up my dude"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

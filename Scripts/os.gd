@@ -44,15 +44,16 @@ func load_programs():
 		p.size = Vector2.ZERO
 		p.hide()
 		
-		var flash = ColorRect.new()
-		flash.name = "flash"
-		flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		flash.size = Vector2.ONE * (rect[i].length() * ((i + 1) * 2))
-		flash.position = Vector2(size.y / 4, -size.y / 3)
-		flash.rotation = 45
-		flash.show_behind_parent = true
-		p.add_child(flash)
-		p.spin_speed = [-0.1, 0.1][randi() % 2]
+		p.flash(rect[i], i, Vector2(size.y / 4, -size.y / 3 - 50))
+		#var flash = ColorRect.new()
+		#flash.name = "flash"
+		#flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		#flash.size = Vector2.ONE * (rect[i].length() * ((i + 1) * 2))
+		#flash.position = Vector2(size.y / 4, -size.y / 3 - 500)
+		#flash.rotation = 45
+		#flash.show_behind_parent = true
+		#p.add_child(flash)
+		#p.spin_speed = [-0.1, 0.1][randi() % 2]
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -90,15 +91,14 @@ func _physics_process(delta: float) -> void:
 		t.tween_property(p, "position", pos[i], 0.3)
 		t.tween_property(p, "size", rect[i], 0.3)
 		
-		var flash := p.get_node_or_null("flash")
-		if flash:
-			var flash_tween = t.tween_property(flash, "size:x", 0, 0.5).set_trans(Tween.TRANS_BACK)
-			flash_tween.finished.connect(func(): 
-				if flash and is_instance_valid(flash):
-					flash.queue_free()
-					if i == programs.size() - 1:
-						is_animating = false
-						#p.anim_finished()
-			)
+		#var flash := p.get_node_or_null("flash")
+		#if flash:
+			#var flash_tween = t.tween_property(flash, "size:x", 0, 0.5).set_trans(Tween.TRANS_BACK)
+			#flash_tween.finished.connect(func(): 
+				#if flash and is_instance_valid(flash):
+					#flash.queue_free()
+					#if i == programs.size() - 1:
+						#is_animating = false
+			#)
 		
 		animated_programs.append(i)

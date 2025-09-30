@@ -1,6 +1,7 @@
 extends Control
 class_name Program
 
+signal flash_finished
 @export var program_sprite : Sprite2D 
 @export var program_label : RichTextLabel
 @export var program_desc : String
@@ -15,6 +16,27 @@ var hover_tween : Tween
 func _ready():
 	sprite_og_pos = program_sprite.position
 	_on_mouse_exited()
+
+func flash(rect:Vector2, i, pos):
+	var flash = ColorRect.new()
+	flash.name = "flash"
+	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	flash.size = Vector2.ONE * (rect.length() * ((i + 1) * 2))
+	flash.position = pos
+	flash.rotation = 45
+	flash.show_behind_parent = true
+	add_child(flash)
+	spin_speed = [-0.1, 0.1][randi() % 2]
+	
+	
+	var t = create_tween().set_trans(Tween.TRANS_QUINT)
+	t.set_ease(Tween.EASE_OUT)
+	t.tween_property(flash, "size:x", 0, 0.5)
+	t.finished.connect(func(): 
+		if flash and is_instance_valid(flash):
+			flash.queue_free()
+			flash_finished.emit()
+	)
 
 func _on_mouse_entered() -> void:
 	is_hovered = true
@@ -32,7 +54,7 @@ func _on_mouse_exited() -> void:
 		idle_tween.kill()
 	
 	idle_tween = create_tween().set_loops()
-	var time = (position.length_squared() + Time.get_ticks_msec() * 0.001) * spin_speed
+	var time = (Time.get_ticks_msec() * 0.001) * spin_speed
 	var radius = 5.0
 	var duration = 2.0
 	
