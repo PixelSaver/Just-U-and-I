@@ -98,6 +98,7 @@ func _physics_process(delta: float) -> void:
 					flash.queue_free()
 					if i == programs.size() - 1:
 						is_animating = false
+						#p.anim_finished()
 			)
 		
 		animated_programs.append(i)
