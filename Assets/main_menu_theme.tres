@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cfg0aev5q3svs"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cfg0aev5q3svs"]
+
+[ext_resource type="FontFile" uid="uid://btyo7ycmtemss" path="res://Assets/Fonts/Vipnagorgialla Rg.otf" id="1_jy8h7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yek00"]
 bg_color = Color(1, 1, 1, 0)
@@ -24,6 +26,7 @@ border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
 
 [resource]
+default_font = ExtResource("1_jy8h7")
 default_font_size = 40
 Button/colors/font_color = Color(0.984314, 0.984314, 0.984314, 0)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)

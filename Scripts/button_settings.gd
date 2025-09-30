@@ -9,6 +9,7 @@ signal is_ready(val:ButtonSettings)
 @export var label : RichTextLabel
 @export var margin_label : MarginContainer
 @export var tip_panel : Panel
+@export var tip_label : RichTextLabel
 var og_pos : Vector2 = Vector2.ZERO
 var og_size : Vector2 
 var tip_pos : Vector2

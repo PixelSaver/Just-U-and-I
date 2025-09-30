@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/maaacks_ui_sound_controller/plugin.cfg", "res://addons/spatial_navigation_addon/plugin.cfg")
 
+[global_group]
+
+MainMenu=""
+
 [input]
 
 w={

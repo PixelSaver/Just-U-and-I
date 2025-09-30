@@ -7,13 +7,16 @@ class_name SettingsMenu
 @export var all_parents : Array[Node] 
 var buttons : Array[ButtonSettings] = []
 const TITLES = ["SOUND VOLUME", "AUDIO VOLUME", "FULLSCREEN", "HOW TO PLAY"]
-var duration : float = 0.2
+const TIPS = ["BUTTONS ARE FOR CLICKING", "BUTTONS ARE FOR CLICKING", "BUTTONS ARE FOR CLICKING", "CLICK WITH YOUR MOUSE!"]
+const MAIN_MENU : PackedScene = preload("res://Scenes/main_menu.tscn")
+var duration : float = 0.15
 
 func _ready() -> void:
 	
 	button.position = title.position + Vector2.ONE*200 + Vector2(0,15)
 	buttons.append(button)
 	button.label.text = TITLES[0]
+	button.tip_label.text = TIPS[0]
 	button.og_pos = button.position
 	button.get_child
 	for i in range(3):
@@ -21,6 +24,7 @@ func _ready() -> void:
 		add_child(inst)
 		inst.position = button.position + Vector2.ONE*110*(i+1)
 		inst.label.text = TITLES[i+1]
+		inst.tip_label.text = "TIP: " + TIPS[i+1]
 		inst.og_pos = inst.position
 		buttons.append(inst)
 	for _button in buttons:
@@ -28,6 +32,42 @@ func _ready() -> void:
 		_button.connect("hover", _on_hover)
 		_button.connect("unhover", _on_unhover)
 		_button.connect("is_ready", _on_button_ready)
+
+func _process(delta: float) -> void:
+	if Global.state == Global.States.SETTINGS and Input.is_action_just_pressed("esc"):
+		settings_hide()
+
+func settings_hide():
+	Global.state = Global.States.MAIN_MENU
+	
+	var hide_duration = 0.5
+	# For SettingsMenu
+	var tsett = create_tween()
+	tsett.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN)
+	var all_t = all_tweenables()
+	for thing in all_t:
+		var tween = thing as Tweenable
+		tsett.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), hide_duration + tween.speed/25)
+	tsett.tween_property(self, "modulate", Color(Color.WHITE,0), hide_duration*1.2)
+	
+	
+	# For Main Menu
+	var mm = load("res://Scenes/main_menu.tscn").instantiate()
+	get_parent().add_child(mm)
+	
+	var tmenu = create_tween()
+	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
+	for but in buttons:
+		tmenu.tween_property(but, "position", but.position + (buttons[0].position - but.position)*.7, hide_duration)
+	tmenu.tween_property(mm, "modulate", Color(Color.WHITE,1), hide_duration*1.5)
+	
+	all_t = mm.all_tweenables()
+	for tween in all_t:
+		tween.get_parent().global_position = tween.get_final_pos()
+		tmenu.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, hide_duration)
+	
+	await tsett.finished
+	queue_free()
 
 func _on_hover(but:ButtonSettings):
 	var t = create_tween().set_trans(Tween.TRANS_CUBIC).set_parallel(true)

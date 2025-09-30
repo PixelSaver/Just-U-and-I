@@ -1,0 +1,604 @@
+[gd_scene load_steps=13 format=3 uid="uid://875cs4fxe4ua"]
+
+[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
+[ext_resource type="PackedScene" uid="uid://osk1uxa28atn" path="res://Scenes/button_menu.tscn" id="3_ce3w2"]
+[ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="3_n45e2"]
+[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="3_opfnp"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="5_opfnp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
+bg_color = Color(0.168627, 0.564706, 0.992157, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_offset = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0ys"]
+bg_color = Color(0.168627, 0.564706, 0.992157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhxw7"]
+bg_color = Color(0.966939, 0.966939, 0.966939, 1)
+corner_detail = 1
+shadow_offset = Vector2(20, 20)
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "all_parents", "scale_parent")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_48xlc")
+script = ExtResource("2_n45e2")
+button_placement_container = NodePath("TiltControl/VBoxContainer/ButtonCont")
+all_parents = [NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("RestOfIt"), NodePath("RestOfIt/ColorRect2/MarginContainer")]
+scale_parent = NodePath("Extrabg")
+
+[node name="Extrabg" type="Node2D" parent="."]
+position = Vector2(385, 261)
+rotation = -0.436332
+
+[node name="ColorRect" type="ColorRect" parent="Extrabg"]
+offset_left = -238.454
+offset_top = -229.254
+offset_right = 228.546
+offset_bottom = 189.746
+color = Color(0.168627, 0.564706, 0.992157, 0.2)
+
+[node name="ColorRect2" type="ColorRect" parent="Extrabg"]
+offset_left = -181.0
+offset_top = -180.0
+offset_right = 165.0
+offset_bottom = 131.0
+color = Color(0.168627, 0.564706, 0.992157, 0.2)
+
+[node name="ColorRect3" type="ColorRect" parent="Extrabg"]
+offset_left = -120.0
+offset_top = -129.0
+offset_right = 103.0
+offset_bottom = 81.0
+color = Color(0.168627, 0.564706, 0.992157, 0.2)
+
+[node name="TiltControl" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.6
+anchor_bottom = 0.9
+offset_left = 227.2
+offset_right = 227.2
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+mouse_filter = 2
+
+[node name="LineUp" type="Node2D" parent="TiltControl"]
+
+[node name="ColorRect" type="Panel" parent="TiltControl/LineUp"]
+custom_minimum_size = Vector2(20, 200)
+offset_left = 41.0
+offset_top = -767.0
+offset_right = 74.0
+offset_bottom = 1270.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect"]
+script = ExtResource("3_opfnp")
+dir = Vector2(-1, 0)
+speed = 0.4
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect4" type="Panel" parent="TiltControl/LineUp"]
+custom_minimum_size = Vector2(10, 200)
+offset_left = 54.0
+offset_top = 475.0
+offset_right = 64.0
+offset_bottom = 867.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect4"]
+script = ExtResource("3_opfnp")
+dir = Vector2(-1, 0)
+speed = 4.0
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect6" type="Panel" parent="TiltControl/LineUp"]
+custom_minimum_size = Vector2(10, 200)
+offset_left = 46.0
+offset_top = 475.0
+offset_right = 56.0
+offset_bottom = 867.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect6"]
+script = ExtResource("3_opfnp")
+dir = Vector2(1, 0)
+speed = 7.0
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect5" type="Panel" parent="TiltControl/LineUp"]
+custom_minimum_size = Vector2(20, 200)
+offset_left = 46.0
+offset_top = 443.0
+offset_right = 66.0
+offset_bottom = 867.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect5"]
+script = ExtResource("3_opfnp")
+dir = Vector2(1, 0)
+speed = 3.0
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect2" type="ColorRect" parent="TiltControl/LineUp"]
+offset_left = -2.0
+offset_top = -528.0
+offset_right = 46.0
+offset_bottom = 1115.0
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect2"]
+script = ExtResource("3_opfnp")
+dir = Vector2(-1, 0)
+speed = 6.3
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="ColorRect3" type="ColorRect" parent="TiltControl/LineUp"]
+offset_left = -37.1649
+offset_top = -525.072
+offset_right = -12.1649
+offset_bottom = 1117.93
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect3"]
+script = ExtResource("3_opfnp")
+dir = Vector2(1, 0.2)
+speed = 1.5
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="LineSide" type="Node2D" parent="TiltControl"]
+
+[node name="ColorRect2" type="ColorRect" parent="TiltControl/LineSide"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = -0.1
+anchor_right = 1.05
+anchor_bottom = 1.1
+offset_left = 102.0
+offset_top = -25.0
+offset_right = 538.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable_950" parent="TiltControl/LineSide/ColorRect2" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 1.17063
+
+[node name="ColorRect3" type="Panel" parent="TiltControl/LineSide"]
+offset_left = -996.022
+offset_top = 96.2694
+offset_right = 3080.98
+offset_bottom = 135.269
+theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
+
+[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect3" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 4.0
+
+[node name="ColorRect" type="Panel" parent="TiltControl/LineSide"]
+offset_left = -992.0
+offset_top = 111.0
+offset_right = 3085.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ce3w2")
+
+[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 4.8
+
+[node name="bgTitle" type="Node2D" parent="TiltControl"]
+position = Vector2(91, 50)
+
+[node name="Panel10" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -200.0
+offset_top = -23.0
+offset_right = -78.0
+offset_bottom = 73.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_709" parent="TiltControl/bgTitle/Panel10" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, 1)
+speed = 6.01314
+
+[node name="Panel11" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -10.0
+offset_top = -99.0
+offset_right = 50.0
+offset_bottom = -44.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_566" parent="TiltControl/bgTitle/Panel11" instance=ExtResource("5_opfnp")]
+dir = Vector2(-1, 0)
+speed = 1.33055
+
+[node name="Panel" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -193.0
+offset_top = -10.0
+offset_right = -84.0
+offset_bottom = 65.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cp0ys")
+
+[node name="Tweenable_103" parent="TiltControl/bgTitle/Panel" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 4.59461
+
+[node name="Panel2" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 24.0
+offset_top = 63.0
+offset_right = 163.0
+offset_bottom = 138.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_854" parent="TiltControl/bgTitle/Panel2" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, 1)
+speed = 4.87924
+
+[node name="Panel3" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 1.0
+offset_top = -90.0
+offset_right = 44.0
+offset_bottom = -54.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_149" parent="TiltControl/bgTitle/Panel3" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, 1)
+speed = 0.192076
+
+[node name="Panel4" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 26.0
+offset_top = -100.0
+offset_right = 57.0
+offset_bottom = -75.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_981" parent="TiltControl/bgTitle/Panel4" instance=ExtResource("5_opfnp")]
+dir = Vector2(-1, 0)
+speed = 0.182308
+
+[node name="Panel13" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -20.1854
+offset_top = 32.6894
+offset_right = 10.8146
+offset_bottom = 57.6894
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_786" parent="TiltControl/bgTitle/Panel13" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, 1)
+speed = 0.730876
+
+[node name="Panel5" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 830.392
+offset_top = 47.0329
+offset_right = 955.392
+offset_bottom = 62.0329
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_160" parent="TiltControl/bgTitle/Panel5" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 0.272228
+
+[node name="Panel8" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 92.0
+offset_top = 107.0
+offset_right = 624.0
+offset_bottom = 119.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_690" parent="TiltControl/bgTitle/Panel8" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 0.194017
+
+[node name="Panel9" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 541.0
+offset_top = 109.0
+offset_right = 745.0
+offset_bottom = 114.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_405" parent="TiltControl/bgTitle/Panel9" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 0.354909
+
+[node name="Panel6" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 965.392
+offset_top = 47.0329
+offset_right = 1090.39
+offset_bottom = 62.0329
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_249" parent="TiltControl/bgTitle/Panel6" instance=ExtResource("5_opfnp")]
+dir = Vector2(-1, 0)
+speed = 11.9636
+
+[node name="Panel14" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -81.0
+offset_top = 71.0
+offset_right = 131.0
+offset_bottom = 126.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_193" parent="TiltControl/bgTitle/Panel14" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 0.0584761
+
+[node name="Panel7" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = 1099.39
+offset_top = 47.0329
+offset_right = 1224.39
+offset_bottom = 62.0329
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_617" parent="TiltControl/bgTitle/Panel7" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, 1)
+speed = 1.97383
+
+[node name="Panel12" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -59.3488
+offset_top = 141.534
+offset_right = -16.3488
+offset_bottom = 177.534
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_133" parent="TiltControl/bgTitle/Panel12" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 4.93136
+
+[node name="Panel15" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -90.0
+offset_top = 110.0
+offset_right = -55.0
+offset_bottom = 135.0
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_908" parent="TiltControl/bgTitle/Panel15" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 0.0320149
+
+[node name="Panel16" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -82.2078
+offset_top = 94.8604
+offset_right = -47.2078
+offset_bottom = 119.86
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_365" parent="TiltControl/bgTitle/Panel16" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 0.561008
+
+[node name="Panel20" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -116.915
+offset_top = 14.0911
+offset_right = -56.9148
+offset_bottom = 69.0911
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_109" parent="TiltControl/bgTitle/Panel20" instance=ExtResource("5_opfnp")]
+dir = Vector2(-1, 0)
+speed = 9.48472
+
+[node name="Panel17" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -109.834
+offset_top = 21.1633
+offset_right = -35.8336
+offset_bottom = 84.1633
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_43" parent="TiltControl/bgTitle/Panel17" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 8.54511
+
+[node name="Panel21" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -119.486
+offset_top = 56.1912
+offset_right = -74.4864
+offset_bottom = 89.1912
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_92" parent="TiltControl/bgTitle/Panel21" instance=ExtResource("5_opfnp")]
+dir = Vector2(-1, 0)
+speed = 2.309
+
+[node name="Panel22" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -149.834
+offset_top = 34.1633
+offset_right = -98.8336
+offset_bottom = 78.1633
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_803" parent="TiltControl/bgTitle/Panel22" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 0.978562
+
+[node name="Panel18" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -144.834
+offset_top = 41.1633
+offset_right = -102.834
+offset_bottom = 70.1633
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_944" parent="TiltControl/bgTitle/Panel18" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, -1)
+speed = 4.93138
+
+[node name="Panel23" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -149.834
+offset_top = 47.1633
+offset_right = -97.8336
+offset_bottom = 64.1633
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_421" parent="TiltControl/bgTitle/Panel23" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 0.808678
+
+[node name="Panel19" type="Panel" parent="TiltControl/bgTitle"]
+offset_left = -126.07
+offset_top = 61.0611
+offset_right = -84.0701
+offset_bottom = 90.0611
+theme = ExtResource("3_n45e2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_740" parent="TiltControl/bgTitle/Panel19" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, 1)
+speed = 8.21703
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TiltControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="MarginContainer" parent="TiltControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 350
+theme_override_constants/margin_bottom = 0
+
+[node name="Control" type="Control" parent="TiltControl/VBoxContainer/Title"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title/Control"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 404.0
+offset_bottom = 135.0
+color = Color(0.168627, 0.564706, 0.992157, 1)
+
+[node name="Tweenable_695" parent="TiltControl/VBoxContainer/Title/Control/ColorRect" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 0.244899
+
+[node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable_820" parent="TiltControl/VBoxContainer/Title/ColorRect" instance=ExtResource("5_opfnp")]
+dir = Vector2(0, 1)
+speed = 0.186913
+
+[node name="MarginContainer" type="MarginContainer" parent="TiltControl/VBoxContainer/Title"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_48xlc")
+bbcode_enabled = true
+text = "[font_size=65]JUST A UI"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Tweenable_186" parent="TiltControl/VBoxContainer/Title/MarginContainer/GameLabel" instance=ExtResource("5_opfnp")]
+dir = Vector2(1, 0)
+speed = 10.0
+
+[node name="Spacer" type="Control" parent="TiltControl/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ButtonCont" type="Node2D" parent="TiltControl/VBoxContainer"]
+position = Vector2(423.448, 208.716)
+
+[node name="Button" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+offset_left = -400.0
+offset_top = 140.0
+offset_bottom = 250.0
+
+[node name="Button2" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+
+[node name="Button3" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+
+[node name="Button4" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+
+[node name="RestOfIt" type="Node2D" parent="."]
+position = Vector2(404, 207)
+rotation = 0.261799
+scale = Vector2(0.82, 0.82)
+
+[node name="ColorRect2" type="ColorRect" parent="RestOfIt"]
+offset_left = -4.15373
+offset_top = 38.59
+offset_right = 144.846
+offset_bottom = 179.59
+color = Color(0.168627, 0.564706, 0.992157, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="RestOfIt/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="RestOfIt/ColorRect2/MarginContainer"]
+layout_mode = 2
+
+[node name="Tweenable" type="Node" parent="RestOfIt/ColorRect2/MarginContainer/ColorRect"]
+script = ExtResource("3_opfnp")
+dir = Vector2(-1, 0)
+speed = 1.7
+metadata/_custom_type_script = "uid://4egkkeg4db5e"
+
+[node name="Tweenable" type="Node" parent="RestOfIt/ColorRect2"]
+script = ExtResource("3_opfnp")
+dir = Vector2(-1, 0)
+speed = 1.3
+metadata/_custom_type_script = "uid://4egkkeg4db5e"

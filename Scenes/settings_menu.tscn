@@ -188,10 +188,10 @@ speed = 16.919
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel8" type="Panel" parent="bgTitle"]
-offset_left = 386.787
-offset_top = -368.403
-offset_right = 539.787
-offset_bottom = -300.403
+offset_left = 387.0
+offset_top = -351.0
+offset_right = 595.0
+offset_bottom = -300.0
 theme = ExtResource("1_7y5a0")
 
 [node name="Tweenable_239" type="Node" parent="bgTitle/Panel8" instance=ExtResource("4_fe37x")]
@@ -268,7 +268,7 @@ dir = Vector2(-1, -1)
 speed = 16.5633
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
-[node name="ButtonSettings" type="Button" parent="." node_paths=PackedStringArray("bg", "label", "margin_label", "tip_panel")]
+[node name="ButtonSettings" type="Button" parent="." node_paths=PackedStringArray("bg", "label", "margin_label", "tip_panel", "tip_label")]
 layout_mode = 0
 offset_left = 305.0
 offset_top = 252.0
@@ -280,6 +280,7 @@ bg = NodePath("ButtonBG")
 label = NodePath("MarginContainer/ButtonText")
 margin_label = NodePath("MarginContainer")
 tip_panel = NodePath("RevealMask/TipPanel")
+tip_label = NodePath("RevealMask/TipPanel/MarginContainer/TipText")
 
 [node name="ButtonBG" type="Panel" parent="ButtonSettings"]
 modulate = Color(0, 0, 0, 1)

@@ -9,6 +9,8 @@ const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
 
 func _ready() -> void:
+	Global.state = Global.States.MAIN_MENU
+	
 	for child in button_placement_container.get_children():
 		child.queue_free()
 	for i in range(TITLES.size()):
@@ -66,17 +68,19 @@ func handoff_to_setting():
 	for tween in all_t:
 		tmenu.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), duration)
 	
-	
+	duration = 0.5
 	# For SettingsMenu
 	var tsett = create_tween()
-	tsett.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN)
-	tsett.tween_property(sett, "modulate", Color(Color.WHITE,1), duration)
+	tsett.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN_OUT)
 	all_t = sett.all_tweenables()
 	for thing in all_t:
 		var tween = thing as Tweenable
 		tween.get_parent().global_position = tween.get_final_pos()
-		tmenu.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, duration + tween.speed/20)
+		tsett.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, duration + tween.speed/25)
+	tsett.tween_property(sett, "modulate", Color(Color.WHITE,1), duration*1.2)
 	
-	return
-	await get_tree().process_frame
+	
+	
+	await tsett.finished
+	Global.state = Global.States.SETTINGS
 	queue_free()

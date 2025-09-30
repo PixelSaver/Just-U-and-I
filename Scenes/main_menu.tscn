@@ -33,7 +33,7 @@ bg_color = Color(0.966939, 0.966939, 0.966939, 1)
 corner_detail = 1
 shadow_offset = Vector2(20, 20)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "all_parents", "scale_parent")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "all_parents", "scale_parent") groups=["MainMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -531,13 +531,14 @@ speed = 0.186913
 
 [node name="MarginContainer" type="MarginContainer" parent="TiltControl/VBoxContainer/Title"]
 layout_mode = 2
+theme_override_constants/margin_bottom = 40
 
 [node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("1_48xlc")
 bbcode_enabled = true
-text = "[font_size=70]JUST A UI"
+text = "[font_size=65]JUST A UI"
 fit_content = true
 horizontal_alignment = 1
 
