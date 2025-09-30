@@ -5,6 +5,7 @@ class_name MainMenu
 const BUTTON_SCENE : PackedScene = preload("res://Scenes/button_menu.tscn")
 @export var button_placement_container : Node
 var buttons = []
+@export var ui_reject_audio : AudioStreamPlayer
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
 
@@ -14,21 +15,24 @@ func _ready() -> void:
 	for child in button_placement_container.get_children():
 		child.queue_free()
 	for i in range(TITLES.size()):
-		var inst = BUTTON_SCENE.instantiate() as CustomButton
+		var inst = BUTTON_SCENE.instantiate() as ButtonMenu
 		buttons.append(inst)
 		button_placement_container.add_child(inst)
 		inst.button_text.text = TITLES[i]
 		inst.position.y = i*130
 		inst.connect("self_pressed", _on_pressed)
 
-func _on_pressed(name:String):
-	match name:
+func _on_pressed(val:ButtonMenu):
+	var text = val.button_text.text
+	match text:
 		TITLES[0]: # Play
 			handoff_to_setting()
 		TITLES[1]: # Options
-			pass
+			ui_reject_audio.play()
+			val.reject_anim
 		TITLES[2]: # Extras
-			pass
+			ui_reject_audio.play()
+			val.reject_anim
 		TITLES[3]: # Quit
 			get_tree().quit()
 
