@@ -36,7 +36,7 @@ bg_color = Color(0.966939, 0.966939, 0.966939, 1)
 corner_detail = 1
 shadow_offset = Vector2(20, 20)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "scale_parent") groups=["MainMenu"]]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "all_parents", "scale_parent") groups=["MainMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,6 +49,7 @@ theme = ExtResource("1_48xlc")
 script = ExtResource("2_n45e2")
 button_placement_container = NodePath("TiltControl/VBoxContainer/ButtonCont")
 ui_reject_audio = NodePath("UIReject")
+all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
 
 [node name="Extrabg" type="Node2D" parent="."]
