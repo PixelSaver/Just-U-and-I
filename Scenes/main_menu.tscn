@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://875cs4fxe4ua"]
+[gd_scene load_steps=18 format=3 uid="uid://875cs4fxe4ua"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
 [ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://1af12dskwyfp" path="res://Assets/Audio/ui_reject.mp3" id="7_cp0ys"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_ui_sound_controller/base/scripts/ui_sound_controller.gd" id="8_trj04"]
 [ext_resource type="AudioStream" uid="uid://pd3linxa4406" path="res://Assets/Audio/glass_002.ogg" id="9_16hvj"]
+[ext_resource type="PackedScene" uid="uid://4fssmywe5ib3" path="res://Scenes/notification.tscn" id="10_vr1f0"]
+[ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="11_t1dhk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
 bg_color = Color(1, 1, 1, 1)
@@ -36,7 +38,7 @@ bg_color = Color(0.966939, 0.966939, 0.966939, 1)
 corner_detail = 1
 shadow_offset = Vector2(20, 20)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "all_parents", "scale_parent") groups=["MainMenu"]]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "notif_man", "all_parents", "scale_parent") groups=["MainMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,6 +51,7 @@ theme = ExtResource("1_48xlc")
 script = ExtResource("2_n45e2")
 button_placement_container = NodePath("TiltControl/VBoxContainer/ButtonCont")
 ui_reject_audio = NodePath("UIReject")
+notif_man = NodePath("NotificationManager")
 all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
 
@@ -535,7 +538,8 @@ speed = 0.186913
 
 [node name="MarginContainer" type="MarginContainer" parent="TiltControl/VBoxContainer/Title"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 20
 
 [node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer"]
 layout_mode = 2
@@ -615,3 +619,10 @@ bus = &"SFX"
 script = ExtResource("8_trj04")
 button_hovered = ExtResource("9_16hvj")
 metadata/_custom_type_script = "uid://b5oej1q4h7jvh"
+
+[node name="Notification" parent="." instance=ExtResource("10_vr1f0")]
+
+[node name="NotificationManager" type="Node2D" parent="."]
+position = Vector2(1401, 853)
+script = ExtResource("11_t1dhk")
+notification_scene = ExtResource("10_vr1f0")

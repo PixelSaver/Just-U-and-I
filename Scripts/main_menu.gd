@@ -6,6 +6,7 @@ const BUTTON_SCENE : PackedScene = preload("res://Scenes/button_menu.tscn")
 @export var button_placement_container : Node
 var buttons = []
 @export var ui_reject_audio : AudioStreamPlayer
+@export var notif_man : NotificationManagerMenu
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
 
@@ -23,19 +24,30 @@ func _ready() -> void:
 		inst.connect("self_pressed", _on_pressed)
 
 func _on_pressed(val:ButtonMenu):
+	var t : Tween
 	var text = val.button_text.text
 	match text:
 		TITLES[0]: # Play
-			handoff_to_setting()
-		TITLES[1]: # Options
+			#TODO Add transition to OS
 			ui_reject_audio.play()
 			val.reject_anim()
+		TITLES[1]: # Options
+			handoff_to_setting()
+			t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			t.tween_property(val, "modulate", Color("#2b91ff"), 0.1)
+			t.tween_property(val, "modulate", Color.WHITE, 0.3)
 		TITLES[2]: # Extras
 			ui_reject_audio.play()
 			val.reject_anim()
+			notif_man.show_notification("hey")
 		TITLES[3]: # Quit
+			end_main_menu()
+			t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			t.tween_property(val, "modulate", Color("#2b91ff"), 0.1)
+			t.tween_property(val, "modulate", Color.WHITE, 0.3)
+			await t.finished
+			await get_tree().create_timer(0.4).timeout
 			get_tree().quit()
-
 
 
 var duration : float = 0.8
@@ -61,22 +73,14 @@ func handoff_to_setting():
 	var sett = SETTINGS_MENU.instantiate()
 	sett.modulate = Color(Color.WHITE,0)
 	get_parent().add_child(sett)
-	#TODO do the transition
-	var tmenu = create_tween()
-	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
-	for but in buttons:
-		tmenu.tween_property(but, "position", but.position + (buttons[0].position - but.position)*.7, duration)
-	tmenu.tween_property(self, "modulate", Color(Color.WHITE,0), duration*1.5)
 	
-	var all_t = all_tweenables()
-	for tween in all_t:
-		tmenu.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), duration)
+	end_main_menu()
 	
 	duration = 0.5
 	# For SettingsMenu
 	var tsett = create_tween()
 	tsett.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN_OUT)
-	all_t = sett.all_tweenables()
+	var all_t = sett.all_tweenables()
 	for thing in all_t:
 		var tween = thing as Tweenable
 		tween.get_parent().global_position = tween.get_final_pos()
@@ -88,3 +92,14 @@ func handoff_to_setting():
 	await tsett.finished
 	Global.state = Global.States.SETTINGS
 	queue_free()
+
+func end_main_menu():
+	var tmenu = create_tween()
+	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
+	for but in buttons:
+		tmenu.tween_property(but, "position", but.position + (buttons[0].position - but.position)*.7, duration)
+	tmenu.tween_property(self, "modulate", Color(Color.WHITE,0), duration*1.5)
+	
+	var all_t = all_tweenables()
+	for tween in all_t:
+		tmenu.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), duration)

@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://4fssmywe5ib3"]
+
+[ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="1_wohpn"]
+[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="2_6kda2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk1ln"]
+bg_color = Color(0.966939, 0.966939, 0.966939, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_offset = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmct2"]
+bg_color = Color(0.966939, 0.966939, 0.966939, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_size = 6
+shadow_offset = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dygbd"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_offset = Vector2(20, 20)
+
+[node name="Notification" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 345.0
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.02
+anchor_top = -0.1
+anchor_right = 1.02
+anchor_bottom = 1.1
+offset_left = -0.1
+offset_top = 0.5
+offset_right = -157.9
+offset_bottom = -12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wohpn")
+
+[node name="Panel3" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 15.0
+offset_bottom = 21.0
+theme = ExtResource("1_wohpn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lk1ln")
+
+[node name="Panel4" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 35.0
+offset_right = 349.0
+offset_bottom = 69.0
+theme = ExtResource("1_wohpn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cmct2")
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wohpn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dygbd")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 505.0
+offset_bottom = 55.0
+theme = ExtResource("2_6kda2")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Content [color=#2b90fd]LOCKED[/color]"
