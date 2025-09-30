@@ -6,6 +6,7 @@ const BUTTON_SCENE : PackedScene = preload("res://Scenes/button_menu.tscn")
 @export var button_placement_container : Node
 var buttons = []
 @export var ui_reject_audio : AudioStreamPlayer
+@export var ui_enter : AudioStreamPlayer
 @export var notif_man : NotificationManagerMenu
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
@@ -32,6 +33,7 @@ func _on_pressed(val:ButtonMenu):
 			ui_reject_audio.play()
 			val.reject_anim()
 		TITLES[1]: # Options
+			ui_enter.play()
 			handoff_to_setting()
 			t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 			t.tween_property(val, "modulate", Color("#2b91ff"), 0.1)
@@ -39,7 +41,7 @@ func _on_pressed(val:ButtonMenu):
 		TITLES[2]: # Extras
 			ui_reject_audio.play()
 			val.reject_anim()
-			notif_man.show_notification("hey")
+			notif_man.show_notification("Content [color=#2b90fd]LOCKED[/color]")
 		TITLES[3]: # Quit
 			end_main_menu()
 			t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
