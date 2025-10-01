@@ -20,7 +20,6 @@ func _on_pressed(val:ButtonMenu):
 	var text = val.button_text.text
 	match text:
 		TITLES[0]: # Play
-			#TODO Add transition to OS
 			Global.state = Global.States.OS_MENU
 			end_main_menu()
 			var os = OS_MENU.instantiate()

@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=3 uid="uid://c6dcu7qjtged8"]
+
+[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_g537i"]
+[ext_resource type="Script" uid="uid://g3op48dcxnbw" path="res://Scripts/coin.gd" id="1_jgi06"]
+[ext_resource type="Texture2D" uid="uid://dwqwtiuv3sn8u" path="res://Assets/Art/coin_sheet.png" id="2_g537i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g537i"]
+bg_color = Color(0.6, 0.6, 0.6, 0.188235)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g537i"]
+radius = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffmqm"]
+atlas = ExtResource("2_g537i")
+region = Rect2(0, 14, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81h6x"]
+atlas = ExtResource("2_g537i")
+region = Rect2(14, 14, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbp07"]
+atlas = ExtResource("2_g537i")
+region = Rect2(28, 14, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l7mo"]
+atlas = ExtResource("2_g537i")
+region = Rect2(0, 28, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q30xt"]
+atlas = ExtResource("2_g537i")
+region = Rect2(14, 28, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w2r2"]
+atlas = ExtResource("2_g537i")
+region = Rect2(28, 28, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tthw5"]
+atlas = ExtResource("2_g537i")
+region = Rect2(0, 42, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pu15"]
+atlas = ExtResource("2_g537i")
+region = Rect2(14, 42, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgc30"]
+atlas = ExtResource("2_g537i")
+region = Rect2(28, 42, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtgto"]
+atlas = ExtResource("2_g537i")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m55n1"]
+atlas = ExtResource("2_g537i")
+region = Rect2(14, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm60r"]
+atlas = ExtResource("2_g537i")
+region = Rect2(28, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrv0a"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ffmqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81h6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbp07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q30xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w2r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tthw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pu15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgc30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtgto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m55n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm60r")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ffmqm")
+}],
+"loop": false,
+"name": &"flip",
+"speed": 5.0
+}]
+
+[node name="Coin" type="Button" node_paths=PackedStringArray("anim_sprite", "rigidbody")]
+custom_minimum_size = Vector2(62, 62)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -31.0
+offset_right = -1697.0
+offset_bottom = -941.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_g537i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g537i")
+script = ExtResource("1_jgi06")
+anim_sprite = NodePath("RigidBody2D/CollisionShape2D/AnimatedSprite2D")
+rigidbody = NodePath("RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(31, 31)
+mass = 10.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_g537i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D/CollisionShape2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_yrv0a")
+animation = &"flip"
+speed_scale = 5.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

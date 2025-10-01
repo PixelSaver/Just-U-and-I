@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://875cs4fxe4ua"]
+[gd_scene load_steps=21 format=3 uid="uid://875cs4fxe4ua"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
 [ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://4fssmywe5ib3" path="res://Scenes/notification.tscn" id="10_vr1f0"]
 [ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="11_t1dhk"]
 [ext_resource type="AudioStream" uid="uid://cb3g8b2td3qcr" path="res://Assets/Audio/ui_enter.mp3" id="12_t1dhk"]
+[ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="13_5egv6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
 bg_color = Color(1, 1, 1, 1)
@@ -642,3 +643,11 @@ notification_scene = ExtResource("10_vr1f0")
 
 [node name="UIEnter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_t1dhk")
+
+[node name="Coin" parent="." instance=ExtResource("13_5egv6")]
+layout_mode = 1
+anchors_preset = 15
+offset_left = 1193.0
+offset_top = 238.0
+offset_right = -473.0
+offset_bottom = -672.0
