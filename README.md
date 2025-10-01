@@ -123,15 +123,17 @@ There isn't really an install option, so you'll have to use Godot 4.4 to export 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- [x] Make the Main Menu
+- [x] Make the Settings
+- [x] Make the OS
+- [ ] Add coins
+- [ ] Finish sounds (pull from Osu Lazer)
+- [ ] Add tutorial / teach the user how to play
+- [ ] Extra apps in the OS
+  - [ ] Persona looking ui for whatever in an app
+  - [ ] Osu lazer main menu clone
+  - [ ] Osu lazer radial menu clone
+  - [ ] Mochibot
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -141,16 +143,6 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 ## Contributing
 
 If you would like to, fork the project and do what you would like to it! I cannot guarantee I'll come back to this project but feel free to use it whereever you'd like!
-
-### Top contributors:
-
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
-</a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
