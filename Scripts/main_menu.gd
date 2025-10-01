@@ -23,6 +23,9 @@ func _ready() -> void:
 		inst.button_text.text = TITLES[i]
 		inst.position.y = i*130
 		inst.connect("self_pressed", _on_pressed)
+	
+	await get_tree().process_frame
+	start_main_menu()
 
 func _on_pressed(val:ButtonMenu):
 	var t : Tween
@@ -36,6 +39,8 @@ func _on_pressed(val:ButtonMenu):
 			os.start_anim()
 			os.modulate.a = 0
 			var tw = create_tween().tween_property(os, "modulate:a", 1, 1.8).set_ease(Tween.EASE_OUT)
+			await tw.finished
+			Global.state = Global.States.OS_MENU
 		TITLES[1]: # Options
 			ui_enter.play()
 			handoff_to_setting()
@@ -109,3 +114,18 @@ func end_main_menu():
 	var all_t = all_tweenables()
 	for tween in all_t:
 		tmenu.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), duration)
+
+func start_main_menu():
+	var tmenu = create_tween()
+	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
+	#TODO If you want then animate the buttons, just reverse this code
+	#for but in buttons:
+		#tmenu.tween_property(but, "position", but.position + (buttons[0].position - but.position)*.7, duration)
+	#tmenu.tween_property(self, "modulate", Color(Color.WHITE,0), duration*1.5)
+	modulate.a = 0
+	tmenu.tween_property(self, "modulate:a", 1, duration*1.5)
+	
+	var all_t = all_tweenables()
+	for tween in all_t:
+		tween.get_parent().global_position = tween.get_final_pos()
+		tmenu.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, duration)

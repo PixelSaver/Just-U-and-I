@@ -46,7 +46,23 @@ func start_anim(dur:float=1.2):
 	
 	await t.finished
 	is_start_animating = false
+
+func end_anim():
+	if is_animating_programs or is_start_animating: return
+	var is_start_animating = true
 	
+	var hide_duration = 0.5
+	# For SettingsMenu
+	var t_os = create_tween()
+	t_os.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN)
+	var all_t = tweenables
+	for thing in all_t:
+		var tween = thing as Tweenable
+		t_os.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), hide_duration + tween.speed/25)
+	t_os.tween_property(self, "modulate", Color(Color.WHITE,0), hide_duration*1.2)
+	
+	await t_os.finished
+	Global.state = Global.States.MAIN_MENU
 
 func all_t():
 	var out : Array[Tweenable] = []
@@ -100,13 +116,15 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			last_ms_pos = get_local_mouse_position().x
 			last_scroll = scroll
-	
+	if Global.state != Global.States.OS_MENU: return
 	if Input.is_action_pressed("scroll_down"): 
 		scroll += 185
 	if Input.is_action_pressed("scroll_up"): 
 		scroll -= 185
-	if Input.is_action_just_pressed("click_left"):
-		start_anim()
+	#if Input.is_action_just_pressed("click_left"):
+		#start_anim()
+	if Input.is_action_just_pressed("esc"):
+		end_anim()
 	
 func _physics_process(delta: float) -> void:
 	if time_since_start < programs.size():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://875cs4fxe4ua"]
+[gd_scene load_steps=20 format=3 uid="uid://875cs4fxe4ua"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
 [ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
@@ -38,6 +38,9 @@ bg_color = Color(0.168627, 0.564706, 0.992157, 1)
 bg_color = Color(0.966939, 0.966939, 0.966939, 1)
 corner_detail = 1
 shadow_offset = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1dhk"]
+draw_center = false
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "notif_man", "all_parents", "scale_parent") groups=["MainMenu"]]
 layout_mode = 3
@@ -508,15 +511,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="MarginContainer" parent="TiltControl/VBoxContainer"]
+[node name="Title" type="Control" parent="TiltControl/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 120
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 350
-theme_override_constants/margin_bottom = 0
 
 [node name="Control" type="Control" parent="TiltControl/VBoxContainer/Title"]
 layout_mode = 2
+anchors_preset = 0
+offset_left = 120.0
+offset_right = 514.0
+offset_bottom = 130.0
 
 [node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title/Control"]
 layout_mode = 0
@@ -527,24 +530,34 @@ offset_bottom = 135.0
 color = Color(0.168627, 0.564706, 0.992157, 1)
 
 [node name="Tweenable_695" parent="TiltControl/VBoxContainer/Title/Control/ColorRect" instance=ExtResource("5_opfnp")]
-dir = Vector2(1, 0)
-speed = 0.244899
+dir = Vector2(-1, 0)
+speed = 2.5
 
 [node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title"]
 layout_mode = 2
+offset_left = 120.0
+offset_right = 514.0
+offset_bottom = 130.0
 color = Color(0, 0, 0, 1)
 
 [node name="Tweenable_820" parent="TiltControl/VBoxContainer/Title/ColorRect" instance=ExtResource("5_opfnp")]
 dir = Vector2(0, 1)
 speed = 0.186913
 
-[node name="MarginContainer" type="MarginContainer" parent="TiltControl/VBoxContainer/Title"]
+[node name="MarginContainer" type="Panel" parent="TiltControl/VBoxContainer/Title"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_bottom = 20
+offset_left = 120.0
+offset_right = 514.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_t1dhk")
 
 [node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer"]
 layout_mode = 2
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 384.0
+offset_bottom = 109.0
 mouse_filter = 2
 theme = ExtResource("1_48xlc")
 bbcode_enabled = true
@@ -552,9 +565,9 @@ text = "[font_size=65]JUST A UI"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Tweenable_186" parent="TiltControl/VBoxContainer/Title/MarginContainer/GameLabel" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_186" parent="TiltControl/VBoxContainer/Title/MarginContainer" instance=ExtResource("5_opfnp")]
 dir = Vector2(1, 0)
-speed = 10.0
+speed = 4.0
 
 [node name="Spacer" type="Control" parent="TiltControl/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
