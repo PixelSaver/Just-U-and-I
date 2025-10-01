@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cph0pd7hvoen1"]
+
+[ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
+[ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
+[ext_resource type="Script" uid="uid://dsk3xptj8ny1h" path="res://Scripts/program.gd" id="3_70lpx"]
+
+[node name="OSMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_8yt1f")
+script = ExtResource("2_ydafb")
+
+[node name="Title" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 527.0
+offset_bottom = 171.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "JUI OS"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Program" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 391.0
+offset_top = 228.0
+offset_right = 865.0
+offset_bottom = 553.0
+script = ExtResource("3_70lpx")
+
+[node name="Border" type="Panel" parent="Program"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Program"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

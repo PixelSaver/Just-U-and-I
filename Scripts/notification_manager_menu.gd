@@ -4,7 +4,7 @@ class_name NotificationManagerMenu
 @export var notification_scene: PackedScene  
 @export var spacing: float = 25
 @export var fade_duration: float = 0.5
-@export var display_duration: float = 200.0
+@export var display_duration: float = 2.0
 
 
 var notification_queue: Array[Node2D] = []

@@ -4,9 +4,15 @@ extends EditorScript
 func _run():
 	randomize_all_tweenable_speeds()
 
+var all_nodes = []
 func randomize_all_tweenable_speeds():
 	var scene_root = get_scene()
-	var all_nodes = get_all_children(scene_root)
+	var selection: Array = get_editor_interface().get_selection().get_selected_nodes()
+	if selection.size() == 0:
+		all_nodes = get_all_children(scene_root)
+	else:
+		for node in selection:
+			all_nodes.append(node.get_children()[0])
 	
 	var undo_redo = get_editor_interface().get_editor_undo_redo()
 	undo_redo.create_action("Randomize Tweenable Speeds")
@@ -24,7 +30,8 @@ func randomize_all_tweenable_speeds():
 	undo_redo.commit_action()
 
 func get_random_speed():
-	return pow(randf(), 2) * 20
+	#return pow(randf(), 6) * 20
+	return randf_range(1, 7)
 
 func get_all_children(node):
 	var nodes = []

@@ -10,5 +10,8 @@ func _ready() -> void:
 	par = get_parent() as Control
 	og_gl_pos = par.global_position
 
+func custom_tween(t:Tween, dur:float, is_inverse:bool=false):
+	pass
+
 func get_final_pos():
 	return og_gl_pos + dir.normalized() * speed * 100

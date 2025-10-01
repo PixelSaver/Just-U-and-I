@@ -1,0 +1,697 @@
+[gd_scene load_steps=19 format=3 uid="uid://cph0pd7hvoen1"]
+
+[ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
+[ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
+[ext_resource type="PackedScene" uid="uid://d3vy4r68f4hr1" path="res://Scenes/program_button.tscn" id="3_8yt1f"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="3_70lpx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
+bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0re3"]
+bg_color = Color(0.345098, 0.12549, 0.729412, 0.47451)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjnpq"]
+bg_color = Color(0.0705882, 0.0941176, 0.403922, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70lpx"]
+bg_color = Color(0.780392, 0.34902, 0.886275, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udqk2"]
+bg_color = Color(0.0705882, 0.0941176, 0.403922, 0.501961)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydafb"]
+bg_color = Color(0.945098, 0.670588, 0.878431, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usugc"]
+bg_color = Color(0.345098, 0.12549, 0.729412, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odcqt"]
+bg_color = Color(0.945098, 0.670588, 0.878431, 1)
+skew = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubig6"]
+bg_color = Color(0.945098, 0.670588, 0.878431, 0.537255)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nstff"]
+bg_color = Color(0.0705882, 0.0941176, 0.403922, 1)
+skew = Vector2(0, -1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgg0k"]
+bg_color = Color(0.945098, 0.670588, 0.878431, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqyd7"]
+bg_color = Color(0.0705882, 0.0941176, 0.403922, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub4qb"]
+bg_color = Color(0.345098, 0.12549, 0.729412, 1)
+skew = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yt1f"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(-1, 0)
+
+[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg", "title")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_8yt1f")
+script = ExtResource("2_ydafb")
+program_parent = NodePath("ProgramCont")
+tween_parents = [NodePath("Title"), NodePath("Bg")]
+bg = NodePath("Bg")
+title = NodePath("Title")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -563.0
+offset_top = -585.0
+offset_right = 8449.0
+offset_bottom = 2336.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bg" type="Control" parent="."]
+modulate = Color(0.629041, 0.00289747, 0.896669, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel32" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1939.0
+offset_top = -186.0
+offset_right = 2845.0
+offset_bottom = 952.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Panel20" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1487.0
+offset_top = 782.0
+offset_right = 1691.0
+offset_bottom = 1467.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Panel30" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 633.0
+offset_right = 2066.0
+offset_bottom = 783.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Panel4" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = -526.0
+offset_top = 378.0
+offset_right = 988.0
+offset_bottom = 481.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
+
+[node name="Panel8" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 61.0
+offset_right = 1147.0
+offset_bottom = 1312.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Panel35" type="Panel" parent="Bg"]
+visible = false
+layout_mode = 0
+offset_left = 2045.0
+offset_top = -841.0
+offset_right = 2619.0
+offset_bottom = 982.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Panel24" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 634.0
+offset_right = 1491.0
+offset_bottom = 1119.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Panel16" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 437.0
+offset_right = 886.0
+offset_bottom = 596.0
+rotation = 1.57079
+scale = Vector2(0.479999, 0.560001)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Panel38" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 930.0
+offset_top = -297.0
+offset_right = 1180.0
+offset_bottom = -67.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Panel40" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1645.0
+offset_top = 728.0
+offset_right = 1859.0
+offset_bottom = 1104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
+
+[node name="Panel31" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = -672.0
+offset_right = 818.0
+offset_bottom = -192.0
+scale = Vector2(0.479999, 0.560001)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Panel36" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1633.0
+offset_top = 31.0
+offset_right = 2493.0
+offset_bottom = 511.0
+scale = Vector2(0.479999, 0.560001)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Panel41" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 2377.0
+offset_top = 165.0
+offset_right = 2800.0
+offset_bottom = 645.0
+scale = Vector2(0.479999, 0.560001)
+theme_override_styles/panel = SubResource("StyleBoxFlat_odcqt")
+
+[node name="Panel7" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1974.0
+offset_top = -357.0
+offset_right = 2224.0
+offset_bottom = -198.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Panel23" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 236.0
+offset_right = 184.0
+offset_bottom = 838.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Panel21" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1412.0
+offset_top = 106.0
+offset_right = 1609.0
+offset_bottom = 431.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Panel14" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 656.0
+offset_right = 1239.0
+offset_bottom = 1210.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Panel27" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 204.0
+offset_right = 704.0
+offset_bottom = 354.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
+
+[node name="Panel10" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = -216.0
+offset_right = 753.0
+offset_bottom = 446.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Panel26" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1385.0
+offset_top = -1041.0
+offset_right = 1721.0
+offset_bottom = -379.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Panel5" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = -436.0
+offset_right = 137.0
+offset_bottom = 249.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Panel25" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 881.0
+offset_top = -1134.0
+offset_right = 1085.0
+offset_bottom = -449.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Panel29" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 912.0
+offset_top = -149.0
+offset_right = 1339.0
+offset_bottom = 80.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Panel18" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1676.0
+offset_top = 82.0
+offset_right = 2210.0
+offset_bottom = 386.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Panel9" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1263.0
+offset_top = -310.0
+offset_right = 1513.0
+offset_bottom = -160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
+
+[node name="Panel6" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1682.0
+offset_top = 126.0
+offset_right = 1932.0
+offset_bottom = 276.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Panel39" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 2543.0
+offset_top = 189.0
+offset_right = 2629.0
+offset_bottom = 339.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nstff")
+
+[node name="Panel37" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 2269.0
+offset_top = 510.0
+offset_right = 2436.0
+offset_bottom = 798.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Panel11" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = -188.0
+offset_top = 541.0
+offset_right = 561.0
+offset_bottom = 1256.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Panel15" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = -39.0
+offset_right = 1566.0
+offset_bottom = 228.0
+rotation = 0.785397
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Panel43" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1188.0
+offset_top = 50.0
+offset_right = 1304.0
+offset_bottom = 137.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vgg0k")
+
+[node name="Panel44" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 2542.0
+offset_top = 511.0
+offset_right = 2658.0
+offset_bottom = 598.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vgg0k")
+
+[node name="Panel17" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1839.0
+offset_top = 549.0
+offset_right = 3517.0
+offset_bottom = 766.0
+rotation = 0.785398
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Panel13" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 388.141
+offset_top = 432.0
+offset_right = 675.141
+offset_bottom = 685.0
+rotation = 0.785398
+theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
+
+[node name="Panel34" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 2328.0
+offset_top = 301.0
+offset_right = 2755.0
+offset_bottom = 530.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Panel12" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 356.141
+offset_top = 328.0
+offset_right = 653.141
+offset_bottom = 587.0
+rotation = 0.785398
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Panel19" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 27.0
+offset_right = 1417.0
+offset_bottom = 492.0
+rotation = 0.785397
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Panel42" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 2271.0
+offset_top = -322.0
+offset_right = 2595.0
+offset_bottom = 143.0
+rotation = 0.785397
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Panel33" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 2304.0
+offset_top = 689.0
+offset_right = 2628.0
+offset_bottom = 1154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Panel22" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 718.0
+offset_right = 533.0
+offset_bottom = 1288.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
+
+[node name="Panel28" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 204.0
+offset_right = 704.0
+offset_bottom = 354.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 164
+theme_override_constants/margin_top = 50
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Title/MarginContainer"]
+z_index = 1
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#121867]JUI[color=#c759e2]OS[/color] MENU"
+fit_content = true
+scroll_active = false
+
+[node name="Panel15" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 29.0
+offset_right = 675.0
+offset_bottom = 94.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Tweenable_629" parent="Title/Panel15" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 0.638267
+
+[node name="Panel14" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 56.0
+offset_right = 430.0
+offset_bottom = 121.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
+
+[node name="Tweenable_230" parent="Title/Panel14" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, 0)
+speed = 0.199921
+
+[node name="Panel13" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 64.0
+offset_right = 848.0
+offset_bottom = 95.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqyd7")
+
+[node name="Tweenable_517" parent="Title/Panel13" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 0.0494727
+
+[node name="Panel11" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 1.0
+offset_right = 503.0
+offset_bottom = 66.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ub4qb")
+
+[node name="Tweenable_973" parent="Title/Panel11" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 0)
+speed = 0.226496
+
+[node name="Panel" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 47.0
+offset_right = 614.0
+offset_bottom = 112.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8yt1f")
+
+[node name="Tweenable_917" parent="Title/Panel" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 0.614591
+
+[node name="Panel10" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = -464.0
+offset_top = 18.0
+offset_right = 88.0
+offset_bottom = 83.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
+
+[node name="Tweenable_67" parent="Title/Panel10" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 7.94426
+
+[node name="Panel16" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = -269.0
+offset_top = -18.0
+offset_right = 311.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Tweenable_971" parent="Title/Panel16" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, 0)
+speed = 0.947465
+
+[node name="Panel2" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 64.0
+offset_right = 833.0
+offset_bottom = 95.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8yt1f")
+
+[node name="Tweenable_996" parent="Title/Panel2" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 0)
+speed = 0.87223
+
+[node name="Panel7" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = -213.0
+offset_top = 82.0
+offset_right = 230.0
+offset_bottom = 101.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8yt1f")
+
+[node name="Tweenable_909" parent="Title/Panel7" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 0)
+speed = 0.204717
+
+[node name="Panel9" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = -207.0
+offset_top = 4.0
+offset_right = 59.0
+offset_bottom = 69.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Tweenable_363" parent="Title/Panel9" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, 0)
+speed = 11.8777
+
+[node name="Panel8" type="Panel" parent="Title"]
+layout_mode = 0
+offset_left = -189.0
+offset_top = -22.0
+offset_right = 254.0
+offset_bottom = 31.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8yt1f")
+
+[node name="Tweenable_663" parent="Title/Panel8" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 0)
+speed = 10.7575
+
+[node name="ProgramCont" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Program" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.945098, 0.670588, 0.878431, 1)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 600.0
+offset_bottom = 400.0
+
+[node name="Program2" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.780392, 0.34902, 0.886275, 1)
+layout_mode = 0
+offset_left = 245.0
+offset_top = 420.0
+offset_right = 600.0
+offset_bottom = 660.0
+
+[node name="Program3" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 680.0
+offset_right = 600.0
+offset_bottom = 930.0
+
+[node name="Program4" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.945098, 0.670588, 0.878431, 1)
+layout_mode = 0
+offset_left = 610.0
+offset_top = 150.0
+offset_right = 910.0
+offset_bottom = 930.0
+
+[node name="Program5" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1250.0
+offset_top = 430.0
+offset_right = 1380.0
+offset_bottom = 800.0
+
+[node name="Program11" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.780392, 0.34902, 0.886275, 1)
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 430.0
+offset_right = 1240.0
+offset_bottom = 610.0
+
+[node name="Program12" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.945098, 0.670588, 0.878431, 1)
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 620.0
+offset_right = 1240.0
+offset_bottom = 800.0
+
+[node name="Program6" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.780392, 0.34902, 0.886275, 1)
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 150.0
+offset_right = 1380.0
+offset_bottom = 420.0
+
+[node name="Program7" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 150.0
+offset_right = 1840.0
+offset_bottom = 300.0
+
+[node name="Program9" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.780392, 0.34902, 0.886275, 1)
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 810.0
+offset_right = 1840.0
+offset_bottom = 930.0
+
+[node name="Program8" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.945098, 0.670588, 0.878431, 1)
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 390.0
+offset_right = 1840.0
+offset_bottom = 800.0
+
+[node name="Program10" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.780392, 0.34902, 0.886275, 1)
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 310.0
+offset_right = 1840.0
+offset_bottom = 380.0
+
+[editable path="ProgramCont/Program"]

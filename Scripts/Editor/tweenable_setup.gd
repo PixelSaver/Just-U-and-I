@@ -27,9 +27,9 @@ func _run() -> void:
 			
 			# Randomize export vars
 			#var dirs = [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
-			var dirs = [Vector2.LEFT, Vector2.RIGHT]
+			var dirs = [Vector2(1,1), Vector2(-1,-1)]
 			child.dir = dirs[randi_range(0, dirs.size()-1)]
-			child.speed = pow(randf(), 2) * 12
+			child.speed = pow(randf(), 4) * 12
 			
 			children.append({"parent": parent, "child": child})
 	
