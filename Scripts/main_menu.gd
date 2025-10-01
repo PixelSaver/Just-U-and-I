@@ -8,6 +8,7 @@ var buttons = []
 @export var ui_reject_audio : AudioStreamPlayer
 @export var ui_enter : AudioStreamPlayer
 @export var ui_pressed : AudioStreamPlayer
+@export var ui_enter_os : AudioStreamPlayer
 @export var notif_man : NotificationManagerMenu
 @export var coin : Coin
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
@@ -33,6 +34,7 @@ func _on_pressed(val:ButtonMenu):
 		TITLES[0]: # Play
 			Global.state = Global.States.OS_MENU
 			end_main_menu()
+			ui_enter_os.play()
 			var os = OS_MENU.instantiate()
 			get_parent().add_child(os)
 			os.start_anim()

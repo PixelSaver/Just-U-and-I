@@ -21,6 +21,7 @@ signal blue_coin_collected
 var coins_collected = []
 var blue_coins_collected = [] : 
 	set(val):
+		#TODO Add notif to blue coin, I don't think this works for .append()
 		blue_coins_collected = val
 		blue_coin_collected.emit(val.back())
 
