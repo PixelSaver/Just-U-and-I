@@ -4,8 +4,10 @@ class_name MainMenu
 const BUTTON_SCENE : PackedScene = preload("res://Scenes/button_menu.tscn")
 @export var button_placement_container : Node
 var buttons = []
+#TODO Consolidate all the audiostreamplayers into one node per scene or per global
 @export var ui_reject_audio : AudioStreamPlayer
 @export var ui_enter : AudioStreamPlayer
+@export var ui_pressed : AudioStreamPlayer
 @export var notif_man : NotificationManagerMenu
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")

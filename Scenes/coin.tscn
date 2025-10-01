@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6dcu7qjtged8"]
+[gd_scene load_steps=21 format=3 uid="uid://c6dcu7qjtged8"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_g537i"]
 [ext_resource type="Script" uid="uid://g3op48dcxnbw" path="res://Scripts/coin.gd" id="1_jgi06"]
 [ext_resource type="Texture2D" uid="uid://dwqwtiuv3sn8u" path="res://Assets/Art/coin_sheet.png" id="2_g537i"]
+[ext_resource type="AudioStream" uid="uid://d0kuag4rdlyj1" path="res://Assets/Audio/spinnerbonus.wav" id="4_h2p6v"]
+[ext_resource type="AudioStream" uid="uid://pd3linxa4406" path="res://Assets/Audio/glass_002.ogg" id="5_ffmqm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g537i"]
 bg_color = Color(0.6, 0.6, 0.6, 0.188235)
@@ -105,7 +107,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Coin" type="Button" node_paths=PackedStringArray("anim_sprite", "rigidbody")]
+[node name="Coin" type="Button" node_paths=PackedStringArray("anim_sprite", "rigidbody", "coin_audio", "coin_bounce")]
 custom_minimum_size = Vector2(62, 62)
 anchors_preset = -1
 anchor_right = 1.0
@@ -122,6 +124,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_g537i")
 script = ExtResource("1_jgi06")
 anim_sprite = NodePath("RigidBody2D/CollisionShape2D/AnimatedSprite2D")
 rigidbody = NodePath("RigidBody2D")
+coin_audio = NodePath("CoinCollected")
+coin_bounce = NodePath("CoinBounce")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(31, 31)
@@ -139,6 +143,15 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_yrv0a")
 animation = &"flip"
 speed_scale = 5.0
+
+[node name="CoinCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_h2p6v")
+volume_db = -10.505
+bus = &"SFX"
+
+[node name="CoinBounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ffmqm")
+volume_db = -32.686
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

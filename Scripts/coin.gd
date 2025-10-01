@@ -1,10 +1,14 @@
 extends Button
 
+signal collected(coin)
+
 @export var anim_sprite : AnimatedSprite2D
 @export var rigidbody : RigidBody2D
 @export var follow_modulate : Node
 @export var coin_id : String
 @export var throw_dir : Vector2 = Vector2(1,1)
+@export var coin_audio : AudioStreamPlayer
+@export var coin_bounce : AudioStreamPlayer
 
 var clicked : bool = false
 var floor_dist : float = 200
@@ -18,7 +22,9 @@ func _on_pressed() -> void:
 	top_level = true
 	clicked = true
 	Global.coins_collected.append(coin_id)
-	#TODO Add coin collected sound and animation for text
+	collected.emit(self)
+	#TODO Add coin collected notification and text saying +1
+	coin_audio.play()
 	
 	var dur : float = 2
 	
@@ -48,6 +54,9 @@ func _physics_process(delta: float) -> void:
 	if rigidbody.position.y > floor_dist:
 		rigidbody.position.y = floor_dist
 		rigidbody.linear_velocity.y = -abs(rigidbody.linear_velocity.y)
+		if abs(rigidbody.linear_velocity.y) > 500 and !coin_bounce.playing:
+			coin_bounce.volume_db = -30 + abs(rigidbody.linear_velocity.y)/100
+			coin_bounce.play()
 	
 func _on_mouse_entered() -> void:
 	pass # Replace with function body.

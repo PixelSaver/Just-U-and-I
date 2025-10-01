@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ce6keox0ht203"]
+[gd_scene load_steps=16 format=3 uid="uid://ce6keox0ht203"]
 
 [ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="1_7y5a0"]
 [ext_resource type="Script" uid="uid://ch10k1mmhi4u5" path="res://Scripts/settings_menu.gd" id="1_icv2g"]
@@ -8,7 +8,8 @@
 [ext_resource type="StyleBox" uid="uid://cmf2cttxsnv2o" path="res://Assets/black_shadow_box.tres" id="4_h2y1r"]
 [ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="5_jjs6x"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_ui_sound_controller/base/scripts/ui_sound_controller.gd" id="8_jjs6x"]
-[ext_resource type="AudioStream" uid="uid://pd3linxa4406" path="res://Assets/Audio/glass_002.ogg" id="9_fsgis"]
+[ext_resource type="AudioStream" uid="uid://c8lt3vdm7inuc" path="res://Assets/Audio/default-hover.wav" id="9_vv31b"]
+[ext_resource type="AudioStream" uid="uid://dynsjq8f7g8yf" path="res://Assets/Audio/key-caps.mp3" id="10_hmele"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rahb6"]
 bg_color = Color(0, 0, 0, 1)
@@ -664,7 +665,8 @@ speed = 0.12211
 
 [node name="UISoundController" type="Node" parent="."]
 script = ExtResource("8_jjs6x")
-button_hovered = ExtResource("9_fsgis")
+button_hovered = ExtResource("9_vv31b")
+button_pressed = ExtResource("10_hmele")
 metadata/_custom_type_script = "uid://b5oej1q4h7jvh"
 
 [connection signal="mouse_entered" from="." to="ButtonSettings" method="_on_settings_menu_mouse_entered"]
