@@ -44,7 +44,7 @@ shadow_offset = Vector2(20, 20)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1dhk"]
 draw_center = false
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "notif_man", "all_parents", "scale_parent") groups=["MainMenu"]]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "notif_man", "coin", "all_parents", "scale_parent") groups=["MainMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,6 +59,7 @@ button_placement_container = NodePath("TiltControl/VBoxContainer/ButtonCont")
 ui_reject_audio = NodePath("UIReject")
 ui_enter = NodePath("UIEnter")
 notif_man = NodePath("NotificationManager")
+coin = NodePath("Coin")
 all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
 

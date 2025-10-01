@@ -9,6 +9,7 @@ var buttons = []
 @export var ui_enter : AudioStreamPlayer
 @export var ui_pressed : AudioStreamPlayer
 @export var notif_man : NotificationManagerMenu
+@export var coin : Coin
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
 const OS_MENU = preload("res://Scenes/os_menu.tscn")
@@ -16,6 +17,12 @@ const OS_MENU = preload("res://Scenes/os_menu.tscn")
 func _ready() -> void:
 	Global.state = Global.States.MAIN_MENU
 	start_main_menu()
+	
+	coin.connect("collected", _on_coin_collected)
+
+func _on_coin_collected(coin:Coin):
+	notif_man.show_notification("You just collected [color=#ffa506]1 coin!")
+	notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 
 func _on_pressed(val:ButtonMenu):
 	var t : Tween
@@ -38,7 +45,8 @@ func _on_pressed(val:ButtonMenu):
 		TITLES[2]: # Extras
 			ui_reject_audio.play()
 			val.reject_anim()
-			notif_man.show_notification("Content [color=#2b90fd]LOCKED[/color]")
+			notif_man.show_notification("Content [color=#2b90fd]LOCKED[/color]: [color=#ffa506]3 coins[/color] needed")
+			notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 		TITLES[3]: # Quit
 			end_main_menu()
 			t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -137,4 +145,4 @@ func start_main_menu():
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("coin"):
-		notif_man.show_notification("You have collected %s coins!" % str(Global.coins_collected.size()))
+		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
