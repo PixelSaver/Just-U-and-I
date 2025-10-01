@@ -22,6 +22,7 @@ func _ready() -> void:
 	is_ready.emit(self)
 
 func _on_button_down() -> void:
+	Global.collect_blue_coin(self)
 	self_pressed.emit(self)
 
 
