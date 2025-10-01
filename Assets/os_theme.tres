@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://btyo7ycmtemss" path="res://Assets/Fonts/Vipnagorgialla Rg.otf" id="1_tjvm3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv3aw"]
-bg_color = Color(0, 0, 0, 0.317647)
+bg_color = Color(0.0705882, 0.0941176, 0.403922, 0.717647)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5

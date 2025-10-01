@@ -86,3 +86,7 @@ click_right={
 
 disable_install_audio_busses=true
 disable_update_check=false
+
+[rendering]
+
+textures/default_filters/use_nearest_mipmap_filter=true

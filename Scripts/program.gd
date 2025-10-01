@@ -44,6 +44,7 @@ func flash(rect:Vector2, i, dur=1):
 
 func _on_mouse_entered() -> void:
 	is_hovered = true
+	z_index = 1
 	if idle_tween:
 		idle_tween.kill()
 	if hover_tween:
@@ -62,6 +63,7 @@ func _on_mouse_exited() -> void:
 		await hover_tween.finished
 		hover_tween.kill()
 	is_hovered = false
+	z_index = 0
 	
 	if idle_tween:
 		idle_tween.kill()

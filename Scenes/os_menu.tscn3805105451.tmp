@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=19 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
 [ext_resource type="PackedScene" uid="uid://d3vy4r68f4hr1" path="res://Scenes/program_button.tscn" id="3_8yt1f"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="3_70lpx"]
-[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="4_70lpx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -54,21 +53,6 @@ skew = Vector2(-1, 0)
 bg_color = Color(0.0705882, 0.0941176, 0.403922, 1)
 skew = Vector2(-1, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw2nx"]
-bg_color = Color(0.945098, 0.670588, 0.878431, 1)
-skew = Vector2(-1, 0)
-
-[sub_resource type="GDScript" id="GDScript_ydafb"]
-script/source = "extends TweenableCustom
-
-func custom_tween(t:Tween, dur:float, is_inverse=false):
-	if is_inverse:
-		t.tween_property(get_parent(), \"scale:x\", 0, dur * 2)
-	else:
-		get_parent().scale.x = 0
-		t.tween_property(get_parent(), \"scale:x\", 1, dur / 2)
-"
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub4qb"]
 bg_color = Color(0.345098, 0.12549, 0.729412, 1)
 skew = Vector2(-1, 0)
@@ -84,7 +68,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_mode = 2
 mouse_filter = 2
 theme = ExtResource("1_8yt1f")
 script = ExtResource("2_ydafb")
@@ -117,12 +100,6 @@ offset_right = 2845.0
 offset_bottom = 952.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
 
-[node name="Tweenable_880" type="Node" parent="Bg/Panel32" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 5.14155
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel20" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1487.0
@@ -130,12 +107,6 @@ offset_top = 782.0
 offset_right = 1691.0
 offset_bottom = 1467.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
-
-[node name="Tweenable_27" type="Node" parent="Bg/Panel20" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 2.28577
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel30" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -146,12 +117,6 @@ offset_bottom = 783.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
 
-[node name="Tweenable_520" type="Node" parent="Bg/Panel30" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 3.05047
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel4" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = -526.0
@@ -160,12 +125,6 @@ offset_right = 988.0
 offset_bottom = 481.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
 
-[node name="Tweenable_201" type="Node" parent="Bg/Panel4" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, 0)
-speed = 6.09644
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel8" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 512.0
@@ -173,12 +132,6 @@ offset_top = 61.0
 offset_right = 1147.0
 offset_bottom = 1312.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
-
-[node name="Tweenable_68" type="Node" parent="Bg/Panel8" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 6.2
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel35" type="Panel" parent="Bg"]
 visible = false
@@ -189,12 +142,6 @@ offset_right = 2619.0
 offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
 
-[node name="Tweenable_184" type="Node" parent="Bg/Panel35" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 2.29075
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel24" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 856.0
@@ -203,12 +150,6 @@ offset_right = 1491.0
 offset_bottom = 1119.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
-
-[node name="Tweenable_477" type="Node" parent="Bg/Panel24" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, -1)
-speed = 5.2
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel16" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -220,12 +161,6 @@ rotation = 1.57079
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
 
-[node name="Tweenable_455" type="Node" parent="Bg/Panel16" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, -1)
-speed = 5.73876
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel38" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 930.0
@@ -234,12 +169,6 @@ offset_right = 1180.0
 offset_bottom = -67.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
 
-[node name="Tweenable_408" type="Node" parent="Bg/Panel38" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 5.99894
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel40" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1645.0
@@ -247,12 +176,6 @@ offset_top = 728.0
 offset_right = 1859.0
 offset_bottom = 1104.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
-
-[node name="Tweenable_203" type="Node" parent="Bg/Panel40" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 2.2585
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel31" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -263,12 +186,6 @@ offset_bottom = -192.0
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
 
-[node name="Tweenable_270" type="Node" parent="Bg/Panel31" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 3.57759
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel36" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1633.0
@@ -277,12 +194,6 @@ offset_right = 2493.0
 offset_bottom = 511.0
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
-
-[node name="Tweenable_17" type="Node" parent="Bg/Panel36" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 4.09246
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel41" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -293,12 +204,6 @@ offset_bottom = 645.0
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_odcqt")
 
-[node name="Tweenable_401" type="Node" parent="Bg/Panel41" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 1.21861
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel7" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1974.0
@@ -306,12 +211,6 @@ offset_top = -357.0
 offset_right = 2224.0
 offset_bottom = -198.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
-
-[node name="Tweenable_932" type="Node" parent="Bg/Panel7" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 3.7762
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel23" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -321,12 +220,6 @@ offset_right = 184.0
 offset_bottom = 838.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
 
-[node name="Tweenable_682" type="Node" parent="Bg/Panel23" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 4.20516
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel21" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1412.0
@@ -334,12 +227,6 @@ offset_top = 106.0
 offset_right = 1609.0
 offset_bottom = 431.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
-
-[node name="Tweenable_932" type="Node" parent="Bg/Panel21" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 1.34588
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel14" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -349,12 +236,6 @@ offset_right = 1239.0
 offset_bottom = 1210.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
 
-[node name="Tweenable_395" type="Node" parent="Bg/Panel14" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 6.11222
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel27" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 454.0
@@ -362,12 +243,6 @@ offset_top = 204.0
 offset_right = 704.0
 offset_bottom = 354.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
-
-[node name="Tweenable_238" type="Node" parent="Bg/Panel27" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, 0)
-speed = 7.333
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel10" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -377,12 +252,6 @@ offset_right = 753.0
 offset_bottom = 446.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
 
-[node name="Tweenable_32" type="Node" parent="Bg/Panel10" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 4.61792
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel26" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1385.0
@@ -390,12 +259,6 @@ offset_top = -1041.0
 offset_right = 1721.0
 offset_bottom = -379.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
-
-[node name="Tweenable_150" type="Node" parent="Bg/Panel26" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 5.96672
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel5" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -405,12 +268,6 @@ offset_right = 137.0
 offset_bottom = 249.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
 
-[node name="Tweenable_905" type="Node" parent="Bg/Panel5" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 3.23387
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel25" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 881.0
@@ -418,12 +275,6 @@ offset_top = -1134.0
 offset_right = 1085.0
 offset_bottom = -449.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
-
-[node name="Tweenable_853" type="Node" parent="Bg/Panel25" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 5.44716
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel29" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -434,12 +285,6 @@ offset_bottom = 80.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
 
-[node name="Tweenable_966" type="Node" parent="Bg/Panel29" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 1.5178
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel18" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1676.0
@@ -449,12 +294,6 @@ offset_bottom = 386.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
 
-[node name="Tweenable_65" type="Node" parent="Bg/Panel18" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 4.66447
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel9" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1263.0
@@ -462,12 +301,6 @@ offset_top = -310.0
 offset_right = 1513.0
 offset_bottom = -160.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
-
-[node name="Tweenable_238" type="Node" parent="Bg/Panel9" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 2.4835
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel6" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -477,12 +310,6 @@ offset_right = 1932.0
 offset_bottom = 276.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
 
-[node name="Tweenable_779" type="Node" parent="Bg/Panel6" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 6.11644
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel39" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 2543.0
@@ -490,12 +317,6 @@ offset_top = 189.0
 offset_right = 2629.0
 offset_bottom = 339.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nstff")
-
-[node name="Tweenable_958" type="Node" parent="Bg/Panel39" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 2.07161
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel37" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -505,12 +326,6 @@ offset_right = 2436.0
 offset_bottom = 798.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
 
-[node name="Tweenable_87" type="Node" parent="Bg/Panel37" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 4.30426
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel11" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = -188.0
@@ -518,12 +333,6 @@ offset_top = 541.0
 offset_right = 561.0
 offset_bottom = 1256.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
-
-[node name="Tweenable_125" type="Node" parent="Bg/Panel11" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 6.37205
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel15" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -534,12 +343,6 @@ offset_bottom = 228.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
 
-[node name="Tweenable_555" type="Node" parent="Bg/Panel15" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 6.27005
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel43" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 1188.0
@@ -548,12 +351,6 @@ offset_right = 1304.0
 offset_bottom = 137.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vgg0k")
 
-[node name="Tweenable_470" type="Node" parent="Bg/Panel43" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, 0)
-speed = 4.56641
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel44" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 2542.0
@@ -561,12 +358,6 @@ offset_top = 511.0
 offset_right = 2658.0
 offset_bottom = 598.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vgg0k")
-
-[node name="Tweenable_96" type="Node" parent="Bg/Panel44" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 6.21145
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel17" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -577,12 +368,6 @@ offset_bottom = 766.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
 
-[node name="Tweenable_477" type="Node" parent="Bg/Panel17" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 1.13843
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel13" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 388.141
@@ -591,12 +376,6 @@ offset_right = 675.141
 offset_bottom = 685.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
-
-[node name="Tweenable_136" type="Node" parent="Bg/Panel13" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 3.81036
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel34" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -607,12 +386,6 @@ offset_bottom = 530.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
 
-[node name="Tweenable_830" type="Node" parent="Bg/Panel34" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 2.96916
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel12" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 356.141
@@ -621,12 +394,6 @@ offset_right = 653.141
 offset_bottom = 587.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
-
-[node name="Tweenable_574" type="Node" parent="Bg/Panel12" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(0, 1)
-speed = 4.9176
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel19" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -637,12 +404,6 @@ offset_bottom = 492.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
 
-[node name="Tweenable_679" type="Node" parent="Bg/Panel19" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(0, 1)
-speed = 5.4718
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel42" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 2271.0
@@ -652,12 +413,6 @@ offset_bottom = 143.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
 
-[node name="Tweenable_955" type="Node" parent="Bg/Panel42" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(0, 1)
-speed = 3.8
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel33" type="Panel" parent="Bg"]
 layout_mode = 0
 offset_left = 2304.0
@@ -665,12 +420,6 @@ offset_top = 689.0
 offset_right = 2628.0
 offset_bottom = 1154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
-
-[node name="Tweenable_693" type="Node" parent="Bg/Panel33" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(1, 1)
-speed = 6.42303
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel22" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -680,28 +429,15 @@ offset_right = 533.0
 offset_bottom = 1288.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
 
-[node name="Tweenable_236" type="Node" parent="Bg/Panel22" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, -1)
-speed = 5.19571
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Panel28" type="Panel" parent="Bg"]
 layout_mode = 0
-offset_left = 1777.0
-offset_top = 423.0
-offset_right = 2027.0
-offset_bottom = 573.0
+offset_left = 454.0
+offset_top = 204.0
+offset_right = 704.0
+offset_bottom = 354.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
 
-[node name="Tweenable_577" type="Node" parent="Bg/Panel28" groups=["Tweenable"] instance=ExtResource("3_70lpx")]
-script = ExtResource("4_70lpx")
-dir = Vector2(-1, 0)
-speed = 1.94215
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
-
 [node name="Title" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -737,8 +473,8 @@ offset_bottom = 94.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
 
 [node name="Tweenable_629" parent="Title/Panel15" instance=ExtResource("3_70lpx")]
-dir = Vector2(-1, -1)
-speed = 1.4
+dir = Vector2(1, 1)
+speed = 0.638267
 
 [node name="Panel14" type="Panel" parent="Title"]
 layout_mode = 0
@@ -750,7 +486,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
 
 [node name="Tweenable_230" parent="Title/Panel14" instance=ExtResource("3_70lpx")]
 dir = Vector2(-1, 0)
-speed = 3.1
+speed = 0.199921
 
 [node name="Panel13" type="Panel" parent="Title"]
 layout_mode = 0
@@ -761,18 +497,8 @@ offset_bottom = 95.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oqyd7")
 
 [node name="Tweenable_517" parent="Title/Panel13" instance=ExtResource("3_70lpx")]
-
-[node name="Panel17" type="Panel" parent="Title"]
-layout_mode = 0
-offset_left = 388.0
-offset_top = 64.0
-offset_right = 832.0
-offset_bottom = 95.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jw2nx")
-
-[node name="Tweenable_517" parent="Title/Panel17" instance=ExtResource("3_70lpx")]
-script = SubResource("GDScript_ydafb")
-speed = 0.2
+dir = Vector2(1, 1)
+speed = 0.0494727
 
 [node name="Panel11" type="Panel" parent="Title"]
 layout_mode = 0
@@ -831,8 +557,8 @@ offset_bottom = 95.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8yt1f")
 
 [node name="Tweenable_996" parent="Title/Panel2" instance=ExtResource("3_70lpx")]
-dir = Vector2(-1, 0)
-speed = 4.0
+dir = Vector2(1, 0)
+speed = 0.87223
 
 [node name="Panel7" type="Panel" parent="Title"]
 layout_mode = 0
@@ -871,7 +597,6 @@ dir = Vector2(1, 0)
 speed = 10.7575
 
 [node name="ProgramCont" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

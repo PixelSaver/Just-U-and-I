@@ -3,6 +3,10 @@ class_name OSMenu
 
 @export var program_parent : Control
 @onready var programs : Array = program_parent.get_children()
+@export var tween_parents : Array[Node]
+@onready var tweenables : Array
+@export var bg : Control
+@export var title : Control
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -14,15 +18,51 @@ var pos = []
 var spr_pos = []
 var time_since_start = 0.0
 var animated_programs = [] 
-var is_animating = false
+var is_animating_programs = false
+
 
 func _ready() -> void:
-	load_programs()
+	tweenables = all_t()
+
+var is_start_animating = false
+func start_anim(dur:float=1.2):
+	if is_animating_programs or is_start_animating: return
+	
+	is_start_animating = true
+	var t = create_tween().set_trans(Tween.TRANS_QUINT)
+	t.set_parallel(true).set_ease(Tween.EASE_OUT)
+	for thing in tweenables:
+		var table = thing as Tweenable
+		if table.has_method("custom_tween"):
+			table.custom_tween(t, dur)
+		table.get_parent().global_position = table.get_final_pos()
+		t.tween_property(table.get_parent(), "global_position", table.og_gl_pos, dur)
+	
+	#load_programs()
+	
+	await t.finished
+	is_start_animating = false
+	
+
+func all_t():
+	var out : Array[Tweenable] = []
+	for parent in tween_parents:
+		for child in parent.get_children():
+			var n = child as Control
+			if child.get_child_count() == 0: continue
+			var tweenable_index = n.get_children().find_custom(
+				func(child) -> bool:
+					return child is Tweenable
+			)
+			if tweenable_index == -1: continue
+			var tweenable = n.get_children()[tweenable_index]
+			out.append(tweenable)
+	return out
 
 func load_programs():
-	if is_animating: 
+	if is_animating_programs: 
 		return
-	is_animating = true
+	is_animating_programs = true
 	animated_programs.clear() 
 	time_since_start = 0.0
 	
@@ -46,6 +86,9 @@ func load_programs():
 		p.spin_speed = [-0.1,0.1][randi() % 2]
 		
 		p.flash(rect[i], i)
+		p.connect("flash_finished", func():
+			is_animating_programs = false
+		)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -55,15 +98,19 @@ func _input(event: InputEvent) -> void:
 			last_scroll = scroll
 	
 	if Input.is_action_pressed("scroll_down"): 
-		scroll += 85
+		scroll += 185
 	if Input.is_action_pressed("scroll_up"): 
-		scroll -= 85
-
+		scroll -= 185
+	if Input.is_action_just_pressed("click_left"):
+		start_anim()
+	
 func _physics_process(delta: float) -> void:
 	if time_since_start < programs.size():
 		time_since_start += delta * 25
 	
 	program_parent.position.x += ((38 - scroll) - program_parent.position.x) * 0.2
+	title.position.x = program_parent.position.x * 0.7
+	bg.position.x = program_parent.position.x * 0.3
 	
 	if programs.size() > 0:
 		var last_program = programs.back() as Program
@@ -90,7 +137,7 @@ func _physics_process(delta: float) -> void:
 				#if flash and is_instance_valid(flash):
 					#flash.queue_free()
 					#if i == programs.size() - 1:
-						#is_animating = false
+						#is_animating_programs = false
 			#)
 		
 		animated_programs.append(i)
