@@ -52,6 +52,8 @@ const MAX_DEPTH = 16
 
 @onready var root_node : Node = get_node(root_path)
 
+var disabled : bool = false
+
 var button_hovered_player : AudioStreamPlayer
 var button_focused_player : AudioStreamPlayer
 var button_pressed_player : AudioStreamPlayer
@@ -140,7 +142,7 @@ func _build_all_stream_players() -> void:
 	_build_tree_stream_players()
 
 func _play_stream(stream_player : AudioStreamPlayer) -> void:
-	if not stream_player.is_inside_tree():
+	if not stream_player.is_inside_tree() or disabled:
 		return
 	stream_player.play()
 

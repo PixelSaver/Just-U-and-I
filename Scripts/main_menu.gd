@@ -10,6 +10,7 @@ var buttons = []
 @export var ui_pressed : AudioStreamPlayer
 @export var ui_enter_os : AudioStreamPlayer
 @export var notif_man : NotificationManagerMenu
+@export var ui_sound_cont : UISoundController
 @export var coin : Coin
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
@@ -103,6 +104,8 @@ func handoff_to_setting():
 	
 
 func end_main_menu():
+	ui_sound_cont.disabled = true
+	
 	var tmenu = create_tween()
 	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
 	for but in buttons:

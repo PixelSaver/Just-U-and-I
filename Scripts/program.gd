@@ -6,6 +6,7 @@ signal flash_finished
 @export var program_label : RichTextLabel
 @export var program_desc : String
 @export var spr_offset : Vector2 = Vector2(3, 18)
+@export var program_hov : AudioStreamPlayer
 
 var sprite_og_pos : Vector2
 var is_hovered : bool = false
@@ -43,6 +44,7 @@ func flash(rect:Vector2, i, dur=1):
 	)
 
 func _on_mouse_entered() -> void:
+	program_hov.play()
 	is_hovered = true
 	z_index = 1
 	if idle_tween:
