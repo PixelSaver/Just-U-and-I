@@ -9,6 +9,7 @@ var buttons = []
 @export var notif_man : NotificationManagerMenu
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
+const OS_MENU = preload("res://Scenes/os_menu.tscn")
 
 func _ready() -> void:
 	Global.state = Global.States.MAIN_MENU
@@ -29,9 +30,12 @@ func _on_pressed(val:ButtonMenu):
 	match text:
 		TITLES[0]: # Play
 			#TODO Add transition to OS
-			ui_reject_audio.play()
-			val.reject_anim()
-			notif_man.show_notification("Content [color=#2b90fd]UNFINISHED[/color]")
+			end_main_menu()
+			var os = OS_MENU.instantiate()
+			get_parent().add_child(os)
+			os.start_anim()
+			os.modulate.a = 0
+			var tw = create_tween().tween_property(os, "modulate:a", 1, 1.8).set_ease(Tween.EASE_OUT)
 		TITLES[1]: # Options
 			ui_enter.play()
 			handoff_to_setting()

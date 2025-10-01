@@ -31,6 +31,10 @@ func start_anim(dur:float=1.2):
 	is_start_animating = true
 	var t = create_tween().set_trans(Tween.TRANS_QUINT)
 	t.set_parallel(true).set_ease(Tween.EASE_OUT)
+	
+	#t.tween_property(self, "modulate:a", 1, dur)
+	
+	
 	for thing in tweenables:
 		var table = thing as Tweenable
 		if table.has_method("custom_tween"):
@@ -110,7 +114,7 @@ func _physics_process(delta: float) -> void:
 	
 	program_parent.position.x += ((38 - scroll) - program_parent.position.x) * 0.2
 	title.position.x = program_parent.position.x * 0.6
-	# parllax!
+	# parallax!
 	for i in range(bg_arr.size()):
 		var layer_index := bg_arr.size() - i  
 		bg_arr[i].position.x = program_parent.position.x * \
