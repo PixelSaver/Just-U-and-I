@@ -3,8 +3,7 @@
 https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
 
 
-glass_002.ogg by [Kenney.nl](www.kenney.nl)
-ui_reject.mp3 Sound Effect by <a href="https://pixabay.com/users/audley_fergine-32337609/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Hanifi Şahin</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Pixabay</a>
+
 
 <a id="readme-top"></a>
 <!-- PROJECT SHIELDS -->
@@ -167,10 +166,11 @@ Project Link: [https://github.com/PixelSaver/Just-U-and-I](https://github.com/Pi
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!\
+Many thanks for these people for letting me use their work for free! 
 
 * [Matiassinger's Readme Template](https://github.com/othneildrew/Best-README-Template)
-* 
+* glass_002.ogg by [Kenney.nl](www.kenney.nl)
+* ui_reject.mp3 Sound Effect by <a href="https://pixabay.com/users/audley_fergine-32337609/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Hanifi Şahin</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Pixabay</a>
 <!--
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
