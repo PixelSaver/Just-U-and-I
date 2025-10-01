@@ -20,7 +20,7 @@ func _ready():
 
 func _on_pressed() -> void:
 	disabled = true
-	top_level = true
+	#top_level = true
 	clicked = true
 	Global.coins_collected.append(coin_id)
 	collected.emit(self)
@@ -29,6 +29,8 @@ func _on_pressed() -> void:
 	
 	var dur : float = 2
 	
+	#Global.root.add_child(rigidbody)
+	rigidbody.freeze = false
 	rigidbody.apply_central_impulse(throw_dir.normalized() * Vector2(1000,-20000))
 	rigidbody.gravity_scale = 10
 	

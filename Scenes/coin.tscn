@@ -131,7 +131,9 @@ coin_bounce = NodePath("CoinBounce")
 position = Vector2(31, 31)
 mass = 10.0
 gravity_scale = 0.0
+sleeping = true
 lock_rotation = true
+freeze = true
 linear_damp = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
