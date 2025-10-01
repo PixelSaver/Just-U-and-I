@@ -28,22 +28,22 @@ https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+	<img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    &middot;
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+	An awesome README template to jumpstart your projects!
+	<br />
+	<a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+	<br />
+	<br />
+	<a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+	&middot;
+	<a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+	&middot;
+	<a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -53,25 +53,25 @@ https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+	<li>
+	  <a href="#about-the-project">About The Project</a>
+	  <ul>
+		<li><a href="#built-with">Built With</a></li>
+	  </ul>
+	</li>
+	<li>
+	  <a href="#getting-started">Getting Started</a>
+	  <ul>
+		<li><a href="#prerequisites">Prerequisites</a></li>
+		<li><a href="#installation">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a href="#usage">Usage</a></li>
+	<li><a href="#roadmap">Roadmap</a></li>
+	<li><a href="#contributing">Contributing</a></li>
+	<li><a href="#license">License</a></li>
+	<li><a href="#contact">Contact</a></li>
+	<li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -169,6 +169,7 @@ Project Link: [https://github.com/PixelSaver/Just-U-and-I](https://github.com/Pi
 Many thanks for these people for letting me use their work for free! 
 
 * [Matiassinger's Readme Template](https://github.com/othneildrew/Best-README-Template)
+* [OSU](https://github.com/ppy/osu) and OSU Lazer soundbites from ppy
 * glass_002.ogg by [Kenney.nl](www.kenney.nl)
 * ui_reject.mp3 Sound Effect by <a href="https://pixabay.com/users/audley_fergine-32337609/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Hanifi Şahin</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Pixabay</a>
 <!--
