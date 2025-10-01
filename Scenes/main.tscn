@@ -1,26 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckb8k1luffm4h"]
+[gd_scene load_steps=2 format=3 uid="uid://ckb8k1luffm4h"]
 
 [ext_resource type="Script" uid="uid://13wyoipiu166" path="res://Scripts/main.gd" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://875cs4fxe4ua" path="res://Scenes/main_menu.tscn" id="2_bo1nx"]
 
 [node name="Main" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_bo1nx")
-
-[node name="MainMenu" parent="." instance=ExtResource("2_bo1nx")]
-
-[node name="Button" parent="MainMenu/TiltControl/VBoxContainer/ButtonCont" index="0"]
-offset_top = 130.0
-offset_bottom = 240.0
-
-[node name="Button3" parent="MainMenu/TiltControl/VBoxContainer/ButtonCont" index="2"]
-offset_left = -400.0
-offset_top = 260.0
-offset_bottom = 370.0
-
-[node name="Button4" parent="MainMenu/TiltControl/VBoxContainer/ButtonCont" index="3"]
-offset_left = -400.0
-offset_top = 390.0
-offset_bottom = 500.0
-
-[editable path="MainMenu"]

@@ -16,9 +16,11 @@ const OS_MENU = preload("res://Scenes/os_menu.tscn")
 
 func _ready() -> void:
 	Global.state = Global.States.MAIN_MENU
+	coin.connect("collected", _on_coin_collected)
+	
+	await get_tree().process_frame
 	start_main_menu()
 	
-	coin.connect("collected", _on_coin_collected)
 
 func _on_coin_collected(coin:Coin):
 	notif_man.show_notification("You just collected [color=#ffa506]1 coin!")
@@ -116,6 +118,10 @@ func end_main_menu():
 	queue_free()
 
 func start_main_menu():
+	for child in Global.root.get_children():
+		if child is MainMenu and child != self:
+			child.queue_free()
+	
 	for child in button_placement_container.get_children():
 		child.queue_free()
 	for i in range(TITLES.size()):
@@ -123,6 +129,7 @@ func start_main_menu():
 		buttons.append(inst)
 		button_placement_container.add_child(inst)
 		inst.button_text.text = TITLES[i]
+		inst.name = TITLES[i]
 		inst.position.y = i*130
 		inst.connect("self_pressed", _on_pressed)
 		inst.init_position()
