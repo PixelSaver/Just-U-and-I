@@ -16,6 +16,8 @@ const MAX_DEPTH = 16
 		persistent = value
 		_update_persistent_signals()
 
+@export var exceptions : Array[Node]
+
 @export_group("Button Sounds")
 @export var button_hovered : AudioStream
 @export var button_focused : AudioStream
@@ -162,6 +164,9 @@ func _connect_stream_player(node : Node, stream_player : AudioStreamPlayer, sign
 		node.connect(signal_name, callable.bind(stream_player))
 
 func connect_ui_sounds(node: Node) -> void:
+	if exceptions.size() > 0 and node in exceptions:
+		return
+	
 	if node is Button:
 		_connect_stream_player(node, button_hovered_player, &"mouse_entered", _play_stream)
 		_connect_stream_player(node, button_focused_player, &"focus_entered", _play_stream)

@@ -61,6 +61,14 @@ notif_man = NodePath("NotificationManager")
 all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
 
+[node name="Coin" parent="." instance=ExtResource("13_5egv6")]
+layout_mode = 1
+anchors_preset = 15
+offset_left = 975.0
+offset_top = 651.0
+offset_right = -691.0
+offset_bottom = -259.0
+
 [node name="Extrabg" type="Node2D" parent="."]
 position = Vector2(385, 261)
 rotation = -0.436332
@@ -197,6 +205,7 @@ offset_right = 538.0
 offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Tweenable_950" parent="TiltControl/LineSide/ColorRect2" instance=ExtResource("5_opfnp")]
@@ -208,6 +217,7 @@ offset_left = -996.022
 offset_top = 96.2694
 offset_right = 3080.98
 offset_bottom = 135.269
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
 
 [node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect3" instance=ExtResource("5_opfnp")]
@@ -219,6 +229,7 @@ offset_left = -992.0
 offset_top = 111.0
 offset_right = 3085.0
 offset_bottom = 150.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ce3w2")
 
 [node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect" instance=ExtResource("5_opfnp")]
@@ -511,9 +522,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Title" type="Control" parent="TiltControl/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="TiltControl/VBoxContainer/Title"]
 layout_mode = 2
@@ -521,6 +534,7 @@ anchors_preset = 0
 offset_left = 120.0
 offset_right = 514.0
 offset_bottom = 130.0
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title/Control"]
 layout_mode = 0
@@ -528,6 +542,7 @@ offset_left = -7.0
 offset_top = -10.0
 offset_right = 404.0
 offset_bottom = 135.0
+mouse_filter = 2
 color = Color(0.168627, 0.564706, 0.992157, 1)
 
 [node name="Tweenable_695" parent="TiltControl/VBoxContainer/Title/Control/ColorRect" instance=ExtResource("5_opfnp")]
@@ -539,6 +554,7 @@ layout_mode = 2
 offset_left = 120.0
 offset_right = 514.0
 offset_bottom = 130.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Tweenable_820" parent="TiltControl/VBoxContainer/Title/ColorRect" instance=ExtResource("5_opfnp")]
@@ -551,6 +567,7 @@ layout_mode = 2
 offset_left = 120.0
 offset_right = 514.0
 offset_bottom = 130.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t1dhk")
 
 [node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer"]
@@ -573,6 +590,7 @@ speed = 4.0
 [node name="Spacer" type="Control" parent="TiltControl/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ButtonCont" type="Node2D" parent="TiltControl/VBoxContainer"]
 position = Vector2(423.448, 208.716)
@@ -631,8 +649,9 @@ metadata/_custom_type_script = "uid://4egkkeg4db5e"
 stream = ExtResource("7_cp0ys")
 bus = &"SFX"
 
-[node name="UISoundController" type="Node" parent="."]
+[node name="UISoundController" type="Node" parent="." node_paths=PackedStringArray("exceptions")]
 script = ExtResource("8_trj04")
+exceptions = [NodePath("../Coin")]
 button_hovered = ExtResource("9_16hvj")
 metadata/_custom_type_script = "uid://b5oej1q4h7jvh"
 
@@ -643,11 +662,3 @@ notification_scene = ExtResource("10_vr1f0")
 
 [node name="UIEnter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_t1dhk")
-
-[node name="Coin" parent="." instance=ExtResource("13_5egv6")]
-layout_mode = 1
-anchors_preset = 15
-offset_left = 1193.0
-offset_top = 238.0
-offset_right = -473.0
-offset_bottom = -672.0
