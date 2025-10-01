@@ -26,6 +26,7 @@ func _ready() -> void:
 		inst.label.text = TITLES[i+1]
 		inst.tip_label.text = "TIP: " + TIPS[i+1]
 		inst.og_pos = inst.position
+		inst.name = "Settings%s" % str(i+1)
 		buttons.append(inst)
 	for _button in buttons:
 		_button.connect("self_pressed", _on_pressed)

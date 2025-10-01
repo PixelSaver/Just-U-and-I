@@ -12,6 +12,7 @@ func _ready() -> void:
 		#queue_free()
 
 func interacted_with():
+	#TODO When clicking rapidly, blue coin freezes in the air
 	if par_name in Global.blue_coins_collected: return
 	throw_dir.x = randf_range(-1,1)
 	_on_pressed()

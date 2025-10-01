@@ -133,6 +133,8 @@ func start_main_menu():
 		inst.position.y = i*130
 		inst.connect("self_pressed", _on_pressed)
 		inst.init_position()
+		if i == TITLES.size()-1:
+			inst.has_blue_coin = false
 	
 	await get_tree().process_frame
 	
@@ -153,3 +155,5 @@ func start_main_menu():
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
+	if Input.is_action_just_pressed("blue_coin"):
+		notif_man.show_notification("You have collected [color=#0cb0ff]%s blue coins!" % str(Global.coins_collected.size()))

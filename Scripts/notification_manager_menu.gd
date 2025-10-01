@@ -13,7 +13,7 @@ func _ready():
 	Global.blue_coin_collected.connect(_on_bc_collected)
 
 func _on_bc_collected(bc_name:String):
-	pass
+	show_notification("You just collected [color=#0cb0ff]1 blue coin!")
 
 func show_notification(message: String):
 	if not notification_scene: return
