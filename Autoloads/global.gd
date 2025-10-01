@@ -18,6 +18,7 @@ var state : States = States.MAIN_MENU
 var root : Node
 
 var coins_collected = []
+var blue_coins_collected = []
 
 func go_main_menu():
 	for child in root.get_children():
