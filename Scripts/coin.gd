@@ -18,6 +18,8 @@ func _on_pressed() -> void:
 	top_level = true
 	clicked = true
 	Global.coins_collected.append(coin_id)
+	#TODO Add coin collected sound and animation for text
+	
 	var dur : float = 2
 	
 	rigidbody.apply_central_impulse(throw_dir.normalized() * Vector2(1000,-20000))

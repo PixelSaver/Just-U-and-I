@@ -132,3 +132,7 @@ func start_main_menu():
 	for tween in all_t:
 		tween.get_parent().global_position = tween.get_final_pos()
 		tmenu.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, duration)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("coin"):
+		notif_man.show_notification("You have collected %s coins!" % str(Global.coins_collected.size()))
