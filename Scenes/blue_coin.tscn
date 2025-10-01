@@ -102,8 +102,8 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_4d02t")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"flip",
 "speed": 5.0
 }]
 
@@ -143,6 +143,7 @@ shape = SubResource("CircleShape2D_g537i")
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_d2prd")
+animation = &"flip"
 speed_scale = 5.0
 
 [node name="CoinCollected" type="AudioStreamPlayer" parent="."]

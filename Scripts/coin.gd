@@ -18,11 +18,15 @@ func _ready():
 	if coin_id in Global.coins_collected:
 		queue_free()
 
+func _on_collected():
+	Global.coins_collected.append(coin_id)
+
 func _on_pressed() -> void:
 	disabled = true
 	#top_level = true
+	z_index += 1
 	clicked = true
-	Global.coins_collected.append(coin_id)
+	_on_collected()
 	collected.emit(self)
 	#TODO Add coin collected notification and text saying +1
 	coin_audio.play()

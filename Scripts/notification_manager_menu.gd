@@ -10,6 +10,9 @@ class_name NotificationManagerMenu
 var notification_queue: Array[Node2D] = []
 
 func _ready():
+	Global.blue_coin_collected.connect(_on_bc_collected)
+
+func _on_bc_collected(bc_name:String):
 	pass
 
 func show_notification(message: String):
@@ -25,7 +28,6 @@ func show_notification(message: String):
 	label.append_text(message)
 	label.reset_size()
 	var size_x = label.size.x
-	print("size %s" % size_x)
 	notif.get_node("Control").size.x = size_x + 40
 	notif.position.x = -notif.get_node("Label").size.x + 265
 	

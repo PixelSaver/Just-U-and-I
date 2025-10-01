@@ -2,6 +2,7 @@ extends Button
 class_name ButtonMenu
 
 signal self_pressed(val:ButtonMenu)
+@export var has_blue_coin : bool = true
 @export var button_border: Panel 
 @export var button_text: RichTextLabel 
 @export var button_bg: ColorRect 
@@ -54,6 +55,8 @@ func _on_mouse_exited() -> void:
 	unhovered.kill()
 
 func _on_button_down() -> void:
+	if has_blue_coin:
+		Global.collect_blue_coin(self)
 	self_pressed.emit(self)
 
 

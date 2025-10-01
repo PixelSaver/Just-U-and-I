@@ -603,10 +603,22 @@ mouse_filter = 2
 [node name="ButtonCont" type="Node2D" parent="TiltControl/VBoxContainer"]
 position = Vector2(423.448, 208.716)
 
-[node name="ButtonMenu" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+[node name="Button" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
 offset_left = -400.0
 offset_top = 140.0
 offset_bottom = 250.0
+
+[node name="BlueCoin" type="Node" parent="TiltControl/VBoxContainer/ButtonCont/Button"]
+
+[node name="Button2" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+
+[node name="BlueCoin" type="Node" parent="TiltControl/VBoxContainer/ButtonCont/Button2"]
+
+[node name="Button3" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+
+[node name="BlueCoin" type="Node" parent="TiltControl/VBoxContainer/ButtonCont/Button3"]
+
+[node name="Button4" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
 
 [node name="RestOfIt" type="Node2D" parent="."]
 position = Vector2(404, 207)

@@ -17,8 +17,19 @@ var state : States = States.MAIN_MENU
 
 var root : Node
 
+signal blue_coin_collected
 var coins_collected = []
-var blue_coins_collected = []
+var blue_coins_collected = [] : 
+	set(val):
+		blue_coins_collected = val
+		blue_coin_collected.emit(val.back())
+
+func collect_blue_coin(node:Node):
+	var bc_scene = load("res://Scenes/blue_coin.tscn").instantiate() as BlueCoin
+	node.add_child(bc_scene)
+	bc_scene.interacted_with()
+	bc_scene.rotation = -bc_scene.get_global_transform().get_rotation()
+	bc_scene.global_position = node.global_position
 
 func go_main_menu():
 	for child in root.get_children():
