@@ -14,8 +14,7 @@ var original_pos : Vector2
 @export var hbox : Control
 @export var mouse_catch : Control
 
-func _ready() -> void:
-	await get_tree().get_first_node_in_group("MainMenu").ready
+func init_position() -> void:
 	original_pos = position
 	mouse_catch.position = -pos_offset
 

@@ -13,18 +13,6 @@ const OS_MENU = preload("res://Scenes/os_menu.tscn")
 
 func _ready() -> void:
 	Global.state = Global.States.MAIN_MENU
-	
-	for child in button_placement_container.get_children():
-		child.queue_free()
-	for i in range(TITLES.size()):
-		var inst = BUTTON_SCENE.instantiate() as ButtonMenu
-		buttons.append(inst)
-		button_placement_container.add_child(inst)
-		inst.button_text.text = TITLES[i]
-		inst.position.y = i*130
-		inst.connect("self_pressed", _on_pressed)
-	
-	await get_tree().process_frame
 	start_main_menu()
 
 func _on_pressed(val:ButtonMenu):
@@ -33,14 +21,13 @@ func _on_pressed(val:ButtonMenu):
 	match text:
 		TITLES[0]: # Play
 			#TODO Add transition to OS
+			Global.state = Global.States.OS_MENU
 			end_main_menu()
 			var os = OS_MENU.instantiate()
 			get_parent().add_child(os)
 			os.start_anim()
 			os.modulate.a = 0
-			var tw = create_tween().tween_property(os, "modulate:a", 1, 1.8).set_ease(Tween.EASE_OUT)
-			await tw.finished
-			Global.state = Global.States.OS_MENU
+			var tw = create_tween().tween_property(os, "modulate:a", 1, 1.4).set_ease(Tween.EASE_OUT)
 		TITLES[1]: # Options
 			ui_enter.play()
 			handoff_to_setting()
@@ -81,6 +68,7 @@ func all_tweenables() -> Array[Tweenable]:
 	return out
 
 func handoff_to_setting():
+	Global.state = Global.States.SETTINGS
 	var sett = SETTINGS_MENU.instantiate()
 	sett.modulate = Color(Color.WHITE,0)
 	get_parent().add_child(sett)
@@ -100,22 +88,38 @@ func handoff_to_setting():
 	
 	
 	
-	await tsett.finished
-	Global.state = Global.States.SETTINGS
-	queue_free()
 
 func end_main_menu():
 	var tmenu = create_tween()
 	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
 	for but in buttons:
+		if !but: 
+			tmenu.kill()
+			return
 		tmenu.tween_property(but, "position", but.position + (buttons[0].position - but.position)*.7, duration)
 	tmenu.tween_property(self, "modulate", Color(Color.WHITE,0), duration*1.5)
 	
 	var all_t = all_tweenables()
 	for tween in all_t:
 		tmenu.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), duration)
+	
+	await tmenu.finished
+	queue_free()
 
 func start_main_menu():
+	for child in button_placement_container.get_children():
+		child.queue_free()
+	for i in range(TITLES.size()):
+		var inst = BUTTON_SCENE.instantiate() as ButtonMenu
+		buttons.append(inst)
+		button_placement_container.add_child(inst)
+		inst.button_text.text = TITLES[i]
+		inst.position.y = i*130
+		inst.connect("self_pressed", _on_pressed)
+		inst.init_position()
+	
+	await get_tree().process_frame
+	
 	var tmenu = create_tween()
 	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
 	#TODO If you want then animate the buttons, just reverse this code

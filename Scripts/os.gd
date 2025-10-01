@@ -34,6 +34,7 @@ func start_anim(dur:float=1.2):
 	
 	#t.tween_property(self, "modulate:a", 1, dur)
 	
+	load_programs()
 	
 	for thing in tweenables:
 		var table = thing as Tweenable
@@ -42,27 +43,29 @@ func start_anim(dur:float=1.2):
 		table.get_parent().global_position = table.get_final_pos()
 		t.tween_property(table.get_parent(), "global_position", table.og_gl_pos, dur)
 	
-	#load_programs()
 	
 	await t.finished
 	is_start_animating = false
 
 func end_anim():
-	if is_animating_programs or is_start_animating: return
-	var is_start_animating = true
+	if is_animating_programs or is_start_animating or Global.state != Global.States.OS_MENU: return
+	Global.state = Global.States.MAIN_MENU
 	
-	var hide_duration = 0.5
-	# For SettingsMenu
+	var dur = 1.2
+	
 	var t_os = create_tween()
-	t_os.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN)
-	var all_t = tweenables
-	for thing in all_t:
-		var tween = thing as Tweenable
-		t_os.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), hide_duration + tween.speed/25)
-	t_os.tween_property(self, "modulate", Color(Color.WHITE,0), hide_duration*1.2)
+	t_os.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
+	for thing in tweenables:
+		var table = thing as Tweenable
+		if table.has_method("custom_tween"):
+			table.custom_tween(t_os, dur, true)
+		t_os.tween_property(table.get_parent(), "global_position", table.get_final_pos(), dur)
+	t_os.tween_property(self, "modulate:a", 0, dur)
+	
+	Global.go_main_menu()
 	
 	await t_os.finished
-	Global.state = Global.States.MAIN_MENU
+	queue_free()
 
 func all_t():
 	var out : Array[Tweenable] = []
@@ -116,7 +119,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			last_ms_pos = get_local_mouse_position().x
 			last_scroll = scroll
-	if Global.state != Global.States.OS_MENU: return
+	if Global.state != Global.States.OS_MENU or is_start_animating: return
 	if Input.is_action_pressed("scroll_down"): 
 		scroll += 185
 	if Input.is_action_pressed("scroll_up"): 
@@ -127,6 +130,7 @@ func _input(event: InputEvent) -> void:
 		end_anim()
 	
 func _physics_process(delta: float) -> void:
+	if Global.state != Global.States.OS_MENU: return
 	if time_since_start < programs.size():
 		time_since_start += delta * 25
 	
