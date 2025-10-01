@@ -5,7 +5,7 @@ class_name OSMenu
 @onready var programs : Array = program_parent.get_children()
 @export var tween_parents : Array[Node]
 @onready var tweenables : Array
-@export var bg : Control
+@export var bg_arr : Array[Control]
 @export var title : Control
 
 var scroll = 0.0
@@ -109,8 +109,12 @@ func _physics_process(delta: float) -> void:
 		time_since_start += delta * 25
 	
 	program_parent.position.x += ((38 - scroll) - program_parent.position.x) * 0.2
-	title.position.x = program_parent.position.x * 0.7
-	bg.position.x = program_parent.position.x * 0.3
+	title.position.x = program_parent.position.x * 0.6
+	# parllax!
+	for i in range(bg_arr.size()):
+		var layer_index := bg_arr.size() - i  
+		bg_arr[i].position.x = program_parent.position.x * \
+				pow(0.6, layer_index+1)
 	
 	if programs.size() > 0:
 		var last_program = programs.back() as Program
