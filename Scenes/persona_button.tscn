@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxc444o24k70h"]
+
+[ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_s2wmk"]
+[ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_epj5s"]
+
+[node name="PersonaMenuButton" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+offset_right = 250.0
+offset_bottom = 250.0
+theme = ExtResource("1_s2wmk")
+
+[node name="holder" type="Node2D" parent="."]
+
+[node name="bg" type="Panel" parent="holder"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(125, 125)
+mouse_filter = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(129, 71)
+scale = Vector2(3, 3)
+texture = ExtResource("2_epj5s")

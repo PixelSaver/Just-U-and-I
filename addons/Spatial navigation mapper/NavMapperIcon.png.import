@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3bfocduel2mn"
-path="res://.godot/imported/PointerIcon.png-8d3be62c742447a13ffb9b834bb94327.ctex"
+uid="uid://qq38wdpjlm1p"
+path="res://.godot/imported/NavMapperIcon.png-29f89f2b866089016677871096bcea75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/spatial_navigation_addon/PointerIcon.png"
-dest_files=["res://.godot/imported/PointerIcon.png-8d3be62c742447a13ffb9b834bb94327.ctex"]
+source_file="res://addons/Spatial navigation mapper/NavMapperIcon.png"
+dest_files=["res://.godot/imported/NavMapperIcon.png-29f89f2b866089016677871096bcea75.ctex"]
 
 [params]
 
