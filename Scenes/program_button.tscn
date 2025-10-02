@@ -13,6 +13,7 @@ offset_left = 391.0
 offset_top = 228.0
 offset_right = 865.0
 offset_bottom = 553.0
+mouse_force_pass_scroll_events = false
 theme = ExtResource("1_xod1k")
 script = ExtResource("1_yly6v")
 program_sprite = NodePath("Border/Control/ProgramArt")

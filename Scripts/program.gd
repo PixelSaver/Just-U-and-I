@@ -10,14 +10,18 @@ signal flash_finished
 
 var sprite_og_pos : Vector2
 var is_hovered : bool = false
+var is_focused : bool = false
 var spin_speed : float = 0
 var idle_tween : Tween
 var hover_tween : Tween
+enum InputMode { MOUSE, KEYBOARD }
+var current_input_mode : InputMode = InputMode.MOUSE
+var last_mouse_pos : Vector2 = Vector2.ZERO
 
 func _ready():
 	sprite_og_pos = program_sprite.position
-	_on_mouse_exited()
-	self.pivot_offset = size/2
+	apply_idle_state()
+	self.pivot_offset = size / 2
 
 func flash(rect:Vector2, i, dur=1):
 	var flash = ColorRect.new()
@@ -25,74 +29,109 @@ func flash(rect:Vector2, i, dur=1):
 	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	flash.size.y = rect.y * 2.2
 	flash.size.x = 800
-	flash.pivot_offset = flash.size/2
-	flash.position = -flash.size/3.3
+	flash.pivot_offset = flash.size / 2
+	flash.position = -flash.size / 3.3
 	flash.scale.y = rect.y
-	
 	flash.rotation = 45
 	flash.show_behind_parent = true
 	add_child(flash)
-	
-	
-	var t = create_tween().set_trans(Tween.TRANS_CUBIC)
-	t.set_ease(Tween.EASE_OUT)
-	t.tween_property(flash, "size:x", 0, dur+ i/8)
+	var t = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	t.tween_property(flash, "size:x", 0, dur + i / 8)
 	t.finished.connect(func(): 
 		if flash and is_instance_valid(flash):
 			flash.queue_free()
 			flash_finished.emit()
 	)
 
-func _on_mouse_entered() -> void:
+func _input(event: InputEvent) -> void:
+	if Global.state != Global.States.OS_MENU:
+		return
+	if event is InputEventMouseMotion:
+		current_input_mode = InputMode.MOUSE
+		last_mouse_pos = event.position
+		update_hover_by_mouse()
+	elif event is InputEventKey and event.pressed:
+		current_input_mode = InputMode.KEYBOARD
+		update_focus_by_keyboard(event)
+	if Input.is_action_just_pressed("click_left") and is_hovered:
+		Global.collect_blue_coin(self)
+
+func update_hover_by_mouse():
+	if current_input_mode != InputMode.MOUSE:
+		return
+	var mouse_over = Rect2(Vector2.ZERO, get_rect().size).has_point(get_local_mouse_position())
+	if mouse_over:
+		if Global.mouse_focus_owner and Global.mouse_focus_owner != self:
+			return # another node already owns mouse focus
+		Global.mouse_focus_owner = self
+		is_hovered = true
+		is_focused = true
+		apply_hover_state()
+	else:
+		if Global.mouse_focus_owner == self:
+			Global.mouse_focus_owner = null
+		is_hovered = false
+		is_focused = false
+		apply_idle_state()
+
+func update_focus_by_keyboard(event: InputEventKey):
+	if current_input_mode != InputMode.KEYBOARD:
+		return
+	is_focused = true
+	is_hovered = false
+	apply_hover_state()
+
+func apply_hover_state():
+	if has_focus(): return
 	grab_focus()
 	program_hov.play()
-	is_hovered = true
 	z_index = 1
 	if idle_tween:
 		idle_tween.kill()
 	if hover_tween:
 		hover_tween.kill()
-	
 	flash(size, 0, 0.5)
-	
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(program_sprite, "position", sprite_og_pos, 0.3)
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
 
-func _on_mouse_exited() -> void:
-	release_focus()
-	is_hovered = false
-	if hover_tween:
-		hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
-		hover_tween.tween_property(self, "scale", Vector2.ONE * 1.0, 0.3)
-		await hover_tween.finished
-		hover_tween.kill()
+func apply_idle_state():
 	z_index = 0
-	
+	if hover_tween:
+		hover_tween.kill()
+	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
+	hover_tween.tween_property(self, "scale", Vector2.ONE, 0.3)
 	if idle_tween:
 		idle_tween.kill()
-	
 	idle_tween = create_tween().set_loops()
 	var time = (Time.get_ticks_msec() * 0.001) * spin_speed
 	var radius = 5.0
 	var duration = 2.0
-	
 	for angle in range(0, 360, 30):
 		var rad = deg_to_rad(angle + time)
 		var wave = Vector2(cos(rad) * radius, sin(rad) * radius)
 		var target = sprite_og_pos + spr_offset + wave
 		idle_tween.tween_property(program_sprite, "position", target, duration / 12.0)
 
-func _input(event: InputEvent) -> void:
-	if Global.state != Global.States.OS_MENU or not is_hovered: return
-	if Input.is_action_just_pressed("click_left"):
-		print("clicked on: %s" % str(self.name))
-		Global.collect_blue_coin(self)
+func _on_mouse_entered() -> void:
+	current_input_mode = InputMode.MOUSE
+	is_hovered = true
+	is_focused = true
+	apply_hover_state()
 
+func _on_mouse_exited() -> void:
+	current_input_mode = InputMode.MOUSE
+	is_hovered = false
+	is_focused = false
+	apply_idle_state()
 
 func _on_focus_entered() -> void:
-	_on_mouse_entered()
-
+	current_input_mode = InputMode.KEYBOARD
+	is_focused = true
+	is_hovered = false
+	apply_hover_state()
 
 func _on_focus_exited() -> void:
-	_on_mouse_exited()
+	is_focused = false
+	is_hovered = false
+	apply_idle_state()

@@ -15,6 +15,8 @@ enum States {
 #var state : States = States.LOGO
 var state : States = States.MAIN_MENU
 
+var mouse_focus_owner : Node = null
+
 var root : Node
 
 signal blue_coin_collected
