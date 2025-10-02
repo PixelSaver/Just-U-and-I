@@ -130,7 +130,16 @@ metadata/_custom_type_script = "uid://cptcdpctlsjk3"
 
 [sub_resource type="Resource" id="Resource_foy4m"]
 script = ExtResource("10_nstff")
-ElementsToMap = Array[NodePath]([NodePath("../ProgramCont/Program13"), NodePath("../ProgramCont/Program14")])
+ElementsToMap = Array[NodePath]([NodePath("../ProgramCont/Program13")])
+TopEntrySelectionIndex = 0
+LeftEntrySelectionIndex = 0
+RightEntrySelectionIndex = 0
+BottomEntrySelectionIndex = 0
+metadata/_custom_type_script = "uid://cptcdpctlsjk3"
+
+[sub_resource type="Resource" id="Resource_nstff"]
+script = ExtResource("10_nstff")
+ElementsToMap = Array[NodePath]([NodePath("../ProgramCont/Program14")])
 TopEntrySelectionIndex = 0
 LeftEntrySelectionIndex = 0
 RightEntrySelectionIndex = 0
@@ -253,16 +262,6 @@ Left = NodePath("../ProgramCont/Program8")
 Up = NodePath("")
 Right = NodePath("../ProgramCont/Program14")
 Down = NodePath("")
-
-[sub_resource type="Resource" id="Resource_vgg0k"]
-script = ExtResource("11_vgg0k")
-container_id = 1
-origin = NodePath("../ProgramCont/Program14")
-Left = NodePath("../ProgramCont/Program13")
-Up = NodePath("")
-Right = NodePath("")
-Down = NodePath("")
-metadata/_custom_type_script = "uid://dfo8ktpwj1lkm"
 
 [node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin", "focus_first")]
 layout_mode = 3
@@ -1805,7 +1804,7 @@ offset_left = 4400.0
 offset_top = 150.0
 offset_right = 5400.0
 offset_bottom = 930.0
-focus_neighbor_left = NodePath("../Program13")
+focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
@@ -1866,8 +1865,8 @@ notification_scene = ExtResource("8_oqyd7")
 [node name="Navigation mapper" type="Node" parent="."]
 script = ExtResource("9_odcqt")
 auto_update = 1
-Element_groups = Array[ExtResource("10_nstff")]([SubResource("Resource_1m7nh"), SubResource("Resource_6nfgg"), SubResource("Resource_foy4m")])
-navigation_references = Array[ExtResource("11_vgg0k")]([SubResource("Resource_hbeln"), SubResource("Resource_kk31x"), SubResource("Resource_pma1m"), SubResource("Resource_s5tje"), SubResource("Resource_286mi"), SubResource("Resource_2l8m2"), SubResource("Resource_tv5ll"), SubResource("Resource_perh6"), SubResource("Resource_usd8v"), SubResource("Resource_p6vtl"), SubResource("Resource_ah3a4"), SubResource("Resource_oltf8"), SubResource("Resource_peef2"), SubResource("Resource_vgg0k")])
+Element_groups = Array[ExtResource("10_nstff")]([SubResource("Resource_1m7nh"), SubResource("Resource_6nfgg"), SubResource("Resource_foy4m"), SubResource("Resource_nstff")])
+navigation_references = Array[ExtResource("11_vgg0k")]([SubResource("Resource_hbeln"), SubResource("Resource_kk31x"), SubResource("Resource_pma1m"), SubResource("Resource_s5tje"), SubResource("Resource_286mi"), SubResource("Resource_2l8m2"), SubResource("Resource_tv5ll"), SubResource("Resource_perh6"), SubResource("Resource_usd8v"), SubResource("Resource_p6vtl"), SubResource("Resource_ah3a4"), SubResource("Resource_oltf8"), SubResource("Resource_peef2")])
 ContainerTex = ExtResource("12_jw2nx")
 metadata/_custom_type_script = "uid://xp3dj8wgkxb7"
 
@@ -2550,51 +2549,8 @@ text = "D"
 [node name="Pointers 2" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
 anchors_preset = 0
 
-[node name="@NinePatchRect@73971" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 2"]
-modulate = Color(0.73, 0.22, 0.6, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 4900.0
-offset_top = 535.0
-offset_right = 4921.0
-offset_bottom = 1305.0
-rotation = 1.5708
-texture = ExtResource("13_rt0qk")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("14_d6ssv")
-
-[node name="@Label@73972" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 2/@NinePatchRect@73971"]
-layout_mode = 0
-offset_left = -0.499939
-offset_top = 375.5
-offset_right = 0.500061
-offset_bottom = 398.5
-rotation = -1.5708
-text = "R"
-
-[node name="@NinePatchRect@73796" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 2"]
-modulate = Color(0.67, 0.85, 0.36, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 3150.0
-offset_top = 545.0
-offset_right = 3171.0
-offset_bottom = 1815.0
-rotation = -1.5708
-texture = ExtResource("13_rt0qk")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("14_d6ssv")
-
-[node name="@Label@73797" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 2/@NinePatchRect@73796"]
-layout_mode = 0
-offset_left = 22.4999
-offset_top = 620.5
-offset_right = 31.4999
-offset_bottom = 643.5
-rotation = 1.5708
-text = "L"
+[node name="Pointers 3" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
+anchors_preset = 0
 
 [node name="Container parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
 anchors_preset = 0
@@ -2649,6 +2605,28 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 2144.0
 offset_top = 144.0
+offset_right = 4156.0
+offset_bottom = 936.0
+texture = ExtResource("12_jw2nx")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="@Label@335822" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 2"]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 62.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+text = "Group 2"
+
+[node name="Container of group 3" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Container parent"]
+modulate = Color(1, 0.765, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 4394.0
+offset_top = 144.0
 offset_right = 5406.0
 offset_bottom = 936.0
 texture = ExtResource("12_jw2nx")
@@ -2657,13 +2635,13 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="@Label@73795" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 2"]
+[node name="@Label@68488" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 3"]
 layout_mode = 0
 offset_top = -10.0
 offset_right = 1.0
 offset_bottom = 13.0
 scale = Vector2(0.5, 0.5)
-text = "Group 2"
+text = "Group 3"
 
 [node name="Group pointer parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
 anchors_preset = 0
@@ -2757,6 +2735,52 @@ offset_left = 22.5
 offset_top = 144.5
 offset_right = 31.5
 offset_bottom = 167.5
+rotation = 1.5708
+text = "L"
+
+[node name="@NinePatchRect@68489" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.98, 0.13, 0.4, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 4394.0
+offset_top = 535.0
+offset_right = 4415.0
+offset_bottom = 793.0
+rotation = 1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@68490" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@68489"]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 119.5
+offset_right = 0.5
+offset_bottom = 142.5
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@68491" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.39, 0.93, 0.59, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 4156.0
+offset_top = 545.0
+offset_right = 4177.0
+offset_bottom = 803.0
+rotation = -1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@68492" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@68491"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 118.5
+offset_right = 23.5
+offset_bottom = 141.5
 rotation = 1.5708
 text = "L"
 

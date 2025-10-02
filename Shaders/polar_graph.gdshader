@@ -81,8 +81,11 @@ void fragment()
     // Add glow effect
     float glow = exp(-d * 0.5) * 0.05;
     col += glow * curveColor;
+	col *= vec3(0.7803921568627451, 0.34901960784313724, 0.8862745098039215);
     
-    COLOR = vec4(col, smoothstep(.0,1.,length(uv)));
+	float alpha = 1.0 - smoothstep(0.0, 8.8, length(uv));
+	
+    COLOR = vec4(col, alpha);
 }
 
 //void light() {

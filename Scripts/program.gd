@@ -45,15 +45,18 @@ func flash(rect:Vector2, i, dur=1):
 func _gui_input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU:
 		return
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and (event as InputEventMouse).relative:
 		current_input_mode = InputMode.MOUSE
+		print("mouse, %s" % current_input_mode)
 		#last_mouse_pos = event.position
 		update_hover_by_mouse()
-	elif event is InputEventKey and event.pressed:
-		#current_input_mode = InputMode.KEYBOARD
+	if event is InputEventKey and event.pressed:
+		current_input_mode = InputMode.KEYBOARD
+		print("keyboard, %s" % current_input_mode)
 		update_focus_by_keyboard(event)
 	if Input.is_action_just_pressed("click_left") and is_hovered:
 		Global.collect_blue_coin(self)
+	print("input mode: %s" % current_input_mode)
 
 func update_hover_by_mouse():
 	if current_input_mode != InputMode.MOUSE:
@@ -128,13 +131,32 @@ func _on_mouse_exited() -> void:
 
 func _on_focus_entered() -> void:
 	current_input_mode = InputMode.KEYBOARD
+	if not get_viewport_rect().encloses(get_global_rect()): print("input mode: %s" % current_input_mode)
+	if not get_viewport_rect().encloses(get_global_rect()) and current_input_mode == InputMode.KEYBOARD: 
+		var par : OSMenu = null
+		for child in Global.root.get_children():
+			if child is OSMenu:
+				par = child
+		if not par: return
+		var out = check_out_of_bounds(self)
+		var t = create_tween()
+		t.tween_property(par, "scroll", par.scroll + (out.y+100) * out.x , 0.3)
 	is_hovered = false
 	apply_hover_state()
 
 func _on_focus_exited() -> void:
-	#if current_input_mode == InputMode.MOUSE and is_hovered:
-		#grab_focus()
-		#return
-	print_debug("focus owners is now: %s" % str(Global.focus_owners) + "\n")
 	is_hovered = false
 	apply_idle_state()
+
+func check_out_of_bounds(control: Control) -> Vector2:
+	var view_rect: Rect2 = get_viewport_rect()
+	var rect: Rect2 = control.get_global_rect()   # use global rect, not local
+
+	if rect.position.x < view_rect.position.x:
+		print("Left out by: ", view_rect.position.x - rect.position.x)
+		return Vector2(-1, view_rect.position.x - rect.position.x)
+
+	if rect.end.x > view_rect.end.x:
+		print("Right out by: ", rect.end.x - view_rect.end.x)
+		return Vector2(1, rect.end.x - view_rect.end.x)
+	return Vector2.ZERO
