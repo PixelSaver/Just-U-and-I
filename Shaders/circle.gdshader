@@ -14,5 +14,5 @@ void fragment() {
 
     float ring = step(inner, dist) - step(outer, dist);
 
-    COLOR = vec4(vec3(1.0), ring);
+    COLOR = vec4(modulate.xyz, ring * modulate.q);
 }

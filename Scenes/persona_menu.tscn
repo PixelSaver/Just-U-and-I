@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=25 format=3 uid="uid://c1vr4rrfdxbfi"]
 
 [ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
@@ -14,9 +14,15 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1anme"]
 shader = ExtResource("4_alxqq")
-shader_parameter/radius = 0.25
-shader_parameter/thickness = 0.02
-shader_parameter/modulate = Vector4(1, 1, 1, 1)
+shader_parameter/radius = 0.5
+shader_parameter/thickness = 0.1
+shader_parameter/modulate = Vector4(0.5, 0.8, 0.9, 0.7)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alxqq"]
+shader = ExtResource("4_alxqq")
+shader_parameter/radius = 0.5
+shader_parameter/thickness = 0.1
+shader_parameter/modulate = Vector4(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_ffww0"]
 script = ExtResource("6_alxqq")
@@ -130,8 +136,15 @@ theme = ExtResource("1_qdfaw")
 script = ExtResource("1_7p40m")
 selector = NodePath("Selector")
 
+[node name="Bg" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
-visible = false
 anchors_preset = 0
 script = ExtResource("2_75o0k")
 x = NodePath("x")
@@ -144,7 +157,7 @@ offset_left = -20.0
 offset_top = -1000.0
 offset_right = 20.0
 offset_bottom = 1000.0
-color = Color(0.178212, 0.178212, 0.178212, 0.380392)
+color = Color(0.176471, 0.176471, 0.176471, 0.764706)
 
 [node name="x" type="ColorRect" parent="Selector"]
 layout_mode = 0
@@ -152,16 +165,26 @@ offset_left = -1750.0
 offset_top = -20.0
 offset_right = 1750.0
 offset_bottom = 20.0
-color = Color(0.178212, 0.178212, 0.178212, 0.380392)
+color = Color(0.176471, 0.176471, 0.176471, 0.764706)
 
 [node name="circle" type="ColorRect" parent="Selector"]
 modulate = Color(0.359454, 0.760728, 0.912759, 1)
 material = SubResource("ShaderMaterial_1anme")
 layout_mode = 0
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
+
+[node name="circle2" type="ColorRect" parent="Selector/circle"]
+modulate = Color(0.359454, 0.760728, 0.912759, 1)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_alxqq")
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 160.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Selector"]
 

@@ -2,6 +2,7 @@ extends Button
 class_name PersonaButton
 
 signal flash_finished
+@export var is_title_bar := false
 @export var button_sprite : Sprite2D 
 @export var button_label : RichTextLabel
 @export var button_desc_label : RichTextLabel
