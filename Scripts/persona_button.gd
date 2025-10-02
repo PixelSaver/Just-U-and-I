@@ -2,136 +2,38 @@ extends Button
 class_name PersonaButton
 
 signal flash_finished
-@export var program_sprite : Sprite2D 
-@export var program_label : RichTextLabel
-@export var program_desc : String
+@export var button_sprite : Sprite2D 
+@export var button_label : RichTextLabel
+@export var button_description : String
 @export var spr_offset : Vector2 = Vector2(3, 18)
-@export var program_hov : AudioStreamPlayer
+@export var persona_hov : AudioStreamPlayer
+@onready var input_handler : InputHandler = $InputHandler
+@onready var menu : PersonaMenu = get_tree().get_first_node_in_group("PersonaMenu")
 
-var sprite_og_pos : Vector2
-var is_hovered : bool = false
-var spin_speed : float = 0
-var idle_tween : Tween
 var hover_tween : Tween
-enum InputMode { MOUSE, KEYBOARD }
-var current_input_mode : InputMode = InputMode.MOUSE
-var last_mouse_pos : Vector2 = Vector2.ZERO
 
 func _ready():
-	sprite_og_pos = program_sprite.position
-	apply_idle_state()
 	self.pivot_offset = size / 2
-
-func _gui_input(event: InputEvent) -> void:
-	if Global.state != Global.States.OS_MENU:
-		return
-	if event is InputEventMouseMotion and (event as InputEventMouse).relative:
-		current_input_mode = InputMode.MOUSE
-		#last_mouse_pos = event.position
-		update_hover_by_mouse()
-	if event is InputEventKey and event.pressed:
-		current_input_mode = InputMode.KEYBOARD
-		update_focus_by_keyboard(event)
-	if Input.is_action_just_pressed("click_left") and is_hovered:
-		Global.collect_blue_coin(self)
-
-func update_hover_by_mouse():
-	if current_input_mode != InputMode.MOUSE:
-		return
-	var mouse_over = Rect2(Vector2.ZERO, get_rect().size).has_point(get_local_mouse_position())
-	if mouse_over:
-		#print("mouse over node: %s" % str(self.name))
-		#print("is hov: %s, has focus: %s" % [is_hovered, has_focus()])
-		#if Global.mouse_focus_owner and Global.mouse_focus_owner != self:
-			#return # another node already owns mouse focus
-		if is_hovered and not has_focus(): 
-			pass
-			#apply_hover_state()
-		elif is_hovered: return
-		#Global.mouse_focus_owner = self
-		is_hovered = true
-		#apply_hover_state()
-	else:
-		#if Global.mouse_focus_owner == self:
-			#Global.mouse_focus_owner = null
-		is_hovered = false
-		apply_idle_state()
-
-func update_focus_by_keyboard(event: InputEventKey):
-	if current_input_mode != InputMode.KEYBOARD:
-		return
-	is_hovered = false
-	if has_focus():
-		apply_hover_state()
-
-func apply_hover_state():
-	if not is_hovered and not has_focus(): return
-	if program_hov:
-		program_hov.play()
+	input_handler.connect("activated", manual_foc_entered)
+	input_handler.connect("deactivated", manual_foc_exited)
+	
+func manual_foc_entered():
+	if persona_hov:
+		persona_hov.play()
 	z_index = 1
-	if idle_tween:
-		idle_tween.kill()
 	if hover_tween:
 		hover_tween.kill()
+		
+	menu.update_selector(self)
+		
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
-	hover_tween.tween_property(program_sprite, "position", sprite_og_pos, 0.3)
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
-
-func apply_idle_state():
+	
+func manual_foc_exited():
 	if z_index == 0: return
 	z_index = 0
 	if hover_tween:
 		hover_tween.kill()
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(self, "scale", Vector2.ONE, 0.3)
-	if idle_tween:
-		idle_tween.kill()
-	idle_tween = create_tween().set_loops()
-	var time = (Time.get_ticks_msec() * 0.001) * spin_speed
-	var radius = 5.0
-	var duration = 2.0
-	for angle in range(0, 360, 30):
-		var rad = deg_to_rad(angle + time)
-		var wave = Vector2(cos(rad) * radius, sin(rad) * radius)
-		var target = sprite_og_pos + spr_offset + wave
-		idle_tween.tween_property(program_sprite, "position", target, duration / 12.0)
-
-func _on_mouse_entered() -> void:
-	if not has_focus(): 
-		grab_focus()
-	is_hovered = true
-	apply_hover_state()
-
-func _on_mouse_exited() -> void:
-	is_hovered = false
-	apply_idle_state()
-
-func _on_focus_entered() -> void:
-	if not get_viewport_rect().encloses(get_global_rect()): print("input mode: %s" % current_input_mode)
-	if not get_viewport_rect().encloses(get_global_rect()) and current_input_mode == InputMode.KEYBOARD: 
-		var par : OSMenu = null
-		for child in Global.root.get_children():
-			if child is OSMenu:
-				par = child
-		if not par: return
-		var out = check_out_of_bounds(self)
-		var t = create_tween()
-		t.tween_property(par, "scroll", par.scroll + (out.y+100) * out.x , 0.3)
-	apply_hover_state()
-
-func _on_focus_exited() -> void:
-	is_hovered = false
-	apply_idle_state()
-
-func check_out_of_bounds(control: Control) -> Vector2:
-	var view_rect: Rect2 = get_viewport_rect()
-	var rect: Rect2 = control.get_global_rect()   # use global rect, not local
-
-	if rect.position.x < view_rect.position.x:
-		print("Left out by: ", view_rect.position.x - rect.position.x)
-		return Vector2(-1, view_rect.position.x - rect.position.x)
-
-	if rect.end.x > view_rect.end.x:
-		print("Right out by: ", rect.end.x - view_rect.end.x)
-		return Vector2(1, rect.end.x - view_rect.end.x)
-	return Vector2.ZERO
+	

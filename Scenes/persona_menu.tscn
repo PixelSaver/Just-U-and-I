@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=4 format=3 uid="uid://c1vr4rrfdxbfi"]
 
+[ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
+[ext_resource type="Script" uid="uid://v5vqh1tmu3pv" path="res://Scripts/persona_selector.gd" id="2_75o0k"]
 
-[node name="PersonaMenu" type="Control"]
+[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector") groups=["PersonaMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +13,30 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
+script = ExtResource("1_7p40m")
+selector = NodePath("Selector")
+
+[node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y")]
+anchors_preset = 0
+script = ExtResource("2_75o0k")
+x = NodePath("x")
+y = NodePath("y")
+
+[node name="y" type="ColorRect" parent="Selector"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -463.0
+offset_right = 20.0
+offset_bottom = 463.0
+
+[node name="x" type="ColorRect" parent="Selector"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -463.0
+offset_right = 20.0
+offset_bottom = 463.0
+rotation = -1.57079
+pivot_offset = Vector2(20, 464)
 
 [node name="ButtonCont" type="Control" parent="."]
 layout_mode = 1
@@ -22,28 +48,8 @@ grow_vertical = 2
 
 [node name="PersonaMenuButton" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 814.0
-offset_top = 257.0
-offset_right = 1064.0
-offset_bottom = 507.0
-
-[node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
-layout_mode = 0
-offset_left = 1270.0
-offset_top = 536.0
-offset_right = 1520.0
-offset_bottom = 786.0
-
-[node name="PersonaMenuButton3" parent="ButtonCont" instance=ExtResource("1_a26al")]
-layout_mode = 0
-offset_left = 633.0
-offset_top = 552.0
-offset_right = 883.0
-offset_bottom = 802.0
-
-[node name="PersonaMenuButton4" parent="ButtonCont" instance=ExtResource("1_a26al")]
-layout_mode = 0
-offset_left = 1200.0
-offset_top = 127.0
-offset_right = 1450.0
-offset_bottom = 377.0
+anchors_preset = 0
+offset_left = 1272.0
+offset_top = 201.0
+offset_right = 1422.0
+offset_bottom = 351.0

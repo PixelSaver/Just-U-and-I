@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/Spatial navigation mapper/plugin.cfg", "
 [global_group]
 
 MainMenu=""
+PersonaMenu=""
 
 [input]
 

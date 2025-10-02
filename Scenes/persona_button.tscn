@@ -1,24 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxc444o24k70h"]
+[gd_scene load_steps=5 format=3 uid="uid://cxc444o24k70h"]
 
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_s2wmk"]
 [ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_epj5s"]
 [ext_resource type="Script" uid="uid://mqk1ld67b1iq" path="res://Scripts/persona_button.gd" id="2_j8wfi"]
+[ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_j8wfi"]
 
-[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("program_sprite")]
+[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("button_sprite")]
 custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
 offset_right = 150.0
 offset_bottom = 150.0
 theme = ExtResource("1_s2wmk")
 script = ExtResource("2_j8wfi")
-program_sprite = NodePath("Sprite2D")
+button_sprite = NodePath("holder/Sprite2D")
 
 [node name="holder" type="Node2D" parent="."]
+position = Vector2(75, 20)
 
 [node name="bg" type="Panel" parent="holder"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 150.0
+offset_left = -125.0
+offset_right = 25.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -26,7 +30,14 @@ rotation = 0.785398
 pivot_offset = Vector2(125, 125)
 mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(131, 30)
+[node name="Sprite2D" type="Sprite2D" parent="holder"]
+position = Vector2(0, 30.245)
 scale = Vector2(1.52273, 1.52273)
 texture = ExtResource("2_epj5s")
+
+[node name="InputHandler" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_j8wfi")
+metadata/_custom_type_script = "uid://dphkmqhipj8ve"
