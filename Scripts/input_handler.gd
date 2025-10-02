@@ -1,85 +1,87 @@
 extends Control
 class_name InputHandler
 
-signal hovered(node: Control)
-signal unhovered(node: Control)
-signal clicked(node: Control)
-signal input_mode_changed(mode: InputMode)
+signal activated()
+signal deactivated()
+signal clicked()
 
 enum InputMode { MOUSE, KEYBOARD }
+
+@onready var parent = get_parent() as Control
 var current_input_mode: InputMode = InputMode.MOUSE
-var is_hovered: bool = false
+var is_hovered_mouse: bool = false
+var is_active: bool = false
 
 func _ready() -> void:
 	set_process_input(true)
 	mouse_filter = Control.MOUSE_FILTER_PASS
-	
+	parent.connect("focus_entered", par_foc_entered)
+	parent.connect("focus_exited", par_foc_exited)
+	parent.connect("mouse_entered", par_mouse_entered)
+	parent.connect("mouse_exited", par_mouse_exited)
 
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and (event as InputEventMouse).relative:
+func manual_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
 		current_input_mode = InputMode.MOUSE
 		update_hover_by_mouse()
-	elif event is InputEventKey and event.pressed:
+	if event is InputEventKey and event.pressed:
 		current_input_mode = InputMode.KEYBOARD
-		update_focus_by_keyboard(event)
-		if has_focus():
-			emit_hover()
-	if Input.is_action_just_pressed("click_left") and is_hovered:
-		clicked.emit(self)
+		update_hover_by_keyboard()
+	#print("input mode: %s" % str(current_input_mode))
 
-func apply_hover():
-	if not is_hovered and not has_focus(): return
-	grab_focus()
+func update_hover_by_keyboard():
+	if current_input_mode != InputMode.KEYBOARD: return
+	if parent.has_focus():
+		activated.emit() 
+	else:
+		deactivated.emit()
 
-func update_hover_by_mouse():
+#func update_active_state() -> void:
+	#var should_be_active: bool = false
+	#
+	#if current_input_mode == InputMode.MOUSE:
+		#should_be_active = is_hovered_mouse
+	#else: # KEYBOARD
+		#should_be_active = parent.has_focus()
+	#
+	#if should_be_active != is_active:
+		#is_active = should_be_active
+		#if is_active:
+			#activated.emit()
+			#parent.grab_focus()
+		#else:
+			#deactivated.emit()
+
+func update_hover_by_mouse(override=false):
 	if current_input_mode != InputMode.MOUSE:
 		return
-	var mouse_over = Rect2(Vector2.ZERO, get_parent().get_rect().size).has_point(get_local_mouse_position())
-	if mouse_over:
-		#print("mouse over node: %s" % str(self.name))
-		#print("is hov: %s, has focus: %s" % [is_hovered, has_focus()])
-		#if Global.mouse_focus_owner and Global.mouse_focus_owner != self:
-			#return # another node already owns mouse focus
-		if is_hovered and not has_focus(): 
-			hovered.emit()
-		elif is_hovered: return
-		#Global.mouse_focus_owner = self
-		is_hovered = true
-		hovered.emit()
+	
+	if not override:
+		is_hovered_mouse = Rect2(Vector2.ZERO, parent.get_rect().size).has_point(get_local_mouse_position())
+	
+	if is_hovered_mouse:
+		activated.emit()
+		parent.grab_focus()
 	else:
-		#if Global.mouse_focus_owner == self:
-			#Global.mouse_focus_owner = null
-		is_hovered = false
-		unhovered.emit()
+		deactivated.emit()
+		#parent.grab_focus()
+	
+	#if mouse_over and not parent.has_focus():
+		#parent.grab_focus()
+	
+	#update_active_state()
 
-func update_focus_by_keyboard(event: InputEventKey):
-	if current_input_mode != InputMode.KEYBOARD:
-		return
-	is_hovered = false
-	if has_focus():
-		hovered.emit()
+func par_foc_entered() -> void:
+	activated.emit()
 
-func update_hover() -> void:
-	var mouse_over = Rect2(Vector2.ZERO, get_rect().size).has_point(get_local_mouse_position())
-	if mouse_over:
-		if not is_hovered:
-			emit_hover()
-	else:
-		if is_hovered:
-			emit_unhover()
+func par_foc_exited() -> void:
+	deactivated.emit()
 
-func emit_hover() -> void:
-	is_hovered = true
-	get_parent().grab_focus()
-	hovered.emit(self)
+func par_mouse_exited() -> void:
+	is_hovered_mouse = false
+	update_hover_by_mouse(true)
 
-func emit_unhover() -> void:
-	is_hovered = false
-	unhovered.emit(self)
-
-func _on_focus_entered() -> void:
-	if current_input_mode == InputMode.KEYBOARD:
-		emit_hover()
-
-func _on_focus_exited() -> void:
-	emit_unhover()
+func par_mouse_entered() -> void:
+	current_input_mode = InputMode.MOUSE
+	is_hovered_mouse = true
+	update_hover_by_mouse(true)

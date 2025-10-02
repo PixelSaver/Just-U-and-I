@@ -76,6 +76,7 @@ bus = &"SFX"
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("5_236nq")
 metadata/_custom_type_script = "uid://dphkmqhipj8ve"
 

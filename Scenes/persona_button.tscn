@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxc444o24k70h"]
+[gd_scene load_steps=4 format=3 uid="uid://cxc444o24k70h"]
 
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_s2wmk"]
 [ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_epj5s"]
+[ext_resource type="Script" uid="uid://mqk1ld67b1iq" path="res://Scripts/persona_button.gd" id="2_j8wfi"]
 
-[node name="PersonaMenuButton" type="Button"]
+[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("program_sprite")]
 custom_minimum_size = Vector2(100, 100)
 offset_right = 150.0
 offset_bottom = 150.0
 theme = ExtResource("1_s2wmk")
+script = ExtResource("2_j8wfi")
+program_sprite = NodePath("Sprite2D")
 
 [node name="holder" type="Node2D" parent="."]
 
