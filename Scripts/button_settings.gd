@@ -10,6 +10,7 @@ signal is_ready(val:ButtonSettings)
 @export var margin_label : MarginContainer
 @export var tip_panel : Panel
 @export var tip_label : RichTextLabel
+@onready var input_handler : InputHandler = $InputHandler
 var og_pos : Vector2 = Vector2.ZERO
 var og_size : Vector2 
 var tip_pos : Vector2
@@ -20,6 +21,11 @@ func _ready() -> void:
 	tip_pos = tip_panel.global_position
 	tip_panel.modulate = Color(Color.WHITE, 0.5)
 	is_ready.emit(self)
+
+func _gui_input(event: InputEvent) -> void:
+	#TODO Implement keyboard navigable for settings menu
+	#input_handler.manual_gui_input(event)
+	pass
 
 func _on_button_down() -> void:
 	Global.collect_blue_coin(self)

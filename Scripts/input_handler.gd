@@ -13,6 +13,7 @@ var is_hovered_mouse: bool = false
 var is_active: bool = false
 
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_process_input(true)
 	mouse_filter = Control.MOUSE_FILTER_PASS
 	parent.connect("focus_entered", par_foc_entered)

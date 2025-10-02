@@ -33,6 +33,14 @@ func _ready() -> void:
 		_button.connect("hover", _on_hover)
 		_button.connect("unhover", _on_unhover)
 		_button.connect("is_ready", _on_button_ready)
+	for i in range(buttons.size()-1):
+		if i == 0:
+			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
+		elif i == buttons.size()-1:
+			buttons[i].focus_neighbor_top = buttons[i-1].get_path()
+		else:
+			buttons[i].focus_neighbor_top = buttons[i-1].get_path()
+			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
 
 func _process(delta: float) -> void:
 	if Global.state == Global.States.SETTINGS and Input.is_action_just_pressed("esc") and not is_animating:

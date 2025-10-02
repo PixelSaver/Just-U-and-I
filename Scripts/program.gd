@@ -50,52 +50,11 @@ func _gui_input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU:
 		return
 	input_handler.manual_gui_input(event)
-	#if event is InputEventMouseMotion and (event as InputEventMouse).relative:
-		#current_input_mode = InputMode.MOUSE
-		#print("mouse, %s" % current_input_mode)
-		##last_mouse_pos = event.position
-		#update_hover_by_mouse()
-	#if event is InputEventKey and event.pressed:
-		#current_input_mode = InputMode.KEYBOARD
-		#print("keyboard, %s" % current_input_mode)
-		#update_focus_by_keyboard(event)
 	if Input.is_action_just_pressed("click_left") and is_hovered:
 		Global.collect_blue_coin(self)
-	#print("input mode: %s" % current_input_mode)
-#
-#func update_hover_by_mouse():
-	#if current_input_mode != InputMode.MOUSE:
-		#return
-	#var mouse_over = Rect2(Vector2.ZERO, get_rect().size).has_point(get_local_mouse_position())
-	#if mouse_over:
-		##print("mouse over node: %s" % str(self.name))
-		##print("is hov: %s, has focus: %s" % [is_hovered, has_focus()])
-		##if Global.mouse_focus_owner and Global.mouse_focus_owner != self:
-			##return # another node already owns mouse focus
-		##if is_hovered and not has_focus(): 
-			##pass
-			###apply_hover_state()
-		#if is_hovered: return
-		##Global.mouse_focus_owner = self
-		#is_hovered = true
-		##apply_hover_state()
-	#else:
-		##if Global.mouse_focus_owner == self:
-			##Global.mouse_focus_owner = null
-		#is_hovered = false
-		#apply_idle_state()
-#
-#func update_focus_by_keyboard(event: InputEventKey):
-	#if current_input_mode != InputMode.KEYBOARD:
-		#return
-	#is_hovered = false
-	#if has_focus():
-		#apply_hover_state()
 
 func apply_hover_state():
-	#if not is_hovered and not has_focus(): return
 	if z_index == 1: return
-	#grab_focus()
 	program_hov.play()
 	z_index = 1
 	if idle_tween:
@@ -128,21 +87,11 @@ func apply_idle_state():
 		var target = sprite_og_pos + spr_offset + wave
 		idle_tween.tween_property(program_sprite, "position", target, duration / 12.0)
 
-#func _on_mouse_entered() -> void:
-	#if not has_focus(): 
-		#grab_focus()
-	#is_hovered = true
-	#apply_hover_state()
-#
-#func _on_mouse_exited() -> void:
-	#is_hovered = false
-	#apply_idle_state()
-
 func man_focus_entered() -> void:
 	#print(str(name) + " hovered")
-	current_input_mode = InputMode.KEYBOARD
+	#current_input_mode = InputMode.KEYBOARD
 	#if not get_viewport_rect().encloses(get_global_rect()): print("input mode: %s" % current_input_mode)
-	if not get_viewport_rect().encloses(get_global_rect()) and current_input_mode == InputMode.KEYBOARD: 
+	if input_handler.current_input_mode == input_handler.InputMode.KEYBOARD: 
 		var par : OSMenu = null
 		for child in Global.root.get_children():
 			if child is OSMenu:
@@ -154,10 +103,6 @@ func man_focus_entered() -> void:
 	#is_hovered = false
 	apply_hover_state()
 
-func manual_focus_exited() -> void:
-	print(str(name) + " unhovered")
-	#is_hovered = false
-	apply_idle_state()
 
 func check_out_of_bounds(control: Control) -> Vector2:
 	var view_rect: Rect2 = get_viewport_rect()
