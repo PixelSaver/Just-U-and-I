@@ -1,10 +1,11 @@
-[gd_scene load_steps=50 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=53 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
 [ext_resource type="PackedScene" uid="uid://d3vy4r68f4hr1" path="res://Scenes/program_button.tscn" id="3_8yt1f"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="3_70lpx"]
 [ext_resource type="Shader" uid="uid://c658gnjr3w520" path="res://Shaders/spinny_box.gdshader" id="5_70lpx"]
+[ext_resource type="Shader" uid="uid://biegct42hti2a" path="res://Shaders/polar_graph.gdshader" id="5_nstff"]
 [ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="5_ub4qb"]
 [ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="7_xjnpq"]
 [ext_resource type="PackedScene" uid="uid://bdjuwj54t4v07" path="res://Scenes/notification_os.tscn" id="8_oqyd7"]
@@ -99,6 +100,15 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70lpx"]
 shader = ExtResource("5_70lpx")
+
+[sub_resource type="Theme" id="Theme_nstff"]
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgg0k"]
+shader = ExtResource("5_nstff")
 
 [sub_resource type="Resource" id="Resource_1m7nh"]
 script = ExtResource("10_nstff")
@@ -276,6 +286,7 @@ color = Color(0, 0, 0, 1)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_group_ = true
 
 [node name="Bg" type="Control" parent="BGHolder"]
 modulate = Color(0.629041, 0.00289747, 0.896669, 1)
@@ -1777,6 +1788,66 @@ offset_right = -969.0
 offset_bottom = -309.0
 coin_id = "os_menu"
 
+[node name="Program14" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
+modulate = Color(0.780392, 0.34902, 0.886275, 1)
+layout_mode = 0
+offset_left = 4400.0
+offset_top = 150.0
+offset_right = 5400.0
+offset_bottom = 930.0
+focus_neighbor_left = NodePath("../Program6")
+focus_neighbor_top = NodePath("../Program7")
+focus_neighbor_right = NodePath("../Program13")
+focus_neighbor_bottom = NodePath("../Program8")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+
+[node name="Control" parent="ProgramCont/Program14/Border" index="0"]
+visible = false
+
+[node name="ProgramArt" parent="ProgramCont/Program14/Border/Control" index="0"]
+visible = false
+
+[node name="RichTextLabel" parent="ProgramCont/Program14/MarginContainer" index="0"]
+z_index = 1
+
+[node name="MarginContainer2" type="Control" parent="ProgramCont/Program14"]
+modulate = Color(0.945098, 0.670588, 0.878431, 1)
+material = SubResource("ShaderMaterial_oqyd7")
+clip_contents = true
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_nstff")
+
+[node name="Shader" type="ColorRect" parent="ProgramCont/Program14/MarginContainer2"]
+modulate = Color(0.0705882, 0.0941176, 0.403922, 1)
+material = SubResource("ShaderMaterial_vgg0k")
+custom_minimum_size = Vector2(990, 990)
+layout_mode = 2
+offset_top = -100.0
+offset_right = 1000.0
+offset_bottom = 900.0
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="ProgramCont/Program14/MarginContainer2"]
+modulate = Color(0.0705882, 0.0941176, 0.403922, 0.498039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="NotificationManager" type="Node2D" parent="."]
 position = Vector2(1401, 853)
 script = ExtResource("7_xjnpq")
@@ -2635,3 +2706,4 @@ text = "L"
 
 [editable path="ProgramCont/Program"]
 [editable path="ProgramCont/Program13"]
+[editable path="ProgramCont/Program14"]
