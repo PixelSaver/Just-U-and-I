@@ -58,7 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.247059, 0, 0.458824, 1)
+color = Color(0.352941, 0.231373, 0.45098, 1)
 
 [node name="Tweenable" type="Node" parent="Bgbg"]
 script = ExtResource("5_jjs6x")

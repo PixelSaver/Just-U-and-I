@@ -89,7 +89,7 @@ void fragment() {
     vec3 ray_dir = normalize(vec3(uv * 0.7, 1.0));
 
     vec3 col = vec3(0.0);
-    float alph = 1.0;
+    float alph = 183./255.;
     float tot_dist = 0.0;
     int index;
 
