@@ -18,3 +18,4 @@ func update_selector(node:Control):
 	selector.circle.scale = Vector2.ONE * 0.5
 	s.set_ease(Tween.EASE_OUT)
 	s.tween_property(selector.circle, "scale", Vector2.ONE*2.5*node.scale, selector_dur)
+	s.tween_property(selector, "bar_width", 60*node.scale.x, selector_dur)

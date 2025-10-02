@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform float radius = .5;
-uniform float thickness = .1;
+uniform float thickness = .4;
 uniform vec4 modulate = vec4(vec3(1.), 1.);
 
 void fragment() {

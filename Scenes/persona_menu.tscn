@@ -175,7 +175,6 @@ mouse_filter = 2
 
 [node name="PersonaMenuButton9" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 67.0
 offset_top = 36.0
 offset_right = 217.0
@@ -190,7 +189,6 @@ focus_previous = NodePath(".")
 
 [node name="PersonaMenuButton6" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 191.0
 offset_top = 40.0
 offset_right = 341.0
@@ -205,7 +203,6 @@ focus_previous = NodePath(".")
 
 [node name="PersonaMenuButton7" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 316.0
 offset_top = 44.0
 offset_right = 466.0
@@ -220,7 +217,6 @@ focus_previous = NodePath(".")
 
 [node name="PersonaMenuButton8" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 445.0
 offset_top = 49.0
 offset_right = 595.0
@@ -244,7 +240,6 @@ mouse_filter = 2
 
 [node name="PersonaMenuButton" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 1272.0
 offset_top = 201.0
 offset_right = 1422.0
@@ -258,7 +253,6 @@ focus_previous = NodePath(".")
 
 [node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 1409.0
 offset_top = 620.0
 offset_right = 1559.0
@@ -272,7 +266,6 @@ focus_previous = NodePath(".")
 
 [node name="PersonaMenuButton3" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 1277.0
 offset_top = 489.0
 offset_right = 1427.0
@@ -286,7 +279,6 @@ focus_previous = NodePath(".")
 
 [node name="PersonaMenuButton4" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 1408.0
 offset_top = 339.0
 offset_right = 1558.0
@@ -300,7 +292,6 @@ focus_previous = NodePath(".")
 
 [node name="PersonaMenuButton5" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 1269.0
 offset_top = 768.0
 offset_right = 1419.0
