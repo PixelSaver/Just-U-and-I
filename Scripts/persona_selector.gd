@@ -15,3 +15,4 @@ var bar_width : float = 0 :
 func _ready():
 	bar_width = x.size.y
 	circle.pivot_offset = circle.size / 2
+	self.show()

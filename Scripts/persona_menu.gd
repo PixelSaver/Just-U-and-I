@@ -9,6 +9,7 @@ func _ready() -> void:
 var selector_dur : float = 0.6
 var s : Tween
 func update_selector(node:Control):
+	print("selected")
 	if s: s.kill()
 	s = create_tween().set_trans(Tween.TRANS_QUINT).set_parallel(true)
 	s.set_ease(Tween.EASE_OUT)

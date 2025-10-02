@@ -131,6 +131,7 @@ script = ExtResource("1_7p40m")
 selector = NodePath("Selector")
 
 [node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
+visible = false
 anchors_preset = 0
 script = ExtResource("2_75o0k")
 x = NodePath("x")
@@ -250,6 +251,7 @@ focus_neighbor_right = NodePath("../PersonaMenuButton4")
 focus_neighbor_bottom = NodePath("../PersonaMenuButton4")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+button_title = "Menu"
 
 [node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -276,6 +278,7 @@ focus_neighbor_right = NodePath("../PersonaMenuButton2")
 focus_neighbor_bottom = NodePath("../PersonaMenuButton2")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+button_title = "Items"
 
 [node name="PersonaMenuButton4" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -289,6 +292,7 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../PersonaMenuButton3")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+button_title = "Masterpiece"
 
 [node name="PersonaMenuButton5" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
