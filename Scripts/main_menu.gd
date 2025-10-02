@@ -161,4 +161,4 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 	if Input.is_action_just_pressed("blue_coin"):
-		notif_man.show_notification("You have collected [color=#0cb0ff]%s blue coins!" % str(Global.coins_collected.size()))
+		notif_man.show_notification("You have collected [color=#0cb0ff]%s blue coins!" % str(Global.blue_coins_collected.size()))

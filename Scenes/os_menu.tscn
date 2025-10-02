@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=27 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="3_70lpx"]
 [ext_resource type="Shader" uid="uid://c658gnjr3w520" path="res://Shaders/spinny_box.gdshader" id="5_70lpx"]
 [ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="5_ub4qb"]
+[ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="7_xjnpq"]
+[ext_resource type="PackedScene" uid="uid://bdjuwj54t4v07" path="res://Scenes/notification_os.tscn" id="8_oqyd7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -83,7 +85,7 @@ skew = Vector2(-1, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70lpx"]
 shader = ExtResource("5_70lpx")
 
-[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title")]
+[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,6 +100,7 @@ program_parent = NodePath("ProgramCont")
 tween_parents = [NodePath("Title"), NodePath("Bg"), NodePath("Bg2"), NodePath("Bg3"), NodePath("Bg4")]
 bg_arr = [NodePath("Bg"), NodePath("Bg2"), NodePath("Bg3"), NodePath("Bg4")]
 title = NodePath("Title")
+notif_man = NodePath("NotificationManager")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
@@ -1514,6 +1517,11 @@ offset_top = 399.0
 offset_right = -706.57
 offset_bottom = -309.0
 coin_id = "os_menu"
+
+[node name="NotificationManager" type="Node2D" parent="."]
+position = Vector2(1401, 853)
+script = ExtResource("7_xjnpq")
+notification_scene = ExtResource("8_oqyd7")
 
 [editable path="ProgramCont/Program"]
 [editable path="ProgramCont/Program13"]

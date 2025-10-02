@@ -7,6 +7,7 @@ class_name OSMenu
 @onready var tweenables : Array
 @export var bg_arr : Array[Control]
 @export var title : Control
+@export var notif_man : NotificationManagerMenu
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -128,6 +129,10 @@ func _input(event: InputEvent) -> void:
 		#start_anim()
 	if Input.is_action_just_pressed("esc"):
 		end_anim()
+	if Input.is_action_just_pressed("coin"):
+		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
+	if Input.is_action_just_pressed("blue_coin"):
+		notif_man.show_notification("You have collected [color=#0cb0ff]%s blue coins!" % str(Global.blue_coins_collected.size()))
 	
 func _physics_process(delta: float) -> void:
 	if Global.state != Global.States.OS_MENU: return

@@ -59,12 +59,12 @@ func _on_mouse_entered() -> void:
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
 
 func _on_mouse_exited() -> void:
+	is_hovered = false
 	if hover_tween:
 		hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 		hover_tween.tween_property(self, "scale", Vector2.ONE * 1.0, 0.3)
 		await hover_tween.finished
 		hover_tween.kill()
-	is_hovered = false
 	z_index = 0
 	
 	if idle_tween:

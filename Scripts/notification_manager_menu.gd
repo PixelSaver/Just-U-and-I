@@ -32,7 +32,8 @@ func show_notification(message: String):
 	notif.position.x = -notif.get_node("Label").size.x + 265
 	
 	for tween in all_tweenables(notif):
-		tween.manual_init()
+		if tween.has_method("manual_init"):
+			tween.manual_init()
 	
 	_update_positions()
 	
