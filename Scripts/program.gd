@@ -10,7 +10,6 @@ signal flash_finished
 
 var sprite_og_pos : Vector2
 var is_hovered : bool = false
-var is_focused : bool = false
 var spin_speed : float = 0
 var idle_tween : Tween
 var hover_tween : Tween
@@ -43,15 +42,15 @@ func flash(rect:Vector2, i, dur=1):
 			flash_finished.emit()
 	)
 
-func _input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU:
 		return
 	if event is InputEventMouseMotion:
 		current_input_mode = InputMode.MOUSE
-		last_mouse_pos = event.position
+		#last_mouse_pos = event.position
 		update_hover_by_mouse()
 	elif event is InputEventKey and event.pressed:
-		current_input_mode = InputMode.KEYBOARD
+		#current_input_mode = InputMode.KEYBOARD
 		update_focus_by_keyboard(event)
 	if Input.is_action_just_pressed("click_left") and is_hovered:
 		Global.collect_blue_coin(self)
@@ -61,28 +60,31 @@ func update_hover_by_mouse():
 		return
 	var mouse_over = Rect2(Vector2.ZERO, get_rect().size).has_point(get_local_mouse_position())
 	if mouse_over:
-		if Global.mouse_focus_owner and Global.mouse_focus_owner != self:
-			return # another node already owns mouse focus
-		Global.mouse_focus_owner = self
+		#print("mouse over node: %s" % str(self.name))
+		#print("is hov: %s, has focus: %s" % [is_hovered, has_focus()])
+		#if Global.mouse_focus_owner and Global.mouse_focus_owner != self:
+			#return # another node already owns mouse focus
+		if is_hovered and not has_focus(): 
+			apply_hover_state()
+		elif is_hovered: return
+		#Global.mouse_focus_owner = self
 		is_hovered = true
-		is_focused = true
 		apply_hover_state()
 	else:
-		if Global.mouse_focus_owner == self:
-			Global.mouse_focus_owner = null
+		#if Global.mouse_focus_owner == self:
+			#Global.mouse_focus_owner = null
 		is_hovered = false
-		is_focused = false
 		apply_idle_state()
 
 func update_focus_by_keyboard(event: InputEventKey):
 	if current_input_mode != InputMode.KEYBOARD:
 		return
-	is_focused = true
 	is_hovered = false
-	apply_hover_state()
+	if has_focus():
+		apply_hover_state()
 
 func apply_hover_state():
-	if has_focus(): return
+	if not is_hovered and not has_focus(): return
 	grab_focus()
 	program_hov.play()
 	z_index = 1
@@ -96,6 +98,7 @@ func apply_hover_state():
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
 
 func apply_idle_state():
+	if z_index == 0: return
 	z_index = 0
 	if hover_tween:
 		hover_tween.kill()
@@ -114,24 +117,24 @@ func apply_idle_state():
 		idle_tween.tween_property(program_sprite, "position", target, duration / 12.0)
 
 func _on_mouse_entered() -> void:
-	current_input_mode = InputMode.MOUSE
+	if not has_focus(): 
+		grab_focus()
 	is_hovered = true
-	is_focused = true
 	apply_hover_state()
 
 func _on_mouse_exited() -> void:
-	current_input_mode = InputMode.MOUSE
 	is_hovered = false
-	is_focused = false
 	apply_idle_state()
 
 func _on_focus_entered() -> void:
 	current_input_mode = InputMode.KEYBOARD
-	is_focused = true
 	is_hovered = false
 	apply_hover_state()
 
 func _on_focus_exited() -> void:
-	is_focused = false
+	#if current_input_mode == InputMode.MOUSE and is_hovered:
+		#grab_focus()
+		#return
+	print_debug("focus owners is now: %s" % str(Global.focus_owners) + "\n")
 	is_hovered = false
 	apply_idle_state()
