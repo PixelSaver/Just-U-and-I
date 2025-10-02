@@ -89,13 +89,11 @@ func handoff_to_setting():
 	
 	end_main_menu()
 	
-	# For SettingsMenu
 	sett.settings_show()
-	
-	
-	
 
 func end_main_menu():
+	if is_animating: return
+	is_animating = true;
 	ui_sound_cont.disabled = true
 	
 	var tmenu = create_tween()
@@ -114,7 +112,10 @@ func end_main_menu():
 	await tmenu.finished
 	queue_free()
 
+var is_animating = false;
 func start_main_menu():
+	if is_animating: return
+	is_animating = true;
 	for child in Global.root.get_children():
 		if child is MainMenu and child != self:
 			child.queue_free()
@@ -148,8 +149,12 @@ func start_main_menu():
 	for tween in all_t:
 		tween.get_parent().global_position = tween.get_final_pos()
 		tmenu.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, duration)
+	
+	await tmenu.finished
+	is_animating = false
 
 func _input(event: InputEvent) -> void:
+	if Global.state != Global.States.MAIN_MENU or is_animating: return
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 	if Input.is_action_just_pressed("blue_coin"):
