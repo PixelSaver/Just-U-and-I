@@ -199,10 +199,10 @@ dir = Vector2(1, 1)
 speed = 3.50374
 
 [node name="Panel4" type="Panel" parent="bgTitle"]
-offset_left = -70.0036
-offset_top = -303.349
-offset_right = 39.9964
-offset_bottom = -106.349
+offset_left = 7.07111
+offset_top = -189.505
+offset_right = 117.071
+offset_bottom = 7.49538
 theme = ExtResource("1_7y5a0")
 
 [node name="Tweenable_169" parent="bgTitle/Panel4" instance=ExtResource("4_fe37x")]

@@ -7,7 +7,7 @@ class_name SettingsMenu
 @export var all_parents : Array[Node] 
 var buttons : Array[ButtonSettings] = []
 const TITLES = ["SOUND VOLUME", "AUDIO VOLUME", "FULLSCREEN", "HOW TO PLAY"]
-const TIPS = ["BUTTONS ARE FOR CLICKING", "BUTTONS ARE FOR CLICKING", "BUTTONS ARE FOR CLICKING", "CLICK WITH YOUR MOUSE!"]
+const TIPS = ["THIS SCREEN IS POINTLESS", "BUTTONS ARE FOR CLICKING", "I GOT LAZY TO CODE THIS", "CLICK WITH YOUR MOUSE!"]
 const MAIN_MENU : PackedScene = preload("res://Scenes/main_menu.tscn")
 var duration : float = 0.15
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 	button.position = title.position + Vector2.ONE*200 + Vector2(0,15)
 	buttons.append(button)
 	button.label.text = TITLES[0]
-	button.tip_label.text = TIPS[0]
+	button.tip_label.text = "TIP: " + TIPS[0]
 	button.og_pos = button.position
 	button.get_child
 	for i in range(3):
@@ -35,10 +35,27 @@ func _ready() -> void:
 		_button.connect("is_ready", _on_button_ready)
 
 func _process(delta: float) -> void:
-	if Global.state == Global.States.SETTINGS and Input.is_action_just_pressed("esc"):
+	if Global.state == Global.States.SETTINGS and Input.is_action_just_pressed("esc") and not is_animating:
 		settings_hide()
 
+var is_animating := false
+func settings_show():
+	if is_animating: return
+	is_animating = true
+	var tsett = create_tween()
+	tsett.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN_OUT)
+	var all_t = all_tweenables()
+	for thing in all_t:
+		var tween = thing as Tweenable
+		tween.get_parent().global_position = tween.get_final_pos()
+		tsett.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, duration + tween.speed/25)
+	tsett.tween_property(self, "modulate", Color(Color.WHITE,1), duration*1.2)
+	await tsett.finished
+	is_animating = false
+
 func settings_hide():
+	if is_animating: return
+	is_animating = true
 	Global.state = Global.States.MAIN_MENU
 	
 	var hide_duration = 0.5
