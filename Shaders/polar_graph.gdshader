@@ -82,7 +82,7 @@ void fragment()
     float glow = exp(-d * 0.5) * 0.05;
     col += glow * curveColor;
     
-    COLOR = vec4(col, 0.5);
+    COLOR = vec4(col, smoothstep(.0,1.,length(uv)));
 }
 
 //void light() {
