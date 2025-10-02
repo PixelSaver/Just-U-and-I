@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=27 format=3 uid="uid://c1vr4rrfdxbfi"]
 
 [ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_qdfaw"]
 [ext_resource type="Script" uid="uid://v5vqh1tmu3pv" path="res://Scripts/persona_selector.gd" id="2_75o0k"]
+[ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="3_1anme"]
 [ext_resource type="Shader" uid="uid://bqi7i102c32f4" path="res://Shaders/circle.gdshader" id="4_alxqq"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="5_xufce"]
 [ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="6_alxqq"]
@@ -12,17 +13,28 @@
 [ext_resource type="Texture2D" uid="uid://0bvvm2klmnpu" path="res://addons/Spatial navigation mapper/arrow.png" id="9_x2w82"]
 [ext_resource type="Script" uid="uid://b81cl62nafe4i" path="res://addons/Spatial navigation mapper/SpatNavPointer.gd" id="10_w5yue"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckf1w"]
+shader = ExtResource("3_1anme")
+shader_parameter/angle_degrees = 31.614
+shader_parameter/stripe_width = 0.252
+shader_parameter/separation = 0.325
+shader_parameter/color_a = Color(0.803922, 0.870588, 0.505882, 0.262745)
+shader_parameter/color_b = Color(0.792157, 0.439216, 0.211765, 0.196078)
+shader_parameter/smoothness = 0.0
+shader_parameter/tiling = 1.977
+shader_parameter/offset = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1anme"]
 shader = ExtResource("4_alxqq")
 shader_parameter/radius = 0.5
 shader_parameter/thickness = 0.1
-shader_parameter/modulate = Vector4(0.5, 0.8, 0.9, 0.7)
+shader_parameter/modulate = Color(0.792157, 0.439216, 0.211765, 0.741176)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alxqq"]
 shader = ExtResource("4_alxqq")
 shader_parameter/radius = 0.5
 shader_parameter/thickness = 0.1
-shader_parameter/modulate = Vector4(0, 0, 0, 1)
+shader_parameter/modulate = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_ffww0"]
 script = ExtResource("6_alxqq")
@@ -144,6 +156,211 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect16" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+material = SubResource("ShaderMaterial_ckf1w")
+layout_mode = 0
+offset_left = -158.0
+offset_top = 1485.0
+offset_right = 1636.0
+offset_bottom = 2388.0
+rotation = -1.756
+color = Color(0.815686, 0.643137, 0.309804, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 749.0
+offset_right = 332.0
+offset_bottom = 877.0
+rotation = -0.19942
+color = Color(0.694118, 0.2, 0.184314, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 96.0
+offset_top = -165.0
+offset_right = 674.0
+offset_bottom = 196.0
+rotation = -0.0882909
+color = Color(0.792157, 0.439216, 0.211765, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 1191.0
+offset_top = 1367.0
+offset_right = 2985.0
+offset_bottom = 2270.0
+rotation = -1.46674
+color = Color(0.815686, 0.643137, 0.309804, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 748.0
+offset_top = -286.0
+offset_right = 1029.0
+offset_bottom = -119.0
+rotation = -1.46674
+color = Color(0.815686, 0.643137, 0.309804, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 246.0
+offset_top = 133.0
+offset_right = 353.0
+offset_bottom = 644.0
+rotation = -1.46674
+color = Color(0.815686, 0.643137, 0.309804, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 1027.0
+offset_top = -481.0
+offset_right = 1309.0
+offset_bottom = -353.0
+color = Color(0.843137, 0.796078, 0.407843, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 29.0
+offset_right = 325.0
+offset_bottom = 209.0
+rotation = 0.0806281
+color = Color(0.843137, 0.796078, 0.407843, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = -60.0
+offset_top = -213.0
+offset_right = 521.0
+offset_bottom = 371.0
+rotation = 0.101457
+color = Color(0.843137, 0.796078, 0.407843, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 1464.0
+offset_top = -494.0
+offset_right = 1746.0
+offset_bottom = -366.0
+color = Color(0.803922, 0.870588, 0.505882, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 1268.0
+offset_top = -155.0
+offset_right = 2650.0
+offset_bottom = 191.0
+rotation = 0.224647
+color = Color(0.803922, 0.870588, 0.505882, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = -209.0
+offset_top = 651.0
+offset_right = 1221.0
+offset_bottom = 1259.0
+rotation = 0.248191
+color = Color(0.803922, 0.870588, 0.505882, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = -187.0
+offset_top = 768.0
+offset_right = -124.0
+offset_bottom = 2245.0
+rotation = -1.38434
+color = Color(0.815686, 0.643137, 0.309804, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = -345.0
+offset_top = 529.0
+offset_right = 1648.0
+offset_bottom = 615.0
+rotation = 0.258033
+color = Color(0.803922, 0.870588, 0.505882, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 359.0
+offset_top = -580.0
+offset_right = 641.0
+offset_bottom = -452.0
+color = Color(0.792157, 0.439216, 0.211765, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Bg"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 0
+offset_left = 2.0
+offset_top = -611.0
+offset_right = 284.0
+offset_bottom = -483.0
+color = Color(0.694118, 0.2, 0.184314, 1)
+
+[node name="Palette" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Palette"]
+layout_mode = 0
+offset_left = 761.0
+offset_top = -132.0
+offset_right = 1043.0
+offset_bottom = -4.0
+color = Color(0.815686, 0.643137, 0.309804, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Palette"]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = -113.0
+offset_right = 1330.0
+offset_bottom = 15.0
+color = Color(0.843137, 0.796078, 0.407843, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Palette"]
+layout_mode = 0
+offset_left = 1485.0
+offset_top = -126.0
+offset_right = 1767.0
+offset_bottom = 2.0
+color = Color(0.803922, 0.870588, 0.505882, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Palette"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = -212.0
+offset_right = 662.0
+offset_bottom = -84.0
+color = Color(0.792157, 0.439216, 0.211765, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Palette"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -243.0
+offset_right = 305.0
+offset_bottom = -115.0
+color = Color(0.694118, 0.2, 0.184314, 1)
+
 [node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
 anchors_preset = 0
 script = ExtResource("2_75o0k")
@@ -157,7 +374,7 @@ offset_left = -20.0
 offset_top = -1000.0
 offset_right = 20.0
 offset_bottom = 1000.0
-color = Color(0.176471, 0.176471, 0.176471, 0.764706)
+color = Color(0.694118, 0.2, 0.184314, 0.482353)
 
 [node name="x" type="ColorRect" parent="Selector"]
 layout_mode = 0
@@ -165,26 +382,26 @@ offset_left = -1750.0
 offset_top = -20.0
 offset_right = 1750.0
 offset_bottom = 20.0
-color = Color(0.176471, 0.176471, 0.176471, 0.764706)
+color = Color(0.694118, 0.2, 0.184314, 0.482353)
 
 [node name="circle" type="ColorRect" parent="Selector"]
 modulate = Color(0.359454, 0.760728, 0.912759, 1)
 material = SubResource("ShaderMaterial_1anme")
 layout_mode = 0
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+offset_left = -62.0
+offset_top = -62.0
+offset_right = 63.0
+offset_bottom = 63.0
 
 [node name="circle2" type="ColorRect" parent="Selector/circle"]
-modulate = Color(0.359454, 0.760728, 0.912759, 1)
+modulate = Color(0.792157, 0.439216, 0.211765, 1)
 show_behind_parent = true
 material = SubResource("ShaderMaterial_alxqq")
 layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 160.0
-offset_bottom = 160.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 132.0
+offset_bottom = 132.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Selector"]
 
