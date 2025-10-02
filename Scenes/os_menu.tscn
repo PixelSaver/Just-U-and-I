@@ -85,7 +85,7 @@ skew = Vector2(-1, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70lpx"]
 shader = ExtResource("5_70lpx")
 
-[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man")]
+[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +101,7 @@ tween_parents = [NodePath("Title"), NodePath("Bg"), NodePath("Bg2"), NodePath("B
 bg_arr = [NodePath("Bg"), NodePath("Bg2"), NodePath("Bg3"), NodePath("Bg4")]
 title = NodePath("Title")
 notif_man = NodePath("NotificationManager")
+coin = NodePath("ProgramCont/Program13/MarginContainer2/Coin")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0

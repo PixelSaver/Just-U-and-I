@@ -8,6 +8,7 @@ class_name OSMenu
 @export var bg_arr : Array[Control]
 @export var title : Control
 @export var notif_man : NotificationManagerMenu
+@export var coin : Coin
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -24,6 +25,10 @@ var is_animating_programs = false
 
 func _ready() -> void:
 	tweenables = all_t()
+	coin.connect("collected", _on_coin_collected)
+
+func _on_coin_collected(coin:Coin):
+	notif_man.show_notification("You just collected [color=#ffa506]1 coin!")
 
 var is_start_animating = false
 func start_anim(dur:float=1.2):
