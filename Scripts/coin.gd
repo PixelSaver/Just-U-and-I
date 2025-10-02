@@ -11,6 +11,7 @@ signal collected(coin)
 @export var coin_audio : AudioStreamPlayer
 @export var coin_bounce : AudioStreamPlayer
 
+
 var clicked : bool = false
 var floor_dist : float = 200
 
@@ -22,6 +23,12 @@ func _on_collected():
 	Global.coins_collected.append(coin_id)
 
 func _on_pressed() -> void:
+	var og_pos = global_position
+	get_parent().remove_child(self)
+	Global.root.add_child(self)
+	global_position = og_pos
+	
+	
 	disabled = true
 	#top_level = true
 	z_index += 1

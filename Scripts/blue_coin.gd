@@ -3,6 +3,7 @@ class_name BlueCoin
 
 @onready var parent : Node = get_parent()
 @onready var par_name : String = parent.name
+var og_pos : Vector2
 
 func _ready() -> void:
 	if par_name in Global.blue_coins_collected:
@@ -12,6 +13,7 @@ func _ready() -> void:
 		#queue_free()
 
 func interacted_with():
+	global_position = og_pos
 	#TODO When clicking rapidly, blue coin freezes in the air
 	if par_name in Global.blue_coins_collected: return
 	throw_dir.x = randf_range(-1,1)

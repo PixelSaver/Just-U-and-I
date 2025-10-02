@@ -80,3 +80,8 @@ func _on_mouse_exited() -> void:
 		var wave = Vector2(cos(rad) * radius, sin(rad) * radius)
 		var target = sprite_og_pos + spr_offset + wave
 		idle_tween.tween_property(program_sprite, "position", target, duration / 12.0)
+
+func _input(event: InputEvent) -> void:
+	if Global.state != Global.States.OS_MENU or not is_hovered: return
+	if Input.is_action_just_pressed("click_left"):
+		Global.collect_blue_coin(self)

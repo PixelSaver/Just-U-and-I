@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=25 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
@@ -77,6 +77,8 @@ skew = Vector2(-1, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yt1f"]
 bg_color = Color(1, 1, 1, 1)
 skew = Vector2(-1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqyd7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70lpx"]
 shader = ExtResource("5_70lpx")
@@ -1469,6 +1471,7 @@ mouse_filter = 2
 
 [node name="MarginContainer2" type="Control" parent="ProgramCont/Program13"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
+material = SubResource("ShaderMaterial_oqyd7")
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
