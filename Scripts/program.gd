@@ -106,6 +106,8 @@ func apply_hover_state():
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(program_sprite, "position", sprite_og_pos, 0.3)
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
+	
+	man_focus_entered()
 
 func apply_idle_state():
 	if z_index == 0: return
@@ -136,7 +138,7 @@ func apply_idle_state():
 	#is_hovered = false
 	#apply_idle_state()
 
-func manual_focus_entered() -> void:
+func man_focus_entered() -> void:
 	#print(str(name) + " hovered")
 	current_input_mode = InputMode.KEYBOARD
 	#if not get_viewport_rect().encloses(get_global_rect()): print("input mode: %s" % current_input_mode)

@@ -32,25 +32,25 @@ func manual_gui_input(event: InputEvent) -> void:
 func update_hover_by_keyboard():
 	if current_input_mode != InputMode.KEYBOARD: return
 	if parent.has_focus():
-		update_active_state() 
+		activated.emit() 
 	else:
 		deactivated.emit()
 
-func update_active_state() -> void:
-	var should_be_active: bool = false
-	
-	if current_input_mode == InputMode.MOUSE:
-		should_be_active = is_hovered_mouse
-	else: # KEYBOARD
-		should_be_active = parent.has_focus()
-	
-	if should_be_active != is_active:
-		is_active = should_be_active
-		if is_active:
-			activated.emit()
-			parent.grab_focus()
-		else:
-			deactivated.emit()
+#func update_active_state() -> void:
+	#var should_be_active: bool = false
+	#
+	#if current_input_mode == InputMode.MOUSE:
+		#should_be_active = is_hovered_mouse
+	#else: # KEYBOARD
+		#should_be_active = parent.has_focus()
+	#
+	#if should_be_active != is_active:
+		#is_active = should_be_active
+		#if is_active:
+			#activated.emit()
+			#parent.grab_focus()
+		#else:
+			#deactivated.emit()
 
 func update_hover_by_mouse(override=false):
 	if current_input_mode != InputMode.MOUSE:
@@ -64,7 +64,6 @@ func update_hover_by_mouse(override=false):
 		parent.grab_focus()
 	else:
 		deactivated.emit()
-		print("mouse left BUT FUNTION: %s" % is_hovered_mouse)
 		#parent.grab_focus()
 	
 	#if mouse_over and not parent.has_focus():
@@ -73,17 +72,16 @@ func update_hover_by_mouse(override=false):
 	#update_active_state()
 
 func par_foc_entered() -> void:
-	update_hover_by_keyboard()
+	activated.emit()
 
 func par_foc_exited() -> void:
-	update_hover_by_keyboard()
+	deactivated.emit()
 
 func par_mouse_exited() -> void:
-	print("mouse left: %s" % str(parent.name))
 	is_hovered_mouse = false
 	update_hover_by_mouse(true)
 
 func par_mouse_entered() -> void:
 	current_input_mode = InputMode.MOUSE
 	is_hovered_mouse = true
-	update_hover_by_mouse()
+	update_hover_by_mouse(true)
