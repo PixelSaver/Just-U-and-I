@@ -3,7 +3,7 @@ class_name MainMenu
 
 const BUTTON_SCENE : PackedScene = preload("res://Scenes/button_menu.tscn")
 @export var button_placement_container : Node
-var buttons = []
+var buttons : Array[Control] = []
 #TODO Consolidate all the audiostreamplayers into one node per scene or per global
 @export var ui_reject_audio : AudioStreamPlayer
 @export var ui_enter : AudioStreamPlayer
@@ -133,6 +133,15 @@ func start_main_menu():
 		inst.init_position()
 		if i == TITLES.size()-1:
 			inst.has_blue_coin = false
+	for i in range(buttons.size()-1):
+		if i == 0:
+			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
+		elif i == buttons.size()-1:
+			buttons[i].focus_neighbor_top = buttons[i-1].get_path()
+		else:
+			buttons[i].focus_neighbor_top = buttons[i-1].get_path()
+			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
+			
 	
 	await get_tree().process_frame
 	

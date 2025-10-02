@@ -15,12 +15,19 @@ var original_pos : Vector2
 @export var hbox : Control
 @export var mouse_catch : Control
 
+@onready var input_handler : InputHandler = $InputHandler
+
 func init_position() -> void:
 	original_pos = position
 	mouse_catch.position = -pos_offset
+	input_handler.connect("activated", manual_entered)
+	input_handler.connect("deactivated", manual_exited)
+
+func _gui_input(event: InputEvent) -> void:
+	input_handler.manual_gui_input(event)
 
 var hovered : Tween
-func _on_mouse_entered() -> void:
+func manual_entered() -> void:
 	if unhovered != null: unhovered.kill()
 	
 	hovered = create_tween().set_trans(trans)
@@ -38,7 +45,7 @@ func _on_mouse_entered() -> void:
 		unhovered.kill()
 
 var unhovered : Tween
-func _on_mouse_exited() -> void:
+func manual_exited() -> void:
 	
 	unhovered = create_tween().set_trans(trans)
 	unhovered.set_parallel(true).set_ease(tween_ease)

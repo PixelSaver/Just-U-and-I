@@ -22,6 +22,7 @@ func _ready() -> void:
 
 func manual_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
+		print("mouse moved")
 		current_input_mode = InputMode.MOUSE
 		update_hover_by_mouse()
 	if event is InputEventKey and event.pressed:
@@ -36,21 +37,6 @@ func update_hover_by_keyboard():
 	else:
 		deactivated.emit()
 
-#func update_active_state() -> void:
-	#var should_be_active: bool = false
-	#
-	#if current_input_mode == InputMode.MOUSE:
-		#should_be_active = is_hovered_mouse
-	#else: # KEYBOARD
-		#should_be_active = parent.has_focus()
-	#
-	#if should_be_active != is_active:
-		#is_active = should_be_active
-		#if is_active:
-			#activated.emit()
-			#parent.grab_focus()
-		#else:
-			#deactivated.emit()
 
 func update_hover_by_mouse(override=false):
 	if current_input_mode != InputMode.MOUSE:
@@ -64,12 +50,6 @@ func update_hover_by_mouse(override=false):
 		parent.grab_focus()
 	else:
 		deactivated.emit()
-		#parent.grab_focus()
-	
-	#if mouse_over and not parent.has_focus():
-		#parent.grab_focus()
-	
-	#update_active_state()
 
 func par_foc_entered() -> void:
 	activated.emit()
