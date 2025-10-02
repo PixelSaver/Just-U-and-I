@@ -35,9 +35,9 @@ vec2 map(vec3 p) {
     float oct = sdOctahedron(p, .7);
 
     vec3 q = p;
-	
+
 	float time_mult = 0.02;
-	
+
     float t1 = TIME;
     vec3 a1 = dynamicAxis(t1, vec3(1.2, 1.1, 1.63));
     vec3 a2 = dynamicAxis(t1, vec3(1.6, 1.8, 1.05));
