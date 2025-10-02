@@ -44,6 +44,7 @@ func flash(rect:Vector2, i, dur=1):
 	)
 
 func _on_mouse_entered() -> void:
+	grab_focus()
 	program_hov.play()
 	is_hovered = true
 	z_index = 1
@@ -59,6 +60,7 @@ func _on_mouse_entered() -> void:
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
 
 func _on_mouse_exited() -> void:
+	release_focus()
 	is_hovered = false
 	if hover_tween:
 		hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
@@ -84,4 +86,13 @@ func _on_mouse_exited() -> void:
 func _input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU or not is_hovered: return
 	if Input.is_action_just_pressed("click_left"):
+		print("clicked on: %s" % str(self.name))
 		Global.collect_blue_coin(self)
+
+
+func _on_focus_entered() -> void:
+	_on_mouse_entered()
+
+
+func _on_focus_exited() -> void:
+	_on_mouse_exited()

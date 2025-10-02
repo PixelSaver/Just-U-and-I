@@ -21,4 +21,4 @@ func interacted_with():
 
 func _on_collected():
 	Global.blue_coins_collected.append(par_name)
-	print(Global.blue_coins_collected)
+	#print(Global.blue_coins_collected)

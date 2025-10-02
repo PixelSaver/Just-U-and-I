@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=50 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
@@ -8,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="5_ub4qb"]
 [ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="7_xjnpq"]
 [ext_resource type="PackedScene" uid="uid://bdjuwj54t4v07" path="res://Scenes/notification_os.tscn" id="8_oqyd7"]
+[ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="9_odcqt"]
+[ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="10_nstff"]
+[ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="11_vgg0k"]
+[ext_resource type="Texture2D" uid="uid://c55pqw2svgxtw" path="res://addons/Spatial navigation mapper/ContainerBorder.png" id="12_jw2nx"]
+[ext_resource type="Texture2D" uid="uid://0bvvm2klmnpu" path="res://addons/Spatial navigation mapper/arrow.png" id="13_rt0qk"]
+[ext_resource type="Script" uid="uid://b81cl62nafe4i" path="res://addons/Spatial navigation mapper/SpatNavPointer.gd" id="14_d6ssv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -94,7 +100,151 @@ border_color = Color(1, 1, 1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70lpx"]
 shader = ExtResource("5_70lpx")
 
-[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin")]
+[sub_resource type="Resource" id="Resource_1m7nh"]
+script = ExtResource("10_nstff")
+ElementsToMap = Array[NodePath]([NodePath("../ProgramCont/Program"), NodePath("../ProgramCont/Program2"), NodePath("../ProgramCont/Program3"), NodePath("../ProgramCont/Program4")])
+TopEntrySelectionIndex = 0
+LeftEntrySelectionIndex = 1
+RightEntrySelectionIndex = 3
+BottomEntrySelectionIndex = 2
+metadata/_custom_type_script = "uid://cptcdpctlsjk3"
+
+[sub_resource type="Resource" id="Resource_6nfgg"]
+script = ExtResource("10_nstff")
+ElementsToMap = Array[NodePath]([NodePath("../ProgramCont/Program5"), NodePath("../ProgramCont/Program11"), NodePath("../ProgramCont/Program12"), NodePath("../ProgramCont/Program6"), NodePath("../ProgramCont/Program7"), NodePath("../ProgramCont/Program9"), NodePath("../ProgramCont/Program8"), NodePath("../ProgramCont/Program10")])
+TopEntrySelectionIndex = 3
+LeftEntrySelectionIndex = 1
+RightEntrySelectionIndex = 6
+BottomEntrySelectionIndex = 5
+metadata/_custom_type_script = "uid://cptcdpctlsjk3"
+
+[sub_resource type="Resource" id="Resource_foy4m"]
+script = ExtResource("10_nstff")
+ElementsToMap = Array[NodePath]([NodePath("../ProgramCont/Program13")])
+TopEntrySelectionIndex = 0
+LeftEntrySelectionIndex = 0
+RightEntrySelectionIndex = 0
+BottomEntrySelectionIndex = 0
+metadata/_custom_type_script = "uid://cptcdpctlsjk3"
+
+[sub_resource type="Resource" id="Resource_hbeln"]
+script = ExtResource("11_vgg0k")
+container_id = 0
+origin = NodePath("../ProgramCont/Program")
+Left = NodePath("")
+Up = NodePath("")
+Right = NodePath("../ProgramCont/Program4")
+Down = NodePath("../ProgramCont/Program2")
+
+[sub_resource type="Resource" id="Resource_kk31x"]
+script = ExtResource("11_vgg0k")
+container_id = 0
+origin = NodePath("../ProgramCont/Program2")
+Left = NodePath("")
+Up = NodePath("../ProgramCont/Program")
+Right = NodePath("../ProgramCont/Program4")
+Down = NodePath("../ProgramCont/Program3")
+
+[sub_resource type="Resource" id="Resource_pma1m"]
+script = ExtResource("11_vgg0k")
+container_id = 0
+origin = NodePath("../ProgramCont/Program3")
+Left = NodePath("")
+Up = NodePath("../ProgramCont/Program2")
+Right = NodePath("../ProgramCont/Program4")
+Down = NodePath("")
+
+[sub_resource type="Resource" id="Resource_s5tje"]
+script = ExtResource("11_vgg0k")
+container_id = 0
+origin = NodePath("../ProgramCont/Program4")
+Left = NodePath("../ProgramCont/Program2")
+Up = NodePath("")
+Right = NodePath("../ProgramCont/Program11")
+Down = NodePath("")
+
+[sub_resource type="Resource" id="Resource_286mi"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program5")
+Left = NodePath("../ProgramCont/Program11")
+Up = NodePath("../ProgramCont/Program6")
+Right = NodePath("../ProgramCont/Program8")
+Down = NodePath("../ProgramCont/Program9")
+
+[sub_resource type="Resource" id="Resource_2l8m2"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program11")
+Left = NodePath("../ProgramCont/Program4")
+Up = NodePath("../ProgramCont/Program6")
+Right = NodePath("../ProgramCont/Program5")
+Down = NodePath("../ProgramCont/Program12")
+
+[sub_resource type="Resource" id="Resource_tv5ll"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program12")
+Left = NodePath("../ProgramCont/Program4")
+Up = NodePath("../ProgramCont/Program11")
+Right = NodePath("../ProgramCont/Program5")
+Down = NodePath("../ProgramCont/Program9")
+
+[sub_resource type="Resource" id="Resource_perh6"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program6")
+Left = NodePath("../ProgramCont/Program4")
+Up = NodePath("")
+Right = NodePath("../ProgramCont/Program7")
+Down = NodePath("../ProgramCont/Program11")
+
+[sub_resource type="Resource" id="Resource_usd8v"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program7")
+Left = NodePath("../ProgramCont/Program6")
+Up = NodePath("")
+Right = NodePath("../ProgramCont/Program13")
+Down = NodePath("../ProgramCont/Program10")
+
+[sub_resource type="Resource" id="Resource_p6vtl"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program9")
+Left = NodePath("../ProgramCont/Program4")
+Up = NodePath("../ProgramCont/Program8")
+Right = NodePath("../ProgramCont/Program13")
+Down = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ah3a4"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program8")
+Left = NodePath("../ProgramCont/Program5")
+Up = NodePath("../ProgramCont/Program10")
+Right = NodePath("../ProgramCont/Program13")
+Down = NodePath("../ProgramCont/Program9")
+
+[sub_resource type="Resource" id="Resource_oltf8"]
+script = ExtResource("11_vgg0k")
+container_id = 1
+origin = NodePath("../ProgramCont/Program10")
+Left = NodePath("../ProgramCont/Program6")
+Up = NodePath("../ProgramCont/Program7")
+Right = NodePath("../ProgramCont/Program13")
+Down = NodePath("../ProgramCont/Program8")
+
+[sub_resource type="Resource" id="Resource_peef2"]
+script = ExtResource("11_vgg0k")
+container_id = 2
+origin = NodePath("../ProgramCont/Program13")
+Left = NodePath("../ProgramCont/Program8")
+Up = NodePath("")
+Right = NodePath("")
+Down = NodePath("")
+
+[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin", "focus_first")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,6 +261,7 @@ bg_arr = [NodePath("BGHolder/Bg"), NodePath("BGHolder/Bg2"), NodePath("BGHolder/
 title = NodePath("Title")
 notif_man = NodePath("NotificationManager")
 coin = NodePath("ProgramCont/Program13/MarginContainer2/Coin")
+focus_first = NodePath("ProgramCont/Program")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
@@ -1381,6 +1532,13 @@ offset_left = 100.0
 offset_top = 150.0
 offset_right = 600.0
 offset_bottom = 400.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Program4")
+focus_neighbor_bottom = NodePath("../Program2")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program2" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -1389,6 +1547,13 @@ offset_left = 245.0
 offset_top = 420.0
 offset_right = 600.0
 offset_bottom = 660.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Program")
+focus_neighbor_right = NodePath("../Program4")
+focus_neighbor_bottom = NodePath("../Program3")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program3" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
@@ -1396,6 +1561,13 @@ offset_left = 180.0
 offset_top = 680.0
 offset_right = 600.0
 offset_bottom = 930.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Program2")
+focus_neighbor_right = NodePath("../Program4")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program4" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -1404,6 +1576,13 @@ offset_left = 610.0
 offset_top = 150.0
 offset_right = 910.0
 offset_bottom = 930.0
+focus_neighbor_left = NodePath("../Program2")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Program11")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program5" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
@@ -1411,6 +1590,13 @@ offset_left = 1250.0
 offset_top = 430.0
 offset_right = 1380.0
 offset_bottom = 800.0
+focus_neighbor_left = NodePath("../Program11")
+focus_neighbor_top = NodePath("../Program6")
+focus_neighbor_right = NodePath("../Program8")
+focus_neighbor_bottom = NodePath("../Program9")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program11" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -1419,6 +1605,13 @@ offset_left = 1100.0
 offset_top = 430.0
 offset_right = 1240.0
 offset_bottom = 610.0
+focus_neighbor_left = NodePath("../Program4")
+focus_neighbor_top = NodePath("../Program6")
+focus_neighbor_right = NodePath("../Program5")
+focus_neighbor_bottom = NodePath("../Program12")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program12" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -1427,6 +1620,13 @@ offset_left = 1100.0
 offset_top = 620.0
 offset_right = 1240.0
 offset_bottom = 800.0
+focus_neighbor_left = NodePath("../Program4")
+focus_neighbor_top = NodePath("../Program11")
+focus_neighbor_right = NodePath("../Program5")
+focus_neighbor_bottom = NodePath("../Program9")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program6" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -1435,6 +1635,13 @@ offset_left = 1100.0
 offset_top = 150.0
 offset_right = 1380.0
 offset_bottom = 420.0
+focus_neighbor_left = NodePath("../Program4")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Program7")
+focus_neighbor_bottom = NodePath("../Program11")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program7" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
@@ -1442,6 +1649,13 @@ offset_left = 1390.0
 offset_top = 150.0
 offset_right = 1840.0
 offset_bottom = 300.0
+focus_neighbor_left = NodePath("../Program6")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Program13")
+focus_neighbor_bottom = NodePath("../Program10")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program9" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -1450,6 +1664,13 @@ offset_left = 1100.0
 offset_top = 810.0
 offset_right = 1840.0
 offset_bottom = 930.0
+focus_neighbor_left = NodePath("../Program4")
+focus_neighbor_top = NodePath("../Program8")
+focus_neighbor_right = NodePath("../Program13")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program8" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -1458,6 +1679,13 @@ offset_left = 1390.0
 offset_top = 390.0
 offset_right = 1840.0
 offset_bottom = 800.0
+focus_neighbor_left = NodePath("../Program5")
+focus_neighbor_top = NodePath("../Program10")
+focus_neighbor_right = NodePath("../Program13")
+focus_neighbor_bottom = NodePath("../Program9")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program10" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -1466,6 +1694,13 @@ offset_left = 1390.0
 offset_top = 310.0
 offset_right = 1840.0
 offset_bottom = 380.0
+focus_neighbor_left = NodePath("../Program6")
+focus_neighbor_top = NodePath("../Program7")
+focus_neighbor_right = NodePath("../Program13")
+focus_neighbor_bottom = NodePath("../Program8")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Program13" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
@@ -1473,6 +1708,13 @@ offset_left = 2150.0
 offset_top = 150.0
 offset_right = 4150.0
 offset_bottom = 930.0
+focus_neighbor_left = NodePath("../Program8")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
 
 [node name="Border" parent="ProgramCont/Program13" index="0"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -1539,6 +1781,857 @@ coin_id = "os_menu"
 position = Vector2(1401, 853)
 script = ExtResource("7_xjnpq")
 notification_scene = ExtResource("8_oqyd7")
+
+[node name="Navigation mapper" type="Node" parent="."]
+script = ExtResource("9_odcqt")
+auto_update = 1
+Element_groups = Array[ExtResource("10_nstff")]([SubResource("Resource_1m7nh"), SubResource("Resource_6nfgg"), SubResource("Resource_foy4m")])
+navigation_references = Array[ExtResource("11_vgg0k")]([SubResource("Resource_hbeln"), SubResource("Resource_kk31x"), SubResource("Resource_pma1m"), SubResource("Resource_s5tje"), SubResource("Resource_286mi"), SubResource("Resource_2l8m2"), SubResource("Resource_tv5ll"), SubResource("Resource_perh6"), SubResource("Resource_usd8v"), SubResource("Resource_p6vtl"), SubResource("Resource_ah3a4"), SubResource("Resource_oltf8"), SubResource("Resource_peef2")])
+ContainerTex = ExtResource("12_jw2nx")
+metadata/_custom_type_script = "uid://xp3dj8wgkxb7"
+
+[node name="Visualization grandparent" type="Control" parent="Navigation mapper"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Pointer parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
+anchors_preset = 0
+
+[node name="Pointers 0" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
+anchors_preset = 0
+
+[node name="@NinePatchRect@325256" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 760.156
+offset_top = 275.002
+offset_right = 781.156
+offset_bottom = 455.081
+rotation = -4.68115
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325257" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325256"]
+layout_mode = 0
+offset_left = -0.322601
+offset_top = 85.8956
+offset_right = 10.6774
+offset_bottom = 108.896
+rotation = 4.68115
+text = "R"
+
+[node name="@NinePatchRect@325258" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 368.311
+offset_top = 539.526
+offset_right = 389.311
+offset_bottom = 700.159
+rotation = -3.23654
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325259" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325258"]
+layout_mode = 0
+offset_left = 15.8826
+offset_top = 82.3337
+offset_right = 27.8826
+offset_bottom = 105.334
+rotation = 3.23654
+text = "D"
+
+[node name="@NinePatchRect@325260" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 428.347
+offset_top = 274.627
+offset_right = 449.347
+offset_bottom = 440.032
+rotation = 0.0745742
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325261" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325260"]
+layout_mode = 0
+offset_left = 4.15985
+offset_top = 61.681
+offset_right = 16.1599
+offset_bottom = 84.681
+rotation = -0.0745742
+text = "U"
+
+[node name="@NinePatchRect@325262" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 760.0
+offset_top = 535.0
+offset_right = 781.0
+offset_bottom = 715.0
+rotation = 1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325263" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325262"]
+layout_mode = 0
+offset_left = -0.499939
+offset_top = 85.5
+offset_right = 10.5001
+offset_bottom = 108.5
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@325237" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 394.879
+offset_top = 806.094
+offset_right = 415.879
+offset_bottom = 974.691
+rotation = -2.9211
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325238" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325237"]
+layout_mode = 0
+offset_left = 19.3699
+offset_top = 84.2081
+offset_right = 31.3699
+offset_bottom = 107.208
+rotation = 2.9211
+text = "D"
+
+[node name="@NinePatchRect@325239" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 358.422
+offset_top = 540.936
+offset_right = 379.422
+offset_bottom = 703.453
+rotation = -0.188221
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325240" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325239"]
+layout_mode = 0
+offset_left = 7.2578
+offset_top = 58.8389
+offset_right = 19.2578
+offset_bottom = 81.8389
+rotation = 0.188221
+text = "U"
+
+[node name="@NinePatchRect@325218" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 759.844
+offset_top = 795.002
+offset_right = 780.844
+offset_bottom = 975.081
+rotation = 1.53956
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325219" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325218"]
+layout_mode = 0
+offset_left = -0.681824
+offset_top = 85.6769
+offset_right = 11.3182
+offset_bottom = 108.677
+rotation = -1.53956
+text = "R"
+
+[node name="@NinePatchRect@325220" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 422.5
+offset_top = 545.0
+offset_right = 443.5
+offset_bottom = 752.5
+rotation = -1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@325221" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@325220"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 87.75
+offset_right = 34.5
+offset_bottom = 110.75
+rotation = 1.5708
+text = "L"
+
+[node name="Pointers 1" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
+anchors_preset = 0
+
+[node name="@NinePatchRect@395486" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1169.69
+offset_top = 614.99
+offset_right = 1190.69
+offset_bottom = 715.146
+rotation = -1.50838
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@395487" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@395486"]
+layout_mode = 0
+offset_left = 22.197
+offset_top = 34.8695
+offset_right = 31.197
+offset_bottom = 57.8695
+rotation = 1.50838
+text = "L"
+
+[node name="@NinePatchRect@393101" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1328.37
+offset_top = 284.373
+offset_right = 1349.37
+offset_bottom = 450.527
+rotation = 0.12577
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@393102" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@393101"]
+layout_mode = 0
+offset_left = 3.60486
+offset_top = 62.4206
+offset_right = 15.6049
+offset_bottom = 85.4206
+rotation = -0.12577
+text = "U"
+
+[node name="@NinePatchRect@361979" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1614.58
+offset_top = 590.018
+offset_right = 1635.58
+offset_bottom = 845.868
+rotation = 1.48589
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@361980" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@361979"]
+layout_mode = 0
+offset_left = -0.967407
+offset_top = 122.928
+offset_right = 11.0326
+offset_bottom = 145.928
+rotation = -1.48589
+text = "R"
+
+[node name="@NinePatchRect@335823" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1351.22
+offset_top = 867.939
+offset_right = 1372.22
+offset_bottom = 964.769
+rotation = -3.56642
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@335824" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@335823"]
+layout_mode = 0
+offset_left = 11.7267
+offset_top = 51.3655
+offset_right = 23.7267
+offset_bottom = 74.3655
+rotation = 3.56642
+text = "D"
+
+[node name="@NinePatchRect@335825" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1141.73
+offset_top = 285.794
+offset_right = 1162.73
+offset_bottom = 452.66
+rotation = -0.159552
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@335826" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@335825"]
+layout_mode = 0
+offset_left = 6.9032
+offset_top = 61.1254
+offset_right = 18.9032
+offset_bottom = 84.1254
+rotation = 0.159552
+text = "U"
+
+[node name="@NinePatchRect@335827" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1313.23
+offset_top = 486.989
+offset_right = 1334.23
+offset_bottom = 587.163
+rotation = 1.20959
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@335828" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@335827"]
+layout_mode = 0
+offset_left = -1.87836
+offset_top = 41.6354
+offset_right = 10.1216
+offset_bottom = 64.6354
+rotation = -1.20959
+text = "R"
+
+[node name="@NinePatchRect@334231" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1175.0
+offset_top = 710.0
+offset_right = 1196.0
+offset_bottom = 830.0
+rotation = -3.14159
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334232" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334231"]
+layout_mode = 0
+offset_left = 16.9999
+offset_top = 61.5
+offset_right = 28.9999
+offset_bottom = 84.5
+rotation = 3.14159
+text = "D"
+
+[node name="@NinePatchRect@334233" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1165.0
+offset_top = 520.0
+offset_right = 1186.0
+offset_bottom = 640.0
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334234" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334233"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 38.5
+offset_right = 17.0
+offset_bottom = 61.5
+text = "U"
+
+[node name="@NinePatchRect@334235" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1316.77
+offset_top = 733.656
+offset_right = 1337.77
+offset_bottom = 833.829
+rotation = -4.35118
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334236" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334235"]
+layout_mode = 0
+offset_left = 2.36243
+offset_top = 49.7637
+offset_right = 14.3624
+offset_bottom = 72.7637
+rotation = 4.35118
+text = "R"
+
+[node name="@NinePatchRect@334237" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1227.31
+offset_top = 866.97
+offset_right = 1248.31
+offset_bottom = 974.972
+rotation = -3.79267
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334238" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334237"]
+layout_mode = 0
+offset_left = 8.8031
+offset_top = 56.7852
+offset_right = 20.8031
+offset_bottom = 79.7852
+rotation = 3.79267
+text = "D"
+
+[node name="@NinePatchRect@334239" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1614.79
+offset_top = 270.005
+offset_right = 1635.79
+offset_bottom = 525.217
+rotation = 1.52827
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334240" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334239"]
+layout_mode = 0
+offset_left = -0.74469
+offset_top = 123.112
+offset_right = 11.2553
+offset_bottom = 146.112
+rotation = -1.52827
+text = "R"
+
+[node name="@NinePatchRect@334148" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1245.0
+offset_top = 520.0
+offset_right = 1266.0
+offset_bottom = 640.0
+rotation = -3.14159
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334149" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334148"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 61.5
+offset_right = 29.0
+offset_bottom = 84.5
+rotation = 3.14159
+text = "D"
+
+[node name="@NinePatchRect@334150" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1240.5
+offset_top = 244.975
+offset_right = 1261.5
+offset_bottom = 415.723
+rotation = -1.67046
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334151" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334150"]
+layout_mode = 0
+offset_left = 23.0399
+offset_top = 70.5483
+offset_right = 35.0399
+offset_bottom = 93.5483
+rotation = 1.67046
+text = "L"
+
+[node name="@NinePatchRect@334152" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1620.0
+offset_top = 345.0
+offset_right = 1641.0
+offset_bottom = 410.0
+rotation = -3.14159
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334153" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334152"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 34.0
+offset_right = 29.0
+offset_bottom = 57.0
+rotation = 3.14159
+text = "D"
+
+[node name="@NinePatchRect@334154" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1460.0
+offset_top = 595.116
+offset_right = 1481.0
+offset_bottom = 830.174
+rotation = -0.0232516
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334155" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334154"]
+layout_mode = 0
+offset_left = 5.26904
+offset_top = 95.8927
+offset_right = 17.269
+offset_bottom = 118.893
+rotation = 0.0232516
+text = "U"
+
+[node name="@NinePatchRect@334156" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1316.29
+offset_top = 619.831
+offset_right = 1337.29
+offset_bottom = 717.452
+rotation = -1.8314
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@334157" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334156"]
+layout_mode = 0
+offset_left = 23.6577
+offset_top = 35.9763
+offset_right = 35.6577
+offset_bottom = 58.9763
+rotation = 1.8314
+text = "L"
+
+[node name="@NinePatchRect@331402" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1610.0
+offset_top = 345.0
+offset_right = 1631.0
+offset_bottom = 410.0
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@331403" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@331402"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 11.0
+offset_right = 17.0
+offset_bottom = 34.0
+text = "U"
+
+[node name="@NinePatchRect@331400" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1598.11
+offset_top = 871.478
+offset_right = 1619.11
+offset_bottom = 964.755
+rotation = -2.84142
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@331401" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@331400"]
+layout_mode = 0
+offset_left = 20.1321
+offset_top = 45.8498
+offset_right = 32.1321
+offset_bottom = 68.8498
+rotation = 2.84142
+text = "D"
+
+[node name="@NinePatchRect@331321" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1239.5
+offset_top = 334.975
+offset_right = 1260.5
+offset_bottom = 505.723
+rotation = -1.47113
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@331322" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@331321"]
+layout_mode = 0
+offset_left = 21.8459
+offset_top = 68.2594
+offset_right = 33.8459
+offset_bottom = 91.2594
+rotation = 1.47113
+text = "L"
+
+[node name="@NinePatchRect@331323" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1610.0
+offset_top = 225.0
+offset_right = 1631.0
+offset_bottom = 330.0
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@331324" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@331323"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 31.0
+offset_right = 17.0
+offset_bottom = 54.0
+text = "U"
+
+[node name="@NinePatchRect@331325" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1620.0
+offset_top = 595.0
+offset_right = 1641.0
+offset_bottom = 830.0
+rotation = -3.14159
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@331326" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@331325"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 119.0
+offset_right = 29.0
+offset_bottom = 142.0
+rotation = 3.14159
+text = "D"
+
+[node name="Pointers 2" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
+anchors_preset = 0
+
+[node name="Container parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
+anchors_preset = 0
+
+[node name="Container of group 0" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Container parent"]
+modulate = Color(1, 0.765, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 94.0
+offset_top = 144.0
+offset_right = 916.0
+offset_bottom = 936.0
+texture = ExtResource("12_jw2nx")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="@Label@324550" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 0"]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 62.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+text = "Group 0"
+
+[node name="Container of group 1" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Container parent"]
+modulate = Color(1, 0.765, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 144.0
+offset_right = 1846.0
+offset_bottom = 936.0
+texture = ExtResource("12_jw2nx")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="@Label@330011" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 1"]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 62.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+text = "Group 1"
+
+[node name="Container of group 2" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Container parent"]
+modulate = Color(1, 0.765, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 2144.0
+offset_top = 144.0
+offset_right = 4156.0
+offset_bottom = 936.0
+texture = ExtResource("12_jw2nx")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="@Label@335822" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 2"]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 62.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+text = "Group 2"
+
+[node name="Group pointer parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
+anchors_preset = 0
+
+[node name="@NinePatchRect@330012" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.98, 0.13, 0.4, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 535.0
+offset_right = 1115.0
+offset_bottom = 733.0
+rotation = 1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@330013" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@330012"]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 94.5
+offset_right = 10.5
+offset_bottom = 117.5
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@330014" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.39, 0.93, 0.59, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 916.0
+offset_top = 545.0
+offset_right = 937.0
+offset_bottom = 743.0
+rotation = -1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@330015" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@330014"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 84.5
+offset_right = 31.5
+offset_bottom = 107.5
+rotation = 1.5708
+text = "L"
+
+[node name="@NinePatchRect@335829" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.98, 0.13, 0.4, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 2144.0
+offset_top = 535.0
+offset_right = 2165.0
+offset_bottom = 853.0
+rotation = 1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@335830" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@335829"]
+layout_mode = 0
+offset_left = -0.499939
+offset_top = 154.5
+offset_right = 10.5001
+offset_bottom = 177.5
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@335831" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.39, 0.93, 0.59, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1846.0
+offset_top = 545.0
+offset_right = 1867.0
+offset_bottom = 863.0
+rotation = -1.5708
+texture = ExtResource("13_rt0qk")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("14_d6ssv")
+
+[node name="@Label@335832" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@335831"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 144.5
+offset_right = 31.5
+offset_bottom = 167.5
+rotation = 1.5708
+text = "L"
 
 [editable path="ProgramCont/Program"]
 [editable path="ProgramCont/Program13"]
