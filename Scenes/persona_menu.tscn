@@ -12,10 +12,38 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 
-[node name="PersonaMenuButton" parent="." instance=ExtResource("1_a26al")]
+[node name="ButtonCont" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PersonaMenuButton" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-anchors_preset = 0
-offset_left = 1101.0
-offset_top = 332.0
-offset_right = 1351.0
-offset_bottom = 582.0
+offset_left = 814.0
+offset_top = 257.0
+offset_right = 1064.0
+offset_bottom = 507.0
+
+[node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1270.0
+offset_top = 536.0
+offset_right = 1520.0
+offset_bottom = 786.0
+
+[node name="PersonaMenuButton3" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 633.0
+offset_top = 552.0
+offset_right = 883.0
+offset_bottom = 802.0
+
+[node name="PersonaMenuButton4" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 127.0
+offset_right = 1450.0
+offset_bottom = 377.0

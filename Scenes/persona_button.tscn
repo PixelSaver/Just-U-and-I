@@ -5,8 +5,8 @@
 
 [node name="PersonaMenuButton" type="Button"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 250.0
-offset_bottom = 250.0
+offset_right = 150.0
+offset_bottom = 150.0
 theme = ExtResource("1_s2wmk")
 
 [node name="holder" type="Node2D" parent="."]
@@ -15,8 +15,8 @@ theme = ExtResource("1_s2wmk")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_right = 150.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.785398
@@ -24,6 +24,6 @@ pivot_offset = Vector2(125, 125)
 mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(129, 71)
-scale = Vector2(3, 3)
+position = Vector2(131, 30)
+scale = Vector2(1.52273, 1.52273)
 texture = ExtResource("2_epj5s")
