@@ -13,10 +13,12 @@ signal flash_finished
 var hover_tween : Tween
 
 func _ready():
-	self.pivot_offset = size / 2
+	self.pivot_offset = size*scale / 2
 	input_handler.connect("activated", manual_foc_entered)
 	input_handler.connect("deactivated", manual_foc_exited)
-	
+	og_scale = scale
+
+var og_scale : Vector2
 func manual_foc_entered():
 	if persona_hov:
 		persona_hov.play()
@@ -27,7 +29,7 @@ func manual_foc_entered():
 	menu.update_selector(self)
 		
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
-	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
+	hover_tween.tween_property(self, "scale", og_scale * 1.1, 0.3)
 	
 func manual_foc_exited():
 	if z_index == 0: return
@@ -35,5 +37,5 @@ func manual_foc_exited():
 	if hover_tween:
 		hover_tween.kill()
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
-	hover_tween.tween_property(self, "scale", Vector2.ONE, 0.3)
+	hover_tween.tween_property(self, "scale", og_scale, 0.3)
 	

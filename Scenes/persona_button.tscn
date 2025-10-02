@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_j8wfi"]
 
 [node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("button_sprite")]
-custom_minimum_size = Vector2(100, 100)
 anchors_preset = -1
 offset_right = 150.0
 offset_bottom = 150.0
