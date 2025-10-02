@@ -26,13 +26,21 @@ func manual_gui_input(event: InputEvent) -> void:
 		update_hover_by_mouse()
 	if event is InputEventKey and event.pressed:
 		current_input_mode = InputMode.KEYBOARD
-	print("input mode: %s" % str(current_input_mode))
+		update_hover_by_keyboard()
+	#print("input mode: %s" % str(current_input_mode))
+
+func update_hover_by_keyboard():
+	if current_input_mode != InputMode.KEYBOARD: return
+	if parent.has_focus():
+		update_active_state() 
+	else:
+		deactivated.emit()
 
 func update_active_state() -> void:
 	var should_be_active: bool = false
 	
 	if current_input_mode == InputMode.MOUSE:
-		should_be_active = is_hovered_mouse and parent.has_focus()
+		should_be_active = is_hovered_mouse
 	else: # KEYBOARD
 		should_be_active = parent.has_focus()
 	
@@ -40,35 +48,42 @@ func update_active_state() -> void:
 		is_active = should_be_active
 		if is_active:
 			activated.emit()
+			parent.grab_focus()
 		else:
 			deactivated.emit()
 
-func update_hover_by_mouse():
+func update_hover_by_mouse(override=false):
 	if current_input_mode != InputMode.MOUSE:
 		return
 	
-	var mouse_over = Rect2(Vector2.ZERO, parent.get_rect().size).has_point(get_local_mouse_position())
-	is_hovered_mouse = mouse_over
-	print("mouse over: %s" % mouse_over)
+	if not override:
+		is_hovered_mouse = Rect2(Vector2.ZERO, parent.get_rect().size).has_point(get_local_mouse_position())
 	
-	if mouse_over and not parent.has_focus():
+	if is_hovered_mouse:
+		activated.emit()
 		parent.grab_focus()
+	else:
+		deactivated.emit()
+		print("mouse left BUT FUNTION: %s" % is_hovered_mouse)
+		#parent.grab_focus()
 	
-	update_active_state()
+	#if mouse_over and not parent.has_focus():
+		#parent.grab_focus()
+	
+	#update_active_state()
 
 func par_foc_entered() -> void:
-	update_active_state()
+	update_hover_by_keyboard()
 
 func par_foc_exited() -> void:
-	update_active_state()
+	update_hover_by_keyboard()
 
 func par_mouse_exited() -> void:
+	print("mouse left: %s" % str(parent.name))
 	is_hovered_mouse = false
-	update_active_state()
+	update_hover_by_mouse(true)
 
 func par_mouse_entered() -> void:
 	current_input_mode = InputMode.MOUSE
 	is_hovered_mouse = true
-	if not parent.has_focus():
-		parent.grab_focus()
-	update_active_state()
+	update_hover_by_mouse()
