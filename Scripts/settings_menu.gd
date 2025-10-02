@@ -39,17 +39,18 @@ func _process(delta: float) -> void:
 		settings_hide()
 
 var is_animating := false
+var anim_dur = 0.5
 func settings_show():
 	if is_animating: return
 	is_animating = true
 	var tsett = create_tween()
-	tsett.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_IN_OUT)
+	tsett.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
 	var all_t = all_tweenables()
 	for thing in all_t:
 		var tween = thing as Tweenable
 		tween.get_parent().global_position = tween.get_final_pos()
-		tsett.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, duration + tween.speed/25)
-	tsett.tween_property(self, "modulate", Color(Color.WHITE,1), duration*1.2)
+		tsett.tween_property(tween.get_parent(), "global_position", tween.og_gl_pos, anim_dur + tween.speed/25)
+	tsett.tween_property(self, "modulate", Color(Color.WHITE,1), anim_dur*1.2)
 	await tsett.finished
 	is_animating = false
 

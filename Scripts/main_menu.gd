@@ -89,7 +89,6 @@ func handoff_to_setting():
 	
 	end_main_menu()
 	
-	duration = 0.5
 	# For SettingsMenu
 	sett.settings_show()
 	
