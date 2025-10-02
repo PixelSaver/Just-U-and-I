@@ -115,9 +115,10 @@ func load_programs():
 		p.spin_speed = [-0.1,0.1][randi() % 2]
 		
 		p.flash(rect[i], i)
-		p.connect("flash_finished", func():
-			is_animating_programs = false
-		)
+		if p == programs.back():
+			p.connect("flash_finished", func():
+				is_animating_programs = false
+			)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
