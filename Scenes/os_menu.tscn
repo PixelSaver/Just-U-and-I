@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=24 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
 [ext_resource type="PackedScene" uid="uid://d3vy4r68f4hr1" path="res://Scenes/program_button.tscn" id="3_8yt1f"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="3_70lpx"]
 [ext_resource type="Shader" uid="uid://c658gnjr3w520" path="res://Shaders/spinny_box.gdshader" id="5_70lpx"]
+[ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="5_ub4qb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -1447,17 +1448,20 @@ offset_right = 1840.0
 offset_bottom = 380.0
 
 [node name="Program13" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
-modulate = Color(0.945098, 0.670588, 0.878431, 1)
 layout_mode = 0
 offset_left = 2150.0
 offset_top = 150.0
 offset_right = 4150.0
 offset_bottom = 930.0
 
+[node name="Border" parent="ProgramCont/Program13" index="0"]
+modulate = Color(0.945098, 0.670588, 0.878431, 1)
+
 [node name="ProgramArt" parent="ProgramCont/Program13/Border/Control" index="0"]
 visible = false
 
 [node name="MarginContainer2" type="Control" parent="ProgramCont/Program13"]
+modulate = Color(0.945098, 0.670588, 0.878431, 1)
 clip_contents = true
 layout_mode = 1
 anchor_right = 1.0
@@ -1487,6 +1491,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="Coin" parent="ProgramCont/Program13/MarginContainer2" instance=ExtResource("5_ub4qb")]
+show_behind_parent = true
+layout_mode = 1
+offset_left = 959.43
+offset_top = 399.0
+offset_right = -706.57
+offset_bottom = -309.0
+coin_id = "os_menu"
+
+[node name="MarginContainer" parent="ProgramCont/Program13" index="2"]
+mouse_filter = 2
+
+[node name="RichTextLabel" parent="ProgramCont/Program13/MarginContainer" index="0"]
+mouse_filter = 2
 
 [editable path="ProgramCont/Program"]
 [editable path="ProgramCont/Program13"]
