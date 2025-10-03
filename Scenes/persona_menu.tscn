@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=32 format=3 uid="uid://c1vr4rrfdxbfi"]
 
 [ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cl56jrlj8hoyh" path="res://Assets/Art/sample_gameply.png" id="3_ckf1w"]
 [ext_resource type="Shader" uid="uid://bqi7i102c32f4" path="res://Shaders/circle.gdshader" id="4_alxqq"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_w5yue"]
-[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="5_ffww0"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="5_xufce"]
 [ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="6_alxqq"]
 [ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="7_1anme"]
@@ -188,11 +187,9 @@ offset_bottom = 1198.0
 mouse_filter = 2
 color = Color(0.188235, 0.713726, 0.647059, 0.0745098)
 
-[node name="Tweenable_644" type="Node" parent="Bg/ColorRect10" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_644" parent="Bg/ColorRect10" instance=ExtResource("4_w5yue")]
 dir = Vector2(1, 0)
 speed = 1.18258
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect1" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -203,11 +200,9 @@ offset_bottom = -201.0
 mouse_filter = 2
 color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
-[node name="Tweenable_529" type="Node" parent="Bg/ColorRect1" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_529" parent="Bg/ColorRect1" instance=ExtResource("4_w5yue")]
 dir = Vector2(1, 0)
 speed = 2.5562
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect6" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -219,11 +214,9 @@ rotation = 0.296761
 mouse_filter = 2
 color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
-[node name="Tweenable_861" type="Node" parent="Bg/ColorRect6" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_861" parent="Bg/ColorRect6" instance=ExtResource("4_w5yue")]
 dir = Vector2(0, 1)
 speed = 2.52307
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect5" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -235,11 +228,9 @@ rotation = 0.2431
 mouse_filter = 2
 color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
-[node name="Tweenable_612" type="Node" parent="Bg/ColorRect5" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_612" parent="Bg/ColorRect5" instance=ExtResource("4_w5yue")]
 dir = Vector2(0, -1)
 speed = 4.02424
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect2" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -250,11 +241,9 @@ offset_bottom = -296.0
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_469" type="Node" parent="Bg/ColorRect2" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_469" parent="Bg/ColorRect2" instance=ExtResource("4_w5yue")]
 dir = Vector2(1, 0)
 speed = 2.32514
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect8" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -266,11 +255,9 @@ rotation = 0.123428
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_230" type="Node" parent="Bg/ColorRect8" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_230" parent="Bg/ColorRect8" instance=ExtResource("4_w5yue")]
 dir = Vector2(-1, 0)
 speed = 3.91872
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect7" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -282,11 +269,9 @@ rotation = 0.0251115
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_36" type="Node" parent="Bg/ColorRect7" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_36" parent="Bg/ColorRect7" instance=ExtResource("4_w5yue")]
 dir = Vector2(-1, 0)
 speed = 3.84421
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect11" type="ColorRect" parent="Bg"]
 material = SubResource("ShaderMaterial_ckf1w")
@@ -298,11 +283,9 @@ offset_bottom = 1540.0
 rotation = 4.51182
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_356" type="Node" parent="Bg/ColorRect11" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_356" parent="Bg/ColorRect11" instance=ExtResource("4_w5yue")]
 dir = Vector2(-1, 0)
 speed = 3.61298
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect4" type="ColorRect" parent="Bg"]
 material = SubResource("ShaderMaterial_ckf1w")
@@ -315,11 +298,9 @@ rotation = 4.51182
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_442" type="Node" parent="Bg/ColorRect4" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_442" parent="Bg/ColorRect4" instance=ExtResource("4_w5yue")]
 dir = Vector2(-1, 0)
 speed = 2.26291
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect9" type="ColorRect" parent="Bg"]
 material = SubResource("ShaderMaterial_ckf1w")
@@ -332,11 +313,9 @@ rotation = 1.62212
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_628" type="Node" parent="Bg/ColorRect9" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_628" parent="Bg/ColorRect9" instance=ExtResource("4_w5yue")]
 dir = Vector2(0, 1)
 speed = 2.45041
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="ColorRect3" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -348,11 +327,9 @@ rotation = -1.41942
 mouse_filter = 2
 color = Color(0.188235, 0.713726, 0.647059, 0.247059)
 
-[node name="Tweenable_716" type="Node" parent="Bg/ColorRect3" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_716" parent="Bg/ColorRect3" instance=ExtResource("4_w5yue")]
 dir = Vector2(1, 0)
 speed = 1.8464
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -363,11 +340,9 @@ offset_bottom = 743.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
 
-[node name="Tweenable_941" type="Node" parent="Bg/Panel" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_941" parent="Bg/Panel" instance=ExtResource("4_w5yue")]
 dir = Vector2(1, 0)
 speed = 3.09878
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel2" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -379,11 +354,9 @@ rotation = 0.211113
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
 
-[node name="Tweenable_833" type="Node" parent="Bg/Panel2" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_833" parent="Bg/Panel2" instance=ExtResource("4_w5yue")]
 dir = Vector2(-1, 0)
 speed = 3.23392
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel4" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -395,11 +368,9 @@ rotation = 0.211113
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5yue")
 
-[node name="Tweenable_420" type="Node" parent="Bg/Panel4" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_420" parent="Bg/Panel4" instance=ExtResource("4_w5yue")]
 dir = Vector2(0, 1)
 speed = 4.26451
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel3" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -411,11 +382,9 @@ rotation = -0.1416
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
 
-[node name="Tweenable_36" type="Node" parent="Bg/Panel3" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_36" parent="Bg/Panel3" instance=ExtResource("4_w5yue")]
 dir = Vector2(0, 1)
 speed = 5.07416
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel5" type="Panel" parent="Bg"]
 layout_mode = 0
@@ -427,11 +396,9 @@ rotation = -0.1416
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ffww0")
 
-[node name="Tweenable_128" type="Node" parent="Bg/Panel5" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_128" parent="Bg/Panel5" instance=ExtResource("4_w5yue")]
 dir = Vector2(-1, 0)
 speed = 4.36486
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Bg"]
 layout_mode = 0
@@ -446,11 +413,9 @@ text = "[b][color=#37aed766][font_size=250]MENU"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Tweenable_789" type="Node" parent="Bg/RichTextLabel" groups=["Tweenable"] instance=ExtResource("4_w5yue")]
-script = ExtResource("5_ffww0")
+[node name="Tweenable_789" parent="Bg/RichTextLabel" instance=ExtResource("4_w5yue")]
 dir = Vector2(0, -1)
 speed = 6.30221
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
 anchors_preset = 0

@@ -178,3 +178,5 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "Who let the dogs out?"
 fit_content = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
