@@ -75,7 +75,10 @@ vec2 map(vec3 p) {
 
     float minBox = min(min(min(box1, box2), min(box3, box4)), box5);
     float final = min(minBox, oct);
-    float oct_hit = (abs(final - oct) < 0.001) ? 1.0 : 0.0;
+    float oct_hit = 0.0;
+	if (oct < box1 && oct < box2 && oct < box3 && oct < box4 && oct < box5) {
+		oct_hit = 1.;
+	}
 
     return vec2(final, oct_hit);
 }
@@ -89,7 +92,8 @@ void fragment() {
     vec3 ray_dir = normalize(vec3(uv * 0.7, 1.0));
 
     vec3 col = vec3(0.0);
-    float alph = 183./255.;
+    //float alph = 183./255.;
+	float alph = 1.;
     float tot_dist = 0.0;
     int index;
 
@@ -113,7 +117,10 @@ void fragment() {
     }
 
     col = palette(tot_dist * 0.02 + float(index) * 0.005 + 3.1);
-    if (tot_dist == 0.0) col = vec3(0.0);
+    if (tot_dist == 0.0) {
+		col = vec3(0.0);
+		alph = 183./255.;
+	}
 
     COLOR = vec4(col, alph);
 }

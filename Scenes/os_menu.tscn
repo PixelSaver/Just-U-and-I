@@ -2024,8 +2024,17 @@ grow_vertical = 0
 texture = ExtResource("8_286mi")
 offset = Vector2(11.555, 11.245)
 
+[node name="ProgramArt2" type="Sprite2D" parent="ProgramCont/Program3/Border/Control" index="1"]
+texture_filter = 1
+position = Vector2(30, 87)
+scale = Vector2(6.6, 6.6)
+texture = ExtResource("11_perh6")
+offset = Vector2(11.555, 11.245)
+region_enabled = true
+region_rect = Rect2(176, 64, 16, 16)
+
 [node name="RichTextLabel" parent="ProgramCont/Program3/MarginContainer" index="0"]
-text = "I'm just here"
+text = "Scroll wheel!"
 
 [node name="Program4" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -2250,7 +2259,7 @@ texture = ExtResource("13_p6vtl")
 offset = Vector2(3.12, 2.98)
 
 [node name="RichTextLabel" parent="ProgramCont/Program9/MarginContainer" index="0"]
-text = "3000 Y2K IS COMING!"
+text = "3000 Y3K IS COMING!"
 
 [node name="Program8" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)

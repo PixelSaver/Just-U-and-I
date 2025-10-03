@@ -13,10 +13,11 @@ config_version=5
 config/name="Just U and I"
 run/main_scene="uid://ckb8k1luffm4h"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/bg_color=Color(0.345098, 0.12549, 0.729412, 1)
-boot_splash/image="uid://db3d1i1u6ert1"
+boot_splash/bg_color=Color(0.155452, 0.0349796, 0.359724, 1)
+boot_splash/use_filter=false
+boot_splash/image="uid://c3b8sj5ncd1qs"
 config/icon="res://Assets/Art/icon.svg"
-boot_splash/minimum_display_time=2000
+boot_splash/minimum_display_time=10000
 
 [autoload]
 
