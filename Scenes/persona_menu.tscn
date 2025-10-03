@@ -186,6 +186,7 @@ offset_left = 1388.0
 offset_top = 137.0
 offset_right = -278.0
 offset_bottom = -773.0
+coin_id = "persona_menu"
 
 [node name="ColorRect10" type="ColorRect" parent="Bg"]
 layout_mode = 0
