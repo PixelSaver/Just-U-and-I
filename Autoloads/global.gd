@@ -55,3 +55,11 @@ func get_os() -> OSMenu:
 		if child is OSMenu:
 			return child
 	return null
+func go_credits():
+	for child in root.get_children():
+		if child is JUICredits:
+			child.queue_free()
+	var cred_scene = load("res//Scenes/jui_credits.tscn").instantiate() as JUICredits
+	root.add_child(cred_scene)
+	Global.state = Global.States.EXTRAS
+	

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx0ykbfsdwje3"]
+
+[ext_resource type="PackedScene" uid="uid://c1g50h2avck3w" path="res://addons/maaacks_credits_scene/examples/scenes/credits/scrolling_credits.tscn" id="1_1mbxv"]
+
+[node name="JUICredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollingCredits" parent="." instance=ExtResource("1_1mbxv")]
+layout_mode = 1
+
+[node name="CreditsLabel" parent="ScrollingCredits/ScrollContainer/VBoxContainer" index="1"]
+attribution_file_path = "res://maaacks_credits_scene/examples/ATTRIBUTION.md"
+
+[editable path="ScrollingCredits"]

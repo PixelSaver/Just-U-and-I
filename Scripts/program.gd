@@ -121,6 +121,7 @@ func man_focus_entered() -> void:
 			if child is OSMenu:
 				par = child
 		if not par: return
+		#BUG Only works ont he second time you pass over the program using keyboard... don't know why
 		var out = check_out_of_bounds(self)
 		var t = create_tween()
 		t.tween_property(par, "scroll", par.scroll + (out.y+100) * out.x , 0.3)
