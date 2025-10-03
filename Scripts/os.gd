@@ -10,6 +10,7 @@ class_name OSMenu
 @export var notif_man : NotificationManagerMenu
 @export var coin : Coin
 @export var focus_first: Control
+@export var ui_exit : AudioStreamPlayer
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -60,8 +61,9 @@ func start_anim(dur:float=0.6):
 func end_anim(is_main_menu:=false):
 	if is_animating_programs or Global.state != Global.States.OS_MENU: return
 	
-	var dur = 1.2
+	ui_exit.play()
 	
+	var dur = 1.2
 	var t_os = create_tween()
 	t_os.set_trans(Tween.TRANS_QUINT).set_parallel(true).set_ease(Tween.EASE_OUT)
 	for thing in tweenables:

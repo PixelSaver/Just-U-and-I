@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=67 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://khs6jwesty4d" path="res://Assets/Art/text_editor.png" id="14_ah3a4"]
 [ext_resource type="Script" uid="uid://b81cl62nafe4i" path="res://addons/Spatial navigation mapper/SpatNavPointer.gd" id="14_d6ssv"]
 [ext_resource type="Texture2D" uid="uid://c815yjtktsf4h" path="res://Assets/Art/RPG_Coin_Gold_Currency_Money_GP.png" id="15_oltf8"]
+[ext_resource type="AudioStream" uid="uid://wyrq4mjnvt2v" path="res://Assets/Audio/dropdown-close.wav" id="28_2l8m2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -276,7 +277,7 @@ Right = NodePath("")
 Down = NodePath("")
 metadata/_custom_type_script = "uid://dfo8ktpwj1lkm"
 
-[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin", "focus_first")]
+[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin", "focus_first", "ui_exit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -294,6 +295,7 @@ title = NodePath("Title")
 notif_man = NodePath("NotificationManager")
 coin = NodePath("ProgramCont/Program13/MarginContainer2/Coin")
 focus_first = NodePath("ProgramCont/Program")
+ui_exit = NodePath("UIExit")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
@@ -3362,6 +3364,10 @@ offset_right = 31.5
 offset_bottom = 167.5
 rotation = 1.5708
 text = "L"
+
+[node name="UIExit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_2l8m2")
+volume_db = 0.776
 
 [editable path="ProgramCont/Program"]
 [editable path="ProgramCont/Program2"]
