@@ -57,6 +57,8 @@ func _on_pressed():
 			if child is PersonaMenu:
 				menu = child
 		menu.end_anim()
+	else:
+		Global.collect_blue_coin(self)
 
 var og_scale : Vector2
 var hov_dur : float = 0.3

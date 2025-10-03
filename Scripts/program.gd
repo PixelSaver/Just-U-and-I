@@ -48,7 +48,7 @@ func flash(rect:Vector2, i, dur=1):
 	)
 
 func _gui_input(event: InputEvent) -> void:
-	if Global.state != Global.States.OS_MENU:
+	if Global.state != Global.States.OS_MENU or Global.get_os().is_animating_programs or Global.get_os().is_start_animating:
 		return
 	if Input.is_action_just_pressed("click_left") and has_focus():
 		Global.collect_blue_coin(self)
@@ -63,11 +63,13 @@ func _gui_input(event: InputEvent) -> void:
 			var inst = scene.instantiate()
 			Global.root.add_child(inst)
 			inst.start_anim()
+			Global.state = Global.States.PROGRAM
+	print("is animating: %s, is anim programs: %s" % [Global.get_os().is_start_animating, Global.get_os().is_animating_programs])
 	input_handler.manual_gui_input(event)
 	
 
 func apply_hover_state():
-	if z_index == 1 or Global.get_os().is_start_animating: return
+	if z_index == 1: return
 	program_hov.play()
 	z_index = 1
 	if idle_tween:

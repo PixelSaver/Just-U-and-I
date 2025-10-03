@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=33 format=3 uid="uid://c1vr4rrfdxbfi"]
 
 [ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_w5yue"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="5_xufce"]
 [ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="6_alxqq"]
+[ext_resource type="Script" uid="uid://g3op48dcxnbw" path="res://Scripts/coin.gd" id="6_w5yue"]
 [ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="7_1anme"]
 [ext_resource type="Texture2D" uid="uid://c55pqw2svgxtw" path="res://addons/Spatial navigation mapper/ContainerBorder.png" id="8_ckf1w"]
 [ext_resource type="Texture2D" uid="uid://0bvvm2klmnpu" path="res://addons/Spatial navigation mapper/arrow.png" id="9_x2w82"]
@@ -416,6 +417,13 @@ autowrap_mode = 0
 [node name="Tweenable_789" parent="Bg/RichTextLabel" instance=ExtResource("4_w5yue")]
 dir = Vector2(0, -1)
 speed = 6.30221
+
+[node name="Coin" type="Button" parent="Bg"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_w5yue")
+metadata/_custom_type_script = "uid://g3op48dcxnbw"
 
 [node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
 anchors_preset = 0

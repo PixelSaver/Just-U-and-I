@@ -59,7 +59,7 @@ func start_anim(dur:float=0.6):
 	is_start_animating = false
 
 func end_anim(is_main_menu:=false):
-	if is_animating_programs or Global.state != Global.States.OS_MENU: return
+	if is_animating_programs: return
 	
 	var dur = 1.2
 	

@@ -9,6 +9,7 @@ enum States {
 	SETTINGS,
 	EXTRAS,
 	OS_MENU,
+	PROGRAM,
 }
 
 #TODO start from logo

@@ -149,6 +149,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Tip/TipDesc"]
+layout_mode = 0
 offset_left = -24.2589
 offset_top = 40.2679
 offset_right = 144.741
@@ -157,6 +158,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Tip/TipDesc"]
+layout_mode = 0
 offset_left = 245.976
 offset_top = -8.11799
 offset_right = 414.976
