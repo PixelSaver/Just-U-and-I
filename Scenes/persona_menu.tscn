@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=43 format=3 uid="uid://c1vr4rrfdxbfi"]
 
 [ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
@@ -14,7 +14,17 @@
 [ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="7_1anme"]
 [ext_resource type="Texture2D" uid="uid://c55pqw2svgxtw" path="res://addons/Spatial navigation mapper/ContainerBorder.png" id="8_ckf1w"]
 [ext_resource type="Texture2D" uid="uid://0bvvm2klmnpu" path="res://addons/Spatial navigation mapper/arrow.png" id="9_x2w82"]
+[ext_resource type="Texture2D" uid="uid://ddfnk3f85tnnl" path="res://Assets/Art/Arrows_Power_Button_Switch_Turn_On_Off.png" id="10_mw2tw"]
 [ext_resource type="Script" uid="uid://b81cl62nafe4i" path="res://addons/Spatial navigation mapper/SpatNavPointer.gd" id="10_w5yue"]
+[ext_resource type="Texture2D" uid="uid://do5vjh2c5hclo" path="res://Assets/Art/Arrows_Reload_Refresh_Rotate_Counterclockwise.png" id="11_myckv"]
+[ext_resource type="Texture2D" uid="uid://c12yfk0myx6p7" path="res://Assets/Art/Software_Options_Settings_Cogwheel_Gear_Mechanics.png" id="12_0tpey"]
+[ext_resource type="Texture2D" uid="uid://b1w7rnyycvsbi" path="res://Assets/Art/Arrows_Media_Controls_Play_Triangle.png" id="13_32sxi"]
+[ext_resource type="Texture2D" uid="uid://c5d7dx1v7rkq6" path="res://Assets/Art/Travel_Bag_Suitcase.png" id="14_54840"]
+[ext_resource type="Texture2D" uid="uid://bciw20s54xxh7" path="res://Assets/Art/RPG_Coins_Gold_Currency_Money_GP_1.png" id="15_u8uoq"]
+[ext_resource type="Texture2D" uid="uid://booyuesj742ts" path="res://Assets/Art/RPG_Spell_Skill_Meteorite_Strike_Comet.png" id="16_yu2o8"]
+[ext_resource type="Texture2D" uid="uid://dcmd7d2vad0l6" path="res://Assets/Art/RPG_Stat_Intelligence_Intellect_Brain_Wisdom_Thinking_IQ.png" id="17_g0pab"]
+[ext_resource type="Texture2D" uid="uid://b37csjj8xqrbf" path="res://Assets/Art/Tools_Crafting_Writing_Parchment_Scroll_Document.png" id="18_m0sul"]
+[ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_ui_sound_controller/base/scripts/ui_sound_controller.gd" id="25_jmgpn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ckf1w"]
 shader = ExtResource("3_1anme")
@@ -179,6 +189,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_group_ = true
 
 [node name="Coin" parent="Bg" instance=ExtResource("4_ffww0")]
 layout_mode = 1
@@ -484,6 +495,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_group_ = true
 
 [node name="PersonaMenuButton9" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -498,8 +510,14 @@ focus_neighbor_right = NodePath("../PersonaMenuButton6")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+icon = ExtResource("10_mw2tw")
 is_title_bar = true
 button_title = "Quit"
+
+[node name="Sprite2D" parent="ButtonContTitle/PersonaMenuButton9/holder" index="1"]
+scale = Vector2(9, 9)
+texture = ExtResource("10_mw2tw")
+offset = Vector2(0, 5.5)
 
 [node name="PersonaMenuButton6" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -517,6 +535,12 @@ focus_previous = NodePath(".")
 is_title_bar = true
 button_title = "Restart"
 
+[node name="Sprite2D" parent="ButtonContTitle/PersonaMenuButton6/holder" index="1"]
+position = Vector2(-1, 57)
+scale = Vector2(8, 8)
+texture = ExtResource("11_myckv")
+offset = Vector2(0, 0)
+
 [node name="PersonaMenuButton7" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
 offset_left = 340.0
@@ -533,6 +557,11 @@ focus_previous = NodePath(".")
 is_title_bar = true
 button_title = "Settings"
 
+[node name="Sprite2D" parent="ButtonContTitle/PersonaMenuButton7/holder" index="1"]
+scale = Vector2(10, 10)
+texture = ExtResource("12_0tpey")
+offset = Vector2(0, 5)
+
 [node name="PersonaMenuButton8" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
 offset_left = 480.0
@@ -548,6 +577,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 is_title_bar = true
 button_title = "Resume"
+
+[node name="Sprite2D" parent="ButtonContTitle/PersonaMenuButton8/holder" index="1"]
+position = Vector2(0, -153)
+scale = Vector2(10, 10)
+texture = ExtResource("13_32sxi")
+offset = Vector2(0.83, 21.035)
 
 [node name="ButtonCont" type="Control" parent="."]
 layout_mode = 1
@@ -572,6 +607,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 button_title = "Bag"
 button_description = "All your consumables"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ButtonCont/PersonaMenuButton/holder" index="1"]
+scale = Vector2(8, 8)
+texture = ExtResource("14_54840")
+offset = Vector2(0, 5.065)
 
 [node name="PersonaMenuButton4" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -587,6 +628,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 button_title = "Money"
 button_description = "How many coins you got?"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ButtonCont/PersonaMenuButton4/holder" index="1"]
+scale = Vector2(9, 9)
+texture = ExtResource("15_u8uoq")
+offset = Vector2(0.5, 5.73)
 
 [node name="PersonaMenuButton3" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -602,6 +649,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 button_title = "Powers"
 button_description = "You have these? Lucky..."
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ButtonCont/PersonaMenuButton3/holder" index="1"]
+scale = Vector2(7, 7)
+texture = ExtResource("16_yu2o8")
+offset = Vector2(0, 8.995)
 
 [node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -617,6 +670,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 button_title = "Skills"
 button_description = "Look at these sick moves!"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ButtonCont/PersonaMenuButton2/holder" index="1"]
+scale = Vector2(8, 8)
+texture = ExtResource("17_g0pab")
+offset = Vector2(0.52, 6.51)
 
 [node name="PersonaMenuButton5" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -632,6 +691,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 button_title = "Info"
 button_description = "Learn more about what I am"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ButtonCont/PersonaMenuButton5/holder" index="1"]
+scale = Vector2(9, 9)
+texture = ExtResource("18_m0sul")
+offset = Vector2(0.5, 5.955)
 
 [node name="Navigation mapper" type="Node" parent="."]
 script = ExtResource("5_xufce")
@@ -793,7 +858,7 @@ text = "L"
 [node name="Pointers 1" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
 anchors_preset = 0
 
-[node name="@NinePatchRect@356188" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@120716" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
@@ -807,16 +872,16 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@356189" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@356188"]
+[node name="@Label@120717" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@120716"]
 layout_mode = 0
-offset_left = 6.75739
-offset_top = 47.3761
-offset_right = 17.7574
-offset_bottom = 70.3761
+offset_left = 6.05035
+offset_top = 46.6689
+offset_right = 15.0504
+offset_bottom = 69.6689
 rotation = 3.92699
 text = "R"
 
-[node name="@NinePatchRect@355389" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@120712" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0, 0.62, 1, 1)
 texture_filter = 1
 layout_mode = 0
@@ -830,7 +895,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@355390" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@355389"]
+[node name="@Label@120713" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@120712"]
 layout_mode = 0
 offset_left = 7.1109
 offset_top = 47.7297
@@ -839,7 +904,7 @@ offset_bottom = 70.7297
 rotation = 3.92699
 text = "D"
 
-[node name="@NinePatchRect@354590" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@120714" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.67, 0.85, 0.36, 1)
 texture_filter = 1
 layout_mode = 0
@@ -853,16 +918,16 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@354591" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@354590"]
+[node name="@Label@120715" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@120714"]
 layout_mode = 0
-offset_left = 14.8892
-offset_top = 22.981
-offset_right = 26.8892
-offset_bottom = 45.981
+offset_left = 15.9498
+offset_top = 24.0416
+offset_right = 24.9498
+offset_bottom = 47.0416
 rotation = 0.785398
 text = "L"
 
-[node name="@NinePatchRect@353052" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@356188" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.89, 0.34, 0.18, 1)
 texture_filter = 1
 layout_mode = 0
@@ -876,7 +941,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@353053" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353052"]
+[node name="@Label@356189" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@356188"]
 layout_mode = 0
 offset_left = 14.8892
 offset_top = 22.981
@@ -885,7 +950,7 @@ offset_bottom = 45.981
 rotation = 0.785398
 text = "U"
 
-[node name="@NinePatchRect@353054" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@355389" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0, 0.62, 1, 1)
 texture_filter = 1
 layout_mode = 0
@@ -899,7 +964,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@353055" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353054"]
+[node name="@Label@355390" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@355389"]
 layout_mode = 0
 offset_left = 23.3744
 offset_top = 39.2445
@@ -908,7 +973,7 @@ offset_bottom = 62.2445
 rotation = 2.35619
 text = "D"
 
-[node name="@NinePatchRect@353028" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@354590" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.89, 0.34, 0.18, 1)
 texture_filter = 1
 layout_mode = 0
@@ -922,7 +987,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@353029" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353028"]
+[node name="@Label@354591" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@354590"]
 layout_mode = 0
 offset_left = -1.37451
 offset_top = 31.4663
@@ -931,7 +996,7 @@ offset_bottom = 54.4663
 rotation = -0.785398
 text = "U"
 
-[node name="@NinePatchRect@353030" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@353052" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
@@ -945,7 +1010,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@353031" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353030"]
+[node name="@Label@353053" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353052"]
 layout_mode = 0
 offset_left = 7.1109
 offset_top = 47.7297
@@ -954,7 +1019,7 @@ offset_bottom = 70.7297
 rotation = 3.92699
 text = "R"
 
-[node name="@NinePatchRect@337127" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@353054" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0, 0.62, 1, 1)
 texture_filter = 1
 layout_mode = 0
@@ -968,7 +1033,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@337128" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@337127"]
+[node name="@Label@353055" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353054"]
 layout_mode = 0
 offset_left = 7.1109
 offset_top = 47.7297
@@ -977,7 +1042,7 @@ offset_bottom = 70.7297
 rotation = 3.92699
 text = "D"
 
-[node name="@NinePatchRect@334690" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@353028" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.67, 0.85, 0.36, 1)
 texture_filter = 1
 layout_mode = 0
@@ -991,7 +1056,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@334691" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334690"]
+[node name="@Label@353029" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353028"]
 layout_mode = 0
 offset_left = 14.8891
 offset_top = 22.9811
@@ -1000,7 +1065,7 @@ offset_bottom = 45.9811
 rotation = 0.785398
 text = "L"
 
-[node name="@NinePatchRect@334692" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@353030" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.89, 0.34, 0.18, 1)
 texture_filter = 1
 layout_mode = 0
@@ -1014,7 +1079,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@334693" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334692"]
+[node name="@Label@353031" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353030"]
 layout_mode = 0
 offset_left = 14.8891
 offset_top = 22.9811
@@ -1023,7 +1088,7 @@ offset_bottom = 45.9811
 rotation = 0.785398
 text = "U"
 
-[node name="@NinePatchRect@253331" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@337127" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0, 0.62, 1, 1)
 texture_filter = 1
 layout_mode = 0
@@ -1037,7 +1102,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@253332" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253331"]
+[node name="@Label@337128" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@337127"]
 layout_mode = 0
 offset_left = 23.3744
 offset_top = 39.2445
@@ -1046,7 +1111,7 @@ offset_bottom = 62.2445
 rotation = 2.35619
 text = "D"
 
-[node name="@NinePatchRect@253333" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@334690" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.89, 0.34, 0.18, 1)
 texture_filter = 1
 layout_mode = 0
@@ -1060,7 +1125,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@253334" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253333"]
+[node name="@Label@334691" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334690"]
 layout_mode = 0
 offset_left = -1.37427
 offset_top = 31.4663
@@ -1069,7 +1134,7 @@ offset_bottom = 54.4663
 rotation = -0.785398
 text = "U"
 
-[node name="@NinePatchRect@253335" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@334692" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
@@ -1083,7 +1148,7 @@ region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
 script = ExtResource("10_w5yue")
 
-[node name="@Label@253336" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253335"]
+[node name="@Label@334693" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334692"]
 layout_mode = 0
 offset_left = -1.37439
 offset_top = 31.4662
@@ -1187,3 +1252,17 @@ offset_right = 28.1618
 offset_bottom = 401.272
 rotation = 1.09503
 text = "L"
+
+[node name="UISoundController" type="Node" parent="."]
+script = ExtResource("25_jmgpn")
+metadata/_custom_type_script = "uid://b5oej1q4h7jvh"
+
+[editable path="ButtonContTitle/PersonaMenuButton9"]
+[editable path="ButtonContTitle/PersonaMenuButton6"]
+[editable path="ButtonContTitle/PersonaMenuButton7"]
+[editable path="ButtonContTitle/PersonaMenuButton8"]
+[editable path="ButtonCont/PersonaMenuButton"]
+[editable path="ButtonCont/PersonaMenuButton4"]
+[editable path="ButtonCont/PersonaMenuButton3"]
+[editable path="ButtonCont/PersonaMenuButton2"]
+[editable path="ButtonCont/PersonaMenuButton5"]

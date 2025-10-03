@@ -45,6 +45,7 @@ mouse_filter = 2
 theme = ExtResource("1_s2wmk")
 
 [node name="Sprite2D" type="Sprite2D" parent="holder"]
+texture_filter = 1
 scale = Vector2(1.52273, 1.52273)
 texture = ExtResource("2_epj5s")
 offset = Vector2(0, 18.29)
