@@ -26,8 +26,8 @@ func _run() -> void:
 			child.name = "Tweenable_%s" % str(randi() % 1000)
 			
 			# Randomize export vars
-			#var dirs = [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
-			var dirs = [Vector2(1,1), Vector2(-1,-1)]
+			var dirs = [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
+			#var dirs = [Vector2(1,1), Vector2(-1,-1)]
 			child.dir = dirs[randi_range(0, dirs.size()-1)]
 			child.speed = pow(randf(), 4) * 12
 			

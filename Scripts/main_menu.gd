@@ -3,7 +3,7 @@ class_name MainMenu
 
 const BUTTON_SCENE : PackedScene = preload("res://Scenes/button_menu.tscn")
 @export var button_placement_container : Node
-var buttons = []
+var buttons : Array[Control] = []
 #TODO Consolidate all the audiostreamplayers into one node per scene or per global
 @export var ui_reject_audio : AudioStreamPlayer
 @export var ui_enter : AudioStreamPlayer
@@ -21,7 +21,7 @@ func _ready() -> void:
 	coin.connect("collected", _on_coin_collected)
 	
 	await get_tree().process_frame
-	start_main_menu()
+	#start_main_menu()
 	
 
 func _on_coin_collected(coin:Coin):
@@ -36,11 +36,9 @@ func _on_pressed(val:ButtonMenu):
 			Global.state = Global.States.OS_MENU
 			end_main_menu()
 			ui_enter_os.play()
-			var os = OS_MENU.instantiate()
-			get_parent().add_child(os)
-			os.start_anim()
-			os.modulate.a = 0
-			var tw = create_tween().tween_property(os, "modulate:a", 1, 1.4).set_ease(Tween.EASE_OUT)
+			#var tw = create_tween().tween_property(os, "modulate:a", 1, 1.4).set_ease(Tween.EASE_OUT)
+			await get_tree().create_timer(0.5)
+			Global.go_os()
 		TITLES[1]: # Options
 			ui_enter.play()
 			handoff_to_setting()
@@ -133,6 +131,15 @@ func start_main_menu():
 		inst.init_position()
 		if i == TITLES.size()-1:
 			inst.has_blue_coin = false
+	for i in range(buttons.size()-1):
+		if i == 0:
+			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
+		elif i == buttons.size()-1:
+			buttons[i].focus_neighbor_top = buttons[i-1].get_path()
+		else:
+			buttons[i].focus_neighbor_top = buttons[i-1].get_path()
+			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
+			
 	
 	await get_tree().process_frame
 	

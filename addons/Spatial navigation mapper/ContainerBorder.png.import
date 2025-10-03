@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj24gil6a0x7e"
-path="res://.godot/imported/ContainerBorder_box.png-f64fa30162bc26dc85222360340ec106.ctex"
+uid="uid://c55pqw2svgxtw"
+path="res://.godot/imported/ContainerBorder.png-375919c9aaa6214bab838a564f7b2029.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/spatial_navigation_addon/ContainerBorder_box.png"
-dest_files=["res://.godot/imported/ContainerBorder_box.png-f64fa30162bc26dc85222360340ec106.ctex"]
+source_file="res://addons/Spatial navigation mapper/ContainerBorder.png"
+dest_files=["res://.godot/imported/ContainerBorder.png-375919c9aaa6214bab838a564f7b2029.ctex"]
 
 [params]
 

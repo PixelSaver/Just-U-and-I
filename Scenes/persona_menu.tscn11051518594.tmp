@@ -1,0 +1,1174 @@
+[gd_scene load_steps=32 format=3 uid="uid://c1vr4rrfdxbfi"]
+
+[ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
+[ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
+[ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_qdfaw"]
+[ext_resource type="Script" uid="uid://v5vqh1tmu3pv" path="res://Scripts/persona_selector.gd" id="2_75o0k"]
+[ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="3_1anme"]
+[ext_resource type="Texture2D" uid="uid://cl56jrlj8hoyh" path="res://Assets/Art/sample_gameply.png" id="3_ckf1w"]
+[ext_resource type="Shader" uid="uid://bqi7i102c32f4" path="res://Shaders/circle.gdshader" id="4_alxqq"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_w5yue"]
+[ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="5_xufce"]
+[ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="6_alxqq"]
+[ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="7_1anme"]
+[ext_resource type="Texture2D" uid="uid://c55pqw2svgxtw" path="res://addons/Spatial navigation mapper/ContainerBorder.png" id="8_ckf1w"]
+[ext_resource type="Texture2D" uid="uid://0bvvm2klmnpu" path="res://addons/Spatial navigation mapper/arrow.png" id="9_x2w82"]
+[ext_resource type="Script" uid="uid://b81cl62nafe4i" path="res://addons/Spatial navigation mapper/SpatNavPointer.gd" id="10_w5yue"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckf1w"]
+shader = ExtResource("3_1anme")
+shader_parameter/angle_degrees = 25.022
+shader_parameter/stripe_width = 0.1
+shader_parameter/separation = 0.1
+shader_parameter/color_a = Color(0.219608, 0.690196, 0.792157, 0.2)
+shader_parameter/color_b = Color(0.352941, 0.682353, 0.72549, 0.243137)
+shader_parameter/smoothness = 0.02
+shader_parameter/tiling = 1.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2w82"]
+bg_color = Color(0.352941, 0.682353, 0.72549, 0.4)
+skew = Vector2(-0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5yue"]
+bg_color = Color(0.215672, 0.698791, 0.738041, 0.4)
+skew = Vector2(-0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffww0"]
+bg_color = Color(0.215686, 0.682353, 0.843137, 0.4)
+skew = Vector2(-0.4, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1anme"]
+shader = ExtResource("4_alxqq")
+shader_parameter/radius = 0.5
+shader_parameter/thickness = 0.1
+shader_parameter/modulate = Color(0.376471, 0.847059, 0.909804, 0.698039)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alxqq"]
+shader = ExtResource("4_alxqq")
+shader_parameter/radius = 0.5
+shader_parameter/thickness = 0.1
+shader_parameter/modulate = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_ffww0"]
+script = ExtResource("6_alxqq")
+ElementsToMap = Array[NodePath]([NodePath("../ButtonContTitle/PersonaMenuButton9"), NodePath("../ButtonContTitle/PersonaMenuButton6"), NodePath("../ButtonContTitle/PersonaMenuButton7"), NodePath("../ButtonContTitle/PersonaMenuButton8")])
+TopEntrySelectionIndex = 0
+LeftEntrySelectionIndex = 0
+RightEntrySelectionIndex = 3
+BottomEntrySelectionIndex = 0
+metadata/_custom_type_script = "uid://cptcdpctlsjk3"
+
+[sub_resource type="Resource" id="Resource_0dak3"]
+script = ExtResource("6_alxqq")
+ElementsToMap = Array[NodePath]([NodePath("../ButtonCont/PersonaMenuButton"), NodePath("../ButtonCont/PersonaMenuButton2"), NodePath("../ButtonCont/PersonaMenuButton3"), NodePath("../ButtonCont/PersonaMenuButton4"), NodePath("../ButtonCont/PersonaMenuButton5")])
+TopEntrySelectionIndex = 0
+LeftEntrySelectionIndex = 0
+RightEntrySelectionIndex = 0
+BottomEntrySelectionIndex = 0
+metadata/_custom_type_script = "uid://cptcdpctlsjk3"
+
+[sub_resource type="Resource" id="Resource_k7wwn"]
+script = ExtResource("7_1anme")
+container_id = 0
+origin = NodePath("../ButtonContTitle/PersonaMenuButton9")
+Left = NodePath("")
+Up = NodePath("")
+Right = NodePath("../ButtonContTitle/PersonaMenuButton6")
+Down = NodePath("")
+
+[sub_resource type="Resource" id="Resource_wwhe7"]
+script = ExtResource("7_1anme")
+container_id = 0
+origin = NodePath("../ButtonContTitle/PersonaMenuButton6")
+Left = NodePath("../ButtonContTitle/PersonaMenuButton9")
+Up = NodePath("")
+Right = NodePath("../ButtonContTitle/PersonaMenuButton7")
+Down = NodePath("")
+
+[sub_resource type="Resource" id="Resource_au2xi"]
+script = ExtResource("7_1anme")
+container_id = 0
+origin = NodePath("../ButtonContTitle/PersonaMenuButton7")
+Left = NodePath("../ButtonContTitle/PersonaMenuButton6")
+Up = NodePath("")
+Right = NodePath("../ButtonContTitle/PersonaMenuButton8")
+Down = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ol2ps"]
+script = ExtResource("7_1anme")
+container_id = 0
+origin = NodePath("../ButtonContTitle/PersonaMenuButton8")
+Left = NodePath("../ButtonContTitle/PersonaMenuButton7")
+Up = NodePath("")
+Right = NodePath("../ButtonCont/PersonaMenuButton")
+Down = NodePath("")
+
+[sub_resource type="Resource" id="Resource_teekl"]
+script = ExtResource("7_1anme")
+container_id = 1
+origin = NodePath("../ButtonCont/PersonaMenuButton")
+Left = NodePath("../ButtonContTitle/PersonaMenuButton8")
+Up = NodePath("")
+Right = NodePath("../ButtonCont/PersonaMenuButton4")
+Down = NodePath("../ButtonCont/PersonaMenuButton4")
+
+[sub_resource type="Resource" id="Resource_11vf8"]
+script = ExtResource("7_1anme")
+container_id = 1
+origin = NodePath("../ButtonCont/PersonaMenuButton2")
+Left = NodePath("../ButtonCont/PersonaMenuButton3")
+Up = NodePath("../ButtonCont/PersonaMenuButton3")
+Right = NodePath("")
+Down = NodePath("../ButtonCont/PersonaMenuButton5")
+
+[sub_resource type="Resource" id="Resource_607dp"]
+script = ExtResource("7_1anme")
+container_id = 1
+origin = NodePath("../ButtonCont/PersonaMenuButton3")
+Left = NodePath("../ButtonContTitle/PersonaMenuButton8")
+Up = NodePath("../ButtonCont/PersonaMenuButton4")
+Right = NodePath("../ButtonCont/PersonaMenuButton2")
+Down = NodePath("../ButtonCont/PersonaMenuButton2")
+
+[sub_resource type="Resource" id="Resource_mw2tw"]
+script = ExtResource("7_1anme")
+container_id = 1
+origin = NodePath("../ButtonCont/PersonaMenuButton4")
+Left = NodePath("../ButtonCont/PersonaMenuButton")
+Up = NodePath("../ButtonCont/PersonaMenuButton")
+Right = NodePath("")
+Down = NodePath("../ButtonCont/PersonaMenuButton3")
+
+[sub_resource type="Resource" id="Resource_myckv"]
+script = ExtResource("7_1anme")
+container_id = 1
+origin = NodePath("../ButtonCont/PersonaMenuButton5")
+Left = NodePath("../ButtonContTitle/PersonaMenuButton8")
+Up = NodePath("../ButtonCont/PersonaMenuButton2")
+Right = NodePath("../ButtonCont/PersonaMenuButton2")
+Down = NodePath("")
+
+[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg", "all_parents") groups=["PersonaMenu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_qdfaw")
+script = ExtResource("1_7p40m")
+selector = NodePath("Selector")
+bg = NodePath("Bg")
+all_parents = [NodePath("Bg")]
+
+[node name="Screenshot2025-10-02165431" type="Sprite2D" parent="."]
+position = Vector2(878.304, 477)
+scale = Vector2(2.11392, 2.11392)
+texture = ExtResource("3_ckf1w")
+
+[node name="Bg" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect10" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = -71.0
+offset_top = -260.0
+offset_right = 2102.0
+offset_bottom = 1198.0
+mouse_filter = 2
+color = Color(0.188235, 0.713726, 0.647059, 0.0745098)
+
+[node name="Tweenable_644" parent="Bg/ColorRect10" instance=ExtResource("4_w5yue")]
+dir = Vector2(1, 0)
+speed = 1.18258
+
+[node name="ColorRect1" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = 966.0
+offset_top = -329.0
+offset_right = 1248.0
+offset_bottom = -201.0
+mouse_filter = 2
+color = Color(0.352941, 0.682353, 0.72549, 0.4)
+
+[node name="Tweenable_529" parent="Bg/ColorRect1" instance=ExtResource("4_w5yue")]
+dir = Vector2(1, 0)
+speed = 2.5562
+
+[node name="ColorRect6" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = -242.241
+offset_top = 533.0
+offset_right = 1394.76
+offset_bottom = 661.0
+rotation = 0.296761
+mouse_filter = 2
+color = Color(0.352941, 0.682353, 0.72549, 0.4)
+
+[node name="Tweenable_861" parent="Bg/ColorRect6" instance=ExtResource("4_w5yue")]
+dir = Vector2(0, 1)
+speed = 2.52307
+
+[node name="ColorRect5" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -198.0
+offset_right = 743.0
+offset_bottom = 245.0
+rotation = 0.2431
+mouse_filter = 2
+color = Color(0.352941, 0.682353, 0.72549, 0.4)
+
+[node name="Tweenable_612" parent="Bg/ColorRect5" instance=ExtResource("4_w5yue")]
+dir = Vector2(0, -1)
+speed = 4.02424
+
+[node name="ColorRect2" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = 1361.0
+offset_top = -424.0
+offset_right = 1643.0
+offset_bottom = -296.0
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="Tweenable_469" parent="Bg/ColorRect2" instance=ExtResource("4_w5yue")]
+dir = Vector2(1, 0)
+speed = 2.32514
+
+[node name="ColorRect8" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = -489.0
+offset_top = 714.0
+offset_right = 2447.0
+offset_bottom = 842.0
+rotation = 0.123428
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="Tweenable_230" parent="Bg/ColorRect8" instance=ExtResource("4_w5yue")]
+dir = Vector2(-1, 0)
+speed = 3.91872
+
+[node name="ColorRect7" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = -146.0
+offset_top = -7.0
+offset_right = 1081.0
+offset_bottom = 187.0
+rotation = 0.0251115
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="Tweenable_36" parent="Bg/ColorRect7" instance=ExtResource("4_w5yue")]
+dir = Vector2(-1, 0)
+speed = 3.84421
+
+[node name="ColorRect11" type="ColorRect" parent="Bg"]
+material = SubResource("ShaderMaterial_ckf1w")
+layout_mode = 0
+offset_left = -45.0
+offset_top = 1071.0
+offset_right = 1099.0
+offset_bottom = 1540.0
+rotation = 4.51182
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="Tweenable_356" parent="Bg/ColorRect11" instance=ExtResource("4_w5yue")]
+dir = Vector2(-1, 0)
+speed = 3.61298
+
+[node name="ColorRect4" type="ColorRect" parent="Bg"]
+material = SubResource("ShaderMaterial_ckf1w")
+layout_mode = 0
+offset_left = -45.0
+offset_top = 1071.0
+offset_right = 1099.0
+offset_bottom = 1540.0
+rotation = 4.51182
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="Tweenable_442" parent="Bg/ColorRect4" instance=ExtResource("4_w5yue")]
+dir = Vector2(-1, 0)
+speed = 2.26291
+
+[node name="ColorRect9" type="ColorRect" parent="Bg"]
+material = SubResource("ShaderMaterial_ckf1w")
+layout_mode = 0
+offset_left = 2039.0
+offset_top = -265.0
+offset_right = 3688.0
+offset_bottom = 204.0
+rotation = 1.62212
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="Tweenable_628" parent="Bg/ColorRect9" instance=ExtResource("4_w5yue")]
+dir = Vector2(0, 1)
+speed = 2.45041
+
+[node name="ColorRect3" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = 1107.0
+offset_top = 1125.0
+offset_right = 2513.0
+offset_bottom = 1976.0
+rotation = -1.41942
+mouse_filter = 2
+color = Color(0.188235, 0.713726, 0.647059, 0.247059)
+
+[node name="Tweenable_716" parent="Bg/ColorRect3" instance=ExtResource("4_w5yue")]
+dir = Vector2(1, 0)
+speed = 1.8464
+
+[node name="Panel" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 661.0
+offset_right = 730.0
+offset_bottom = 743.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
+
+[node name="Tweenable_941" parent="Bg/Panel" instance=ExtResource("4_w5yue")]
+dir = Vector2(1, 0)
+speed = 3.09878
+
+[node name="Panel2" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 165.0
+offset_right = 926.0
+offset_bottom = 281.0
+rotation = 0.211113
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
+
+[node name="Tweenable_833" parent="Bg/Panel2" instance=ExtResource("4_w5yue")]
+dir = Vector2(-1, 0)
+speed = 3.23392
+
+[node name="Panel4" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 979.0
+offset_top = -89.0
+offset_right = 1878.0
+offset_bottom = 27.0
+rotation = 0.211113
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5yue")
+
+[node name="Tweenable_420" parent="Bg/Panel4" instance=ExtResource("4_w5yue")]
+dir = Vector2(0, 1)
+speed = 4.26451
+
+[node name="Panel3" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 230.0
+offset_right = 521.0
+offset_bottom = 277.0
+rotation = -0.1416
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
+
+[node name="Tweenable_36" parent="Bg/Panel3" instance=ExtResource("4_w5yue")]
+dir = Vector2(0, 1)
+speed = 5.07416
+
+[node name="Panel5" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 947.0
+offset_top = 854.0
+offset_right = 1026.0
+offset_bottom = 949.0
+rotation = -0.1416
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ffww0")
+
+[node name="Tweenable_128" parent="Bg/Panel5" instance=ExtResource("4_w5yue")]
+dir = Vector2(-1, 0)
+speed = 4.36486
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Bg"]
+layout_mode = 0
+offset_left = 1323.0
+offset_top = 107.0
+offset_right = 2093.0
+offset_bottom = 449.0
+rotation = 1.75405
+mouse_filter = 2
+bbcode_enabled = true
+text = "[b][color=#37aed766][font_size=250]MENU"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Tweenable_789" parent="Bg/RichTextLabel" instance=ExtResource("4_w5yue")]
+dir = Vector2(0, -1)
+speed = 6.30221
+
+[node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
+anchors_preset = 0
+script = ExtResource("2_75o0k")
+x = NodePath("x")
+y = NodePath("y")
+circle = NodePath("circle")
+
+[node name="y" type="ColorRect" parent="Selector"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -1000.0
+offset_right = 20.0
+offset_bottom = 1000.0
+color = Color(0.200777, 0.615266, 0.6637, 0.596078)
+
+[node name="x" type="ColorRect" parent="Selector"]
+layout_mode = 0
+offset_left = -1750.0
+offset_top = -20.0
+offset_right = 1750.0
+offset_bottom = 20.0
+color = Color(0.200777, 0.615266, 0.6637, 0.596078)
+
+[node name="circle" type="ColorRect" parent="Selector"]
+modulate = Color(0.359454, 0.760728, 0.912759, 1)
+material = SubResource("ShaderMaterial_1anme")
+layout_mode = 0
+offset_left = -62.0
+offset_top = -62.0
+offset_right = 63.0
+offset_bottom = 63.0
+
+[node name="circle2" type="ColorRect" parent="Selector/circle"]
+modulate = Color(0.792157, 0.439216, 0.211765, 1)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_alxqq")
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 132.0
+offset_bottom = 132.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Selector"]
+
+[node name="ButtonContTitle" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PersonaMenuButton9" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 210.0
+offset_bottom = 190.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../PersonaMenuButton6")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Quit"
+
+[node name="PersonaMenuButton6" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 350.0
+offset_bottom = 190.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath("../PersonaMenuButton9")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../PersonaMenuButton7")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Restart"
+
+[node name="PersonaMenuButton7" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 40.0
+offset_right = 490.0
+offset_bottom = 190.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath("../PersonaMenuButton6")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../PersonaMenuButton8")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Settings"
+
+[node name="PersonaMenuButton8" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 40.0
+offset_right = 630.0
+offset_bottom = 190.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath("../PersonaMenuButton7")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../ButtonCont/PersonaMenuButton")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Resume"
+
+[node name="ButtonCont" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PersonaMenuButton" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1331.0
+offset_top = 145.0
+offset_right = 1481.0
+offset_bottom = 295.0
+focus_neighbor_left = NodePath("../../ButtonContTitle/PersonaMenuButton8")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../PersonaMenuButton4")
+focus_neighbor_bottom = NodePath("../PersonaMenuButton4")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+button_title = "Bag"
+button_description = "All your consumables"
+
+[node name="PersonaMenuButton4" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 270.0
+offset_right = 1606.0
+offset_bottom = 420.0
+focus_neighbor_left = NodePath("../PersonaMenuButton")
+focus_neighbor_top = NodePath("../PersonaMenuButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../PersonaMenuButton3")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+button_title = "Money"
+button_description = "How many coins you got?"
+
+[node name="PersonaMenuButton3" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1331.0
+offset_top = 395.0
+offset_right = 1481.0
+offset_bottom = 545.0
+focus_neighbor_left = NodePath("../../ButtonContTitle/PersonaMenuButton8")
+focus_neighbor_top = NodePath("../PersonaMenuButton4")
+focus_neighbor_right = NodePath("../PersonaMenuButton2")
+focus_neighbor_bottom = NodePath("../PersonaMenuButton2")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+button_title = "Powers"
+button_description = "You have these? Lucky..."
+
+[node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 520.0
+offset_right = 1606.0
+offset_bottom = 670.0
+focus_neighbor_left = NodePath("../PersonaMenuButton3")
+focus_neighbor_top = NodePath("../PersonaMenuButton3")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../PersonaMenuButton5")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+button_title = "Skills"
+button_description = "Look at these sick moves!"
+
+[node name="PersonaMenuButton5" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1331.0
+offset_top = 645.0
+offset_right = 1481.0
+offset_bottom = 795.0
+focus_neighbor_left = NodePath("../../ButtonContTitle/PersonaMenuButton8")
+focus_neighbor_top = NodePath("../PersonaMenuButton2")
+focus_neighbor_right = NodePath("../PersonaMenuButton2")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+button_title = "Info"
+button_description = "Learn more about what I am"
+
+[node name="Navigation mapper" type="Node" parent="."]
+script = ExtResource("5_xufce")
+Element_groups = Array[ExtResource("6_alxqq")]([SubResource("Resource_ffww0"), SubResource("Resource_0dak3")])
+navigation_references = Array[ExtResource("7_1anme")]([SubResource("Resource_k7wwn"), SubResource("Resource_wwhe7"), SubResource("Resource_au2xi"), SubResource("Resource_ol2ps"), SubResource("Resource_teekl"), SubResource("Resource_11vf8"), SubResource("Resource_607dp"), SubResource("Resource_mw2tw"), SubResource("Resource_myckv")])
+ContainerTex = ExtResource("8_ckf1w")
+metadata/_custom_type_script = "uid://xp3dj8wgkxb7"
+
+[node name="Visualization grandparent" type="Control" parent="Navigation mapper"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Pointer parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
+anchors_preset = 0
+
+[node name="Pointers 0" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
+anchors_preset = 0
+
+[node name="@NinePatchRect@314703" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 275.0
+offset_top = 110.0
+offset_right = 296.0
+offset_bottom = 195.0
+rotation = 1.5708
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@314704" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@314703"]
+layout_mode = 0
+offset_left = -0.499992
+offset_top = 38.0
+offset_right = 10.5
+offset_bottom = 61.0
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@253319" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 135.0
+offset_top = 120.0
+offset_right = 156.0
+offset_bottom = 205.0
+rotation = -1.5708
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253320" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253319"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 27.0
+offset_right = 33.5
+offset_bottom = 50.0
+rotation = 1.5708
+text = "L"
+
+[node name="@NinePatchRect@253321" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 415.0
+offset_top = 110.0
+offset_right = 436.0
+offset_bottom = 195.0
+rotation = 1.5708
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253322" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253321"]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 38.0
+offset_right = 10.5
+offset_bottom = 61.0
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@253323" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 275.0
+offset_top = 120.0
+offset_right = 296.0
+offset_bottom = 205.0
+rotation = -1.5708
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253324" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253323"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 27.0
+offset_right = 33.5
+offset_bottom = 50.0
+rotation = 1.5708
+text = "L"
+
+[node name="@NinePatchRect@253325" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 555.0
+offset_top = 110.0
+offset_right = 576.0
+offset_bottom = 195.0
+rotation = 1.5708
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253326" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253325"]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 38.0
+offset_right = 10.5
+offset_bottom = 61.0
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@253327" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 415.0
+offset_top = 120.0
+offset_right = 436.0
+offset_bottom = 205.0
+rotation = -1.5708
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253328" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253327"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 27.0
+offset_right = 33.5
+offset_bottom = 50.0
+rotation = 1.5708
+text = "L"
+
+[node name="Pointers 1" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
+anchors_preset = 0
+
+[node name="@NinePatchRect@356188" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1534.54
+offset_top = 266.464
+offset_right = 1555.54
+offset_bottom = 357.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@356189" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@356188"]
+layout_mode = 0
+offset_left = 6.75739
+offset_top = 47.3761
+offset_right = 17.7574
+offset_bottom = 70.3761
+rotation = 3.92699
+text = "R"
+
+[node name="@NinePatchRect@355389" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1459.54
+offset_top = 341.464
+offset_right = 1480.54
+offset_bottom = 432.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@355390" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@355389"]
+layout_mode = 0
+offset_left = 7.1109
+offset_top = 47.7297
+offset_right = 19.1109
+offset_bottom = 70.7297
+rotation = 3.92699
+text = "D"
+
+[node name="@NinePatchRect@354590" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1402.46
+offset_top = 548.536
+offset_right = 1423.46
+offset_bottom = 639.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@354591" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@354590"]
+layout_mode = 0
+offset_left = 14.8892
+offset_top = 22.981
+offset_right = 26.8892
+offset_bottom = 45.981
+rotation = 0.785398
+text = "L"
+
+[node name="@NinePatchRect@353052" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1477.46
+offset_top = 473.536
+offset_right = 1498.46
+offset_bottom = 564.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353053" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353052"]
+layout_mode = 0
+offset_left = 14.8892
+offset_top = 22.981
+offset_right = 26.8892
+offset_bottom = 45.981
+rotation = 0.785398
+text = "U"
+
+[node name="@NinePatchRect@353054" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1484.54
+offset_top = 723.536
+offset_right = 1505.54
+offset_bottom = 814.246
+rotation = -2.35619
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353055" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353054"]
+layout_mode = 0
+offset_left = 23.3744
+offset_top = 39.2445
+offset_right = 35.3744
+offset_bottom = 62.2445
+rotation = 2.35619
+text = "D"
+
+[node name="@NinePatchRect@353028" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1452.46
+offset_top = 341.464
+offset_right = 1473.46
+offset_bottom = 432.175
+rotation = 0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353029" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353028"]
+layout_mode = 0
+offset_left = -1.37451
+offset_top = 31.4663
+offset_right = 10.6255
+offset_bottom = 54.4663
+rotation = -0.785398
+text = "U"
+
+[node name="@NinePatchRect@353030" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1534.54
+offset_top = 516.464
+offset_right = 1555.54
+offset_bottom = 607.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353031" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353030"]
+layout_mode = 0
+offset_left = 7.1109
+offset_top = 47.7297
+offset_right = 19.1109
+offset_bottom = 70.7297
+rotation = 3.92699
+text = "R"
+
+[node name="@NinePatchRect@337127" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1459.54
+offset_top = 591.464
+offset_right = 1480.54
+offset_bottom = 682.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@337128" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@337127"]
+layout_mode = 0
+offset_left = 7.1109
+offset_top = 47.7297
+offset_right = 19.1109
+offset_bottom = 70.7297
+rotation = 3.92699
+text = "D"
+
+[node name="@NinePatchRect@334690" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1402.46
+offset_top = 298.536
+offset_right = 1423.46
+offset_bottom = 389.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@334691" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334690"]
+layout_mode = 0
+offset_left = 14.8891
+offset_top = 22.9811
+offset_right = 26.8891
+offset_bottom = 45.9811
+rotation = 0.785398
+text = "L"
+
+[node name="@NinePatchRect@334692" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1477.46
+offset_top = 223.536
+offset_right = 1498.46
+offset_bottom = 314.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@334693" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334692"]
+layout_mode = 0
+offset_left = 14.8891
+offset_top = 22.9811
+offset_right = 26.8891
+offset_bottom = 45.9811
+rotation = 0.785398
+text = "U"
+
+[node name="@NinePatchRect@253331" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1484.54
+offset_top = 473.536
+offset_right = 1505.54
+offset_bottom = 564.246
+rotation = -2.35619
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253332" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253331"]
+layout_mode = 0
+offset_left = 23.3744
+offset_top = 39.2445
+offset_right = 35.3744
+offset_bottom = 62.2445
+rotation = 2.35619
+text = "D"
+
+[node name="@NinePatchRect@253333" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1452.46
+offset_top = 591.464
+offset_right = 1473.46
+offset_bottom = 682.175
+rotation = 0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253334" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253333"]
+layout_mode = 0
+offset_left = -1.37427
+offset_top = 31.4663
+offset_right = 10.6257
+offset_bottom = 54.4663
+rotation = -0.785398
+text = "U"
+
+[node name="@NinePatchRect@253335" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1527.46
+offset_top = 666.464
+offset_right = 1548.46
+offset_bottom = 757.175
+rotation = 0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253336" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253335"]
+layout_mode = 0
+offset_left = -1.37439
+offset_top = 31.4662
+offset_right = 10.6256
+offset_bottom = 54.4662
+rotation = -0.785398
+text = "R"
+
+[node name="Container parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
+anchors_preset = 0
+
+[node name="Container of group 0" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Container parent"]
+modulate = Color(1, 0.765, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 54.0
+offset_top = 34.0
+offset_right = 636.0
+offset_bottom = 196.0
+texture = ExtResource("8_ckf1w")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="@Label@253316" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 0"]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 1.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+text = "Group 0"
+
+[node name="Container of group 1" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Container parent"]
+modulate = Color(1, 0.765, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1325.0
+offset_top = 139.0
+offset_right = 1612.0
+offset_bottom = 801.0
+texture = ExtResource("8_ckf1w")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="@Label@253318" type="Label" parent="Navigation mapper/Visualization grandparent/Container parent/Container of group 1"]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 1.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+text = "Group 1"
+
+[node name="Group pointer parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
+anchors_preset = 0
+
+[node name="@NinePatchRect@253357" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.98, 0.13, 0.4, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1327.29
+offset_top = 465.555
+offset_right = 1348.29
+offset_bottom = 1260.63
+rotation = -4.23662
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253358" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@253357"]
+layout_mode = 0
+offset_left = 3.2963
+offset_top = 397.695
+offset_right = 14.2963
+offset_bottom = 420.695
+rotation = 4.23662
+text = "R"
+
+[node name="@NinePatchRect@253359" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
+modulate = Color(0.39, 0.93, 0.59, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 633.71
+offset_top = 119.445
+offset_right = 654.71
+offset_bottom = 914.523
+rotation = -1.09503
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@253360" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@253359"]
+layout_mode = 0
+offset_left = 19.1618
+offset_top = 378.272
+offset_right = 28.1618
+offset_bottom = 401.272
+rotation = 1.09503
+text = "L"

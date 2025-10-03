@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://osk1uxa28atn"]
+[gd_scene load_steps=5 format=3 uid="uid://osk1uxa28atn"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_0kpiu"]
 [ext_resource type="Script" uid="uid://b04dl4m1n72ab" path="res://Scripts/button_menu.gd" id="2_smycg"]
+[ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_xwm5q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
 
@@ -126,6 +127,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
+
+[node name="InputHandler" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_xwm5q")
+metadata/_custom_type_script = "uid://dphkmqhipj8ve"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

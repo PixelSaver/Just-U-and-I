@@ -9,6 +9,7 @@ class_name OSMenu
 @export var title : Control
 @export var notif_man : NotificationManagerMenu
 @export var coin : Coin
+@export var focus_first: Control
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -26,19 +27,23 @@ var is_animating_programs = false
 func _ready() -> void:
 	tweenables = all_t()
 	coin.connect("collected", _on_coin_collected)
+	focus_first.call_deferred("grab_focus")
+	
+	start_anim()
 
 func _on_coin_collected(coin:Coin):
 	notif_man.show_notification("You just collected [color=#ffa506]1 coin!")
 
 var is_start_animating = false
-func start_anim(dur:float=1.2):
+func start_anim(dur:float=0.6):
 	if is_animating_programs or is_start_animating: return
-	
+	print(str(Global.state))
 	is_start_animating = true
 	var t = create_tween().set_trans(Tween.TRANS_QUINT)
 	t.set_parallel(true).set_ease(Tween.EASE_OUT)
 	
-	#t.tween_property(self, "modulate:a", 1, dur)
+	modulate.a = 0
+	t.tween_property(self, "modulate:a", 1, dur)
 	
 	load_programs()
 	
@@ -53,9 +58,8 @@ func start_anim(dur:float=1.2):
 	await t.finished
 	is_start_animating = false
 
-func end_anim():
-	if is_animating_programs or is_start_animating or Global.state != Global.States.OS_MENU: return
-	Global.state = Global.States.MAIN_MENU
+func end_anim(is_main_menu:=false):
+	if is_animating_programs or Global.state != Global.States.OS_MENU: return
 	
 	var dur = 1.2
 	
@@ -68,7 +72,9 @@ func end_anim():
 		t_os.tween_property(table.get_parent(), "global_position", table.get_final_pos(), dur)
 	t_os.tween_property(self, "modulate:a", 0, dur)
 	
-	Global.go_main_menu()
+	if is_main_menu:
+		Global.state = Global.States.MAIN_MENU
+		Global.go_main_menu()
 	
 	await t_os.finished
 	queue_free()
@@ -134,7 +140,7 @@ func _input(event: InputEvent) -> void:
 	#if Input.is_action_just_pressed("click_left"):
 		#start_anim()
 	if Input.is_action_just_pressed("esc"):
-		end_anim()
+		end_anim(true)
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 	if Input.is_action_just_pressed("blue_coin"):

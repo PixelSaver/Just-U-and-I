@@ -15,6 +15,9 @@ enum States {
 #var state : States = States.LOGO
 var state : States = States.MAIN_MENU
 
+var focus_owners : Array = [] 
+		
+
 var root : Node
 
 signal blue_coin_collected
@@ -39,3 +42,14 @@ func go_main_menu():
 	var mm = load("res://Scenes/main_menu.tscn").instantiate() as MainMenu
 	root.add_child(mm)
 	mm.start_main_menu()
+func go_os():
+	for child in root.get_children():
+		if child is OSMenu:
+			child.queue_free()
+	var os_menu = load("res://Scenes/os_menu.tscn").instantiate() as OSMenu
+	root.add_child(os_menu)
+func get_os() -> OSMenu:
+	for child in root.get_children():
+		if child is OSMenu:
+			return child
+	return null

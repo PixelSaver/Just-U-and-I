@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxc444o24k70h"]
+
+[ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_s2wmk"]
+[ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_epj5s"]
+[ext_resource type="Script" uid="uid://mqk1ld67b1iq" path="res://Scripts/persona_button.gd" id="2_j8wfi"]
+[ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_j8wfi"]
+
+[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("button_sprite", "bg", "button_label", "button_desc_label", "tip")]
+offset_right = 150.0
+offset_bottom = 150.0
+theme = ExtResource("1_s2wmk")
+script = ExtResource("2_j8wfi")
+button_sprite = NodePath("holder/Sprite2D")
+bg = NodePath("holder/bg")
+button_label = NodePath("Tip/TipTitle/TitleLabel")
+button_desc_label = NodePath("Tip/TipDesc/DescLabel")
+tip = NodePath("Tip")
+
+[node name="holder" type="Node2D" parent="."]
+position = Vector2(75, 25)
+
+[node name="bg" type="Panel" parent="holder"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -18.0
+offset_right = 75.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(75, 75)
+mouse_filter = 2
+theme = ExtResource("1_s2wmk")
+
+[node name="Sprite2D" type="Sprite2D" parent="holder"]
+scale = Vector2(1.52273, 1.52273)
+texture = ExtResource("2_epj5s")
+offset = Vector2(0, 18.29)
+
+[node name="InputHandler" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_j8wfi")
+metadata/_custom_type_script = "uid://dphkmqhipj8ve"
+
+[node name="Tip" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = -527.0
+offset_top = -127.0
+offset_right = -84.0
+offset_bottom = 201.0
+mouse_filter = 2
+
+[node name="TipTitle" type="ColorRect" parent="Tip"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 13.0
+offset_right = 477.0
+offset_bottom = 125.0
+rotation = 0.109956
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Tip/TipTitle"]
+layout_mode = 0
+offset_left = 197.133
+offset_top = -18.7455
+offset_right = 280.133
+offset_bottom = 29.2545
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleLabel" type="RichTextLabel" parent="Tip/TipTitle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.99997
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -9.99999
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Items"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TipDesc" type="ColorRect" parent="Tip"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 280.0
+offset_right = 463.0
+offset_bottom = 411.0
+rotation = -0.126146
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Tip/TipDesc"]
+offset_left = -22.2212
+offset_top = 79.8386
+offset_right = 146.779
+offset_bottom = 148.839
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Tip/TipDesc"]
+offset_left = 245.976
+offset_top = -8.11799
+offset_right = 414.976
+offset_bottom = 64.882
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DescLabel" type="RichTextLabel" parent="Tip/TipDesc"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -9.99997
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Who let the dogs out?"
+fit_content = true
