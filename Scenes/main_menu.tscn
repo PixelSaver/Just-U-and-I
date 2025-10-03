@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://875cs4fxe4ua"]
+[gd_scene load_steps=26 format=3 uid="uid://875cs4fxe4ua"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
 [ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="3_m3bi6"]
 [ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="3_n45e2"]
 [ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="3_opfnp"]
+[ext_resource type="Texture2D" uid="uid://8x5p8ruijw82" path="res://Assets/Art/icons-keyboard-16x16-1bit-ansdor.png" id="3_wyh8j"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="5_opfnp"]
 [ext_resource type="AudioStream" uid="uid://71rjec1w1n4" path="res://Assets/Audio/generic-error.wav" id="8_5egv6"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_ui_sound_controller/base/scripts/ui_sound_controller.gd" id="8_trj04"]
@@ -78,6 +79,26 @@ ui_sound_cont = NodePath("UISoundController")
 coin = NodePath("TiltControl/LineSide/ColorRect/Coin")
 all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.168627, 0.564706, 0.992157, 0.133333)
+texture_filter = 1
+position = Vector2(1200, 700)
+rotation = -0.261799
+scale = Vector2(30, 30)
+texture = ExtResource("3_wyh8j")
+region_enabled = true
+region_rect = Rect2(144, 16, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.168627, 0.564706, 0.992157, 0.133333)
+texture_filter = 1
+position = Vector2(102, 639)
+rotation = 0.785397
+scale = Vector2(14, 14)
+texture = ExtResource("3_wyh8j")
+region_enabled = true
+region_rect = Rect2(176, 16, 16, 16)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_wyh8j")
@@ -605,10 +626,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_t1dhk")
 
 [node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer"]
 layout_mode = 2
-offset_left = 10.0
-offset_top = 30.0
-offset_right = 384.0
-offset_bottom = 109.0
+offset_left = 2.47046
+offset_top = 24.3314
+offset_right = 393.47
+offset_bottom = 189.331
 mouse_filter = 2
 theme = ExtResource("1_48xlc")
 bbcode_enabled = true

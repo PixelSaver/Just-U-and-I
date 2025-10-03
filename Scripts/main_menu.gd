@@ -12,6 +12,7 @@ var buttons : Array[Control] = []
 @export var notif_man : NotificationManagerMenu
 @export var ui_sound_cont : UISoundController
 @export var coin : Coin
+@export var title : RichTextLabel
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
 const OS_MENU = preload("res://Scenes/os_menu.tscn")
@@ -46,10 +47,7 @@ func _on_pressed(val:ButtonMenu):
 			t.tween_property(val, "modulate", Color("#2b91ff"), 0.1)
 			t.tween_property(val, "modulate", Color.WHITE, 0.3)
 		TITLES[2]: # Extras
-			ui_reject_audio.play()
-			val.reject_anim()
-			notif_man.show_notification("Content [color=#2b90fd]LOCKED[/color]: [color=#ffa506]3 coins[/color] needed")
-			notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
+			try_ending(val)
 		TITLES[3]: # Quit
 			end_main_menu()
 			t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -59,6 +57,12 @@ func _on_pressed(val:ButtonMenu):
 			await get_tree().create_timer(0.4).timeout
 			get_tree().quit()
 
+func try_ending(val:ButtonMenu):
+	if Global.coins_collected.size() < 3:
+		ui_reject_audio.play()
+		val.reject_anim()
+		notif_man.show_notification("Content [color=#2b90fd]LOCKED[/color]: [color=#ffa506]3 coins[/color] needed")
+		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 
 var duration : float = 0.8
 @export var all_parents : Array[Node] = []
@@ -117,6 +121,11 @@ func start_main_menu():
 	for child in Global.root.get_children():
 		if child is MainMenu and child != self:
 			child.queue_free()
+	
+	# Easter Egg!!!!!
+	if Global.coins_collected.size() >= 3:
+		title.clear()
+		title.append_text("[font_size=65]JUST U & I")
 	
 	for child in button_placement_container.get_children():
 		child.queue_free()

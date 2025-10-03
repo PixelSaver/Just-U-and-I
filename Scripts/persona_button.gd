@@ -29,7 +29,6 @@ func _ready():
 	input_handler.connect("activated", manual_foc_entered)
 	input_handler.connect("deactivated", manual_foc_exited)
 	og_scale = scale
-	
 	tip.hide()
 	
 	if button_label and button_desc_label and len(button_title)>0 and len(button_description)>0 and not is_title_bar:

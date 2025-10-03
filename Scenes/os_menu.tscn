@@ -1974,7 +1974,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program2/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program2/Border/Control" index="0"]
 texture = ExtResource("7_s5tje")
@@ -1998,7 +2003,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program3/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program3/Border/Control" index="0"]
 texture = ExtResource("8_286mi")
@@ -2023,7 +2033,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program4/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="RichTextLabel" parent="ProgramCont/Program4/MarginContainer" index="0"]
 text = "Click to the left"
@@ -2043,7 +2058,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program5/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program5/Border/Control" index="0"]
 position = Vector2(194.518, 157)
@@ -2084,7 +2104,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program11/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program11/Border/Control" index="0"]
 position = Vector2(345, 198)
@@ -2111,7 +2136,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program12/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program12/Border/Control" index="0"]
 position = Vector2(345, 191)
@@ -2140,7 +2170,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program6/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="RichTextLabel" parent="ProgramCont/Program6/MarginContainer" index="0"]
 text = "Nothing"
@@ -2160,7 +2195,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program7/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program7/Border/Control" index="0"]
 position = Vector2(324.49, 190.055)
@@ -2186,7 +2226,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program9/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program9/Border/Control" index="0"]
 position = Vector2(309.217, 188.782)
@@ -2213,7 +2258,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program8/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program8/Border/Control" index="0"]
 texture = ExtResource("14_ah3a4")
@@ -2234,7 +2284,12 @@ focus_previous = NodePath(".")
 focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program10/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program10/Border/Control" index="0"]
 texture = ExtResource("15_oltf8")
@@ -2263,7 +2318,12 @@ modulate = Color(0.945098, 0.670588, 0.878431, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_rt0qk")
 
 [node name="Control" parent="ProgramCont/Program13/Border" index="0"]
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="MarginContainer" parent="ProgramCont/Program13" index="1"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -2338,7 +2398,12 @@ focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program14/Border" index="0"]
 visible = false
-anchors_preset = 3
+offset_left = -409.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ProgramArt" parent="ProgramCont/Program14/Border/Control" index="0"]
 visible = false

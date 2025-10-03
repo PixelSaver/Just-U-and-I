@@ -495,7 +495,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_group_ = true
 
 [node name="PersonaMenuButton9" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -536,10 +535,9 @@ is_title_bar = true
 button_title = "Restart"
 
 [node name="Sprite2D" parent="ButtonContTitle/PersonaMenuButton6/holder" index="1"]
-position = Vector2(-1, 57)
 scale = Vector2(8, 8)
 texture = ExtResource("11_myckv")
-offset = Vector2(0, 0)
+offset = Vector2(0, 7.24)
 
 [node name="PersonaMenuButton7" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
@@ -579,10 +577,9 @@ is_title_bar = true
 button_title = "Resume"
 
 [node name="Sprite2D" parent="ButtonContTitle/PersonaMenuButton8/holder" index="1"]
-position = Vector2(0, -153)
 scale = Vector2(10, 10)
 texture = ExtResource("13_32sxi")
-offset = Vector2(0.83, 21.035)
+offset = Vector2(1.295, 6.035)
 
 [node name="ButtonCont" type="Control" parent="."]
 layout_mode = 1

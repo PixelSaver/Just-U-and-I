@@ -37,7 +37,6 @@ func _on_coin_collected(coin:Coin):
 var is_start_animating = false
 func start_anim(dur:float=0.6):
 	if is_animating_programs or is_start_animating: return
-	print(str(Global.state))
 	is_start_animating = true
 	var t = create_tween().set_trans(Tween.TRANS_QUINT)
 	t.set_parallel(true).set_ease(Tween.EASE_OUT)
