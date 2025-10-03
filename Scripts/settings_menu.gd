@@ -5,6 +5,7 @@ class_name SettingsMenu
 @export var button: ButtonSettings
 @export var offset : float = 50
 @export var all_parents : Array[Node] 
+@export var ui_exit : AudioStreamPlayer
 var buttons : Array[ButtonSettings] = []
 const TITLES = ["SOUND VOLUME", "AUDIO VOLUME", "FULLSCREEN", "HOW TO PLAY"]
 const TIPS = ["BUTTONS ARE FOR CLICKING", "YOUR MOUSE IS FOR CLICKING", "THIS SCREEN IS FOR NOTHING", "CLICK Q OR ESC TO LEAVE!"]
@@ -44,6 +45,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Global.state == Global.States.SETTINGS and Input.is_action_just_pressed("esc") and not is_animating:
+		ui_exit.play()
 		settings_hide()
 
 var is_animating := false

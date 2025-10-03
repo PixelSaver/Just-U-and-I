@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3vy4r68f4hr1"]
+[gd_scene load_steps=7 format=3 uid="uid://d3vy4r68f4hr1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_xod1k"]
 [ext_resource type="Script" uid="uid://dsk3xptj8ny1h" path="res://Scripts/program.gd" id="1_yly6v"]
 [ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_xod1k"]
 [ext_resource type="AudioStream" uid="uid://dbgjdghbcvm1k" path="res://Assets/Audio/toolbar-hover.wav" id="4_747j7"]
 [ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="5_236nq"]
+[ext_resource type="AudioStream" uid="uid://7amhs6th1dof" path="res://Assets/Audio/check-off.wav" id="6_not2c"]
 
-[node name="Program" type="Control" node_paths=PackedStringArray("program_sprite", "program_label", "program_hov")]
+[node name="Program" type="Control" node_paths=PackedStringArray("program_sprite", "program_label", "program_hov", "pressed_sound")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -20,6 +21,7 @@ script = ExtResource("1_yly6v")
 program_sprite = NodePath("Border/Control/ProgramArt")
 program_label = NodePath("MarginContainer/RichTextLabel")
 program_hov = NodePath("ProgramHover")
+pressed_sound = NodePath("PressedSound")
 
 [node name="Border" type="Panel" parent="."]
 clip_contents = true
@@ -80,6 +82,11 @@ offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("5_236nq")
 metadata/_custom_type_script = "uid://dphkmqhipj8ve"
+
+[node name="PressedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_not2c")
+volume_db = 4.219
+bus = &"SFX"
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

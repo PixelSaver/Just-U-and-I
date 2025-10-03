@@ -14,6 +14,7 @@ signal flash_finished
 @export var tip2label: RichTextLabel
 @export var all_parents : Array[Node]
 @export var persona_hov : AudioStreamPlayer
+@export var pressed_sound : AudioStreamPlayer
 @onready var input_handler : InputHandler = $InputHandler
 @onready var menu : PersonaMenu = get_tree().get_first_node_in_group("PersonaMenu")
 @onready var self_center_pos = pivot_offset + global_position
@@ -50,6 +51,10 @@ func _on_pressed():
 	t.tween_property(self, "scale", og_scale * 1.1, 0.2)
 	
 	t.tween_property(self, "modulate", Color.WHITE, 0.2)
+	
+	if pressed_sound:
+		pressed_sound.play()
+	
 	if button_title == "Quit":
 		var menu : PersonaMenu
 		for child in Global.root.get_children():

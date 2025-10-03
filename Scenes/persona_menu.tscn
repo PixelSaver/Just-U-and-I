@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=44 format=3 uid="uid://c1vr4rrfdxbfi"]
 
 [ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c12yfk0myx6p7" path="res://Assets/Art/Software_Options_Settings_Cogwheel_Gear_Mechanics.png" id="12_0tpey"]
 [ext_resource type="Texture2D" uid="uid://b1w7rnyycvsbi" path="res://Assets/Art/Arrows_Media_Controls_Play_Triangle.png" id="13_32sxi"]
 [ext_resource type="Texture2D" uid="uid://c5d7dx1v7rkq6" path="res://Assets/Art/Travel_Bag_Suitcase.png" id="14_54840"]
+[ext_resource type="AudioStream" uid="uid://7s3n2uwnt21t" path="res://Assets/Audio/screen-back.wav" id="15_myckv"]
 [ext_resource type="Texture2D" uid="uid://bciw20s54xxh7" path="res://Assets/Art/RPG_Coins_Gold_Currency_Money_GP_1.png" id="15_u8uoq"]
 [ext_resource type="Texture2D" uid="uid://booyuesj742ts" path="res://Assets/Art/RPG_Spell_Skill_Meteorite_Strike_Comet.png" id="16_yu2o8"]
 [ext_resource type="Texture2D" uid="uid://dcmd7d2vad0l6" path="res://Assets/Art/RPG_Stat_Intelligence_Intellect_Brain_Wisdom_Thinking_IQ.png" id="17_g0pab"]
@@ -518,6 +519,10 @@ button_title = "Quit"
 scale = Vector2(9, 9)
 texture = ExtResource("10_mw2tw")
 offset = Vector2(0, 5.5)
+
+[node name="Pressed" parent="ButtonContTitle/PersonaMenuButton9" index="4"]
+stream = ExtResource("15_myckv")
+volume_db = -1.555
 
 [node name="PersonaMenuButton6" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0

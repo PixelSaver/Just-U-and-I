@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dynsjq8f7g8yf" path="res://Assets/Audio/key-caps.mp3" id="11_vtepg"]
 [ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="13_5egv6"]
 [ext_resource type="AudioStream" uid="uid://l6cc3rqf54w8" path="res://Assets/Audio/menu-back-hover.wav" id="13_vtepg"]
-[ext_resource type="AudioStream" uid="uid://7s3n2uwnt21t" path="res://Assets/Audio/screen-back.wav" id="15_8dnnj"]
+[ext_resource type="AudioStream" uid="uid://drcibr17x7iie" path="res://Assets/Audio/ruleset-select-osu.wav" id="17_wyh8j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wyh8j"]
 shader = ExtResource("3_m3bi6")
@@ -58,7 +58,7 @@ bg_color = Color(0.168627, 0.564706, 0.992157, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1dhk"]
 draw_center = false
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "ui_pressed", "ui_enter_os", "notif_man", "ui_sound_cont", "coin", "all_parents", "scale_parent") groups=["MainMenu"]]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "ui_pressed", "ui_enter_os", "notif_man", "ui_sound_cont", "coin", "title", "ui_exit", "all_parents", "scale_parent") groups=["MainMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,6 +77,8 @@ ui_enter_os = NodePath("UIEnterOS")
 notif_man = NodePath("NotificationManager")
 ui_sound_cont = NodePath("UISoundController")
 coin = NodePath("TiltControl/LineSide/ColorRect/Coin")
+title = NodePath("TiltControl/VBoxContainer/Title/MarginContainer/GameLabel")
+ui_exit = NodePath("UIExit")
 all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
 
@@ -715,5 +717,8 @@ stream = ExtResource("13_vtepg")
 stream = ExtResource("11_vtepg")
 
 [node name="UIEnterOS" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_8dnnj")
+stream = ExtResource("17_wyh8j")
 volume_db = -19.605
+
+[node name="UIExit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_vtepg")

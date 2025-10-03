@@ -8,17 +8,102 @@ default_font = ExtResource("1_oq6ul")
 
 [node name="JUICredits" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 theme = SubResource("Theme_tm0or")
 
 [node name="ScrollingCredits" parent="." instance=ExtResource("1_1mbxv")]
 layout_mode = 1
 
+[node name="HeaderSpace" parent="ScrollingCredits/ScrollContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 486)
+
 [node name="CreditsLabel" parent="ScrollingCredits/ScrollContainer/VBoxContainer" index="1"]
-attribution_file_path = "res://maaacks_credits_scene/examples/ATTRIBUTION.md"
+custom_minimum_size = Vector2(864, 0)
+text = "[center]
+[font_size=48]Collaborators[/font_size]
+
+[font_size=32]Hipxel[/font_size]
+Author: [url=https://github.com/Hipxel-dev]Hipxel[/url]  
+Role: Inspiration for the entire project  
+
+[font_size=32]OfKnee[/font_size]
+Author: [url=https://github.com/ofKnee]OfKnee[/url]  
+Role: Coin and blue coin spritesheets  
+
+[font_size=32]Siege[/font_size]
+Source: [url=https://siege.hackclub.com/castle]Hackclub Siege[/url]  
+Role: Event that pushed me to build this project (YSWS challenge)  
+
+---
+
+[font_size=48]Sourced[/font_size]
+
+[font_size=32]README Template[/font_size]
+Author: [url=https://github.com/othneildrew]Othneil Drew[/url]  
+Source: [url=https://github.com/othneildrew/Best-README-Template]Best README Template[/url]  
+License: [url=https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt]MIT License[/url]  
+
+[font_size=32]TODO Manager Godot Addon[/font_size]
+Author: [url=https://github.com/OrigamiDev-Pete]Origami Dev Pete[/url]  
+Source: [url=https://github.com/OrigamiDev-Pete/TODO_Manager]TODO Manager[/url]  
+License: [url=https://github.com/OrigamiDev-Pete/TODO_Manager/blob/main/LICENSE.md]MIT License[/url]  
+
+[font_size=32]Godot Super Wakatime Addon[/font_size]
+Author: [url=https://github.com/BudzioT]Budzio[/url]  
+Source: [url=https://github.com/BudzioT/Godot_Super-Wakatime]Godot Super Wakatime[/url]  
+License: [url=https://github.com/BudzioT/Godot_Super-Wakatime/blob/master/LICENSE]MIT License[/url]  
+
+[font_size=32]Spatial Navigation Mapper[/font_size]
+Author: [url=https://github.com/Mantimestwo]ManTimesTwo[/url]  
+Source: [url=https://github.com/Mantimestwo/Godot-spatial-navigation-mapper]Spatial Navigation Mapper[/url]  
+License: [url=https://github.com/Mantimestwo/Godot-spatial-navigation-mapper/blob/master/LICENSE]MIT License[/url]  
+
+[font_size=32]osu! / osu!lazer[/font_size]
+Author: [url=https://github.com/ppy]ppy[/url]  
+Source: [url=https://github.com/ppy/osu]osu! GitHub[/url]  
+Assets: osu!lazer soundbites  
+License: [url=https://github.com/ppy/osu/blob/master/LICENCE]MIT License[/url]  
+
+[font_size=32]glass_002.ogg[/font_size]
+Author: [url=https://www.kenney.nl]Kenney.nl[/url]  
+Source: [url=https://www.kenney.nl/assets]Kenney Asset Library[/url]  
+License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0[/url]  
+
+[font_size=32]ui_reject.mp3[/font_size]
+Author: [url=https://pixabay.com/users/audley_fergine-32337609/]Hanifi Şahin[/url]  
+Source: [url=https://pixabay.com/sound-effects//]Pixabay Sound Effects[/url]  
+License: [url=https://pixabay.com/service/license/]Pixabay License[/url]  
+
+[font_size=32]Button Icons[/font_size]
+Author: [url=https://ansdor.itch.io/button-icons]Ansdor[/url]  
+Source: [url=https://ansdor.itch.io/button-icons]Itch.io Pack[/url]  
+License: As provided by the author  
+
+[font_size=32]Pixel Icons[/font_size]
+Author: [url=https://nikoichu.itch.io/pixel-icons]Nikoichu[/url]  
+Source: [url=https://nikoichu.itch.io/pixel-icons]Itch.io Pack[/url]  
+License: As provided by the author  
+
+---
+
+[font_size=48]Tools[/font_size]
+
+[font_size=32]Claude[/font_size]
+Source: [url=https://claude.ai/]claude.ai[/url]  
+Role: Helped write editor scripts for tweenables  
+
+[font_size=32]ChatGPT[/font_size]
+Source: [url=https://chatgpt.com]chat.openai.com[/url]  
+Role: Helped write editor scripts for tweenables  
+Location in repo: `/Scripts/Editor/`
+[/center]"
+attribution_file_path = "res://ATTRIBUTION.md"
+
+[node name="FooterSpace" parent="ScrollingCredits/ScrollContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 486)
 
 [editable path="ScrollingCredits"]

@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxc444o24k70h"]
+[gd_scene load_steps=8 format=3 uid="uid://cxc444o24k70h"]
 
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_s2wmk"]
 [ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_epj5s"]
 [ext_resource type="Script" uid="uid://mqk1ld67b1iq" path="res://Scripts/persona_button.gd" id="2_j8wfi"]
 [ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_j8wfi"]
+[ext_resource type="AudioStream" uid="uid://cykwywm8kxcxd" path="res://Assets/Audio/click-short.wav" id="5_2cu8n"]
+[ext_resource type="AudioStream" uid="uid://dynsjq8f7g8yf" path="res://Assets/Audio/key-caps.mp3" id="6_2cu8n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nl0rs"]
 bg_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(10, 10)
 
-[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("button_sprite", "bg", "button_label", "button_desc_label", "tip", "tip2", "tip2label")]
+[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("button_sprite", "bg", "button_label", "button_desc_label", "tip", "tip2", "tip2label", "persona_hov", "pressed_sound")]
 offset_right = 150.0
 offset_bottom = 150.0
 theme = ExtResource("1_s2wmk")
@@ -22,6 +24,8 @@ button_desc_label = NodePath("Tip/TipDesc/DescLabel")
 tip = NodePath("Tip")
 tip2 = NodePath("Tip2")
 tip2label = NodePath("Tip2/Panel/Tip2Label")
+persona_hov = NodePath("Hovered")
+pressed_sound = NodePath("Pressed")
 
 [node name="holder" type="Node2D" parent="."]
 position = Vector2(75, 25)
@@ -181,5 +185,14 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "Who let the dogs out?"
 fit_content = true
+
+[node name="Pressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2cu8n")
+volume_db = 13.636
+bus = &"SFX"
+
+[node name="Hovered" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2cu8n")
+volume_db = -18.064
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

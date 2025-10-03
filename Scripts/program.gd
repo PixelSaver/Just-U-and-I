@@ -9,6 +9,7 @@ signal flash_finished
 @export var program_hov : AudioStreamPlayer
 @export var scene : PackedScene
 @onready var input_handler : InputHandler = $InputHandler
+@export var pressed_sound : AudioStreamPlayer
 
 var sprite_og_pos : Vector2
 var og_mod : Color
@@ -63,6 +64,10 @@ func _gui_input(event: InputEvent) -> void:
 		
 		t.tween_property(self, "modulate", og_mod, 0.2)
 		Global.collect_blue_coin(self)
+		
+		if pressed_sound:
+			pressed_sound.play()
+		
 		if scene:
 			var os : OSMenu
 			for child in Global.root.get_children():
@@ -78,7 +83,7 @@ func _gui_input(event: InputEvent) -> void:
 	
 
 func apply_hover_state():
-	if z_index == 1: return
+	if z_index == 1 or Global.state != Global.States.OS_MENU: return
 	program_hov.play()
 	z_index = 1
 	if idle_tween:

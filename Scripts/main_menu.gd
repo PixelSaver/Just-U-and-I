@@ -13,6 +13,7 @@ var buttons : Array[Control] = []
 @export var ui_sound_cont : UISoundController
 @export var coin : Coin
 @export var title : RichTextLabel
+@export var ui_exit : AudioStreamPlayer
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
 const OS_MENU = preload("res://Scenes/os_menu.tscn")
@@ -30,6 +31,7 @@ func _on_coin_collected(coin:Coin):
 	notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 
 func _on_pressed(val:ButtonMenu):
+	if is_animating: return
 	var t : Tween
 	var text = val.button_text.text
 	match text:
@@ -50,11 +52,12 @@ func _on_pressed(val:ButtonMenu):
 			try_ending(val)
 		TITLES[3]: # Quit
 			end_main_menu()
-			t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-			t.tween_property(val, "modulate", Color("#2b91ff"), 0.1)
-			t.tween_property(val, "modulate", Color.WHITE, 0.3)
-			await t.finished
-			await get_tree().create_timer(0.4).timeout
+			ui_exit.play()
+			#t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			#t.tween_property(val, "modulate", Color("#2b91ff"), 0.1)
+			#t.tween_property(val, "modulate", Color.WHITE, 0.3)
+			#await t.finished
+			await get_tree().create_timer(0.7).timeout
 			get_tree().quit()
 
 func try_ending(val:ButtonMenu):
