@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://duvac1i3fyvly"]
 
-[ext_resource type="FontFile" uid="uid://ypijw5vc1lkm" path="res://Assets/Fonts/deltarune.ttf" id="1_06412"]
+[ext_resource type="FontFile" uid="uid://bjoyq5eys62av" path="res://Assets/Fonts/coolvetica rg.otf" id="1_06412"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugyog"]
 bg_color = Color(1, 1, 1, 0)
