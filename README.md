@@ -1,7 +1,5 @@
 # Just U and I
 
-https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
-
 
 
 
@@ -25,6 +23,7 @@ https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
 
 
 <!-- PROJECT LOGO -->
+<!--
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
@@ -46,29 +45,18 @@ https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
 	<a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
-
+-->
 
 
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
-	<li>
-	  <a href="#about-the-project">About The Project</a>
-	  <ul>
-		<li><a href="#built-with">Built With</a></li>
-	  </ul>
-	</li>
-	<li>
-	  <a href="#getting-started">Getting Started</a>
-	  <ul>
-		<li><a href="#prerequisites">Prerequisites</a></li>
-		<li><a href="#installation">Installation</a></li>
-	  </ul>
-	</li>
-	<li><a href="#usage">Usage</a></li>
+	<a href="#about-the-project">About The Project</a>
+	<li><a href="#built-with">Built With</a></li>
+	</ul>
+	<li><a href="#play">How to play?</a></li>
 	<li><a href="#roadmap">Roadmap</a></li>
-	<li><a href="#contributing">Contributing</a></li>
 	<li><a href="#license">License</a></li>
 	<li><a href="#contact">Contact</a></li>
 	<li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -80,6 +68,23 @@ https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+### Overall
+Built for Hackclub Siege, this was a rather enormous undertaking for me. I thought I could just find some references, whip up some UI, and then be done for the day but... Scope creep caught up to me. Thank gosh Siege only allows for a week, otherwise this project would have been blown out of proportion. I will say that I have taken heavy inspiration from one person in particular, but this was also a testament to what I can do in Godot with my current skillset (and what I can do UI-wise). 
+
+### What even is this?
+A very simple UI-based game where the user explores, finds coins, and then unlocks the ending! Bonus points if they get all the blue coins! I will leave the question of how to get blue coins up to exploration since it's not difficult. Here's a nice feature list:
+* 4 themed user interfaces to interact with
+* Smooth transitions in between all menus
+* Collectible gold and blue coins (3 of gold, and ? of blue)
+* Nice sounds to go with the experience (see <a href="#acknowledgments">Acknowledgments</a> or 'ATTRIBUTIONS')
+* Keyboard navigable user interface (currently doesn't work to pick up coins... that would be too easy!)
+* A hidden ending that won't surprise you
+
+### What do I take out of this?
+Scope creep is definitely one. I came into this with big plans, and only got 4 sections done... The ending makes 5 but that doesn't really count. I did try making a mood board and a plan, but I found myself polishing features while the game wasn't finished yet. I think I should go with minimum viable product before going for polishing rounds, even if I feel like I have a time limit. 
+Also, I learned a lot about how the Godot User Interface Nodes work: mouse_filter, containers, clip_contents, _gui_input(), etc. If we're talking strictly about Godot though, tweens are now my best friend. They do so much and are so nice (even though I don't do a good job of cleaning them up). 
+Lastly, there was a moment when I woke up, opened up my code editor, and didn't comprehend what I had written at 12 am the night before. I gave myself the task of turning the code into a component, but it was so jank and slapped together that it took many hours to rewrite code that had taken barely an hour to initially put down. From now on, I will do my best to look ahead and compartmentalize things that will be used again, like the input system I made or the (lack of) a scene manager.
+
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
@@ -90,9 +95,10 @@ https://github.com/Mantimestwo/Godot-spatial-navigation-mapper
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section should list any major frameworks/libraries used to bootstrap your project.
 
-* [![Godot][Godot 4.4][Godot-url]
+* [![Godot][Godot 4.4]][Godot-url]
+* [ShaderToy](https://www.shadertoy.com) for shaders
 <!--
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
@@ -107,9 +113,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 
-### Installation 
+### Play 
 
-There isn't really an install option, so you'll have to use Godot 4.4 to export it yourself. I do have a pre-built web version available [here on my itch.](https://pixelsaver.itch.io/just-u-and-i)
+If you'd like to build it yourself, I used Godot 4.4.1. I do have a pre-built web version available [here on my itch](https://pixelsaver.itch.io/just-u-and-i), but if you still insist on building this unoptimized mess, go ahead.
 
 1. Install Godot 4.4
 2. Download and unzip the code
@@ -125,11 +131,11 @@ There isn't really an install option, so you'll have to use Godot 4.4 to export 
 - [x] Make the Main Menu
 - [x] Make the Settings
 - [x] Make the OS
-- [ ] Add coins
+- [X] Add coins
 - [ ] Finish sounds (pull from Osu Lazer)
 - [ ] Add tutorial / teach the user how to play
 - [ ] Extra apps in the OS
-  - [ ] Persona looking ui for whatever in an app
+  - [X] Persona looking ui for whatever in an app
   - [ ] Osu lazer main menu clone
   - [ ] Osu lazer radial menu clone
   - [ ] Mochibot
@@ -137,16 +143,10 @@ There isn't really an install option, so you'll have to use Godot 4.4 to export 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-If you would like to, fork the project and do what you would like to it! I cannot guarantee I'll come back to this project but feel free to use it whereever you'd like!
-
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -166,12 +166,21 @@ Project Link: [https://github.com/PixelSaver/Just-U-and-I](https://github.com/Pi
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Many thanks for these people for letting me use their work for free! 
+Many thanks for these people for letting me use their work for free! See 'ATTRIBUTIONS.MD' for a cleaner look!
 
+* The man who inspired me to do all of this, [Hipxel](https://github.com/Hipxel-dev) 
+* My good friend [OfKnee](https://github.com/ofKnee) for the coin and blue coin spritesheets
+* [Siege](https://siege.hackclub.com/castle), the YSWS that pushed me to do this.
 * [Matiassinger's Readme Template](https://github.com/othneildrew/Best-README-Template)
+* [Origami Dev Pete's TODO Manager Godot Addon](https://github.com/OrigamiDev-Pete/TODO_Manager)
+* [Budzio's Godot Super Wakatime Addon](https://github.com/BudzioT/Godot_Super-Wakatime)
+* ManTimesTwo's [Spatial Navigation Mapper Addon](https://github.com/Mantimestwo/Godot-spatial-navigation-mapper)
 * [OSU](https://github.com/ppy/osu) and OSU Lazer soundbites from ppy
 * glass_002.ogg by [Kenney.nl](www.kenney.nl)
 * ui_reject.mp3 Sound Effect by <a href="https://pixabay.com/users/audley_fergine-32337609/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Hanifi Şahin</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Pixabay</a>
+* Ansdor for the [button icons](https://ansdor.itch.io/button-icons)
+* Nikoichu for the [pixel icons](https://nikoichu.itch.io/pixel-icons)
+* [Claude](https://claude.ai/) and [ChatGPT](https://chatgpt.com) who helped me write the editor scripts for tweenables (find them at `/Scripts/Editor/')
 <!--
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
