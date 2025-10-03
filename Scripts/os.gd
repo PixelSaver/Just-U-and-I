@@ -59,7 +59,7 @@ func start_anim(dur:float=0.6):
 	is_start_animating = false
 
 func end_anim(is_main_menu:=false):
-	if is_animating_programs: return
+	if is_animating_programs or Global.state != Global.States.OS_MENU: return
 	
 	var dur = 1.2
 	
@@ -128,19 +128,22 @@ func load_programs():
 			)
 
 func _input(event: InputEvent) -> void:
+	if Global.state != Global.States.OS_MENU or is_start_animating: return
+	if Input.is_action_pressed("scroll_down"): 
+		scroll += 185
+	if Input.is_action_pressed("scroll_up"): 
+		scroll -= 185
+
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		touch = event.pressed
 		if event.pressed:
 			last_ms_pos = get_local_mouse_position().x
 			last_scroll = scroll
 	if Global.state != Global.States.OS_MENU or is_start_animating: return
-	if Input.is_action_pressed("scroll_down"): 
-		scroll += 185
-	if Input.is_action_pressed("scroll_up"): 
-		scroll -= 185
 	#if Input.is_action_just_pressed("click_left"):
 		#start_anim()
-	if Input.is_action_just_pressed("esc"):
+	if Input.is_action_just_pressed("esc") and Global.state == Global.States.OS_MENU:
 		end_anim(true)
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))

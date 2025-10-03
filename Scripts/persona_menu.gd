@@ -80,3 +80,5 @@ func update_selector(node:Control):
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouse:
 		bg.position = get_local_mouse_position()/80
+	if Input.is_action_just_pressed("esc"):
+		end_anim()

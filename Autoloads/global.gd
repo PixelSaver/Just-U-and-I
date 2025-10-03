@@ -49,6 +49,7 @@ func go_os():
 			child.queue_free()
 	var os_menu = load("res://Scenes/os_menu.tscn").instantiate() as OSMenu
 	root.add_child(os_menu)
+	Global.state = Global.States.OS_MENU
 func get_os() -> OSMenu:
 	for child in root.get_children():
 		if child is OSMenu:
