@@ -12,6 +12,7 @@ signal flash_finished
 @export var tip : Control
 @export var tip2 : Control
 @export var tip2label: RichTextLabel
+@export var all_parents : Array[Node]
 @export var persona_hov : AudioStreamPlayer
 @onready var input_handler : InputHandler = $InputHandler
 @onready var menu : PersonaMenu = get_tree().get_first_node_in_group("PersonaMenu")
@@ -41,6 +42,9 @@ func _ready():
 		tip2.show()
 		tip2.modulate.a = 0
 		tip2label.text = button_title
+	
+
+
 
 var og_scale : Vector2
 var hov_dur : float = 0.3

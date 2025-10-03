@@ -3,9 +3,60 @@ class_name PersonaMenu
 
 @export var selector : PersonaSelector
 @export var bg : Control
+@export var all_parents : Array[Control]
 
+var all_t : Array[Tweenable] = []
 func _ready() -> void:
 	selector.modulate.a = 0
+	
+	for parent in all_parents:
+		for child in parent.get_children():
+			for thing in child.get_children():
+				if thing is Tweenable:
+					all_t.append(thing)
+	
+	start_anim()
+
+var is_animating = false
+var dur = 0.4
+func start_anim():
+	if is_animating: return
+	
+	is_animating = true
+	var t = create_tween().set_trans(Tween.TRANS_QUINT)
+	t.set_parallel(true).set_ease(Tween.EASE_OUT)
+	
+	#t.tween_property(self, "modulate:a", 1, dur)
+	
+	for thing in all_t:
+		var table = thing as Tweenable
+		if table.has_method("custom_tween"):
+			table.custom_tween(t, dur)
+		table.get_parent().global_position = table.get_final_pos()
+		t.tween_property(table.get_parent(), "global_position", table.og_gl_pos, dur)
+	
+	
+	await t.finished
+	is_animating = false
+
+func end_anim():
+	if is_animating: return
+	
+	is_animating = true
+	var t = create_tween().set_trans(Tween.TRANS_QUINT)
+	t.set_parallel(true).set_ease(Tween.EASE_OUT)
+	
+	#t.tween_property(self, "modulate:a", 1, dur)
+	
+	for thing in all_t:
+		var table = thing as Tweenable
+		if table.has_method("custom_tween"):
+			table.custom_tween(t, dur)
+		t.tween_property(table.get_parent(), "global_position", table.get_final_pos(), dur)
+	
+	
+	await t.finished
+	queue_free()
 
 var selector_dur : float = 0.6
 var s : Tween
