@@ -7,10 +7,10 @@
 [ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="3_1anme"]
 [ext_resource type="Texture2D" uid="uid://cl56jrlj8hoyh" path="res://Assets/Art/sample_gameply.png" id="3_ckf1w"]
 [ext_resource type="Shader" uid="uid://bqi7i102c32f4" path="res://Shaders/circle.gdshader" id="4_alxqq"]
+[ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="4_ffww0"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_w5yue"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="5_xufce"]
 [ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="6_alxqq"]
-[ext_resource type="Script" uid="uid://g3op48dcxnbw" path="res://Scripts/coin.gd" id="6_w5yue"]
 [ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="7_1anme"]
 [ext_resource type="Texture2D" uid="uid://c55pqw2svgxtw" path="res://addons/Spatial navigation mapper/ContainerBorder.png" id="8_ckf1w"]
 [ext_resource type="Texture2D" uid="uid://0bvvm2klmnpu" path="res://addons/Spatial navigation mapper/arrow.png" id="9_x2w82"]
@@ -150,7 +150,7 @@ Up = NodePath("../ButtonCont/PersonaMenuButton2")
 Right = NodePath("../ButtonCont/PersonaMenuButton2")
 Down = NodePath("")
 
-[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg", "all_parents") groups=["PersonaMenu"]]
+[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg", "all_parents", "coin") groups=["PersonaMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -164,6 +164,7 @@ script = ExtResource("1_7p40m")
 selector = NodePath("Selector")
 bg = NodePath("Bg")
 all_parents = [NodePath("Bg")]
+coin = NodePath("Bg/Coin")
 
 [node name="Screenshot2025-10-02165431" type="Sprite2D" parent="."]
 position = Vector2(878.304, 477)
@@ -178,6 +179,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Coin" parent="Bg" instance=ExtResource("4_ffww0")]
+layout_mode = 1
+offset_left = 1388.0
+offset_top = 137.0
+offset_right = -278.0
+offset_bottom = -773.0
 
 [node name="ColorRect10" type="ColorRect" parent="Bg"]
 layout_mode = 0
@@ -418,15 +426,9 @@ autowrap_mode = 0
 dir = Vector2(0, -1)
 speed = 6.30221
 
-[node name="Coin" type="Button" parent="Bg"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("6_w5yue")
-metadata/_custom_type_script = "uid://g3op48dcxnbw"
-
 [node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("2_75o0k")
 x = NodePath("x")
 y = NodePath("y")
@@ -438,6 +440,7 @@ offset_left = -20.0
 offset_top = -1000.0
 offset_right = 20.0
 offset_bottom = 1000.0
+mouse_filter = 2
 color = Color(0.200777, 0.615266, 0.6637, 0.596078)
 
 [node name="x" type="ColorRect" parent="Selector"]
@@ -446,6 +449,7 @@ offset_left = -1750.0
 offset_top = -20.0
 offset_right = 1750.0
 offset_bottom = 20.0
+mouse_filter = 2
 color = Color(0.200777, 0.615266, 0.6637, 0.596078)
 
 [node name="circle" type="ColorRect" parent="Selector"]
@@ -456,6 +460,7 @@ offset_left = -62.0
 offset_top = -62.0
 offset_right = 63.0
 offset_bottom = 63.0
+mouse_filter = 2
 
 [node name="circle2" type="ColorRect" parent="Selector/circle"]
 modulate = Color(0.792157, 0.439216, 0.211765, 1)
@@ -466,6 +471,7 @@ offset_left = 7.0
 offset_top = 7.0
 offset_right = 132.0
 offset_bottom = 132.0
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Selector"]
 

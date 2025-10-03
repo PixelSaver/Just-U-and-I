@@ -47,7 +47,7 @@ func _ready():
 func _on_pressed():
 	modulate = Color.DARK_CYAN
 	scale = og_scale 
-	var t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN).set_parallel(true)
+	var t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	t.tween_property(self, "scale", og_scale * 1.1, 0.2)
 	
 	t.tween_property(self, "modulate", Color.WHITE, 0.2)

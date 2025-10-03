@@ -298,7 +298,6 @@ color = Color(0, 0, 0, 1)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-metadata/_edit_group_ = true
 
 [node name="Bg" type="Control" parent="BGHolder"]
 modulate = Color(0.629041, 0.00289747, 0.896669, 1)
@@ -1062,6 +1061,371 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
 dir = Vector2(-1, -1)
 speed = 3.81036
 
+[node name="Bg9" type="Control" parent="BGHolder"]
+modulate = Color(0.629041, 0.00289747, 0.896669, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 5887.0
+offset_top = 1262.0
+offset_right = 5887.0
+offset_bottom = 1262.0
+grow_vertical = 2
+rotation = -1.5708
+
+[node name="Panel32" type="Panel" parent="BGHolder/Bg9"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = -2661.0
+offset_right = 1290.0
+offset_bottom = -1523.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Tweenable_880" parent="BGHolder/Bg9/Panel32" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 5.14155
+
+[node name="Panel20" type="Panel" parent="BGHolder/Bg9"]
+layout_mode = 0
+offset_left = 1487.0
+offset_top = 782.0
+offset_right = 1691.0
+offset_bottom = 1467.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Tweenable_27" parent="BGHolder/Bg9/Panel20" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 2.28577
+
+[node name="Panel30" type="Panel" parent="BGHolder/Bg9"]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 633.0
+offset_right = 2066.0
+offset_bottom = 783.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Tweenable_520" parent="BGHolder/Bg9/Panel30" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, -1)
+speed = 8.3
+
+[node name="Panel8" type="Panel" parent="BGHolder/Bg9"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 61.0
+offset_right = 1147.0
+offset_bottom = 1312.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Tweenable_68" parent="BGHolder/Bg9/Panel8" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 6.2
+
+[node name="Panel35" type="Panel" parent="BGHolder/Bg9"]
+visible = false
+layout_mode = 0
+offset_left = 2045.0
+offset_top = -841.0
+offset_right = 2619.0
+offset_bottom = 982.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Tweenable_184" parent="BGHolder/Bg9/Panel35" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 2.29075
+
+[node name="Panel4" type="Panel" parent="BGHolder/Bg9"]
+layout_mode = 0
+offset_left = -526.0
+offset_top = 378.0
+offset_right = 988.0
+offset_bottom = 481.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
+
+[node name="Tweenable_201" parent="BGHolder/Bg9/Panel4" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, 0)
+speed = 6.09644
+
+[node name="Bg10" type="Control" parent="BGHolder"]
+modulate = Color(0.629041, 0.00289747, 0.896669, 1)
+anchors_preset = 0
+offset_left = 6108.0
+offset_top = -791.0
+offset_right = 6148.0
+offset_bottom = -751.0
+rotation = -4.71238
+
+[node name="Panel10" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = -216.0
+offset_right = 753.0
+offset_bottom = 446.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Tweenable_32" parent="BGHolder/Bg10/Panel10" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 10.6
+
+[node name="Panel26" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 1385.0
+offset_top = -1041.0
+offset_right = 1721.0
+offset_bottom = -379.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Tweenable_150" parent="BGHolder/Bg10/Panel26" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 5.96672
+
+[node name="Panel5" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = -436.0
+offset_right = 137.0
+offset_bottom = 249.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Tweenable_905" parent="BGHolder/Bg10/Panel5" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 3.23387
+
+[node name="Panel25" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 881.0
+offset_top = -1134.0
+offset_right = 1085.0
+offset_bottom = -449.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Tweenable_853" parent="BGHolder/Bg10/Panel25" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 5.44716
+
+[node name="Panel29" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 912.0
+offset_top = -149.0
+offset_right = 1339.0
+offset_bottom = 80.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Tweenable_966" parent="BGHolder/Bg10/Panel29" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 1.5178
+
+[node name="Panel18" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 1676.0
+offset_top = 82.0
+offset_right = 2210.0
+offset_bottom = 386.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
+
+[node name="Tweenable_65" parent="BGHolder/Bg10/Panel18" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, 1)
+speed = 6.66
+
+[node name="Panel9" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 1263.0
+offset_top = -310.0
+offset_right = 1513.0
+offset_bottom = -160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
+
+[node name="Tweenable_238" parent="BGHolder/Bg10/Panel9" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 2.4835
+
+[node name="Panel6" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 1682.0
+offset_top = 126.0
+offset_right = 1932.0
+offset_bottom = 276.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Tweenable_779" parent="BGHolder/Bg10/Panel6" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 6.11644
+
+[node name="Panel12" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 356.141
+offset_top = 328.0
+offset_right = 653.141
+offset_bottom = 587.0
+rotation = 0.785398
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
+
+[node name="Tweenable_574" parent="BGHolder/Bg10/Panel12" instance=ExtResource("3_70lpx")]
+dir = Vector2(0, 1)
+speed = 4.9176
+
+[node name="Panel19" type="Panel" parent="BGHolder/Bg10"]
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 27.0
+offset_right = 1417.0
+offset_bottom = 492.0
+rotation = 0.785397
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Tweenable_679" parent="BGHolder/Bg10/Panel19" instance=ExtResource("3_70lpx")]
+dir = Vector2(0, 1)
+speed = 5.4718
+
+[node name="Bg11" type="Control" parent="BGHolder"]
+modulate = Color(0.629041, 0.00289747, 0.896669, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7891.0
+offset_top = 1222.0
+offset_right = 7891.0
+offset_bottom = 1222.0
+rotation = -2.35619
+
+[node name="Panel38" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 930.0
+offset_top = -297.0
+offset_right = 1180.0
+offset_bottom = -67.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Tweenable_408" parent="BGHolder/Bg11/Panel38" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 5.99894
+
+[node name="Panel40" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 1645.0
+offset_top = 728.0
+offset_right = 1859.0
+offset_bottom = 1104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
+
+[node name="Tweenable_203" parent="BGHolder/Bg11/Panel40" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 2.2585
+
+[node name="Panel31" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = -672.0
+offset_right = 818.0
+offset_bottom = -192.0
+scale = Vector2(0.479999, 0.560001)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Tweenable_270" parent="BGHolder/Bg11/Panel31" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 3.57759
+
+[node name="Panel36" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 1633.0
+offset_top = 31.0
+offset_right = 2027.0
+offset_bottom = 326.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydafb")
+
+[node name="Tweenable_17" parent="BGHolder/Bg11/Panel36" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 4.09246
+
+[node name="Panel41" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 2377.0
+offset_top = 165.0
+offset_right = 2800.0
+offset_bottom = 645.0
+scale = Vector2(0.479999, 0.560001)
+theme_override_styles/panel = SubResource("StyleBoxFlat_odcqt")
+
+[node name="Tweenable_401" parent="BGHolder/Bg11/Panel41" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 1.21861
+
+[node name="Panel7" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 1974.0
+offset_top = -357.0
+offset_right = 2224.0
+offset_bottom = -198.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Tweenable_932" parent="BGHolder/Bg11/Panel7" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 3.7762
+
+[node name="Panel23" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 236.0
+offset_right = 184.0
+offset_bottom = 838.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubig6")
+
+[node name="Tweenable_682" parent="BGHolder/Bg11/Panel23" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 4.20516
+
+[node name="Panel21" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 1412.0
+offset_top = 106.0
+offset_right = 1609.0
+offset_bottom = 431.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjnpq")
+
+[node name="Tweenable_932" parent="BGHolder/Bg11/Panel21" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, 1)
+speed = 1.34588
+
+[node name="Panel27" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 204.0
+offset_right = 704.0
+offset_bottom = 354.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70lpx")
+
+[node name="Tweenable_238" parent="BGHolder/Bg11/Panel27" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, 0)
+speed = 7.333
+
+[node name="Panel24" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 634.0
+offset_right = 1491.0
+offset_bottom = 1119.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_udqk2")
+
+[node name="Tweenable_477" parent="BGHolder/Bg11/Panel24" instance=ExtResource("3_70lpx")]
+dir = Vector2(1, -1)
+speed = 5.2
+
+[node name="Panel13" type="Panel" parent="BGHolder/Bg11"]
+layout_mode = 0
+offset_left = 388.141
+offset_top = 432.0
+offset_right = 675.141
+offset_bottom = 685.0
+rotation = 0.785398
+theme_override_styles/panel = SubResource("StyleBoxFlat_usugc")
+
+[node name="Tweenable_136" parent="BGHolder/Bg11/Panel13" instance=ExtResource("3_70lpx")]
+dir = Vector2(-1, -1)
+speed = 3.81036
+
 [node name="Bg7" type="Control" parent="BGHolder"]
 modulate = Color(0.629041, 0.00289747, 0.896669, 1)
 layout_mode = 3
@@ -1774,6 +2138,7 @@ mouse_filter = 2
 [node name="RichTextLabel" parent="ProgramCont/Program13/MarginContainer" index="0"]
 z_index = 1
 mouse_filter = 2
+text = "Look what I can do!"
 
 [node name="MarginContainer2" type="Control" parent="ProgramCont/Program13"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -1844,6 +2209,7 @@ visible = false
 
 [node name="RichTextLabel" parent="ProgramCont/Program14/MarginContainer" index="0"]
 z_index = 1
+text = "Isn't this cool?"
 
 [node name="MarginContainer2" type="Control" parent="ProgramCont/Program14"]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)

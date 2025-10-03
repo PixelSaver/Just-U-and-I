@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://duvac1i3fyvly"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://duvac1i3fyvly"]
+
+[ext_resource type="FontFile" uid="uid://ypijw5vc1lkm" path="res://Assets/Fonts/deltarune.ttf" id="1_06412"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugyog"]
 bg_color = Color(1, 1, 1, 0)
@@ -22,6 +24,7 @@ shadow_size = 1
 shadow_offset = Vector2(20, 20)
 
 [resource]
+default_font = ExtResource("1_06412")
 default_font_size = 40
 Button/styles/disabled = SubResource("StyleBoxFlat_ugyog")
 Button/styles/focus = SubResource("StyleBoxFlat_06412")

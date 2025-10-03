@@ -54,7 +54,7 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	if Input.is_action_just_pressed("click_left") and has_focus():
 		modulate = og_mod * .7 + Color.DARK_ORCHID * .3
-		scale = Vector2.ONE*1.05
+		scale = Vector2.ONE
 		var t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 		t.tween_property(self, "scale", Vector2.ONE * 1.1, 0.2)
 		
