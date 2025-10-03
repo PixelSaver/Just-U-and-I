@@ -160,7 +160,7 @@ Up = NodePath("../ButtonCont/PersonaMenuButton2")
 Right = NodePath("../ButtonCont/PersonaMenuButton2")
 Down = NodePath("")
 
-[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg", "all_parents", "coin") groups=["PersonaMenu"]]
+[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg", "all_parents", "coin", "butn_foc") groups=["PersonaMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,6 +175,7 @@ selector = NodePath("Selector")
 bg = NodePath("Bg")
 all_parents = [NodePath("Bg")]
 coin = NodePath("Bg/Coin")
+butn_foc = NodePath("ButtonCont/PersonaMenuButton")
 
 [node name="Screenshot2025-10-02165431" type="Sprite2D" parent="."]
 position = Vector2(878.304, 477)

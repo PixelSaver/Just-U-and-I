@@ -55,7 +55,7 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	else:
 		input_handler.input_handler_disabled = false
-	if Input.is_action_just_pressed("click_left") and has_focus():
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("click_left") or Input.is_action_just_pressed("ui_select")) and has_focus():
 		modulate = og_mod * .7 + Color.DARK_ORCHID * .3
 		scale = Vector2.ONE
 		var t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)

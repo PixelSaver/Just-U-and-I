@@ -140,7 +140,9 @@ func start_main_menu():
 		inst.init_position()
 		if i == TITLES.size()-1:
 			inst.has_blue_coin = false
-	for i in range(buttons.size()-1):
+		elif i == 0:
+			inst.grab_focus()
+	for i in range(buttons.size()):
 		if i == 0:
 			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
 		elif i == buttons.size()-1:

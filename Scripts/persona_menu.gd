@@ -5,6 +5,7 @@ class_name PersonaMenu
 @export var bg : Control
 @export var all_parents : Array[Control]
 @export var coin : Coin
+@export var butn_foc : PersonaButton
 var all_t : Array[Tweenable] = []
 func _ready() -> void:
 	selector.modulate.a = 0
@@ -35,7 +36,7 @@ func start_anim():
 		table.get_parent().global_position = table.get_final_pos()
 		t.tween_property(table.get_parent(), "global_position", table.og_gl_pos, dur)
 	
-	
+	butn_foc.grab_focus()
 	await t.finished
 	is_animating = false
 

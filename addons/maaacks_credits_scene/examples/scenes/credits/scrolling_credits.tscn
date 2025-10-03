@@ -6,7 +6,11 @@
 [node name="ScrollingCredits" instance=ExtResource("1_n45le")]
 script = ExtResource("2_q7msw")
 
+[node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 972)
+
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(1728, 0)
 text = "[center][font_size=48]Collaborators[/font_size]
 
 [font_size=32]Role[/font_size]
@@ -41,3 +45,6 @@ Source: [url=https://git-scm.com/downloads]git-scm.com[/url]
 License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
 [/center]"
 attribution_file_path = "res://addons/maaacks_credits_scene/examples/ATTRIBUTION.md"
+
+[node name="FooterSpace" parent="ScrollContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 972)

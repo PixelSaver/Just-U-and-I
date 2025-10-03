@@ -327,6 +327,7 @@ mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "TIP: BUTTONS ARE FOR CLICKING"
 fit_content = true
+vertical_alignment = 2
 
 [node name="InputHandler" type="Control" parent="ButtonSettings"]
 anchors_preset = 0

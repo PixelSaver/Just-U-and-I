@@ -7,7 +7,7 @@ class_name SettingsMenu
 @export var all_parents : Array[Node] 
 var buttons : Array[ButtonSettings] = []
 const TITLES = ["SOUND VOLUME", "AUDIO VOLUME", "FULLSCREEN", "HOW TO PLAY"]
-const TIPS = ["BUTTONS ARE FOR CLICKING", "YOUR MOUSE IS FOR CLICKING", "THIS SCREEN IS FOR NOTHING", "CLICK Q OR ESC!"]
+const TIPS = ["BUTTONS ARE FOR CLICKING", "YOUR MOUSE IS FOR CLICKING", "THIS SCREEN IS FOR NOTHING", "CLICK Q OR ESC TO LEAVE!"]
 const MAIN_MENU : PackedScene = preload("res://Scenes/main_menu.tscn")
 var duration : float = 0.15
 
@@ -18,7 +18,7 @@ func _ready() -> void:
 	button.label.text = TITLES[0]
 	button.tip_label.text = "TIP: " + TIPS[0]
 	button.og_pos = button.position
-	button.get_child
+	button.grab_focus()
 	for i in range(3):
 		var inst = button.duplicate() as ButtonSettings
 		add_child(inst)
@@ -33,7 +33,7 @@ func _ready() -> void:
 		_button.connect("hover", _on_hover)
 		_button.connect("unhover", _on_unhover)
 		_button.connect("is_ready", _on_button_ready)
-	for i in range(buttons.size()-1):
+	for i in range(buttons.size()):
 		if i == 0:
 			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
 		elif i == buttons.size()-1:
