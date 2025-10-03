@@ -46,8 +46,8 @@ When editing an existing project:
 6.  Click to Install.
 7.  Reload the project (you may see errors before you do this).
 8.  Enable the plugin from the Project Settings > Plugins tab.  
-    If it's enabled for the first time,
-    1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
+	If it's enabled for the first time,
+	1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
 9.  Continue with the [Existing Project Instructions](/addons/maaacks_credits_scene/docs/ExistingProject.md)  
 
 
@@ -59,8 +59,8 @@ When editing an existing project:
 3.  Move the `addons/maaacks_credits_scene` folder into your project's `addons/` folder.  
 4.  Open/Reload the project.  
 5.  Enable the plugin from the Project Settings > Plugins tab.  
-    If it's enabled for the first time,
-    1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
+	If it's enabled for the first time,
+	1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
 6.  Continue with the [Existing Project Instructions](/addons/maaacks_credits_scene/docs/ExistingProject.md) 
 
 ### Extras or Components
