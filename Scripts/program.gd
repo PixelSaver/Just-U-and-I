@@ -11,6 +11,7 @@ signal flash_finished
 @onready var input_handler : InputHandler = $InputHandler
 
 var sprite_og_pos : Vector2
+var og_mod : Color
 var is_hovered : bool = false
 var spin_speed : float = 0
 var idle_tween : Tween
@@ -25,6 +26,7 @@ func _ready():
 	self.pivot_offset = size / 2
 	input_handler.connect("activated", apply_hover_state)
 	input_handler.connect("deactivated", apply_idle_state)
+	og_mod = modulate
 	
 
 func flash(rect:Vector2, i, dur=1):
@@ -51,6 +53,12 @@ func _gui_input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU or Global.get_os().is_animating_programs or Global.get_os().is_start_animating:
 		return
 	if Input.is_action_just_pressed("click_left") and has_focus():
+		modulate = og_mod * .7 + Color.DARK_ORCHID * .3
+		scale = Vector2.ONE*1.05
+		var t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
+		t.tween_property(self, "scale", Vector2.ONE * 1.1, 0.2)
+		
+		t.tween_property(self, "modulate", og_mod, 0.2)
 		Global.collect_blue_coin(self)
 		if scene:
 			var os : OSMenu
@@ -64,7 +72,6 @@ func _gui_input(event: InputEvent) -> void:
 			Global.root.add_child(inst)
 			inst.start_anim()
 			Global.state = Global.States.PROGRAM
-	print("is animating: %s, is anim programs: %s" % [Global.get_os().is_start_animating, Global.get_os().is_animating_programs])
 	input_handler.manual_gui_input(event)
 	
 
