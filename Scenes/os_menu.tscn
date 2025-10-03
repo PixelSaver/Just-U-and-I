@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=65 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
@@ -9,14 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="5_ub4qb"]
 [ext_resource type="PackedScene" uid="uid://c1vr4rrfdxbfi" path="res://Scenes/persona_menu.tscn" id="5_vgg0k"]
 [ext_resource type="Texture2D" uid="uid://cl56jrlj8hoyh" path="res://Assets/Art/sample_gameply.png" id="6_jw2nx"]
+[ext_resource type="Texture2D" uid="uid://hawnyrfvmqja" path="res://Assets/Art/system_information.png" id="7_s5tje"]
 [ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="7_xjnpq"]
+[ext_resource type="Texture2D" uid="uid://cjsnyonmvns3n" path="res://Assets/Art/shapes.png" id="8_286mi"]
 [ext_resource type="PackedScene" uid="uid://bdjuwj54t4v07" path="res://Scenes/notification_os.tscn" id="8_oqyd7"]
+[ext_resource type="Texture2D" uid="uid://cmyknnf8rgtja" path="res://Assets/Art/RPG_Coins_Gold_Currency_Money_GP_2.png" id="9_2l8m2"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="9_odcqt"]
 [ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="10_nstff"]
+[ext_resource type="Texture2D" uid="uid://cqqi7t3q764o4" path="res://Assets/Art/RPG_Loot_Bag_Money_Coins_Purse_Dollars_Bank.png" id="10_tv5ll"]
+[ext_resource type="Texture2D" uid="uid://8x5p8ruijw82" path="res://Assets/Art/icons-keyboard-16x16-1bit-ansdor.png" id="11_perh6"]
 [ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="11_vgg0k"]
 [ext_resource type="Texture2D" uid="uid://c55pqw2svgxtw" path="res://addons/Spatial navigation mapper/ContainerBorder.png" id="12_jw2nx"]
+[ext_resource type="Texture2D" uid="uid://0fvq7bcwo73m" path="res://Assets/Art/RPG_Spell_Curse_Pentagram_Dark_Magic_Ritual_Sacrifice.png" id="12_usd8v"]
+[ext_resource type="Texture2D" uid="uid://booyuesj742ts" path="res://Assets/Art/RPG_Spell_Skill_Meteorite_Strike_Comet.png" id="13_p6vtl"]
 [ext_resource type="Texture2D" uid="uid://0bvvm2klmnpu" path="res://addons/Spatial navigation mapper/arrow.png" id="13_rt0qk"]
+[ext_resource type="Texture2D" uid="uid://khs6jwesty4d" path="res://Assets/Art/text_editor.png" id="14_ah3a4"]
 [ext_resource type="Script" uid="uid://b81cl62nafe4i" path="res://addons/Spatial navigation mapper/SpatNavPointer.gd" id="14_d6ssv"]
+[ext_resource type="Texture2D" uid="uid://c815yjtktsf4h" path="res://Assets/Art/RPG_Coin_Gold_Currency_Money_GP.png" id="15_oltf8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -1936,8 +1945,6 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ProgramArt" parent="ProgramCont/Program/Border/Control" index="0"]
 modulate = Color(1, 1, 1, 0.45098)
@@ -1966,6 +1973,16 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
 
+[node name="Control" parent="ProgramCont/Program2/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program2/Border/Control" index="0"]
+texture = ExtResource("7_s5tje")
+offset = Vector2(20.74, 20.165)
+
+[node name="RichTextLabel" parent="ProgramCont/Program2/MarginContainer" index="0"]
+text = "Click above"
+
 [node name="Program3" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
 offset_left = 180.0
@@ -1979,6 +1996,16 @@ focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
+
+[node name="Control" parent="ProgramCont/Program3/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program3/Border/Control" index="0"]
+texture = ExtResource("8_286mi")
+offset = Vector2(11.555, 11.245)
+
+[node name="RichTextLabel" parent="ProgramCont/Program3/MarginContainer" index="0"]
+text = "I'm just here"
 
 [node name="Program4" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -1995,6 +2022,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
 
+[node name="Control" parent="ProgramCont/Program4/Border" index="0"]
+anchors_preset = 3
+
+[node name="RichTextLabel" parent="ProgramCont/Program4/MarginContainer" index="0"]
+text = "Click to the left"
+
 [node name="Program5" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
 offset_left = 1250.0
@@ -2008,6 +2041,32 @@ focus_neighbor_bottom = NodePath("../Program9")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
+
+[node name="Control" parent="ProgramCont/Program5/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program5/Border/Control" index="0"]
+position = Vector2(194.518, 157)
+scale = Vector2(6.95124, 6.95124)
+texture = ExtResource("9_2l8m2")
+offset = Vector2(21.99, 5.41)
+
+[node name="MarginContainer" parent="ProgramCont/Program5" index="1"]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -10.0
+offset_top = 247.22
+offset_right = 255.0
+offset_bottom = 389.22
+grow_horizontal = 1
+grow_vertical = 1
+rotation = -1.57079
+
+[node name="RichTextLabel" parent="ProgramCont/Program5/MarginContainer" index="0"]
+bbcode_enabled = true
+text = "[font_size=40]Vertical text"
 
 [node name="Program11" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -2024,6 +2083,18 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
 
+[node name="Control" parent="ProgramCont/Program11/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program11/Border/Control" index="0"]
+position = Vector2(345, 198)
+scale = Vector2(6.75, 6.75)
+texture = ExtResource("10_tv5ll")
+
+[node name="RichTextLabel" parent="ProgramCont/Program11/MarginContainer" index="0"]
+bbcode_enabled = true
+text = "[font_size=35]nah"
+
 [node name="Program12" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
 layout_mode = 0
@@ -2038,6 +2109,20 @@ focus_neighbor_bottom = NodePath("../Program9")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
+
+[node name="Control" parent="ProgramCont/Program12/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program12/Border/Control" index="0"]
+position = Vector2(345, 191)
+scale = Vector2(7, 7)
+texture = ExtResource("11_perh6")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="RichTextLabel" parent="ProgramCont/Program12/MarginContainer" index="0"]
+bbcode_enabled = true
+text = "[font_size=20]Press!"
 
 [node name="Program6" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -2054,6 +2139,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
 
+[node name="Control" parent="ProgramCont/Program6/Border" index="0"]
+anchors_preset = 3
+
+[node name="RichTextLabel" parent="ProgramCont/Program6/MarginContainer" index="0"]
+text = "Nothing"
+
 [node name="Program7" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
 offset_left = 1390.0
@@ -2067,6 +2158,17 @@ focus_neighbor_bottom = NodePath("../Program10")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
+
+[node name="Control" parent="ProgramCont/Program7/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program7/Border/Control" index="0"]
+position = Vector2(324.49, 190.055)
+scale = Vector2(8, 8)
+texture = ExtResource("12_usd8v")
+
+[node name="RichTextLabel" parent="ProgramCont/Program7/MarginContainer" index="0"]
+text = "To see"
 
 [node name="Program9" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -2083,6 +2185,18 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
 
+[node name="Control" parent="ProgramCont/Program9/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program9/Border/Control" index="0"]
+position = Vector2(309.217, 188.782)
+scale = Vector2(6.97281, 6.97281)
+texture = ExtResource("13_p6vtl")
+offset = Vector2(3.12, 2.98)
+
+[node name="RichTextLabel" parent="ProgramCont/Program9/MarginContainer" index="0"]
+text = "3000 Y2K IS COMING!"
+
 [node name="Program8" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
 layout_mode = 0
@@ -2098,6 +2212,12 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
 
+[node name="Control" parent="ProgramCont/Program8/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program8/Border/Control" index="0"]
+texture = ExtResource("14_ah3a4")
+
 [node name="Program10" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
 layout_mode = 0
@@ -2112,6 +2232,17 @@ focus_neighbor_bottom = NodePath("../Program8")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
+
+[node name="Control" parent="ProgramCont/Program10/Border" index="0"]
+anchors_preset = 3
+
+[node name="ProgramArt" parent="ProgramCont/Program10/Border/Control" index="0"]
+texture = ExtResource("15_oltf8")
+offset = Vector2(33.335, 24.32)
+
+[node name="RichTextLabel" parent="ProgramCont/Program10/MarginContainer" index="0"]
+text = "Here"
+fit_content = true
 
 [node name="Program13" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 layout_mode = 0
@@ -2131,6 +2262,9 @@ focus_mode = 2
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_rt0qk")
 
+[node name="Control" parent="ProgramCont/Program13/Border" index="0"]
+anchors_preset = 3
+
 [node name="MarginContainer" parent="ProgramCont/Program13" index="1"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
 mouse_filter = 2
@@ -2138,7 +2272,8 @@ mouse_filter = 2
 [node name="RichTextLabel" parent="ProgramCont/Program13/MarginContainer" index="0"]
 z_index = 1
 mouse_filter = 2
-text = "Look what I can do!"
+text = "Here it is!
+Don't steal it..."
 
 [node name="MarginContainer2" type="Control" parent="ProgramCont/Program13"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
@@ -2203,13 +2338,14 @@ focus_mode = 2
 
 [node name="Control" parent="ProgramCont/Program14/Border" index="0"]
 visible = false
+anchors_preset = 3
 
 [node name="ProgramArt" parent="ProgramCont/Program14/Border/Control" index="0"]
 visible = false
 
 [node name="RichTextLabel" parent="ProgramCont/Program14/MarginContainer" index="0"]
 z_index = 1
-text = "Isn't this cool?"
+text = "Wait for it..."
 
 [node name="MarginContainer2" type="Control" parent="ProgramCont/Program14"]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -3151,5 +3287,16 @@ rotation = 1.5708
 text = "L"
 
 [editable path="ProgramCont/Program"]
+[editable path="ProgramCont/Program2"]
+[editable path="ProgramCont/Program3"]
+[editable path="ProgramCont/Program4"]
+[editable path="ProgramCont/Program5"]
+[editable path="ProgramCont/Program11"]
+[editable path="ProgramCont/Program12"]
+[editable path="ProgramCont/Program6"]
+[editable path="ProgramCont/Program7"]
+[editable path="ProgramCont/Program9"]
+[editable path="ProgramCont/Program8"]
+[editable path="ProgramCont/Program10"]
 [editable path="ProgramCont/Program13"]
 [editable path="ProgramCont/Program14"]

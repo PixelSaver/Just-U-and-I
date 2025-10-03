@@ -22,7 +22,7 @@ var last_mouse_pos : Vector2 = Vector2.ZERO
 
 func _ready():
 	sprite_og_pos = program_sprite.position
-	apply_idle_state()
+	apply_idle_state(true)
 	self.pivot_offset = size / 2
 	input_handler.connect("activated", apply_hover_state)
 	input_handler.connect("deactivated", apply_idle_state)
@@ -93,8 +93,10 @@ func apply_hover_state():
 	
 	man_focus_entered()
 
-func apply_idle_state():
-	if z_index == 0: return
+func apply_idle_state(forced:=false):
+	if z_index == 0: 
+		if forced: pass
+		else: return
 	z_index = 0
 	if hover_tween:
 		hover_tween.kill()
@@ -103,7 +105,8 @@ func apply_idle_state():
 	if idle_tween:
 		idle_tween.kill()
 	idle_tween = create_tween().set_loops()
-	var time = (Time.get_ticks_msec() * 0.001) * spin_speed
+	var rand = randf_range(0,10) if forced else 0
+	var time = (Time.get_ticks_msec() * 0.001) * spin_speed + rand
 	var radius = 5.0
 	var duration = 2.0
 	for angle in range(0, 360, 30):
