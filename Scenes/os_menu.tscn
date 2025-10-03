@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=56 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scripts/os.gd" id="2_ydafb"]
@@ -7,6 +7,8 @@
 [ext_resource type="Shader" uid="uid://c658gnjr3w520" path="res://Shaders/spinny_box.gdshader" id="5_70lpx"]
 [ext_resource type="Shader" uid="uid://biegct42hti2a" path="res://Shaders/polar_graph.gdshader" id="5_nstff"]
 [ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="5_ub4qb"]
+[ext_resource type="PackedScene" uid="uid://c1vr4rrfdxbfi" path="res://Scenes/persona_menu.tscn" id="5_vgg0k"]
+[ext_resource type="Texture2D" uid="uid://cl56jrlj8hoyh" path="res://Assets/Art/sample_gameply.png" id="6_jw2nx"]
 [ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="7_xjnpq"]
 [ext_resource type="PackedScene" uid="uid://bdjuwj54t4v07" path="res://Scenes/notification_os.tscn" id="8_oqyd7"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="9_odcqt"]
@@ -1560,6 +1562,30 @@ focus_neighbor_bottom = NodePath("../Program2")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
+scene = ExtResource("5_vgg0k")
+
+[node name="Control" parent="ProgramCont/Program/Border" index="0"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgramArt" parent="ProgramCont/Program/Border/Control" index="0"]
+modulate = Color(1, 1, 1, 0.45098)
+position = Vector2(453, 162)
+scale = Vector2(3.41658, 2.97156)
+texture = ExtResource("6_jw2nx")
+region_enabled = true
+region_rect = Rect2(408, 32, 24, 56)
+
+[node name="RichTextLabel" parent="ProgramCont/Program/MarginContainer" index="0"]
+bbcode_enabled = true
+text = "Persona Menu"
 
 [node name="Program2" parent="ProgramCont" instance=ExtResource("3_8yt1f")]
 modulate = Color(0.780392, 0.34902, 0.886275, 1)
@@ -1740,9 +1766,6 @@ focus_mode = 2
 [node name="Border" parent="ProgramCont/Program13" index="0"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_rt0qk")
-
-[node name="ProgramArt" parent="ProgramCont/Program13/Border/Control" index="0"]
-visible = false
 
 [node name="MarginContainer" parent="ProgramCont/Program13" index="1"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)

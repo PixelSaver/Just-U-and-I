@@ -51,6 +51,12 @@ func _on_pressed():
 	t.tween_property(self, "scale", og_scale * 1.1, 0.2)
 	
 	t.tween_property(self, "modulate", Color.WHITE, 0.2)
+	if button_title == "Quit":
+		var menu : PersonaMenu
+		for child in Global.root.get_children():
+			if child is PersonaMenu:
+				menu = child
+		menu.end_anim()
 
 var og_scale : Vector2
 var hov_dur : float = 0.3

@@ -21,7 +21,7 @@ func _ready() -> void:
 	coin.connect("collected", _on_coin_collected)
 	
 	await get_tree().process_frame
-	start_main_menu()
+	#start_main_menu()
 	
 
 func _on_coin_collected(coin:Coin):
@@ -36,11 +36,9 @@ func _on_pressed(val:ButtonMenu):
 			Global.state = Global.States.OS_MENU
 			end_main_menu()
 			ui_enter_os.play()
-			var os = OS_MENU.instantiate()
-			get_parent().add_child(os)
-			os.start_anim()
-			os.modulate.a = 0
-			var tw = create_tween().tween_property(os, "modulate:a", 1, 1.4).set_ease(Tween.EASE_OUT)
+			#var tw = create_tween().tween_property(os, "modulate:a", 1, 1.4).set_ease(Tween.EASE_OUT)
+			await get_tree().create_timer(0.5)
+			Global.go_os()
 		TITLES[1]: # Options
 			ui_enter.play()
 			handoff_to_setting()

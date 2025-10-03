@@ -23,7 +23,6 @@ func _ready() -> void:
 
 func manual_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		print("mouse moved")
 		current_input_mode = InputMode.MOUSE
 		update_hover_by_mouse()
 	if event is InputEventKey and event.pressed:

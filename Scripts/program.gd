@@ -7,6 +7,7 @@ signal flash_finished
 @export var program_desc : String
 @export var spr_offset : Vector2 = Vector2(3, 18)
 @export var program_hov : AudioStreamPlayer
+@export var scene : PackedScene
 @onready var input_handler : InputHandler = $InputHandler
 
 var sprite_og_pos : Vector2
@@ -49,12 +50,24 @@ func flash(rect:Vector2, i, dur=1):
 func _gui_input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU:
 		return
-	input_handler.manual_gui_input(event)
-	if Input.is_action_just_pressed("click_left") and is_hovered:
+	if Input.is_action_just_pressed("click_left") and has_focus():
 		Global.collect_blue_coin(self)
+		if scene:
+			var os : OSMenu
+			for child in Global.root.get_children():
+				if child is OSMenu:
+					os = child
+			print(os)
+			if os.is_start_animating or os.is_animating_programs: return
+			os.end_anim()
+			var inst = scene.instantiate()
+			Global.root.add_child(inst)
+			inst.start_anim()
+	input_handler.manual_gui_input(event)
+	
 
 func apply_hover_state():
-	if z_index == 1: return
+	if z_index == 1 or Global.get_os().is_start_animating: return
 	program_hov.play()
 	z_index = 1
 	if idle_tween:

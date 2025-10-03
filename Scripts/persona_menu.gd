@@ -4,7 +4,6 @@ class_name PersonaMenu
 @export var selector : PersonaSelector
 @export var bg : Control
 @export var all_parents : Array[Control]
-
 var all_t : Array[Tweenable] = []
 func _ready() -> void:
 	selector.modulate.a = 0
@@ -41,6 +40,9 @@ func start_anim():
 
 func end_anim():
 	if is_animating: return
+	is_animating = true;
+	
+	Global.go_os()
 	
 	is_animating = true
 	var t = create_tween().set_trans(Tween.TRANS_QUINT)
