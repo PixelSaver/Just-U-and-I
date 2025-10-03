@@ -27,6 +27,7 @@ func _ready():
 	input_handler.connect("activated", apply_hover_state)
 	input_handler.connect("deactivated", apply_idle_state)
 	og_mod = modulate
+	input_handler.input_handler_disabled = true
 	
 
 func flash(rect:Vector2, i, dur=1):
@@ -42,7 +43,7 @@ func flash(rect:Vector2, i, dur=1):
 	flash.show_behind_parent = true
 	add_child(flash)
 	var t = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	t.tween_property(flash, "size:x", 0, dur + i / 8)
+	t.tween_property(flash, "size:x", 0, dur - i/6)
 	t.finished.connect(func(): 
 		if flash and is_instance_valid(flash):
 			flash.queue_free()
@@ -52,6 +53,8 @@ func flash(rect:Vector2, i, dur=1):
 func _gui_input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU or Global.get_os().is_animating_programs or Global.get_os().is_start_animating:
 		return
+	else:
+		input_handler.input_handler_disabled = false
 	if Input.is_action_just_pressed("click_left") and has_focus():
 		modulate = og_mod * .7 + Color.DARK_ORCHID * .3
 		scale = Vector2.ONE

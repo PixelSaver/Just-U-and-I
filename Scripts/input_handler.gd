@@ -11,6 +11,7 @@ enum InputMode { MOUSE, KEYBOARD }
 var current_input_mode: InputMode = InputMode.MOUSE
 var is_hovered_mouse: bool = false
 var is_active: bool = false
+var input_handler_disabled : bool = false
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -31,6 +32,7 @@ func manual_gui_input(event: InputEvent) -> void:
 	#print("input mode: %s" % str(current_input_mode))
 
 func update_hover_by_keyboard():
+	if input_handler_disabled: return
 	if current_input_mode != InputMode.KEYBOARD: return
 	if parent.has_focus():
 		activated.emit() 
@@ -39,6 +41,7 @@ func update_hover_by_keyboard():
 
 
 func update_hover_by_mouse(override=false):
+	if input_handler_disabled: return
 	if current_input_mode != InputMode.MOUSE:
 		return
 	

@@ -124,6 +124,7 @@ func load_programs():
 		if p == programs.back():
 			p.connect("flash_finished", func():
 				is_animating_programs = false
+				print("finished loading")
 			)
 
 func _input(event: InputEvent) -> void:
