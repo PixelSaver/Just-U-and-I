@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://c1vr4rrfdxbfi"]
+[gd_scene load_steps=31 format=3 uid="uid://c1vr4rrfdxbfi"]
 
 [ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
 [ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_qdfaw"]
 [ext_resource type="Script" uid="uid://v5vqh1tmu3pv" path="res://Scripts/persona_selector.gd" id="2_75o0k"]
 [ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="3_1anme"]
+[ext_resource type="Texture2D" uid="uid://cl56jrlj8hoyh" path="res://Assets/Art/sample_gameply.png" id="3_ckf1w"]
 [ext_resource type="Shader" uid="uid://bqi7i102c32f4" path="res://Shaders/circle.gdshader" id="4_alxqq"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="5_xufce"]
 [ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="6_alxqq"]
@@ -15,20 +16,32 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ckf1w"]
 shader = ExtResource("3_1anme")
-shader_parameter/angle_degrees = 31.614
-shader_parameter/stripe_width = 0.252
-shader_parameter/separation = 0.325
-shader_parameter/color_a = Color(0.803922, 0.870588, 0.505882, 0.262745)
-shader_parameter/color_b = Color(0.792157, 0.439216, 0.211765, 0.196078)
-shader_parameter/smoothness = 0.0
-shader_parameter/tiling = 1.977
+shader_parameter/angle_degrees = 25.022
+shader_parameter/stripe_width = 0.1
+shader_parameter/separation = 0.1
+shader_parameter/color_a = Color(0.219608, 0.690196, 0.792157, 0.2)
+shader_parameter/color_b = Color(0.352941, 0.682353, 0.72549, 0.243137)
+shader_parameter/smoothness = 0.02
+shader_parameter/tiling = 1.0
 shader_parameter/offset = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2w82"]
+bg_color = Color(0.352941, 0.682353, 0.72549, 0.4)
+skew = Vector2(-0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5yue"]
+bg_color = Color(0.215672, 0.698791, 0.738041, 0.4)
+skew = Vector2(-0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffww0"]
+bg_color = Color(0.215686, 0.682353, 0.843137, 0.4)
+skew = Vector2(-0.4, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1anme"]
 shader = ExtResource("4_alxqq")
 shader_parameter/radius = 0.5
 shader_parameter/thickness = 0.1
-shader_parameter/modulate = Color(0.792157, 0.439216, 0.211765, 0.741176)
+shader_parameter/modulate = Color(0.376471, 0.847059, 0.909804, 0.698039)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alxqq"]
 shader = ExtResource("4_alxqq")
@@ -135,7 +148,7 @@ Up = NodePath("../ButtonCont/PersonaMenuButton2")
 Right = NodePath("../ButtonCont/PersonaMenuButton2")
 Down = NodePath("")
 
-[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector") groups=["PersonaMenu"]]
+[node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg") groups=["PersonaMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -147,6 +160,12 @@ mouse_filter = 2
 theme = ExtResource("1_qdfaw")
 script = ExtResource("1_7p40m")
 selector = NodePath("Selector")
+bg = NodePath("Bg")
+
+[node name="Screenshot2025-10-02165431" type="Sprite2D" parent="."]
+position = Vector2(878.304, 477)
+scale = Vector2(2.11392, 2.11392)
+texture = ExtResource("3_ckf1w")
 
 [node name="Bg" type="Control" parent="."]
 layout_mode = 1
@@ -155,211 +174,178 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect16" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-material = SubResource("ShaderMaterial_ckf1w")
-layout_mode = 0
-offset_left = -158.0
-offset_top = 1485.0
-offset_right = 1636.0
-offset_bottom = 2388.0
-rotation = -1.756
-color = Color(0.815686, 0.643137, 0.309804, 1)
-
-[node name="ColorRect15" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 50.0
-offset_top = 749.0
-offset_right = 332.0
-offset_bottom = 877.0
-rotation = -0.19942
-color = Color(0.694118, 0.2, 0.184314, 1)
-
-[node name="ColorRect7" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 96.0
-offset_top = -165.0
-offset_right = 674.0
-offset_bottom = 196.0
-rotation = -0.0882909
-color = Color(0.792157, 0.439216, 0.211765, 1)
-
-[node name="ColorRect" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 1191.0
-offset_top = 1367.0
-offset_right = 2985.0
-offset_bottom = 2270.0
-rotation = -1.46674
-color = Color(0.815686, 0.643137, 0.309804, 1)
-
-[node name="ColorRect8" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 748.0
-offset_top = -286.0
-offset_right = 1029.0
-offset_bottom = -119.0
-rotation = -1.46674
-color = Color(0.815686, 0.643137, 0.309804, 1)
-
-[node name="ColorRect14" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 246.0
-offset_top = 133.0
-offset_right = 353.0
-offset_bottom = 644.0
-rotation = -1.46674
-color = Color(0.815686, 0.643137, 0.309804, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 1027.0
-offset_top = -481.0
-offset_right = 1309.0
-offset_bottom = -353.0
-color = Color(0.843137, 0.796078, 0.407843, 1)
-
-[node name="ColorRect13" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = -36.0
-offset_top = 29.0
-offset_right = 325.0
-offset_bottom = 209.0
-rotation = 0.0806281
-color = Color(0.843137, 0.796078, 0.407843, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = -60.0
-offset_top = -213.0
-offset_right = 521.0
-offset_bottom = 371.0
-rotation = 0.101457
-color = Color(0.843137, 0.796078, 0.407843, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 1464.0
-offset_top = -494.0
-offset_right = 1746.0
-offset_bottom = -366.0
-color = Color(0.803922, 0.870588, 0.505882, 1)
-
-[node name="ColorRect12" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = 1268.0
-offset_top = -155.0
-offset_right = 2650.0
-offset_bottom = 191.0
-rotation = 0.224647
-color = Color(0.803922, 0.870588, 0.505882, 1)
-
-[node name="ColorRect9" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = -209.0
-offset_top = 651.0
-offset_right = 1221.0
-offset_bottom = 1259.0
-rotation = 0.248191
-color = Color(0.803922, 0.870588, 0.505882, 1)
-
-[node name="ColorRect11" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
-layout_mode = 0
-offset_left = -187.0
-offset_top = 768.0
-offset_right = -124.0
-offset_bottom = 2245.0
-rotation = -1.38434
-color = Color(0.815686, 0.643137, 0.309804, 1)
+mouse_filter = 2
 
 [node name="ColorRect10" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
 layout_mode = 0
-offset_left = -345.0
-offset_top = 529.0
-offset_right = 1648.0
-offset_bottom = 615.0
-rotation = 0.258033
-color = Color(0.803922, 0.870588, 0.505882, 1)
+offset_left = -71.0
+offset_top = -260.0
+offset_right = 2102.0
+offset_bottom = 1198.0
+mouse_filter = 2
+color = Color(0.188235, 0.713726, 0.647059, 0.0745098)
 
-[node name="ColorRect4" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
+[node name="ColorRect1" type="ColorRect" parent="Bg"]
 layout_mode = 0
-offset_left = 359.0
-offset_top = -580.0
-offset_right = 641.0
-offset_bottom = -452.0
-color = Color(0.792157, 0.439216, 0.211765, 1)
+offset_left = 966.0
+offset_top = -329.0
+offset_right = 1248.0
+offset_bottom = -201.0
+mouse_filter = 2
+color = Color(0.352941, 0.682353, 0.72549, 0.4)
+
+[node name="ColorRect6" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = -242.241
+offset_top = 533.0
+offset_right = 1394.76
+offset_bottom = 661.0
+rotation = 0.296761
+mouse_filter = 2
+color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
 [node name="ColorRect5" type="ColorRect" parent="Bg"]
-modulate = Color(1, 1, 1, 0.262745)
 layout_mode = 0
-offset_left = 2.0
-offset_top = -611.0
-offset_right = 284.0
-offset_bottom = -483.0
-color = Color(0.694118, 0.2, 0.184314, 1)
+offset_left = -83.0
+offset_top = -198.0
+offset_right = 743.0
+offset_bottom = 245.0
+rotation = 0.2431
+mouse_filter = 2
+color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
-[node name="Palette" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Palette"]
+[node name="ColorRect2" type="ColorRect" parent="Bg"]
 layout_mode = 0
-offset_left = 761.0
-offset_top = -132.0
-offset_right = 1043.0
-offset_bottom = -4.0
-color = Color(0.815686, 0.643137, 0.309804, 1)
+offset_left = 1361.0
+offset_top = -424.0
+offset_right = 1643.0
+offset_bottom = -296.0
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="ColorRect2" type="ColorRect" parent="Palette"]
+[node name="ColorRect8" type="ColorRect" parent="Bg"]
 layout_mode = 0
-offset_left = 1048.0
-offset_top = -113.0
-offset_right = 1330.0
-offset_bottom = 15.0
-color = Color(0.843137, 0.796078, 0.407843, 1)
+offset_left = -489.0
+offset_top = 714.0
+offset_right = 2447.0
+offset_bottom = 842.0
+rotation = 0.123428
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="ColorRect3" type="ColorRect" parent="Palette"]
+[node name="ColorRect7" type="ColorRect" parent="Bg"]
 layout_mode = 0
-offset_left = 1485.0
-offset_top = -126.0
-offset_right = 1767.0
-offset_bottom = 2.0
-color = Color(0.803922, 0.870588, 0.505882, 1)
+offset_left = -146.0
+offset_top = -7.0
+offset_right = 1081.0
+offset_bottom = 187.0
+rotation = 0.0251115
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="ColorRect4" type="ColorRect" parent="Palette"]
+[node name="ColorRect11" type="ColorRect" parent="Bg"]
+material = SubResource("ShaderMaterial_ckf1w")
 layout_mode = 0
-offset_left = 380.0
-offset_top = -212.0
-offset_right = 662.0
-offset_bottom = -84.0
-color = Color(0.792157, 0.439216, 0.211765, 1)
+offset_left = -45.0
+offset_top = 1071.0
+offset_right = 1099.0
+offset_bottom = 1540.0
+rotation = 4.51182
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="ColorRect5" type="ColorRect" parent="Palette"]
+[node name="ColorRect4" type="ColorRect" parent="Bg"]
+material = SubResource("ShaderMaterial_ckf1w")
 layout_mode = 0
-offset_left = 23.0
-offset_top = -243.0
-offset_right = 305.0
-offset_bottom = -115.0
-color = Color(0.694118, 0.2, 0.184314, 1)
+offset_left = -45.0
+offset_top = 1071.0
+offset_right = 1099.0
+offset_bottom = 1540.0
+rotation = 4.51182
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="ColorRect9" type="ColorRect" parent="Bg"]
+material = SubResource("ShaderMaterial_ckf1w")
+layout_mode = 0
+offset_left = 2039.0
+offset_top = -265.0
+offset_right = 3688.0
+offset_bottom = 204.0
+rotation = 1.62212
+mouse_filter = 2
+color = Color(0.217406, 0.68083, 0.8426, 0.4)
+
+[node name="ColorRect3" type="ColorRect" parent="Bg"]
+layout_mode = 0
+offset_left = 1107.0
+offset_top = 1125.0
+offset_right = 2513.0
+offset_bottom = 1976.0
+rotation = -1.41942
+mouse_filter = 2
+color = Color(0.188235, 0.713726, 0.647059, 0.247059)
+
+[node name="Panel" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 661.0
+offset_right = 730.0
+offset_bottom = 743.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
+
+[node name="Panel2" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 165.0
+offset_right = 926.0
+offset_bottom = 281.0
+rotation = 0.211113
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
+
+[node name="Panel4" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 979.0
+offset_top = -89.0
+offset_right = 1878.0
+offset_bottom = 27.0
+rotation = 0.211113
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5yue")
+
+[node name="Panel3" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 230.0
+offset_right = 521.0
+offset_bottom = 277.0
+rotation = -0.1416
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2w82")
+
+[node name="Panel5" type="Panel" parent="Bg"]
+layout_mode = 0
+offset_left = 947.0
+offset_top = 854.0
+offset_right = 1026.0
+offset_bottom = 949.0
+rotation = -0.1416
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ffww0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Bg"]
+layout_mode = 0
+offset_left = 1323.0
+offset_top = 107.0
+offset_right = 2093.0
+offset_bottom = 449.0
+rotation = 1.75405
+mouse_filter = 2
+bbcode_enabled = true
+text = "[b][color=#37aed766][font_size=250]MENU"
+fit_content = true
+autowrap_mode = 0
 
 [node name="Selector" type="Control" parent="." node_paths=PackedStringArray("x", "y", "circle")]
 anchors_preset = 0
@@ -374,7 +360,7 @@ offset_left = -20.0
 offset_top = -1000.0
 offset_right = 20.0
 offset_bottom = 1000.0
-color = Color(0.694118, 0.2, 0.184314, 0.482353)
+color = Color(0.200777, 0.615266, 0.6637, 0.596078)
 
 [node name="x" type="ColorRect" parent="Selector"]
 layout_mode = 0
@@ -382,7 +368,7 @@ offset_left = -1750.0
 offset_top = -20.0
 offset_right = 1750.0
 offset_bottom = 20.0
-color = Color(0.694118, 0.2, 0.184314, 0.482353)
+color = Color(0.200777, 0.615266, 0.6637, 0.596078)
 
 [node name="circle" type="ColorRect" parent="Selector"]
 modulate = Color(0.359454, 0.760728, 0.912759, 1)
@@ -416,10 +402,10 @@ mouse_filter = 2
 
 [node name="PersonaMenuButton9" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 36.0
-offset_right = 217.0
-offset_bottom = 186.0
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 210.0
+offset_bottom = 190.0
 scale = Vector2(0.5, 0.5)
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
@@ -427,12 +413,14 @@ focus_neighbor_right = NodePath("../PersonaMenuButton6")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Quit"
 
 [node name="PersonaMenuButton6" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 191.0
+offset_left = 200.0
 offset_top = 40.0
-offset_right = 341.0
+offset_right = 350.0
 offset_bottom = 190.0
 scale = Vector2(0.5, 0.5)
 focus_neighbor_left = NodePath("../PersonaMenuButton9")
@@ -441,13 +429,15 @@ focus_neighbor_right = NodePath("../PersonaMenuButton7")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Restart"
 
 [node name="PersonaMenuButton7" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 316.0
-offset_top = 44.0
-offset_right = 466.0
-offset_bottom = 194.0
+offset_left = 340.0
+offset_top = 40.0
+offset_right = 490.0
+offset_bottom = 190.0
 scale = Vector2(0.5, 0.5)
 focus_neighbor_left = NodePath("../PersonaMenuButton6")
 focus_neighbor_top = NodePath(".")
@@ -455,13 +445,15 @@ focus_neighbor_right = NodePath("../PersonaMenuButton8")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Settings"
 
 [node name="PersonaMenuButton8" parent="ButtonContTitle" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 49.0
-offset_right = 595.0
-offset_bottom = 199.0
+offset_left = 480.0
+offset_top = 40.0
+offset_right = 630.0
+offset_bottom = 190.0
 scale = Vector2(0.5, 0.5)
 focus_neighbor_left = NodePath("../PersonaMenuButton7")
 focus_neighbor_top = NodePath(".")
@@ -469,6 +461,8 @@ focus_neighbor_right = NodePath("../../ButtonCont/PersonaMenuButton")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+is_title_bar = true
+button_title = "Resume"
 
 [node name="ButtonCont" type="Control" parent="."]
 layout_mode = 1
@@ -481,71 +475,78 @@ mouse_filter = 2
 
 [node name="PersonaMenuButton" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 1272.0
-offset_top = 201.0
-offset_right = 1422.0
-offset_bottom = 351.0
+offset_left = 1331.0
+offset_top = 145.0
+offset_right = 1481.0
+offset_bottom = 295.0
 focus_neighbor_left = NodePath("../../ButtonContTitle/PersonaMenuButton8")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../PersonaMenuButton4")
 focus_neighbor_bottom = NodePath("../PersonaMenuButton4")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
-button_title = "Menu"
-
-[node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
-layout_mode = 0
-offset_left = 1409.0
-offset_top = 620.0
-offset_right = 1559.0
-offset_bottom = 770.0
-focus_neighbor_left = NodePath("../PersonaMenuButton3")
-focus_neighbor_top = NodePath("../PersonaMenuButton3")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../PersonaMenuButton5")
-focus_next = NodePath(".")
-focus_previous = NodePath(".")
-
-[node name="PersonaMenuButton3" parent="ButtonCont" instance=ExtResource("1_a26al")]
-layout_mode = 0
-offset_left = 1277.0
-offset_top = 489.0
-offset_right = 1427.0
-offset_bottom = 639.0
-focus_neighbor_left = NodePath("../../ButtonContTitle/PersonaMenuButton8")
-focus_neighbor_top = NodePath("../PersonaMenuButton4")
-focus_neighbor_right = NodePath("../PersonaMenuButton2")
-focus_neighbor_bottom = NodePath("../PersonaMenuButton2")
-focus_next = NodePath(".")
-focus_previous = NodePath(".")
-button_title = "Items"
+button_title = "Bag"
+button_description = "All your consumables"
 
 [node name="PersonaMenuButton4" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 1408.0
-offset_top = 339.0
-offset_right = 1558.0
-offset_bottom = 489.0
+offset_left = 1456.0
+offset_top = 270.0
+offset_right = 1606.0
+offset_bottom = 420.0
 focus_neighbor_left = NodePath("../PersonaMenuButton")
 focus_neighbor_top = NodePath("../PersonaMenuButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../PersonaMenuButton3")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
-button_title = "Masterpiece"
+button_title = "Money"
+button_description = "How many coins you got?"
+
+[node name="PersonaMenuButton3" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1331.0
+offset_top = 395.0
+offset_right = 1481.0
+offset_bottom = 545.0
+focus_neighbor_left = NodePath("../../ButtonContTitle/PersonaMenuButton8")
+focus_neighbor_top = NodePath("../PersonaMenuButton4")
+focus_neighbor_right = NodePath("../PersonaMenuButton2")
+focus_neighbor_bottom = NodePath("../PersonaMenuButton2")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+button_title = "Powers"
+button_description = "You have these? Lucky..."
+
+[node name="PersonaMenuButton2" parent="ButtonCont" instance=ExtResource("1_a26al")]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 520.0
+offset_right = 1606.0
+offset_bottom = 670.0
+focus_neighbor_left = NodePath("../PersonaMenuButton3")
+focus_neighbor_top = NodePath("../PersonaMenuButton3")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../PersonaMenuButton5")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+button_title = "Skills"
+button_description = "Look at these sick moves!"
 
 [node name="PersonaMenuButton5" parent="ButtonCont" instance=ExtResource("1_a26al")]
 layout_mode = 0
-offset_left = 1269.0
-offset_top = 768.0
-offset_right = 1419.0
-offset_bottom = 918.0
+offset_left = 1331.0
+offset_top = 645.0
+offset_right = 1481.0
+offset_bottom = 795.0
 focus_neighbor_left = NodePath("../../ButtonContTitle/PersonaMenuButton8")
 focus_neighbor_top = NodePath("../PersonaMenuButton2")
 focus_neighbor_right = NodePath("../PersonaMenuButton2")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+button_title = "Info"
+button_description = "Learn more about what I am"
 
 [node name="Navigation mapper" type="Node" parent="."]
 script = ExtResource("5_xufce")
@@ -566,15 +567,38 @@ anchors_preset = 0
 [node name="Pointers 0" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
 anchors_preset = 0
 
-[node name="@NinePatchRect@253319" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+[node name="@NinePatchRect@314703" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
 modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 266.407
-offset_top = 110.017
-offset_right = 287.407
-offset_bottom = 179.18
-rotation = -4.63094
+offset_left = 275.0
+offset_top = 110.0
+offset_right = 296.0
+offset_bottom = 195.0
+rotation = 1.5708
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@314704" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@314703"]
+layout_mode = 0
+offset_left = -0.499992
+offset_top = 38.0
+offset_right = 10.5
+offset_bottom = 61.0
+rotation = -1.5708
+text = "R"
+
+[node name="@NinePatchRect@253319" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 135.0
+offset_top = 120.0
+offset_right = 156.0
+offset_bottom = 205.0
+rotation = -1.5708
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -582,22 +606,22 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253320" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253319"]
 layout_mode = 0
-offset_left = -0.0143738
-offset_top = 30.9989
-offset_right = 10.9856
-offset_bottom = 53.9989
-rotation = 4.63094
-text = "R"
+offset_left = 22.5
+offset_top = 27.0
+offset_right = 33.5
+offset_bottom = 50.0
+rotation = 1.5708
+text = "L"
 
 [node name="@NinePatchRect@253321" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
-modulate = Color(0.67, 0.85, 0.36, 1)
+modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 141.593
-offset_top = 115.983
-offset_right = 162.593
-offset_bottom = 185.146
-rotation = -1.48934
+offset_left = 415.0
+offset_top = 110.0
+offset_right = 436.0
+offset_bottom = 195.0
+rotation = 1.5708
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -605,22 +629,22 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253322" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253321"]
 layout_mode = 0
-offset_left = 22.0957
-offset_top = 19.1608
-offset_right = 31.0957
-offset_bottom = 42.1608
-rotation = 1.48934
-text = "L"
+offset_left = -0.5
+offset_top = 38.0
+offset_right = 10.5
+offset_bottom = 61.0
+rotation = -1.5708
+text = "R"
 
 [node name="@NinePatchRect@253323" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
-modulate = Color(0.73, 0.22, 0.6, 1)
+modulate = Color(0.67, 0.85, 0.36, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 391.399
-offset_top = 114.016
-offset_right = 412.399
-offset_bottom = 184.176
-rotation = -4.63256
+offset_left = 275.0
+offset_top = 120.0
+offset_right = 296.0
+offset_bottom = 205.0
+rotation = -1.5708
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -628,22 +652,22 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253324" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253323"]
 layout_mode = 0
-offset_left = -0.0247879
-offset_top = 31.4794
-offset_right = 10.9752
-offset_bottom = 54.4794
-rotation = 4.63256
-text = "R"
+offset_left = 22.5
+offset_top = 27.0
+offset_right = 33.5
+offset_bottom = 50.0
+rotation = 1.5708
+text = "L"
 
 [node name="@NinePatchRect@253325" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
-modulate = Color(0.67, 0.85, 0.36, 1)
+modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 265.601
-offset_top = 119.984
-offset_right = 286.601
-offset_bottom = 190.144
-rotation = -1.49097
+offset_left = 555.0
+offset_top = 110.0
+offset_right = 576.0
+offset_bottom = 195.0
+rotation = 1.5708
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -651,22 +675,22 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253326" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253325"]
 layout_mode = 0
-offset_left = 22.1045
-offset_top = 19.6772
-offset_right = 31.1045
-offset_bottom = 42.6772
-rotation = 1.49097
-text = "L"
+offset_left = -0.5
+offset_top = 38.0
+offset_right = 10.5
+offset_bottom = 61.0
+rotation = -1.5708
+text = "R"
 
 [node name="@NinePatchRect@253327" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
-modulate = Color(0.73, 0.22, 0.6, 1)
+modulate = Color(0.67, 0.85, 0.36, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 520.461
-offset_top = 119.021
-offset_right = 541.461
-offset_bottom = 193.252
-rotation = -4.62006
+offset_left = 415.0
+offset_top = 120.0
+offset_right = 436.0
+offset_bottom = 205.0
+rotation = -1.5708
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -674,48 +698,255 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253328" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253327"]
 layout_mode = 0
-offset_left = 0.0560608
-offset_top = 33.6523
-offset_right = 11.0561
-offset_bottom = 56.6523
-rotation = 4.62006
-text = "R"
-
-[node name="@NinePatchRect@253329" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0"]
-modulate = Color(0.67, 0.85, 0.36, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 390.539
-offset_top = 123.979
-offset_right = 411.539
-offset_bottom = 198.21
-rotation = -1.47847
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253330" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 0/@NinePatchRect@253329"]
-layout_mode = 0
-offset_left = 22.0361
-offset_top = 21.5744
-offset_right = 31.0361
-offset_bottom = 44.5744
-rotation = 1.47847
+offset_left = 22.5
+offset_top = 27.0
+offset_right = 33.5
+offset_bottom = 50.0
+rotation = 1.5708
 text = "L"
 
 [node name="Pointers 1" type="Control" parent="Navigation mapper/Visualization grandparent/Pointer parent"]
 anchors_preset = 0
 
-[node name="@NinePatchRect@253331" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+[node name="@NinePatchRect@356188" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
 modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 1486.59
-offset_top = 335.522
-offset_right = 1507.59
-offset_bottom = 443.215
-rotation = -3.91086
+offset_left = 1534.54
+offset_top = 266.464
+offset_right = 1555.54
+offset_bottom = 357.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@356189" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@356188"]
+layout_mode = 0
+offset_left = 6.75739
+offset_top = 47.3761
+offset_right = 17.7574
+offset_bottom = 70.3761
+rotation = 3.92699
+text = "R"
+
+[node name="@NinePatchRect@355389" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1459.54
+offset_top = 341.464
+offset_right = 1480.54
+offset_bottom = 432.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@355390" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@355389"]
+layout_mode = 0
+offset_left = 7.1109
+offset_top = 47.7297
+offset_right = 19.1109
+offset_bottom = 70.7297
+rotation = 3.92699
+text = "D"
+
+[node name="@NinePatchRect@354590" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1402.46
+offset_top = 548.536
+offset_right = 1423.46
+offset_bottom = 639.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@354591" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@354590"]
+layout_mode = 0
+offset_left = 14.8892
+offset_top = 22.981
+offset_right = 26.8892
+offset_bottom = 45.981
+rotation = 0.785398
+text = "L"
+
+[node name="@NinePatchRect@353052" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1477.46
+offset_top = 473.536
+offset_right = 1498.46
+offset_bottom = 564.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353053" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353052"]
+layout_mode = 0
+offset_left = 14.8892
+offset_top = 22.981
+offset_right = 26.8892
+offset_bottom = 45.981
+rotation = 0.785398
+text = "U"
+
+[node name="@NinePatchRect@353054" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1484.54
+offset_top = 723.536
+offset_right = 1505.54
+offset_bottom = 814.246
+rotation = -2.35619
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353055" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353054"]
+layout_mode = 0
+offset_left = 23.3744
+offset_top = 39.2445
+offset_right = 35.3744
+offset_bottom = 62.2445
+rotation = 2.35619
+text = "D"
+
+[node name="@NinePatchRect@353028" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1452.46
+offset_top = 341.464
+offset_right = 1473.46
+offset_bottom = 432.175
+rotation = 0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353029" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353028"]
+layout_mode = 0
+offset_left = -1.37451
+offset_top = 31.4663
+offset_right = 10.6255
+offset_bottom = 54.4663
+rotation = -0.785398
+text = "U"
+
+[node name="@NinePatchRect@353030" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.73, 0.22, 0.6, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1534.54
+offset_top = 516.464
+offset_right = 1555.54
+offset_bottom = 607.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@353031" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@353030"]
+layout_mode = 0
+offset_left = 7.1109
+offset_top = 47.7297
+offset_right = 19.1109
+offset_bottom = 70.7297
+rotation = 3.92699
+text = "R"
+
+[node name="@NinePatchRect@337127" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1459.54
+offset_top = 591.464
+offset_right = 1480.54
+offset_bottom = 682.175
+rotation = -3.92699
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@337128" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@337127"]
+layout_mode = 0
+offset_left = 7.1109
+offset_top = 47.7297
+offset_right = 19.1109
+offset_bottom = 70.7297
+rotation = 3.92699
+text = "D"
+
+[node name="@NinePatchRect@334690" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.67, 0.85, 0.36, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1402.46
+offset_top = 298.536
+offset_right = 1423.46
+offset_bottom = 389.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@334691" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334690"]
+layout_mode = 0
+offset_left = 14.8891
+offset_top = 22.9811
+offset_right = 26.8891
+offset_bottom = 45.9811
+rotation = 0.785398
+text = "L"
+
+[node name="@NinePatchRect@334692" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0.89, 0.34, 0.18, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1477.46
+offset_top = 223.536
+offset_right = 1498.46
+offset_bottom = 314.246
+rotation = -0.785398
+texture = ExtResource("9_x2w82")
+region_rect = Rect2(0, 0, 21, 16)
+patch_margin_top = 11
+script = ExtResource("10_w5yue")
+
+[node name="@Label@334693" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@334692"]
+layout_mode = 0
+offset_left = 14.8891
+offset_top = 22.9811
+offset_right = 26.8891
+offset_bottom = 45.9811
+rotation = 0.785398
+text = "U"
+
+[node name="@NinePatchRect@253331" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
+modulate = Color(0, 0.62, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1484.54
+offset_top = 473.536
+offset_right = 1505.54
+offset_bottom = 564.246
+rotation = -2.35619
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -723,22 +954,22 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253332" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253331"]
 layout_mode = 0
-offset_left = 6.95172
-offset_top = 55.9341
-offset_right = 17.9517
-offset_bottom = 78.9341
-rotation = 3.91086
-text = "R"
+offset_left = 23.3744
+offset_top = 39.2445
+offset_right = 35.3744
+offset_bottom = 62.2445
+rotation = 2.35619
+text = "D"
 
 [node name="@NinePatchRect@253333" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0, 0.62, 1, 1)
+modulate = Color(0.89, 0.34, 0.18, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 1411.59
-offset_top = 410.522
-offset_right = 1432.59
-offset_bottom = 518.215
-rotation = -3.91086
+offset_left = 1452.46
+offset_top = 591.464
+offset_right = 1473.46
+offset_bottom = 682.175
+rotation = 0.785398
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -746,22 +977,22 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253334" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253333"]
 layout_mode = 0
-offset_left = 7.31091
-offset_top = 56.2817
-offset_right = 19.3109
-offset_bottom = 79.2817
-rotation = 3.91086
-text = "D"
+offset_left = -1.37427
+offset_top = 31.4663
+offset_right = 10.6257
+offset_bottom = 54.4663
+rotation = -0.785398
+text = "U"
 
 [node name="@NinePatchRect@253335" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.67, 0.85, 0.36, 1)
+modulate = Color(0.73, 0.22, 0.6, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 1348.5
-offset_top = 642.567
-offset_right = 1369.5
-offset_bottom = 742.473
-rotation = -0.794247
+offset_left = 1527.46
+offset_top = 666.464
+offset_right = 1548.46
+offset_bottom = 757.175
+rotation = 0.785398
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -769,241 +1000,11 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253336" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253335"]
 layout_mode = 0
-offset_left = 14.9984
-offset_top = 27.6135
-offset_right = 26.9984
-offset_bottom = 50.6135
-rotation = 0.794247
-text = "L"
-
-[node name="@NinePatchRect@253337" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.89, 0.34, 0.18, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1423.5
-offset_top = 567.567
-offset_right = 1444.5
-offset_bottom = 667.473
-rotation = -0.794247
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253338" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253337"]
-layout_mode = 0
-offset_left = 14.9984
-offset_top = 27.6136
-offset_right = 26.9984
-offset_bottom = 50.6136
-rotation = 0.794247
-text = "U"
-
-[node name="@NinePatchRect@253339" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0, 0.62, 1, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1422.73
-offset_top = 846.325
-offset_right = 1443.73
-offset_bottom = 964.07
-rotation = -2.4141
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253340" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253339"]
-layout_mode = 0
-offset_left = 23.1287
-offset_top = 53.471
-offset_right = 35.1287
-offset_bottom = 76.471
-rotation = 2.4141
-text = "D"
-
-[node name="@NinePatchRect@253341" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.89, 0.34, 0.18, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1403.99
-offset_top = 411.009
-offset_right = 1424.99
-offset_bottom = 524.609
-rotation = 0.641364
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253342" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253341"]
-layout_mode = 0
-offset_left = -0.68811
-offset_top = 41.1751
-offset_right = 11.3119
-offset_bottom = 64.1751
-rotation = -0.641364
-text = "U"
-
-[node name="@NinePatchRect@253343" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.73, 0.22, 0.6, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1487.5
-offset_top = 616.433
-offset_right = 1508.5
-offset_bottom = 716.339
-rotation = -3.93584
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253344" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253343"]
-layout_mode = 0
-offset_left = 7.00146
-offset_top = 52.2925
-offset_right = 19.0015
-offset_bottom = 75.2925
-rotation = 3.93584
-text = "R"
-
-[node name="@NinePatchRect@253345" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0, 0.62, 1, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1412.5
-offset_top = 691.433
-offset_right = 1433.5
-offset_bottom = 791.339
-rotation = -3.93584
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253346" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253345"]
-layout_mode = 0
-offset_left = 7.00153
-offset_top = 52.2925
-offset_right = 19.0015
-offset_bottom = 75.2925
-rotation = 3.93584
-text = "D"
-
-[node name="@NinePatchRect@253347" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.67, 0.85, 0.36, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1343.41
-offset_top = 354.478
-offset_right = 1364.41
-offset_bottom = 462.171
-rotation = -0.769271
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253348" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253347"]
-layout_mode = 0
-offset_left = 14.689
-offset_top = 31.4109
-offset_right = 26.689
-offset_bottom = 54.4109
-rotation = 0.769271
-text = "L"
-
-[node name="@NinePatchRect@253349" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.89, 0.34, 0.18, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1418.41
-offset_top = 279.478
-offset_right = 1439.41
-offset_bottom = 387.171
-rotation = -0.769271
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253350" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253349"]
-layout_mode = 0
-offset_left = 14.689
-offset_top = 31.4108
-offset_right = 26.689
-offset_bottom = 54.4108
-rotation = 0.769271
-text = "U"
-
-[node name="@NinePatchRect@253351" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0, 0.62, 1, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1431.01
-offset_top = 566.991
-offset_right = 1452.01
-offset_bottom = 680.592
-rotation = -2.50023
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253352" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253351"]
-layout_mode = 0
-offset_left = 22.6881
-offset_top = 52.4251
-offset_right = 34.6881
-offset_bottom = 75.4251
-rotation = 2.50023
-text = "D"
-
-[node name="@NinePatchRect@253353" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.89, 0.34, 0.18, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1405.27
-offset_top = 691.675
-offset_right = 1426.27
-offset_bottom = 809.42
-rotation = 0.727492
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253354" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253353"]
-layout_mode = 0
-offset_left = -1.12854
-offset_top = 44.2736
-offset_right = 10.8715
-offset_bottom = 67.2736
-rotation = -0.727492
-text = "U"
-
-[node name="@NinePatchRect@253355" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1"]
-modulate = Color(0.73, 0.22, 0.6, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1480.27
-offset_top = 766.675
-offset_right = 1501.27
-offset_bottom = 884.42
-rotation = 0.727492
-texture = ExtResource("9_x2w82")
-region_rect = Rect2(0, 0, 21, 16)
-patch_margin_top = 11
-script = ExtResource("10_w5yue")
-
-[node name="@Label@253356" type="Label" parent="Navigation mapper/Visualization grandparent/Pointer parent/Pointers 1/@NinePatchRect@253355"]
-layout_mode = 0
-offset_left = -1.12854
-offset_top = 44.2736
-offset_right = 10.8715
-offset_bottom = 67.2736
-rotation = -0.727492
+offset_left = -1.37439
+offset_top = 31.4662
+offset_right = 10.6256
+offset_bottom = 54.4662
+rotation = -0.785398
 text = "R"
 
 [node name="Container parent" type="Control" parent="Navigation mapper/Visualization grandparent"]
@@ -1013,10 +1014,10 @@ anchors_preset = 0
 modulate = Color(1, 0.765, 0, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 61.0
-offset_top = 30.0
-offset_right = 601.0
-offset_bottom = 205.0
+offset_left = 54.0
+offset_top = 34.0
+offset_right = 636.0
+offset_bottom = 196.0
 texture = ExtResource("8_ckf1w")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -1035,10 +1036,10 @@ text = "Group 0"
 modulate = Color(1, 0.765, 0, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 1263.0
-offset_top = 195.0
-offset_right = 1565.0
-offset_bottom = 924.0
+offset_left = 1325.0
+offset_top = 139.0
+offset_right = 1612.0
+offset_bottom = 801.0
 texture = ExtResource("8_ckf1w")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -1060,11 +1061,11 @@ anchors_preset = 0
 modulate = Color(0.98, 0.13, 0.4, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 1265.78
-offset_top = 555.342
-offset_right = 1286.78
-offset_bottom = 1371.34
-rotation = -4.12369
+offset_left = 1327.29
+offset_top = 465.555
+offset_right = 1348.29
+offset_bottom = 1260.63
+rotation = -4.23662
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -1072,22 +1073,22 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253358" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@253357"]
 layout_mode = 0
-offset_left = 4.48987
-offset_top = 408.957
-offset_right = 15.4899
-offset_bottom = 431.957
-rotation = 4.12369
+offset_left = 3.2963
+offset_top = 397.695
+offset_right = 14.2963
+offset_bottom = 420.695
+rotation = 4.23662
 text = "R"
 
 [node name="@NinePatchRect@253359" type="NinePatchRect" parent="Navigation mapper/Visualization grandparent/Group pointer parent"]
 modulate = Color(0.39, 0.93, 0.59, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 598.224
-offset_top = 121.658
-offset_right = 619.224
-offset_bottom = 937.653
-rotation = -0.982097
+offset_left = 633.71
+offset_top = 119.445
+offset_right = 654.71
+offset_bottom = 914.523
+rotation = -1.09503
 texture = ExtResource("9_x2w82")
 region_rect = Rect2(0, 0, 21, 16)
 patch_margin_top = 11
@@ -1095,9 +1096,9 @@ script = ExtResource("10_w5yue")
 
 [node name="@Label@253360" type="Label" parent="Navigation mapper/Visualization grandparent/Group pointer parent/@NinePatchRect@253359"]
 layout_mode = 0
-offset_left = 18.0654
-offset_top = 387.869
-offset_right = 27.0654
-offset_bottom = 410.869
-rotation = 0.982097
+offset_left = 19.1618
+offset_top = 378.272
+offset_right = 28.1618
+offset_bottom = 401.272
+rotation = 1.09503
 text = "L"

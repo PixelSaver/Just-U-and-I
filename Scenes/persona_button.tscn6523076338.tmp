@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxc444o24k70h"]
+[gd_scene load_steps=5 format=3 uid="uid://cxc444o24k70h"]
 
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_s2wmk"]
 [ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_epj5s"]
 [ext_resource type="Script" uid="uid://mqk1ld67b1iq" path="res://Scripts/persona_button.gd" id="2_j8wfi"]
 [ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_j8wfi"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nl0rs"]
-bg_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(10, 10)
-
-[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("button_sprite", "bg", "button_label", "button_desc_label", "tip", "tip2", "tip2label")]
+[node name="PersonaMenuButton" type="Button" node_paths=PackedStringArray("button_sprite", "bg", "button_label", "button_desc_label", "tip")]
 offset_right = 150.0
 offset_bottom = 150.0
 theme = ExtResource("1_s2wmk")
@@ -20,8 +15,6 @@ bg = NodePath("holder/bg")
 button_label = NodePath("Tip/TipTitle/TitleLabel")
 button_desc_label = NodePath("Tip/TipDesc/DescLabel")
 tip = NodePath("Tip")
-tip2 = NodePath("Tip2")
-tip2label = NodePath("Tip2/Panel/Tip2Label")
 
 [node name="holder" type="Node2D" parent="."]
 position = Vector2(75, 25)
@@ -56,42 +49,6 @@ offset_bottom = 40.0
 script = ExtResource("3_j8wfi")
 metadata/_custom_type_script = "uid://dphkmqhipj8ve"
 
-[node name="Tip2" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = -30.0
-offset_top = 203.0
-offset_right = 193.0
-offset_bottom = 353.0
-
-[node name="Panel2" type="Panel" parent="Tip2"]
-layout_mode = 0
-offset_left = 164.0
-offset_top = -32.0
-offset_right = 232.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nl0rs")
-
-[node name="Panel" type="Panel" parent="Tip2"]
-layout_mode = 0
-offset_left = 190.0
-offset_top = -3.0
-offset_right = 428.0
-offset_bottom = 87.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nl0rs")
-
-[node name="Tip2Label" type="RichTextLabel" parent="Tip2/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Menu"
-fit_content = true
-vertical_alignment = 1
-
 [node name="Tip" type="Control" parent="."]
 visible = false
 anchors_preset = 0
@@ -103,20 +60,20 @@ mouse_filter = 2
 
 [node name="TipTitle" type="ColorRect" parent="Tip"]
 layout_mode = 0
-offset_left = 294.0
-offset_top = 21.0
-offset_right = 476.0
-offset_bottom = 133.0
+offset_left = 223.0
+offset_top = 13.0
+offset_right = 477.0
+offset_bottom = 125.0
 rotation = 0.109956
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Tip/TipTitle"]
 layout_mode = 0
-offset_left = 108.238
-offset_top = -22.0104
-offset_right = 191.238
-offset_bottom = 25.9896
+offset_left = 197.133
+offset_top = -18.7455
+offset_right = 280.133
+offset_bottom = 29.2545
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
@@ -140,19 +97,19 @@ vertical_alignment = 1
 
 [node name="TipDesc" type="ColorRect" parent="Tip"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 324.0
-offset_right = 469.0
-offset_bottom = 410.0
+offset_left = 58.0
+offset_top = 280.0
+offset_right = 463.0
+offset_bottom = 411.0
 rotation = -0.126146
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Tip/TipDesc"]
-offset_left = -24.2589
-offset_top = 40.2679
-offset_right = 144.741
-offset_bottom = 109.268
+offset_left = -22.2212
+offset_top = 79.8386
+offset_right = 146.779
+offset_bottom = 148.839
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
