@@ -123,7 +123,6 @@ func load_programs():
 		if p == programs.back():
 			p.connect("flash_finished", func():
 				is_animating_programs = false
-				print("finished loading")
 			)
 
 func _input(event: InputEvent) -> void:
@@ -132,6 +131,8 @@ func _input(event: InputEvent) -> void:
 		scroll += 185
 	if Input.is_action_pressed("scroll_up"): 
 		scroll -= 185
+	if Input.is_action_just_pressed("esc") and Global.state == Global.States.OS_MENU:
+		end_anim(true)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -142,8 +143,6 @@ func _gui_input(event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU or is_start_animating: return
 	#if Input.is_action_just_pressed("click_left"):
 		#start_anim()
-	if Input.is_action_just_pressed("esc") and Global.state == Global.States.OS_MENU:
-		end_anim(true)
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 	if Input.is_action_just_pressed("blue_coin"):

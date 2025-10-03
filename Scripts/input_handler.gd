@@ -29,7 +29,6 @@ func manual_gui_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		current_input_mode = InputMode.KEYBOARD
 		update_hover_by_keyboard()
-	#print("input mode: %s" % str(current_input_mode))
 
 func update_hover_by_keyboard():
 	if input_handler_disabled: return

@@ -13,7 +13,8 @@ func _ready() -> void:
 		#queue_free()
 
 func interacted_with():
-	global_position = og_pos
+	#global_position = og_pos
+	global_position = get_global_mouse_position()
 	#TODO When clicking rapidly, blue coin freezes in the air
 	if par_name in Global.blue_coins_collected: return
 	throw_dir.x = randf_range(-1,1)

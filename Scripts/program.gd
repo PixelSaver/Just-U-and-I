@@ -68,7 +68,6 @@ func _gui_input(event: InputEvent) -> void:
 			for child in Global.root.get_children():
 				if child is OSMenu:
 					os = child
-			print(os)
 			if os.is_start_animating or os.is_animating_programs: return
 			os.end_anim()
 			var inst = scene.instantiate()
@@ -116,9 +115,6 @@ func apply_idle_state(forced:=false):
 		idle_tween.tween_property(program_sprite, "position", target, duration / 12.0)
 
 func man_focus_entered() -> void:
-	#print(str(name) + " hovered")
-	#current_input_mode = InputMode.KEYBOARD
-	#if not get_viewport_rect().encloses(get_global_rect()): print("input mode: %s" % current_input_mode)
 	if input_handler.current_input_mode == input_handler.InputMode.KEYBOARD: 
 		var par : OSMenu = null
 		for child in Global.root.get_children():
@@ -137,10 +133,8 @@ func check_out_of_bounds(control: Control) -> Vector2:
 	var rect: Rect2 = control.get_global_rect()   # use global rect, not local
 
 	if rect.position.x < view_rect.position.x:
-		print("Left out by: ", view_rect.position.x - rect.position.x)
 		return Vector2(-1, view_rect.position.x - rect.position.x)
 
 	if rect.end.x > view_rect.end.x:
-		print("Right out by: ", rect.end.x - view_rect.end.x)
 		return Vector2(1, rect.end.x - view_rect.end.x)
 	return Vector2.ZERO

@@ -7,7 +7,7 @@ class_name SettingsMenu
 @export var all_parents : Array[Node] 
 var buttons : Array[ButtonSettings] = []
 const TITLES = ["SOUND VOLUME", "AUDIO VOLUME", "FULLSCREEN", "HOW TO PLAY"]
-const TIPS = ["THIS SCREEN IS POINTLESS", "BUTTONS ARE FOR CLICKING", "I GOT LAZY TO CODE THIS", "CLICK WITH YOUR MOUSE!"]
+const TIPS = ["BUTTONS ARE FOR CLICKING", "YOUR MOUSE IS FOR CLICKING", "THIS SCREEN IS FOR NOTHING", "CLICK Q OR ESC!"]
 const MAIN_MENU : PackedScene = preload("res://Scenes/main_menu.tscn")
 var duration : float = 0.15
 
