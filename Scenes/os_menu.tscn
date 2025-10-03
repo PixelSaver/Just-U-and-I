@@ -552,10 +552,11 @@ speed = 10.6
 
 [node name="Panel26" type="Panel" parent="BGHolder/Bg3"]
 layout_mode = 0
-offset_left = 1385.0
-offset_top = -1041.0
-offset_right = 1721.0
-offset_bottom = -379.0
+offset_left = 2613.0
+offset_top = 610.0
+offset_right = 2949.0
+offset_bottom = 1272.0
+rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
 
 [node name="Tweenable_150" parent="BGHolder/Bg3/Panel26" instance=ExtResource("3_70lpx")]
@@ -576,10 +577,11 @@ speed = 3.23387
 
 [node name="Panel25" type="Panel" parent="BGHolder/Bg3"]
 layout_mode = 0
-offset_left = 881.0
-offset_top = -1134.0
-offset_right = 1085.0
-offset_bottom = -449.0
+offset_left = 5624.0
+offset_top = 451.0
+offset_right = 5828.0
+offset_bottom = 1136.0
+rotation = -0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
 
 [node name="Tweenable_853" parent="BGHolder/Bg3/Panel25" instance=ExtResource("3_70lpx")]
@@ -1191,10 +1193,10 @@ speed = 5.96672
 
 [node name="Panel5" type="Panel" parent="BGHolder/Bg10"]
 layout_mode = 0
-offset_left = -67.0
-offset_top = -436.0
-offset_right = 137.0
-offset_bottom = 249.0
+offset_left = 797.004
+offset_top = 391.993
+offset_right = 1001.0
+offset_bottom = 1076.99
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
 
 [node name="Tweenable_905" parent="BGHolder/Bg10/Panel5" instance=ExtResource("3_70lpx")]
@@ -1456,10 +1458,11 @@ speed = 10.6
 
 [node name="Panel26" type="Panel" parent="BGHolder/Bg7"]
 layout_mode = 0
-offset_left = 1385.0
-offset_top = -1041.0
-offset_right = 1721.0
-offset_bottom = -379.0
+offset_left = -2304.0
+offset_top = -302.0
+offset_right = -1968.0
+offset_bottom = 360.0
+rotation = -0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_u00ff")
 
 [node name="Tweenable_150" parent="BGHolder/Bg7/Panel26" instance=ExtResource("3_70lpx")]
@@ -1480,10 +1483,10 @@ speed = 3.23387
 
 [node name="Panel25" type="Panel" parent="BGHolder/Bg7"]
 layout_mode = 0
-offset_left = 881.0
-offset_top = -1134.0
-offset_right = 1085.0
-offset_bottom = -449.0
+offset_left = -543.0
+offset_top = 713.0
+offset_right = -339.0
+offset_bottom = 1398.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0re3")
 
 [node name="Tweenable_853" parent="BGHolder/Bg7/Panel25" instance=ExtResource("3_70lpx")]
@@ -1768,6 +1771,7 @@ theme_override_constants/margin_top = 50
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Title/MarginContainer"]
 z_index = 1
+texture_filter = 1
 layout_mode = 2
 bbcode_enabled = true
 text = "[color=#121867]JUI[color=#c759e2]OS[/color] MENU"
@@ -2325,6 +2329,9 @@ offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 
+[node name="ProgramArt" parent="ProgramCont/Program13/Border/Control" index="0"]
+visible = false
+
 [node name="MarginContainer" parent="ProgramCont/Program13" index="1"]
 modulate = Color(0.945098, 0.670588, 0.878431, 1)
 mouse_filter = 2
@@ -2463,6 +2470,7 @@ ContainerTex = ExtResource("12_jw2nx")
 metadata/_custom_type_script = "uid://xp3dj8wgkxb7"
 
 [node name="Visualization grandparent" type="Control" parent="Navigation mapper"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 metadata/_edit_group_ = true

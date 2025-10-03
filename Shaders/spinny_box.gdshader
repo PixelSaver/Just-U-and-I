@@ -106,7 +106,7 @@ void fragment() {
             break;
         } else if (dist < 0.001) {
 			if (map_output.y == 1.){
-				alph = 0.;
+				alph = 0. + float(i) * .05;
 			}
 			break;
 		}

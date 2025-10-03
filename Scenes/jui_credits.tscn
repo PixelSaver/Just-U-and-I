@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx0ykbfsdwje3"]
+[gd_scene load_steps=4 format=3 uid="uid://dx0ykbfsdwje3"]
 
 [ext_resource type="PackedScene" uid="uid://c1g50h2avck3w" path="res://addons/maaacks_credits_scene/examples/scenes/credits/scrolling_credits.tscn" id="1_1mbxv"]
+[ext_resource type="FontFile" uid="uid://btyo7ycmtemss" path="res://Assets/Fonts/Vipnagorgialla Rg.otf" id="1_oq6ul"]
+
+[sub_resource type="Theme" id="Theme_tm0or"]
+default_font = ExtResource("1_oq6ul")
 
 [node name="JUICredits" type="Control"]
 layout_mode = 3
@@ -9,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_tm0or")
 
 [node name="ScrollingCredits" parent="." instance=ExtResource("1_1mbxv")]
 layout_mode = 1
