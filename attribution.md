@@ -1,16 +1,16 @@
 # Attribution
+## Credits
+### Collaborators
 
-## Collaborators
-
-### Hipxel
+#### Hipxel
 Author: [Hipxel](https://github.com/Hipxel-dev)  
 Role: Inspiration for the entire project  
 
-### OfKnee
+#### OfKnee
 Author: [OfKnee](https://github.com/ofKnee)  
 Role: Coin and blue coin spritesheets  
 
-### Siege
+#### Siege
 Source: [Hackclub Siege](https://siege.hackclub.com/castle)  
 Role: Event that pushed me to build this project (YSWS challenge)  
 
@@ -55,14 +55,14 @@ Source: [Pixabay Sound Effects](https://pixabay.com/sound-effects//)
 License: [Pixabay License](https://pixabay.com/service/license/)  
 
 ### Button Icons
-Author: [Ansdor](https://ansdor.itch.io/button-icons)  
+Author: [Ansdor](https://ansdor.itch.io/)  
 Source: [Itch.io Pack](https://ansdor.itch.io/button-icons)  
-License: As provided by the author  
+License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### Pixel Icons
-Author: [Nikoichu](https://nikoichu.itch.io/pixel-icons)  
+Author: [Nikoichu](https://nikoichu.itch.io/)  
 Source: [Itch.io Pack](https://nikoichu.itch.io/pixel-icons)  
-License: As provided by the author  
+License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ---
 

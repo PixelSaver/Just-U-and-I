@@ -11,7 +11,10 @@ var timer : Timer = Timer.new()
 @export var input_scroll_speed : float = 400.0
 @export var scroll_restart_delay : float = 1.5
 
-var _current_scroll_position : float = 0.0
+signal scroll_position_changed(new_pos : float)
+var _current_scroll_position : float = 0.0 :
+	set(val):
+		_current_scroll_position = val
 var scroll_paused : bool = false
 
 func _end_reached() -> void:
@@ -32,6 +35,7 @@ func _scroll_container(amount : float) -> void:
 		return
 	_current_scroll_position += amount
 	scroll_vertical = round(_current_scroll_position)
+	scroll_position_changed.emit(scroll_vertical)
 	_check_end_reached()
 
 func _on_gui_input(event : InputEvent) -> void:

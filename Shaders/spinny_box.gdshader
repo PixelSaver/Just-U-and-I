@@ -118,8 +118,8 @@ void fragment() {
 
     col = palette(tot_dist * 0.02 + float(index) * 0.005 + 3.1);
     if (tot_dist == 0.0) {
-		col = vec3(0.0);
-		alph = 183./255.;
+		col = vec3(0.)/255.;
+		alph = .6;
 	}
 
     COLOR = vec4(col, alph);

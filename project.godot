@@ -17,7 +17,6 @@ boot_splash/bg_color=Color(0.155452, 0.0349796, 0.359724, 1)
 boot_splash/use_filter=false
 boot_splash/image="uid://c3b8sj5ncd1qs"
 config/icon="res://Assets/Art/icon.svg"
-boot_splash/minimum_display_time=10000
 
 [autoload]
 
