@@ -1,6 +1,31 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://camycdeabjfu"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://camycdeabjfu"]
 
 [ext_resource type="FontFile" uid="uid://btyo7ycmtemss" path="res://Assets/Fonts/Vipnagorgialla Rg.otf" id="1_clekc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clekc"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mfcq"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ispfa"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oli1b"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6link"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72xri"]
+bg_color = Color(0, 0, 0, 1)
+
 [resource]
 default_font = ExtResource("1_clekc")
+default_font_size = 30
+Button/styles/disabled = SubResource("StyleBoxFlat_clekc")
+Button/styles/focus = SubResource("StyleBoxFlat_4mfcq")
+Button/styles/hover = SubResource("StyleBoxFlat_ispfa")
+Button/styles/normal = SubResource("StyleBoxFlat_oli1b")
+Button/styles/pressed = SubResource("StyleBoxFlat_6link")
+Panel/styles/panel = SubResource("StyleBoxFlat_72xri")

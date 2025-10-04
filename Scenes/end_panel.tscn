@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu4rvgetshcc3"]
+
+[ext_resource type="Script" uid="uid://bqketx5c1r357" path="res://Scripts/end_panel.gd" id="1_43eex"]
+[ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_nim1i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fmto"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="EndPanel" type="CanvasLayer" node_paths=PackedStringArray("panel1", "text", "panel2")]
+script = ExtResource("1_43eex")
+panel1 = NodePath("Control/Panel1")
+text = NodePath("Control/Panel1/RichTextLabel")
+panel2 = NodePath("Control/Panel2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nim1i")
+
+[node name="Panel1" type="Panel" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -555.0
+offset_top = -310.0
+offset_right = 555.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+theme = ExtResource("1_nim1i")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fmto")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Panel1"]
+layout_mode = 2
+offset_right = 1110.0
+offset_bottom = 78.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Thanks so much for playing!"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel1"]
+layout_mode = 2
+offset_left = 149.0
+offset_top = 83.0
+offset_right = 961.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "int main() {
+	person player = you;
+	person author = me;
+	if ( you.likes(game) ) {
+		cout << \"Thanks so much! \"
+		cout << \"Check out my itch and 
+					github for cool stuff!\" << endl;
+	}
+	return 0;
+}"
+fit_content = true
+
+[node name="Button" type="Button" parent="Control/Panel1"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 475.0
+offset_right = 479.0
+offset_bottom = 592.0
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control/Panel1/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.182908, 0.69395, 0.921603, 1)
+
+[node name="Button2" type="Button" parent="Control/Panel1"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 479.0
+offset_right = 871.0
+offset_bottom = 596.0
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control/Panel1/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.182908, 0.69395, 0.921603, 1)
+
+[node name="Panel2" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 162.0
+offset_top = 143.0
+offset_right = 880.0
+offset_bottom = 663.0

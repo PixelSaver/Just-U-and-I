@@ -1,14 +1,12 @@
 [gd_scene load_steps=28 format=3 uid="uid://dx0ykbfsdwje3"]
 
 [ext_resource type="PackedScene" uid="uid://c1g50h2avck3w" path="res://addons/maaacks_credits_scene/examples/scenes/credits/scrolling_credits.tscn" id="1_1mbxv"]
-[ext_resource type="FontFile" uid="uid://btyo7ycmtemss" path="res://Assets/Fonts/Vipnagorgialla Rg.otf" id="1_oq6ul"]
+[ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_3t0gy"]
 [ext_resource type="Script" uid="uid://vrp756w6s4de" path="res://Scripts/jui_credits.gd" id="2_3t0gy"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="2_uxybw"]
 [ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="4_w7us0"]
 [ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="5_w47e6"]
-
-[sub_resource type="Theme" id="Theme_tm0or"]
-default_font = ExtResource("1_oq6ul")
+[ext_resource type="PackedScene" uid="uid://cu4rvgetshcc3" path="res://Scenes/end_panel.tscn" id="7_w7us0"]
 
 [sub_resource type="Gradient" id="Gradient_uxybw"]
 offsets = PackedFloat32Array(0, 0.297101, 0.599034, 1)
@@ -105,13 +103,14 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-theme = SubResource("Theme_tm0or")
+theme = ExtResource("1_3t0gy")
 script = ExtResource("2_3t0gy")
 all_parents = [NodePath("BGCont/Bg"), NodePath("BGCont/Bg2"), NodePath("BGCont/Bg3"), NodePath("BGCont/Bg4"), NodePath("BGCont/Bg5"), NodePath("BGCont/bgTitle")]
 scroll_cont = NodePath("ScrollingCredits/ScrollContainer")
 bg_cont = NodePath("BGCont")
 
 [node name="BGCont" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="TextureRect" parent="BGCont"]
 offset_left = -21.0
@@ -1164,6 +1163,7 @@ dir = Vector2(0, 1)
 speed = 8.21703
 
 [node name="ScrollingCredits" parent="." instance=ExtResource("1_1mbxv")]
+visible = false
 layout_mode = 1
 
 [node name="ScrollContainer" parent="ScrollingCredits" index="0"]
@@ -1264,6 +1264,8 @@ grow_vertical = 2
 
 [node name="FooterSpace" parent="ScrollingCredits/ScrollContainer/VBoxContainer" index="2"]
 custom_minimum_size = Vector2(0, 486)
+
+[node name="EndPanel" parent="." instance=ExtResource("7_w7us0")]
 
 [connection signal="end_reached" from="ScrollingCredits/ScrollContainer" to="." method="_on_scroll_container_end_reached"]
 
