@@ -58,9 +58,14 @@ func go_credits():
 	for child in root.get_children():
 		if child is JUICredits:
 			child.queue_free()
-	var cred_scene = load("res//Scenes/jui_credits.tscn").instantiate() as JUICredits
+	var cred_scene = load("res://Scenes/jui_credits.tscn").instantiate() as JUICredits
 	root.add_child(cred_scene)
 	Global.state = Global.States.EXTRAS
+func get_credits() -> JUICredits:
+	for child in root.get_children():
+		if child is JUICredits:
+			return child
+	return null
 func restart():
 	blue_coins_collected = []
 	coins_collected = []

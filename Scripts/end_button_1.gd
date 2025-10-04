@@ -41,6 +41,7 @@ func _on_pressed() -> void:
 		await get_tree().create_timer(1.5).timeout
 		get_tree().quit()
 	else:
+		Global.get_credits().queue_free()
 		Global.restart()
 		await get_tree().create_timer(0.3).timeout
 		queue_free()

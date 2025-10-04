@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cu4rvgetshcc3"]
+[gd_scene load_steps=16 format=3 uid="uid://cu4rvgetshcc3"]
 
 [ext_resource type="Script" uid="uid://bqketx5c1r357" path="res://Scripts/end_panel.gd" id="1_43eex"]
 [ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_nim1i"]
 [ext_resource type="Script" uid="uid://c1isndddv6i2f" path="res://Scripts/end_panel_1.gd" id="3_wwosx"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_vcq4q"]
 [ext_resource type="PackedScene" uid="uid://ct24xwa7klfo1" path="res://Scenes/credits_button_1.tscn" id="5_wwosx"]
+[ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="6_0x80r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcq4q"]
 bg_color = Color(0, 0, 0, 0)
@@ -335,5 +336,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 focus_mode = 2
 mouse_filter = 2
+
+[node name="NotificationManagerMenu" type="Node2D" parent="."]
+script = ExtResource("6_0x80r")
+metadata/_custom_type_script = "uid://1qwue7drogl6"
 
 [editable path="Control/Panel1/Button"]
