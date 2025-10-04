@@ -9,9 +9,10 @@ class_name EndPanel
 
 func _ready():
 	panel1.hide()
-	panel1.hide()
+	panel2.hide()
 	start_anim()
 
 func start_anim():
 	panel1.show()
+	
 	panel1.start_anim()

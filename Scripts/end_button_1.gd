@@ -3,6 +3,7 @@ class_name EndButton1
 
 @export var bg_1 : Control
 @export var bg_2 : Control
+@export var label : RichTextLabel
 var t : Tween
 
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 	bg_1.pivot_offset = bg_1.size / 2
 	bg_2.pivot_offset = bg_2.size / 2
 	
+
 
 func _on_mouse_entered() -> void:
 	var dur = 0.2
@@ -34,3 +36,13 @@ func _on_pressed() -> void:
 	t.set_ease(Tween.EASE_OUT)
 	t.tween_property(self, "modulate:a", 0.7, dur/2)
 	t.tween_property(self, "modulate:a", 1., dur/2)
+	await t.finished
+	if label.text == "Quit":
+		await get_tree().create_timer(1.5).timeout
+		get_tree().quit()
+	else:
+		Global.restart()
+		await get_tree().create_timer(0.3).timeout
+		queue_free()
+		
+	

@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cu4rvgetshcc3"]
+[gd_scene load_steps=15 format=3 uid="uid://cu4rvgetshcc3"]
 
 [ext_resource type="Script" uid="uid://bqketx5c1r357" path="res://Scripts/end_panel.gd" id="1_43eex"]
 [ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_nim1i"]
 [ext_resource type="Script" uid="uid://c1isndddv6i2f" path="res://Scripts/end_panel_1.gd" id="3_wwosx"]
-[ext_resource type="Script" uid="uid://p4kmjymko1rj" path="res://Scripts/end_button_1.gd" id="4_0x80r"]
 [ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_vcq4q"]
-[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="5_obc4m"]
+[ext_resource type="PackedScene" uid="uid://ct24xwa7klfo1" path="res://Scenes/credits_button_1.tscn" id="5_wwosx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcq4q"]
 bg_color = Color(0, 0, 0, 0)
@@ -55,6 +54,7 @@ skew = Vector2(0.4, 0)
 bg_color = Color(0.878361, 0.58002, 0.80208, 1)
 
 [node name="EndPanel" type="CanvasLayer" node_paths=PackedStringArray("panel1", "panel2")]
+follow_viewport_enabled = true
 script = ExtResource("1_43eex")
 panel1 = NodePath("Control/Panel1")
 panel2 = NodePath("Control/Panel2")
@@ -85,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(20, 20)
 focus_mode = 2
-mouse_filter = 2
+mouse_filter = 1
 theme = ExtResource("1_nim1i")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vcq4q")
 script = ExtResource("3_wwosx")
@@ -104,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/Panel1"]
 clip_contents = false
@@ -128,13 +129,13 @@ offset_top = -6.0
 offset_right = 1259.0
 offset_bottom = 72.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_obc4m")
 
-[node name="Tweenable_143" type="Node" parent="Control/Panel1/RichTextLabel2/Panel10" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
+[node name="Tweenable_143" parent="Control/Panel1/RichTextLabel2/Panel10" instance=ExtResource("4_vcq4q")]
 script = SubResource("GDScript_vcq4q")
 dir = Vector2(0, -1)
 speed = 5.63477
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel5" type="Panel" parent="Control/Panel1/RichTextLabel2"]
 show_behind_parent = true
@@ -144,13 +145,12 @@ offset_top = 23.0
 offset_right = 1341.0
 offset_bottom = 92.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kfp66")
 
-[node name="Tweenable_406" type="Node" parent="Control/Panel1/RichTextLabel2/Panel5" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable_406" parent="Control/Panel1/RichTextLabel2/Panel5" instance=ExtResource("4_vcq4q")]
 dir = Vector2(1, 0)
 speed = 2.08554
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel3" type="Panel" parent="Control/Panel1/RichTextLabel2"]
 show_behind_parent = true
@@ -160,13 +160,12 @@ offset_top = -39.0
 offset_right = 846.0
 offset_bottom = 30.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kfp66")
 
-[node name="Tweenable_720" type="Node" parent="Control/Panel1/RichTextLabel2/Panel3" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable_720" parent="Control/Panel1/RichTextLabel2/Panel3" instance=ExtResource("4_vcq4q")]
 dir = Vector2(0, -1)
 speed = 7.25024
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel7" type="Panel" parent="Control/Panel1/RichTextLabel2"]
 show_behind_parent = true
@@ -176,13 +175,12 @@ offset_top = -20.0
 offset_right = 418.0
 offset_bottom = 19.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q70fn")
 
-[node name="Tweenable_749" type="Node" parent="Control/Panel1/RichTextLabel2/Panel7" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable_749" parent="Control/Panel1/RichTextLabel2/Panel7" instance=ExtResource("4_vcq4q")]
 dir = Vector2(0, -1)
 speed = 2.33791
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel8" type="Panel" parent="Control/Panel1/RichTextLabel2"]
 show_behind_parent = true
@@ -192,13 +190,12 @@ offset_top = -26.0
 offset_right = 1190.0
 offset_bottom = 13.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q70fn")
 
-[node name="Tweenable_832" type="Node" parent="Control/Panel1/RichTextLabel2/Panel8" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable_832" parent="Control/Panel1/RichTextLabel2/Panel8" instance=ExtResource("4_vcq4q")]
 dir = Vector2(0, -1)
 speed = 6.53381
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel6" type="Panel" parent="Control/Panel1/RichTextLabel2"]
 show_behind_parent = true
@@ -208,13 +205,12 @@ offset_top = 24.0
 offset_right = 390.0
 offset_bottom = 93.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kfp66")
 
-[node name="Tweenable_154" type="Node" parent="Control/Panel1/RichTextLabel2/Panel6" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable_154" parent="Control/Panel1/RichTextLabel2/Panel6" instance=ExtResource("4_vcq4q")]
 dir = Vector2(1, 0)
 speed = 5.72638
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel4" type="Panel" parent="Control/Panel1/RichTextLabel2"]
 show_behind_parent = true
@@ -224,13 +220,12 @@ offset_top = -6.0
 offset_right = 1259.0
 offset_bottom = 72.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yncud")
 
-[node name="Tweenable_244" type="Node" parent="Control/Panel1/RichTextLabel2/Panel4" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable_244" parent="Control/Panel1/RichTextLabel2/Panel4" instance=ExtResource("4_vcq4q")]
 dir = Vector2(1, 0)
 speed = 4.96193
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Panel9" type="Panel" parent="Control/Panel1/RichTextLabel2"]
 show_behind_parent = true
@@ -240,13 +235,12 @@ offset_top = -54.0
 offset_right = 122.0
 offset_bottom = -15.0
 scale = Vector2(1.10716, 1.98752)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q70fn")
 
-[node name="Tweenable_464" type="Node" parent="Control/Panel1/RichTextLabel2/Panel9" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable_464" parent="Control/Panel1/RichTextLabel2/Panel9" instance=ExtResource("4_vcq4q")]
 dir = Vector2(1, 0)
 speed = 9.0454
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="MTBG1" type="Panel" parent="Control/Panel1"]
 layout_mode = 0
@@ -258,11 +252,9 @@ focus_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8pcb")
 
-[node name="Tweenable" type="Node" parent="Control/Panel1/MTBG1" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable" parent="Control/Panel1/MTBG1" instance=ExtResource("4_vcq4q")]
 dir = Vector2(1, 0)
 speed = 7.65316
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="MTBG2" type="Panel" parent="Control/Panel1"]
 layout_mode = 0
@@ -274,11 +266,9 @@ focus_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d5bww")
 
-[node name="Tweenable" type="Node" parent="Control/Panel1/MTBG2" groups=["Tweenable"] instance=ExtResource("4_vcq4q")]
-script = ExtResource("5_obc4m")
+[node name="Tweenable" parent="Control/Panel1/MTBG2" instance=ExtResource("4_vcq4q")]
 dir = Vector2(-1, 0)
 speed = 8.60101
-metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel1"]
 layout_mode = 2
@@ -303,71 +293,22 @@ text = "int main() {
 }"
 fit_content = true
 
-[node name="Button" type="Button" parent="Control/Panel1" node_paths=PackedStringArray("bg_1", "bg_2")]
+[node name="Button" parent="Control/Panel1" instance=ExtResource("5_wwosx")]
 layout_mode = 0
-offset_left = 202.0
-offset_top = 484.0
-offset_right = 480.0
-offset_bottom = 563.595
-mouse_filter = 1
-script = ExtResource("4_0x80r")
-bg_1 = NodePath("bg1")
-bg_2 = NodePath("bg2")
-metadata/_edit_group_ = true
+offset_left = 207.0
+offset_top = 477.0
+offset_right = 485.0
+offset_bottom = 556.595
 
-[node name="bg2" type="ColorRect" parent="Control/Panel1/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 2
-mouse_filter = 2
+[node name="RichTextLabel" parent="Control/Panel1/Button" index="2"]
+text = "Restart"
 
-[node name="bg1" type="ColorRect" parent="Control/Panel1/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 2
-mouse_filter = 2
-color = Color(0.168627, 0.568627, 1, 1)
-
-[node name="Button2" type="Button" parent="Control/Panel1" node_paths=PackedStringArray("bg_1", "bg_2")]
+[node name="Button2" parent="Control/Panel1" instance=ExtResource("5_wwosx")]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 488.0
-offset_right = 902.0
-offset_bottom = 567.595
-mouse_filter = 1
-script = ExtResource("4_0x80r")
-bg_1 = NodePath("bg1")
-bg_2 = NodePath("bg2")
-metadata/_edit_group_ = true
-
-[node name="bg2" type="ColorRect" parent="Control/Panel1/Button2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 2
-mouse_filter = 2
-
-[node name="bg1" type="ColorRect" parent="Control/Panel1/Button2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 2
-mouse_filter = 2
-color = Color(0.168627, 0.568627, 1, 1)
+offset_left = 625.0
+offset_top = 475.0
+offset_right = 903.0
+offset_bottom = 554.595
 
 [node name="Panel2" type="Panel" parent="Control"]
 visible = false
@@ -395,9 +336,4 @@ offset_bottom = 40.0
 focus_mode = 2
 mouse_filter = 2
 
-[connection signal="mouse_entered" from="Control/Panel1/Button" to="Control/Panel1/Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Control/Panel1/Button" to="Control/Panel1/Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Control/Panel1/Button" to="Control/Panel1/Button" method="_on_pressed"]
-[connection signal="mouse_entered" from="Control/Panel1/Button2" to="Control/Panel1/Button2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Control/Panel1/Button2" to="Control/Panel1/Button2" method="_on_mouse_exited"]
-[connection signal="pressed" from="Control/Panel1/Button2" to="Control/Panel1/Button2" method="_on_pressed"]
+[editable path="Control/Panel1/Button"]

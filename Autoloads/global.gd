@@ -16,7 +16,6 @@ enum States {
 #var state : States = States.LOGO
 var state : States = States.MAIN_MENU
 
-var focus_owners : Array = [] 
 		
 
 var root : Node
@@ -62,4 +61,8 @@ func go_credits():
 	var cred_scene = load("res//Scenes/jui_credits.tscn").instantiate() as JUICredits
 	root.add_child(cred_scene)
 	Global.state = Global.States.EXTRAS
+func restart():
+	blue_coins_collected = []
+	coins_collected = []
+	go_main_menu()
 	

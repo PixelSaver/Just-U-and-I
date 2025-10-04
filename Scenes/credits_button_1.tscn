@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct24xwa7klfo1"]
+
+[ext_resource type="Script" uid="uid://p4kmjymko1rj" path="res://Scripts/end_button_1.gd" id="1_0853y"]
+[ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_exkty"]
+
+[node name="Button" type="Button" node_paths=PackedStringArray("bg_1", "bg_2", "label")]
+offset_left = 201.0
+offset_top = 484.0
+offset_right = 479.0
+offset_bottom = 563.595
+theme = ExtResource("1_exkty")
+script = ExtResource("1_0853y")
+bg_1 = NodePath("bg1")
+bg_2 = NodePath("bg2")
+label = NodePath("RichTextLabel")
+
+[node name="bg2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+
+[node name="bg1" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+color = Color(0.168627, 0.568627, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

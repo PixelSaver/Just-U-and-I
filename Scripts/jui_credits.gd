@@ -4,6 +4,7 @@ class_name JUICredits
 @export var all_parents : Array[Node]
 @export var scroll_cont : ScrollContainer
 @export var bg_cont : Node
+@export var end_panel : CanvasLayer
 var tweenables : Array[Tweenable] 
 
 func _ready() -> void:
@@ -42,7 +43,6 @@ func update_tweens(new_scroll_pos: float):
 			break
 
 func tween_in(tweenable:Tweenable):
-	print("tweened")
 	tweenable.get_parent().modulate = Color.BLACK
 	#var t = create_tween().set_trans(Tween.TRANS_QUINT)
 	#t.set_parallel(true).set_ease(Tween.EASE_OUT)
@@ -54,4 +54,4 @@ func tween_out(tweenable:Tweenable):
 
 
 func _on_scroll_container_end_reached() -> void:
-	pass # Replace with function body.
+	end_panel.start_anim()
