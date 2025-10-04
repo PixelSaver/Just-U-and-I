@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dx0ykbfsdwje3"]
+[gd_scene load_steps=28 format=3 uid="uid://dx0ykbfsdwje3"]
 
 [ext_resource type="PackedScene" uid="uid://c1g50h2avck3w" path="res://addons/maaacks_credits_scene/examples/scenes/credits/scrolling_credits.tscn" id="1_1mbxv"]
 [ext_resource type="FontFile" uid="uid://btyo7ycmtemss" path="res://Assets/Fonts/Vipnagorgialla Rg.otf" id="1_oq6ul"]
@@ -9,6 +9,13 @@
 
 [sub_resource type="Theme" id="Theme_tm0or"]
 default_font = ExtResource("1_oq6ul")
+
+[sub_resource type="Gradient" id="Gradient_uxybw"]
+offsets = PackedFloat32Array(0, 0.297101, 0.599034, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3t0gy"]
+gradient = SubResource("Gradient_uxybw")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4y8u"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -106,13 +113,15 @@ bg_cont = NodePath("BGCont")
 
 [node name="BGCont" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="BGCont"]
+[node name="ColorRect" type="TextureRect" parent="BGCont"]
 offset_left = -21.0
-offset_top = 787.0
-offset_right = 19.0
-offset_bottom = 823.0
+offset_top = 2564.0
+offset_right = 70.0
+offset_bottom = 2586.0
+rotation = -1.57079
 scale = Vector2(21.261, 43.0711)
-color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture1D_3t0gy")
+expand_mode = 1
 
 [node name="Bg" type="Control" parent="BGCont"]
 modulate = Color(0.629041, 0.00289747, 0.896669, 1)
@@ -927,10 +936,10 @@ dir = Vector2(0, 1)
 speed = 6.01314
 
 [node name="Panel11" type="Panel" parent="BGCont/bgTitle"]
-offset_left = -10.0
-offset_top = -99.0
-offset_right = 50.0
-offset_bottom = -44.0
+offset_left = 796.0
+offset_top = 82.0
+offset_right = 856.0
+offset_bottom = 137.0
 theme = ExtResource("5_w47e6")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhwi6")
 
@@ -963,10 +972,10 @@ dir = Vector2(0, 1)
 speed = 4.87924
 
 [node name="Panel3" type="Panel" parent="BGCont/bgTitle"]
-offset_left = 1.0
-offset_top = -90.0
-offset_right = 44.0
-offset_bottom = -54.0
+offset_left = 807.0
+offset_top = 91.0
+offset_right = 850.0
+offset_bottom = 127.0
 theme = ExtResource("5_w47e6")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
@@ -975,10 +984,10 @@ dir = Vector2(0, 1)
 speed = 0.192076
 
 [node name="Panel4" type="Panel" parent="BGCont/bgTitle"]
-offset_left = 26.0
-offset_top = -100.0
-offset_right = 57.0
-offset_bottom = -75.0
+offset_left = 832.0
+offset_top = 81.0
+offset_right = 863.0
+offset_bottom = 106.0
 theme = ExtResource("5_w47e6")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
@@ -1255,5 +1264,7 @@ grow_vertical = 2
 
 [node name="FooterSpace" parent="ScrollingCredits/ScrollContainer/VBoxContainer" index="2"]
 custom_minimum_size = Vector2(0, 486)
+
+[connection signal="end_reached" from="ScrollingCredits/ScrollContainer" to="." method="_on_scroll_container_end_reached"]
 
 [editable path="ScrollingCredits"]

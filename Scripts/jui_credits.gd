@@ -51,3 +51,7 @@ func tween_out(tweenable:Tweenable):
 	var t = create_tween().set_trans(Tween.TRANS_QUINT)
 	t.set_parallel(true).set_ease(Tween.EASE_OUT)
 	t.tween_property(tweenable.get_parent(), "position", tweenable.og_pos, 0.6)
+
+
+func _on_scroll_container_end_reached() -> void:
+	pass # Replace with function body.
