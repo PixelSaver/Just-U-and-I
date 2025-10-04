@@ -29,7 +29,8 @@ func _run() -> void:
 			var dirs = [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
 			#var dirs = [Vector2(1,1), Vector2(-1,-1)]
 			child.dir = dirs[randi_range(0, dirs.size()-1)]
-			child.speed = pow(randf(), 4) * 12
+			#child.speed = pow(randf(), 4) * 12
+			child.speed = randf_range(0, 10)
 			
 			children.append({"parent": parent, "child": child})
 	
