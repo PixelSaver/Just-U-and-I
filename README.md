@@ -115,7 +115,17 @@ They’re fairly large, so I’ve tucked them into expandable sections:
 - The main menu has some subtle hints to encourage clicking, though I’m not sure they’re strong enough.  
 - The settings screen isn’t a real settings menu—it’s just for show (like much of this project).  
 - The OS has one more tile in-game, but I’ll let you discover that yourself—I spent a while on the shader.  
-- The Persona app is named after the Persona-inspired UI. None of the buttons work (except quit), but they look neat. 
+- The Persona app is named after the Persona-inspired UI. None of the buttons work (except quit), but they look neat.
+
+> [!TIP]  
+> Press `B` or `C` to see your blue and gold coin counts in the OS and Menu screens.  
+
+> [!TIP]  
+> Press `Q` or `ESC` to exit certain menus.  
+
+> [!TIP]  
+> Use arrow keys + Space/Enter to fully navigate menus with your keyboard.  
+ 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
