@@ -85,7 +85,49 @@ Scope creep is definitely one. I came into this with big plans, and only got 4 s
 Also, I learned a lot about how the Godot User Interface Nodes work: mouse_filter, containers, clip_contents, _gui_input(), etc. If we're talking strictly about Godot though, tweens are now my best friend. They do so much and are so nice (even though I don't do a good job of cleaning them up). 
 Lastly, there was a moment when I woke up, opened up my code editor, and didn't comprehend what I had written at 12 am the night before. I gave myself the task of turning the code into a component, but it was so jank and slapped together that it took many hours to rewrite code that had taken barely an hour to initially put down. From now on, I will do my best to look ahead and compartmentalize things that will be used again, like the input system I made or the (lack of) a scene manager.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Screenshots
+They’re fairly large, so I’ve tucked them into expandable sections:
+
+<details>
+  <summary><strong>Main Menu</strong></summary>
+  <img src="Media/main_menu.png" alt="Screenshot of the main menu of my game">
+</details>
+
+<details>
+  <summary><strong>Settings Menu</strong></summary>
+  <img src="Media/settings.png" alt="Screenshot of the settings menu of my game">
+</details>
+
+<details>
+  <summary><strong>Operating System</strong></summary>
+  <img src="Media/os_menu_1.png" alt="First screenshot of the 'operating system'">
+  <img src="Media/os_menu_2.png" alt="Second screenshot of the 'operating system'">
+</details>
+
+<details>
+  <summary><strong>Persona App</strong></summary>
+  <img src="Media/persona.png" alt="Screenshot of one of the 'apps' in my game">
+</details>
+
+#### Notes
+- The main menu has some subtle hints to encourage clicking, though I’m not sure they’re strong enough.  
+- The settings screen isn’t a real settings menu—it’s just for show (like much of this project).  
+- The OS has one more tile in-game, but I’ll let you discover that yourself—I spent a while on the shader.  
+- The Persona app is named after the Persona-inspired UI. None of the buttons work (except quit), but they look neat.
+
+> [!TIP]  
+> Press `B` or `C` to see your blue and gold coin counts in the OS and Menu screens.  
+
+> [!TIP]  
+> Press `Q` or `ESC` to exit certain menus.  
+
+> [!TIP]  
+> Use arrow keys + Space/Enter to fully navigate menus with your keyboard.  
+ 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
 
 
