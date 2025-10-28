@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc45yihu5l1s8"]
+[gd_scene load_steps=3 format=3 uid="uid://cc45yihu5l1s8"]
 
 [ext_resource type="Script" uid="uid://v8sb371757bm" path="res://Scenes/GlitchMenu/glitch_page.gd" id="1_exxui"]
+[ext_resource type="Theme" uid="uid://dpu7seewbpu2e" path="res://Assets/glitch.tres" id="1_q7xis"]
 
 [node name="GlitchPage" type="Control" node_paths=PackedStringArray("terminal")]
 layout_mode = 3
@@ -9,8 +10,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_q7xis")
 script = ExtResource("1_exxui")
 terminal = NodePath("MarginContainer/RichTextLabel")
+base_delay = 0.01
+jitter = 0.1
+inter_line_delay = 0.01
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -37,4 +42,4 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 bbcode_enabled = true
 text = "HACKHACK"
-fit_content = true
+scroll_active = false

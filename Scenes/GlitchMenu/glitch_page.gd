@@ -1,21 +1,36 @@
 extends Control
 
 const LINES := [
-	"[color=#00FF00][BOOT][/color] JUIOS v7.3.1 - JULIUS UI/OS",
-	"[color=#888888][...initializing subsystems...][/color]",
-	"[color=#00FF00][OK][/color] DISPLAY        : framebuffer@0x00ff1a",
-	"[color=#00FF00][OK][/color] INPUT          : polled HID devices (4)",
-	"[color=#FFAA00][WARN][/color] QA_SUBSYS     : missing unit-tests — applying band-aid",
-	"[color=#00AAFF][INFO][/color] AUTH         -> kernel handshake... OK",
-	"[color=#00AAFF][SCAN][/color] NETWORK      : scanning 12 nets",
-	"[color=#FF00FF][SPOOF][/color] MAC_ADDR    : 94:FA:3C:5B:xx:xx",
-	"[color=#FF00FF][CRACK][/color] PASSPHRASE  : attempting dictionary (leetspeak mode)",
-	"[color=#FFAA00][GLITCH][/color] JUIOS.CORE : injecting caffeine.dll -> status: ☕️",
-	"[color=#888888][TRACE][/color] /usr/juios/secret -> read 0xDEADBEEF bytes... readable?",
-	"[color=#00FF00][ACCESS GRANTED][/color] user: [color=#00FF00][b]root.juice[/b][/color]",
-	"[color=#FF00FF][LAUNCH][/color] /usr/juios/party_mode --flags=🎉 --tempo=1337",
-	"[color=#FF0000][!][/color] Unexpected: karaoke module loaded. Singing in 3...2...1...",
-	"[color=#00AAFF][OUTPUT][/color] SYSTEM --> [color=#FFFF00]\"All your widgets are belong to us.\"[/color]"
+	"[color=#00FF00][ OK ][/color] Reached target Basic System.",
+	"[color=#00FF00][ OK ][/color] Started D-Bus System Message Bus.",
+	"[color=#888888]         Starting Network Manager...[/color]",
+	"[color=#00FF00][ OK ][/color] Started Network Manager.",
+	"[color=#888888]         Starting WPA supplicant...[/color]",
+	"[color=#FFAA00][WARN][/color] wlan0: authentication timed out",
+	"[color=#888888]         Retrying connection (attempt 2/3)...[/color]",
+	"[color=#00AAFF][ INFO ][/color] wlan0: associated with AP 94:FA:3C:5B:xx:xx",
+	"[color=#00FF00][ OK ][/color] wlan0: link is up (54 Mbps)",
+	"[color=#00FF00][ OK ][/color] Reached target Network is Online.",
+	"[color=#888888]         Starting SSH daemon...[/color]",
+	"[color=#00FF00][ OK ][/color] Started OpenSSH server daemon.",
+	"[color=#888888]         Loading kernel modules...[/color]",
+	"[color=#00AAFF][ INFO ][/color] Loading module: video_core (proprietary)",
+	"[color=#FFAA00][WARN][/color] video_core: unsigned driver loaded (tainted kernel)",
+	"[color=#888888]         Starting Display Manager...[/color]",
+	"[color=#00FF00][ OK ][/color] Started Display Manager Service.",
+	"[color=#00AAFF][ INFO ][/color] systemd[1]: Startup finished in 4.821s (kernel) + 8.342s (userspace)",
+	"",
+	"[color=#00FF00]debian-server login:[/color] [color=#FFFFFF]root[/color]",
+	"[color=#00FF00]Password:[/color]",
+	"[color=#00FF00]Last login:[/color] Mon Oct 27 23:14:08 2025 from 192.168.1.105",
+	"[color=#FFFFFF]root@debian-server:~#[/color] [color=#FFAA00]dmesg | tail[/color]",
+	"[color=#888888][ 12.483921] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready[/color]",
+	"[color=#888888][ 12.553104] wlan0: Limiting TX power to 23 (23 - 0) dBm[/color]",
+	"[color=#FFFFFF]root@debian-server:~#[/color] [color=#FFAA00]systemctl status --failed[/color]",
+	"[color=#00FF00]● 0 loaded units listed.[/color]",
+	"[color=#FFFFFF]root@debian-server:~#[/color] [color=#FFAA00]uptime[/color]",
+	"[color=#FFFFFF] 14:23:47 up 2 min, 1 user, load average: 0.52, 0.24, 0.09[/color]",
+	"[color=#FFFFFF]root@debian-server:~#[/color]"
 ]
 var rng := RandomNumberGenerator.new()
 @export var terminal : RichTextLabel
@@ -44,20 +59,34 @@ func _type_lines():
 
 func _type_line(line:String):
 	var buffer := ""
-	for i in range(line.length()):
-		var char := line[i]
+	var chars_to_type := line
+	
+	var i = 0
+	while i < chars_to_type.length():
+		var char := chars_to_type[i]
+		
+		# Skip BBCode tags - don't type them character by character
+		if char == '[':
+			var close_bracket = chars_to_type.find("]", i)
+			if close_bracket != -1:
+				# Add entire tag at once
+				buffer += chars_to_type.substr(i, close_bracket - i + 1)
+				i = close_bracket + 1
+				continue
+		
 		#TODO Maybe add mistakes or glitches here? Those random changing asci characters?
 		buffer += char
 		_update_terminal_line(buffer)
 		var delay = base_delay + rng.randf_range(-jitter, jitter)/2
 		await get_tree().create_timer(delay).timeout
+		i+=1
 		#TODO Add thinking bewteen lines randomly?
 		
 	# Remove cursor, new line.
 	var bb = terminal.text 
 	if bb.ends_with(cursor_char):
-		bb = bb.substr(0, bb.length() - cursor_char.length()-1)
-	terminal.text += "\n"
+		bb = bb.substr(0, bb.length() - cursor_char.length()	)
+	terminal.text = bb + "\n"
 func _update_terminal_line(new_text:String):
 	var all_bb := terminal.text
 	var last_nl := all_bb.rfind("\n")
@@ -67,3 +96,6 @@ func _update_terminal_line(new_text:String):
 	var display_line : String = (new_text) + cursor_char
 	terminal.text = prefix + display_line
 	terminal.scroll_to_line(terminal.get_line_count() - 1)
+	
+	await get_tree().process_frame
+	terminal.scroll_to_line(terminal.get_line_count())
