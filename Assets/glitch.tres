@@ -1,4 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://dpu7seewbpu2e"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dpu7seewbpu2e"]
+
+[ext_resource type="FontFile" uid="uid://bokxmjix7nwog" path="res://Assets/Fonts/JetBrainsMono-Medium.ttf" id="1_hyxi2"]
 
 [resource]
 default_font_size = 50
+RichTextLabel/fonts/mono_font = ExtResource("1_hyxi2")
+RichTextLabel/fonts/normal_font = ExtResource("1_hyxi2")

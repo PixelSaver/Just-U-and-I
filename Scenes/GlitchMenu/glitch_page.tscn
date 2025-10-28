@@ -41,5 +41,5 @@ theme_override_constants/margin_bottom = 50
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "HACKHACK"
+text = "[code]HACKHACK"
 scroll_active = false
