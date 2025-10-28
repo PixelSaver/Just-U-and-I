@@ -1,16 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtqtgw0owlb5a"]
+[gd_scene load_steps=8 format=3 uid="uid://dtqtgw0owlb5a"]
 
 [ext_resource type="Script" uid="uid://6etav7csmjnv" path="res://Scenes/GlitchMenu/glitch_menu.gd" id="2_6chg5"]
-[ext_resource type="Texture2D" uid="uid://dsj8o8s37ttiy" path="res://Media/J.png" id="3_0aijt"]
 [ext_resource type="Shader" uid="uid://dkj07vne1bj55" path="res://Shaders/glitch.gdshader" id="3_6chg5"]
-[ext_resource type="Texture2D" uid="uid://curd2517h0tlg" path="res://Media/J (1).png" id="3_pupqb"]
 [ext_resource type="Shader" uid="uid://cjona2v6bwxsp" path="res://Shaders/pixel_sort.gdshader" id="5_pupqb"]
 [ext_resource type="Shader" uid="uid://c1l6if2e06poe" path="res://Shaders/glitch_transition.gdshader" id="6_jub80"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pupqb"]
 shader = ExtResource("3_6chg5")
 shader_parameter/shake_power = 0.03
-shader_parameter/shake_rate = 0.2
+shader_parameter/shake_rate = 1.0
 shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
@@ -19,7 +17,7 @@ shader_parameter/shake_color_rate = 0.01
 shader = ExtResource("5_pupqb")
 shader_parameter/mask_softness = 1.4
 shader_parameter/mask_threshold = 0.6
-shader_parameter/sort = 0.0
+shader_parameter/sort = 0.75200003572
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_olpan"]
 shader = ExtResource("6_jub80")
@@ -37,23 +35,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_6chg5")
 glitch_effect = NodePath("GlitchRenderer/Glitch")
-pixel_sort = NodePath("GlitchRenderer/PixelSort")
-glitch_transition = NodePath("GlitchRenderer/GlitchTransition")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 988.0
-offset_bottom = 988.0
-texture = ExtResource("3_0aijt")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(891, 527)
-texture = ExtResource("3_pupqb")
+pixel_sort = NodePath("CanvasLayer/PixelSort")
+glitch_transition = NodePath("CanvasLayer2/GlitchTransition")
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
-visible = false
 copy_mode = 2
 
 [node name="GlitchRenderer" type="CanvasLayer" parent="."]
@@ -66,20 +54,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="PixelSort" type="ColorRect" parent="GlitchRenderer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 11
+
+[node name="PixelSort" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_jub80")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="GlitchTransition" type="ColorRect" parent="GlitchRenderer"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 12
+
+[node name="GlitchTransition" type="ColorRect" parent="CanvasLayer2"]
 material = SubResource("ShaderMaterial_olpan")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

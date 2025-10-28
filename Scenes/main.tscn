@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckb8k1luffm4h"]
+[gd_scene load_steps=3 format=3 uid="uid://ckb8k1luffm4h"]
 
 [ext_resource type="Script" uid="uid://13wyoipiu166" path="res://Scripts/main.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dtqtgw0owlb5a" path="res://Scenes/GlitchMenu/glitch_menu.tscn" id="2_bo1nx"]
 
 [node name="Main" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_bo1nx")
+
+[node name="GlitchLayer" type="CanvasLayer" parent="."]
+layer = 9
+
+[node name="GlitchMenu" parent="GlitchLayer" instance=ExtResource("2_bo1nx")]

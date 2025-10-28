@@ -39,14 +39,14 @@ func go_main_menu():
 	for child in root.get_children():
 		if child is MainMenu:
 			child.queue_free()
-	var mm = load("res://Scenes/main_menu.tscn").instantiate() as MainMenu
+	var mm = load("res://Scenes/MainMenu/main_menu.tscn").instantiate() as MainMenu
 	root.add_child(mm)
 	mm.start_main_menu()
 func go_os():
 	for child in root.get_children():
 		if child is OSMenu:
 			child.queue_free()
-	var os_menu = load("res://Scenes/os_menu.tscn").instantiate() as OSMenu
+	var os_menu = load("res://Scenes/OSMenu/os_menu.tscn").instantiate() as OSMenu
 	root.add_child(os_menu)
 	Global.state = Global.States.OS_MENU
 func get_os() -> OSMenu:
@@ -58,7 +58,7 @@ func go_credits():
 	for child in root.get_children():
 		if child is JUICredits:
 			child.queue_free()
-	var cred_scene = load("res://Scenes/jui_credits.tscn").instantiate() as JUICredits
+	var cred_scene = load("res://Scenes/Credits/jui_credits.tscn").instantiate() as JUICredits
 	root.add_child(cred_scene)
 	Global.state = Global.States.EXTRAS
 func get_credits() -> JUICredits:
