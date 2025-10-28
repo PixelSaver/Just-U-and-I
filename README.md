@@ -226,6 +226,7 @@ Many thanks for these people for letting me use their work for free! See 'ATTRIB
 
 https://godotshaders.com/shader/pseudo-pixel-sorting-v2/
 https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/
+https://godotshaders.com/shader/glitch-transition/
 
 <!--
 * [Choose an Open Source License](https://choosealicense.com)
