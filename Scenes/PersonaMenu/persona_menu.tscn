@@ -1,14 +1,14 @@
 [gd_scene load_steps=44 format=3 uid="uid://c1vr4rrfdxbfi"]
 
-[ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scripts/persona_menu.gd" id="1_7p40m"]
-[ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/persona_button.tscn" id="1_a26al"]
+[ext_resource type="Script" uid="uid://cb2ymbh6l8v0c" path="res://Scenes/PersonaMenu/persona_menu.gd" id="1_7p40m"]
+[ext_resource type="PackedScene" uid="uid://cxc444o24k70h" path="res://Scenes/PersonaMenu/persona_button.tscn" id="1_a26al"]
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_qdfaw"]
-[ext_resource type="Script" uid="uid://v5vqh1tmu3pv" path="res://Scripts/persona_selector.gd" id="2_75o0k"]
+[ext_resource type="Script" uid="uid://v5vqh1tmu3pv" path="res://Scenes/PersonaMenu/persona_selector.gd" id="2_75o0k"]
 [ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="3_1anme"]
 [ext_resource type="Texture2D" uid="uid://cl56jrlj8hoyh" path="res://Assets/Art/sample_gameply.png" id="3_ckf1w"]
 [ext_resource type="Shader" uid="uid://bqi7i102c32f4" path="res://Shaders/circle.gdshader" id="4_alxqq"]
 [ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="4_ffww0"]
-[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="4_w5yue"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/Tweens/tweenable.tscn" id="4_w5yue"]
 [ext_resource type="Script" uid="uid://xp3dj8wgkxb7" path="res://addons/Spatial navigation mapper/NavMapper.gd" id="5_xufce"]
 [ext_resource type="Script" uid="uid://cptcdpctlsjk3" path="res://addons/Spatial navigation mapper/NavigationGroup.gd" id="6_alxqq"]
 [ext_resource type="Script" uid="uid://dfo8ktpwj1lkm" path="res://addons/Spatial navigation mapper/NavigationReference.gd" id="7_1anme"]
@@ -65,63 +65,42 @@ shader_parameter/modulate = Color(0, 0, 0, 1)
 [sub_resource type="Resource" id="Resource_ffww0"]
 script = ExtResource("6_alxqq")
 ElementsToMap = Array[NodePath]([NodePath("../ButtonContTitle/PersonaMenuButton9"), NodePath("../ButtonContTitle/PersonaMenuButton6"), NodePath("../ButtonContTitle/PersonaMenuButton7"), NodePath("../ButtonContTitle/PersonaMenuButton8")])
-TopEntrySelectionIndex = 0
-LeftEntrySelectionIndex = 0
 RightEntrySelectionIndex = 3
-BottomEntrySelectionIndex = 0
 metadata/_custom_type_script = "uid://cptcdpctlsjk3"
 
 [sub_resource type="Resource" id="Resource_0dak3"]
 script = ExtResource("6_alxqq")
 ElementsToMap = Array[NodePath]([NodePath("../ButtonCont/PersonaMenuButton"), NodePath("../ButtonCont/PersonaMenuButton2"), NodePath("../ButtonCont/PersonaMenuButton3"), NodePath("../ButtonCont/PersonaMenuButton4"), NodePath("../ButtonCont/PersonaMenuButton5")])
-TopEntrySelectionIndex = 0
-LeftEntrySelectionIndex = 0
-RightEntrySelectionIndex = 0
-BottomEntrySelectionIndex = 0
 metadata/_custom_type_script = "uid://cptcdpctlsjk3"
 
 [sub_resource type="Resource" id="Resource_k7wwn"]
 script = ExtResource("7_1anme")
-container_id = 0
 origin = NodePath("../ButtonContTitle/PersonaMenuButton9")
-Left = NodePath("")
-Up = NodePath("")
 Right = NodePath("../ButtonContTitle/PersonaMenuButton6")
-Down = NodePath("")
 
 [sub_resource type="Resource" id="Resource_wwhe7"]
 script = ExtResource("7_1anme")
-container_id = 0
 origin = NodePath("../ButtonContTitle/PersonaMenuButton6")
 Left = NodePath("../ButtonContTitle/PersonaMenuButton9")
-Up = NodePath("")
 Right = NodePath("../ButtonContTitle/PersonaMenuButton7")
-Down = NodePath("")
 
 [sub_resource type="Resource" id="Resource_au2xi"]
 script = ExtResource("7_1anme")
-container_id = 0
 origin = NodePath("../ButtonContTitle/PersonaMenuButton7")
 Left = NodePath("../ButtonContTitle/PersonaMenuButton6")
-Up = NodePath("")
 Right = NodePath("../ButtonContTitle/PersonaMenuButton8")
-Down = NodePath("")
 
 [sub_resource type="Resource" id="Resource_ol2ps"]
 script = ExtResource("7_1anme")
-container_id = 0
 origin = NodePath("../ButtonContTitle/PersonaMenuButton8")
 Left = NodePath("../ButtonContTitle/PersonaMenuButton7")
-Up = NodePath("")
 Right = NodePath("../ButtonCont/PersonaMenuButton")
-Down = NodePath("")
 
 [sub_resource type="Resource" id="Resource_teekl"]
 script = ExtResource("7_1anme")
 container_id = 1
 origin = NodePath("../ButtonCont/PersonaMenuButton")
 Left = NodePath("../ButtonContTitle/PersonaMenuButton8")
-Up = NodePath("")
 Right = NodePath("../ButtonCont/PersonaMenuButton4")
 Down = NodePath("../ButtonCont/PersonaMenuButton4")
 
@@ -131,7 +110,6 @@ container_id = 1
 origin = NodePath("../ButtonCont/PersonaMenuButton2")
 Left = NodePath("../ButtonCont/PersonaMenuButton3")
 Up = NodePath("../ButtonCont/PersonaMenuButton3")
-Right = NodePath("")
 Down = NodePath("../ButtonCont/PersonaMenuButton5")
 
 [sub_resource type="Resource" id="Resource_607dp"]
@@ -149,7 +127,6 @@ container_id = 1
 origin = NodePath("../ButtonCont/PersonaMenuButton4")
 Left = NodePath("../ButtonCont/PersonaMenuButton")
 Up = NodePath("../ButtonCont/PersonaMenuButton")
-Right = NodePath("")
 Down = NodePath("../ButtonCont/PersonaMenuButton3")
 
 [sub_resource type="Resource" id="Resource_myckv"]
@@ -159,7 +136,6 @@ origin = NodePath("../ButtonCont/PersonaMenuButton5")
 Left = NodePath("../ButtonContTitle/PersonaMenuButton8")
 Up = NodePath("../ButtonCont/PersonaMenuButton2")
 Right = NodePath("../ButtonCont/PersonaMenuButton2")
-Down = NodePath("")
 
 [node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg", "all_parents", "coin", "butn_foc") groups=["PersonaMenu"]]
 layout_mode = 3
@@ -709,6 +685,7 @@ ContainerTex = ExtResource("8_ckf1w")
 metadata/_custom_type_script = "uid://xp3dj8wgkxb7"
 
 [node name="Visualization grandparent" type="Control" parent="Navigation mapper"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 metadata/_edit_group_ = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://benst4a406d87"]
 
-[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="1_j31k3"]
+[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scenes/Tweens/tweenable.gd" id="1_j31k3"]
 
 [node name="Tweenable" type="Node" groups=["Tweenable"]]
 script = ExtResource("1_j31k3")

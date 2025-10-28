@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct24xwa7klfo1"]
 
-[ext_resource type="Script" uid="uid://p4kmjymko1rj" path="res://Scripts/end_button_1.gd" id="1_0853y"]
+[ext_resource type="Script" uid="uid://p4kmjymko1rj" path="res://Scenes/Credits/EndPanel/end_button_1.gd" id="1_0853y"]
 [ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_exkty"]
 
 [node name="Button" type="Button" node_paths=PackedStringArray("bg_1", "bg_2", "label")]

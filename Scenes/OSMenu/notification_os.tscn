@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdjuwj54t4v07"]
 
-[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="2_qm7xe"]
-[ext_resource type="Script" uid="uid://bd8il6j1y27vd" path="res://Scripts/tweenable_local.gd" id="3_s6ljc"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/Tweens/tweenable.tscn" id="2_qm7xe"]
+[ext_resource type="Script" uid="uid://bd8il6j1y27vd" path="res://Scenes/Tweens/tweenable_local.gd" id="3_s6ljc"]
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="4_hwnti"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ula0x"]

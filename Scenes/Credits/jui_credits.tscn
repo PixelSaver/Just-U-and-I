@@ -1,12 +1,12 @@
 [gd_scene load_steps=29 format=3 uid="uid://dx0ykbfsdwje3"]
 
-[ext_resource type="PackedScene" uid="uid://c1g50h2avck3w" path="res://addons/maaacks_credits_scene/examples/scenes/credits/scrolling_credits.tscn" id="1_1mbxv"]
-[ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_3t0gy"]
-[ext_resource type="Script" uid="uid://vrp756w6s4de" path="res://Scripts/jui_credits.gd" id="2_3t0gy"]
-[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="2_uxybw"]
-[ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="4_w7us0"]
-[ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="5_w47e6"]
-[ext_resource type="PackedScene" uid="uid://cu4rvgetshcc3" path="res://Scenes/end_panel.tscn" id="7_w7us0"]
+[ext_resource type="Theme" uid="uid://camycdeabjfu" path="res://Assets/jui_credits.tres" id="1_y5tog"]
+[ext_resource type="Script" uid="uid://vrp756w6s4de" path="res://Scenes/Credits/jui_credits.gd" id="2_j31t1"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/Tweens/tweenable.tscn" id="3_rekq7"]
+[ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="4_taghx"]
+[ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="5_b3uvp"]
+[ext_resource type="PackedScene" uid="uid://c1g50h2avck3w" path="res://addons/maaacks_credits_scene/examples/scenes/credits/scrolling_credits.tscn" id="6_wmqu1"]
+[ext_resource type="PackedScene" uid="uid://cu4rvgetshcc3" path="res://Scenes/Credits/EndPanel/end_panel.tscn" id="7_rge4c"]
 
 [sub_resource type="Gradient" id="Gradient_uxybw"]
 offsets = PackedFloat32Array(0, 0.297101, 0.599034, 1)
@@ -60,7 +60,7 @@ bg_color = Color(0.0705882, 0.0941176, 0.403922, 1)
 skew = Vector2(0, -1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pu3tc"]
-shader = ExtResource("4_w7us0")
+shader = ExtResource("4_taghx")
 shader_parameter/angle_degrees = 25.022
 shader_parameter/stripe_width = 0.1
 shader_parameter/separation = 0.1
@@ -107,8 +107,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 focus_mode = 2
-theme = ExtResource("1_3t0gy")
-script = ExtResource("2_3t0gy")
+theme = ExtResource("1_y5tog")
+script = ExtResource("2_j31t1")
 all_parents = [NodePath("BGCont/Bg"), NodePath("BGCont/Bg2"), NodePath("BGCont/Bg3"), NodePath("BGCont/Bg4"), NodePath("BGCont/Bg5"), NodePath("BGCont/bgTitle"), NodePath("BGCont/Bg6"), NodePath("BGCont/Bg7"), NodePath("BGCont/Bg8"), NodePath("BGCont/Bg9")]
 scroll_cont = NodePath("ScrollingCredits/ScrollContainer")
 bg_cont = NodePath("BGCont")
@@ -149,7 +149,7 @@ offset_right = 2845.0
 offset_bottom = 952.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_880" parent="BGCont/Bg/Panel32" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_880" parent="BGCont/Bg/Panel32" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 5.14155
 
@@ -161,7 +161,7 @@ offset_right = 1691.0
 offset_bottom = 1467.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_27" parent="BGCont/Bg/Panel20" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_27" parent="BGCont/Bg/Panel20" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 2.28577
 
@@ -174,7 +174,7 @@ offset_bottom = 783.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_520" parent="BGCont/Bg/Panel30" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_520" parent="BGCont/Bg/Panel30" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, -1)
 speed = 8.3
 
@@ -186,7 +186,7 @@ offset_right = 1147.0
 offset_bottom = 1312.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_68" parent="BGCont/Bg/Panel8" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_68" parent="BGCont/Bg/Panel8" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.2
 
@@ -199,7 +199,7 @@ offset_right = 2619.0
 offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_184" parent="BGCont/Bg/Panel35" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_184" parent="BGCont/Bg/Panel35" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 2.29075
 
@@ -211,7 +211,7 @@ offset_right = 988.0
 offset_bottom = 481.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_truub")
 
-[node name="Tweenable_201" parent="BGCont/Bg/Panel4" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_201" parent="BGCont/Bg/Panel4" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 6.09644
 
@@ -235,7 +235,7 @@ offset_right = 1180.0
 offset_bottom = -67.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_408" parent="BGCont/Bg2/Panel38" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_408" parent="BGCont/Bg2/Panel38" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 5.99894
 
@@ -247,7 +247,7 @@ offset_right = 1859.0
 offset_bottom = 1104.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_203" parent="BGCont/Bg2/Panel40" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_203" parent="BGCont/Bg2/Panel40" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 2.2585
 
@@ -260,7 +260,7 @@ offset_bottom = -192.0
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_270" parent="BGCont/Bg2/Panel31" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_270" parent="BGCont/Bg2/Panel31" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 3.57759
 
@@ -272,7 +272,7 @@ offset_right = 2027.0
 offset_bottom = 326.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_17" parent="BGCont/Bg2/Panel36" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_17" parent="BGCont/Bg2/Panel36" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 4.09246
 
@@ -285,7 +285,7 @@ offset_bottom = 645.0
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_5smey")
 
-[node name="Tweenable_401" parent="BGCont/Bg2/Panel41" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_401" parent="BGCont/Bg2/Panel41" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 1.21861
 
@@ -297,7 +297,7 @@ offset_right = 2224.0
 offset_bottom = -198.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_932" parent="BGCont/Bg2/Panel7" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_932" parent="BGCont/Bg2/Panel7" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 3.7762
 
@@ -309,7 +309,7 @@ offset_right = 184.0
 offset_bottom = 838.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_682" parent="BGCont/Bg2/Panel23" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_682" parent="BGCont/Bg2/Panel23" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 4.20516
 
@@ -321,7 +321,7 @@ offset_right = 1609.0
 offset_bottom = 431.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_932" parent="BGCont/Bg2/Panel21" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_932" parent="BGCont/Bg2/Panel21" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 1.34588
 
@@ -333,7 +333,7 @@ offset_right = 704.0
 offset_bottom = 354.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_truub")
 
-[node name="Tweenable_238" parent="BGCont/Bg2/Panel27" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_238" parent="BGCont/Bg2/Panel27" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 7.333
 
@@ -346,7 +346,7 @@ offset_bottom = 1119.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_477" parent="BGCont/Bg2/Panel24" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_477" parent="BGCont/Bg2/Panel24" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, -1)
 speed = 5.2
 
@@ -359,7 +359,7 @@ offset_bottom = 685.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_136" parent="BGCont/Bg2/Panel13" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_136" parent="BGCont/Bg2/Panel13" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 3.81036
 
@@ -383,7 +383,7 @@ offset_right = 753.0
 offset_bottom = 446.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_32" parent="BGCont/Bg3/Panel10" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_32" parent="BGCont/Bg3/Panel10" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 10.6
 
@@ -396,7 +396,7 @@ offset_bottom = 1272.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_150" parent="BGCont/Bg3/Panel26" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_150" parent="BGCont/Bg3/Panel26" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 5.96672
 
@@ -408,7 +408,7 @@ offset_right = 137.0
 offset_bottom = 249.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_905" parent="BGCont/Bg3/Panel5" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_905" parent="BGCont/Bg3/Panel5" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 3.23387
 
@@ -421,7 +421,7 @@ offset_bottom = 80.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_966" parent="BGCont/Bg3/Panel29" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_966" parent="BGCont/Bg3/Panel29" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 1.5178
 
@@ -434,7 +434,7 @@ offset_bottom = 386.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_65" parent="BGCont/Bg3/Panel18" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_65" parent="BGCont/Bg3/Panel18" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 1)
 speed = 6.66
 
@@ -446,7 +446,7 @@ offset_right = 1513.0
 offset_bottom = -160.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_238" parent="BGCont/Bg3/Panel9" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_238" parent="BGCont/Bg3/Panel9" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 2.4835
 
@@ -458,7 +458,7 @@ offset_right = 1932.0
 offset_bottom = 276.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_779" parent="BGCont/Bg3/Panel6" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_779" parent="BGCont/Bg3/Panel6" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 6.11644
 
@@ -471,7 +471,7 @@ offset_bottom = 587.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_574" parent="BGCont/Bg3/Panel12" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_574" parent="BGCont/Bg3/Panel12" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 4.9176
 
@@ -484,7 +484,7 @@ offset_bottom = 492.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_679" parent="BGCont/Bg3/Panel19" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_679" parent="BGCont/Bg3/Panel19" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 5.4718
 
@@ -508,7 +508,7 @@ offset_right = 1304.0
 offset_bottom = 137.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3byg")
 
-[node name="Tweenable_470" parent="BGCont/Bg4/Panel43" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_470" parent="BGCont/Bg4/Panel43" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 4.56641
 
@@ -520,7 +520,7 @@ offset_right = 2658.0
 offset_bottom = 598.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3byg")
 
-[node name="Tweenable_96" parent="BGCont/Bg4/Panel44" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_96" parent="BGCont/Bg4/Panel44" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.21145
 
@@ -533,7 +533,7 @@ offset_bottom = 766.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_477" parent="BGCont/Bg4/Panel17" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_477" parent="BGCont/Bg4/Panel17" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 1.13843
 
@@ -546,7 +546,7 @@ offset_bottom = 530.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_830" parent="BGCont/Bg4/Panel34" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_830" parent="BGCont/Bg4/Panel34" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 2.96916
 
@@ -559,7 +559,7 @@ offset_bottom = 143.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_955" parent="BGCont/Bg4/Panel42" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_955" parent="BGCont/Bg4/Panel42" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 3.8
 
@@ -571,7 +571,7 @@ offset_right = 2628.0
 offset_bottom = 1154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_693" parent="BGCont/Bg4/Panel33" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_693" parent="BGCont/Bg4/Panel33" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.42303
 
@@ -583,7 +583,7 @@ offset_right = 533.0
 offset_bottom = 1288.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_236" parent="BGCont/Bg4/Panel22" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_236" parent="BGCont/Bg4/Panel22" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 5.19571
 
@@ -595,7 +595,7 @@ offset_right = 2027.0
 offset_bottom = 573.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_truub")
 
-[node name="Tweenable_577" parent="BGCont/Bg4/Panel28" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_577" parent="BGCont/Bg4/Panel28" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 1.94215
 
@@ -607,7 +607,7 @@ offset_right = 2629.0
 offset_bottom = 339.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u5sjh")
 
-[node name="Tweenable_958" parent="BGCont/Bg4/Panel39" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_958" parent="BGCont/Bg4/Panel39" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 4.07
 
@@ -619,7 +619,7 @@ offset_right = 2436.0
 offset_bottom = 798.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_87" parent="BGCont/Bg4/Panel37" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_87" parent="BGCont/Bg4/Panel37" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 4.30426
 
@@ -631,7 +631,7 @@ offset_right = 561.0
 offset_bottom = 1256.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_125" parent="BGCont/Bg4/Panel11" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_125" parent="BGCont/Bg4/Panel11" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.37205
 
@@ -644,7 +644,7 @@ offset_bottom = 228.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_555" parent="BGCont/Bg4/Panel15" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_555" parent="BGCont/Bg4/Panel15" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.27005
 
@@ -656,7 +656,7 @@ offset_right = 1239.0
 offset_bottom = 1210.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_395" parent="BGCont/Bg4/Panel14" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_395" parent="BGCont/Bg4/Panel14" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.11222
 
@@ -670,7 +670,7 @@ rotation = 1.57079
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_455" parent="BGCont/Bg4/Panel16" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_455" parent="BGCont/Bg4/Panel16" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, -1)
 speed = 5.73876
 
@@ -695,7 +695,7 @@ offset_right = 2845.0
 offset_bottom = 952.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_880" parent="BGCont/Bg6/Panel32" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_880" parent="BGCont/Bg6/Panel32" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 5.14155
 
@@ -707,7 +707,7 @@ offset_right = 1691.0
 offset_bottom = 1467.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_27" parent="BGCont/Bg6/Panel20" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_27" parent="BGCont/Bg6/Panel20" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 2.28577
 
@@ -720,7 +720,7 @@ offset_bottom = 783.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_520" parent="BGCont/Bg6/Panel30" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_520" parent="BGCont/Bg6/Panel30" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, -1)
 speed = 8.3
 
@@ -732,7 +732,7 @@ offset_right = 1147.0
 offset_bottom = 1312.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_68" parent="BGCont/Bg6/Panel8" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_68" parent="BGCont/Bg6/Panel8" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.2
 
@@ -745,7 +745,7 @@ offset_right = 2619.0
 offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_184" parent="BGCont/Bg6/Panel35" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_184" parent="BGCont/Bg6/Panel35" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 2.29075
 
@@ -757,7 +757,7 @@ offset_right = 988.0
 offset_bottom = 481.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_truub")
 
-[node name="Tweenable_201" parent="BGCont/Bg6/Panel4" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_201" parent="BGCont/Bg6/Panel4" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 6.09644
 
@@ -780,7 +780,7 @@ offset_right = 1180.0
 offset_bottom = -67.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_408" parent="BGCont/Bg7/Panel38" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_408" parent="BGCont/Bg7/Panel38" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 5.99894
 
@@ -792,7 +792,7 @@ offset_right = 1859.0
 offset_bottom = 1104.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_203" parent="BGCont/Bg7/Panel40" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_203" parent="BGCont/Bg7/Panel40" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 2.2585
 
@@ -805,7 +805,7 @@ offset_bottom = -192.0
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_270" parent="BGCont/Bg7/Panel31" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_270" parent="BGCont/Bg7/Panel31" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 3.57759
 
@@ -817,7 +817,7 @@ offset_right = 2027.0
 offset_bottom = 326.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_17" parent="BGCont/Bg7/Panel36" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_17" parent="BGCont/Bg7/Panel36" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 4.09246
 
@@ -830,7 +830,7 @@ offset_bottom = 645.0
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_5smey")
 
-[node name="Tweenable_401" parent="BGCont/Bg7/Panel41" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_401" parent="BGCont/Bg7/Panel41" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 1.21861
 
@@ -842,7 +842,7 @@ offset_right = 2224.0
 offset_bottom = -198.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_932" parent="BGCont/Bg7/Panel7" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_932" parent="BGCont/Bg7/Panel7" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 3.7762
 
@@ -854,7 +854,7 @@ offset_right = 184.0
 offset_bottom = 838.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_682" parent="BGCont/Bg7/Panel23" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_682" parent="BGCont/Bg7/Panel23" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 4.20516
 
@@ -866,7 +866,7 @@ offset_right = 1609.0
 offset_bottom = 431.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_932" parent="BGCont/Bg7/Panel21" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_932" parent="BGCont/Bg7/Panel21" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 1.34588
 
@@ -878,7 +878,7 @@ offset_right = 704.0
 offset_bottom = 354.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_truub")
 
-[node name="Tweenable_238" parent="BGCont/Bg7/Panel27" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_238" parent="BGCont/Bg7/Panel27" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 7.333
 
@@ -891,7 +891,7 @@ offset_bottom = 1119.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_477" parent="BGCont/Bg7/Panel24" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_477" parent="BGCont/Bg7/Panel24" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, -1)
 speed = 5.2
 
@@ -904,7 +904,7 @@ offset_bottom = 685.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_136" parent="BGCont/Bg7/Panel13" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_136" parent="BGCont/Bg7/Panel13" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 3.81036
 
@@ -927,7 +927,7 @@ offset_right = 753.0
 offset_bottom = 446.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_32" parent="BGCont/Bg8/Panel10" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_32" parent="BGCont/Bg8/Panel10" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 10.6
 
@@ -940,7 +940,7 @@ offset_bottom = 1272.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_150" parent="BGCont/Bg8/Panel26" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_150" parent="BGCont/Bg8/Panel26" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 5.96672
 
@@ -952,7 +952,7 @@ offset_right = 137.0
 offset_bottom = 249.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_905" parent="BGCont/Bg8/Panel5" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_905" parent="BGCont/Bg8/Panel5" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 3.23387
 
@@ -965,7 +965,7 @@ offset_bottom = 80.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_966" parent="BGCont/Bg8/Panel29" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_966" parent="BGCont/Bg8/Panel29" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 1.5178
 
@@ -978,7 +978,7 @@ offset_bottom = 386.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_65" parent="BGCont/Bg8/Panel18" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_65" parent="BGCont/Bg8/Panel18" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 1)
 speed = 6.66
 
@@ -990,7 +990,7 @@ offset_right = 1513.0
 offset_bottom = -160.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_238" parent="BGCont/Bg8/Panel9" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_238" parent="BGCont/Bg8/Panel9" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 2.4835
 
@@ -1002,7 +1002,7 @@ offset_right = 1932.0
 offset_bottom = 276.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_779" parent="BGCont/Bg8/Panel6" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_779" parent="BGCont/Bg8/Panel6" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 6.11644
 
@@ -1015,7 +1015,7 @@ offset_bottom = 587.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4y8u")
 
-[node name="Tweenable_574" parent="BGCont/Bg8/Panel12" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_574" parent="BGCont/Bg8/Panel12" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 4.9176
 
@@ -1028,7 +1028,7 @@ offset_bottom = 492.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_679" parent="BGCont/Bg8/Panel19" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_679" parent="BGCont/Bg8/Panel19" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 5.4718
 
@@ -1051,7 +1051,7 @@ offset_right = 1304.0
 offset_bottom = 137.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3byg")
 
-[node name="Tweenable_470" parent="BGCont/Bg9/Panel43" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_470" parent="BGCont/Bg9/Panel43" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 4.56641
 
@@ -1063,7 +1063,7 @@ offset_right = 2658.0
 offset_bottom = 598.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3byg")
 
-[node name="Tweenable_96" parent="BGCont/Bg9/Panel44" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_96" parent="BGCont/Bg9/Panel44" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.21145
 
@@ -1076,7 +1076,7 @@ offset_bottom = 766.0
 rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_477" parent="BGCont/Bg9/Panel17" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_477" parent="BGCont/Bg9/Panel17" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 1.13843
 
@@ -1089,7 +1089,7 @@ offset_bottom = 530.0
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_dx7rf")
 
-[node name="Tweenable_830" parent="BGCont/Bg9/Panel34" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_830" parent="BGCont/Bg9/Panel34" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 2.96916
 
@@ -1102,7 +1102,7 @@ offset_bottom = 143.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_955" parent="BGCont/Bg9/Panel42" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_955" parent="BGCont/Bg9/Panel42" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 3.8
 
@@ -1114,7 +1114,7 @@ offset_right = 2628.0
 offset_bottom = 1154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_693" parent="BGCont/Bg9/Panel33" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_693" parent="BGCont/Bg9/Panel33" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.42303
 
@@ -1126,7 +1126,7 @@ offset_right = 533.0
 offset_bottom = 1288.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x0on8")
 
-[node name="Tweenable_236" parent="BGCont/Bg9/Panel22" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_236" parent="BGCont/Bg9/Panel22" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, -1)
 speed = 5.19571
 
@@ -1138,7 +1138,7 @@ offset_right = 2027.0
 offset_bottom = 573.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_truub")
 
-[node name="Tweenable_577" parent="BGCont/Bg9/Panel28" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_577" parent="BGCont/Bg9/Panel28" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 1.94215
 
@@ -1150,7 +1150,7 @@ offset_right = 2629.0
 offset_bottom = 339.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u5sjh")
 
-[node name="Tweenable_958" parent="BGCont/Bg9/Panel39" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_958" parent="BGCont/Bg9/Panel39" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 4.07
 
@@ -1162,7 +1162,7 @@ offset_right = 2436.0
 offset_bottom = 798.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_87" parent="BGCont/Bg9/Panel37" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_87" parent="BGCont/Bg9/Panel37" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 4.30426
 
@@ -1174,7 +1174,7 @@ offset_right = 561.0
 offset_bottom = 1256.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c818v")
 
-[node name="Tweenable_125" parent="BGCont/Bg9/Panel11" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_125" parent="BGCont/Bg9/Panel11" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.37205
 
@@ -1187,7 +1187,7 @@ offset_bottom = 228.0
 rotation = 0.785397
 theme_override_styles/panel = SubResource("StyleBoxFlat_w6ql7")
 
-[node name="Tweenable_555" parent="BGCont/Bg9/Panel15" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_555" parent="BGCont/Bg9/Panel15" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.27005
 
@@ -1199,7 +1199,7 @@ offset_right = 1239.0
 offset_bottom = 1210.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xjvss")
 
-[node name="Tweenable_395" parent="BGCont/Bg9/Panel14" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_395" parent="BGCont/Bg9/Panel14" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 1)
 speed = 6.11222
 
@@ -1213,7 +1213,7 @@ rotation = 1.57079
 scale = Vector2(0.479999, 0.560001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_nr8x7")
 
-[node name="Tweenable_455" parent="BGCont/Bg9/Panel16" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_455" parent="BGCont/Bg9/Panel16" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, -1)
 speed = 5.73876
 
@@ -1241,7 +1241,7 @@ offset_bottom = 1198.0
 mouse_filter = 2
 color = Color(0.188235, 0.713726, 0.647059, 0.0745098)
 
-[node name="Tweenable_644" parent="BGCont/Bg5/ColorRect10" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_644" parent="BGCont/Bg5/ColorRect10" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 1.18258
 
@@ -1254,7 +1254,7 @@ offset_bottom = -201.0
 mouse_filter = 2
 color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
-[node name="Tweenable_529" parent="BGCont/Bg5/ColorRect1" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_529" parent="BGCont/Bg5/ColorRect1" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 2.5562
 
@@ -1268,7 +1268,7 @@ rotation = 0.296761
 mouse_filter = 2
 color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
-[node name="Tweenable_861" parent="BGCont/Bg5/ColorRect6" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_861" parent="BGCont/Bg5/ColorRect6" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 2.52307
 
@@ -1282,7 +1282,7 @@ rotation = 0.2431
 mouse_filter = 2
 color = Color(0.352941, 0.682353, 0.72549, 0.4)
 
-[node name="Tweenable_612" parent="BGCont/Bg5/ColorRect5" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_612" parent="BGCont/Bg5/ColorRect5" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 4.02424
 
@@ -1295,7 +1295,7 @@ offset_bottom = -296.0
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_469" parent="BGCont/Bg5/ColorRect2" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_469" parent="BGCont/Bg5/ColorRect2" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 2.32514
 
@@ -1309,7 +1309,7 @@ rotation = 0.123428
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_230" parent="BGCont/Bg5/ColorRect8" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_230" parent="BGCont/Bg5/ColorRect8" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 3.91872
 
@@ -1323,7 +1323,7 @@ rotation = 0.0251115
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_36" parent="BGCont/Bg5/ColorRect7" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_36" parent="BGCont/Bg5/ColorRect7" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 3.84421
 
@@ -1337,7 +1337,7 @@ offset_bottom = 1540.0
 rotation = 4.51182
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_356" parent="BGCont/Bg5/ColorRect11" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_356" parent="BGCont/Bg5/ColorRect11" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 3.61298
 
@@ -1352,7 +1352,7 @@ rotation = 4.51182
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_442" parent="BGCont/Bg5/ColorRect4" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_442" parent="BGCont/Bg5/ColorRect4" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 2.26291
 
@@ -1367,7 +1367,7 @@ rotation = 1.62212
 mouse_filter = 2
 color = Color(0.217406, 0.68083, 0.8426, 0.4)
 
-[node name="Tweenable_628" parent="BGCont/Bg5/ColorRect9" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_628" parent="BGCont/Bg5/ColorRect9" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 2.45041
 
@@ -1381,7 +1381,7 @@ rotation = -1.41942
 mouse_filter = 2
 color = Color(0.188235, 0.713726, 0.647059, 0.247059)
 
-[node name="Tweenable_716" parent="BGCont/Bg5/ColorRect3" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_716" parent="BGCont/Bg5/ColorRect3" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 1.8464
 
@@ -1394,7 +1394,7 @@ offset_bottom = 743.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iiyt4")
 
-[node name="Tweenable_941" parent="BGCont/Bg5/Panel" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_941" parent="BGCont/Bg5/Panel" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 3.09878
 
@@ -1408,7 +1408,7 @@ rotation = 0.211113
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iiyt4")
 
-[node name="Tweenable_833" parent="BGCont/Bg5/Panel2" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_833" parent="BGCont/Bg5/Panel2" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 3.23392
 
@@ -1422,7 +1422,7 @@ rotation = 0.211113
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vuwpk")
 
-[node name="Tweenable_420" parent="BGCont/Bg5/Panel4" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_420" parent="BGCont/Bg5/Panel4" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 4.26451
 
@@ -1436,7 +1436,7 @@ rotation = -0.1416
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iiyt4")
 
-[node name="Tweenable_36" parent="BGCont/Bg5/Panel3" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_36" parent="BGCont/Bg5/Panel3" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 5.07416
 
@@ -1450,7 +1450,7 @@ rotation = -0.1416
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rnq7q")
 
-[node name="Tweenable_128" parent="BGCont/Bg5/Panel5" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_128" parent="BGCont/Bg5/Panel5" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 4.36486
 
@@ -1467,7 +1467,7 @@ text = "[b][color=#37aed766][font_size=250]CREDITS!!"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Tweenable_789" parent="BGCont/Bg5/RichTextLabel" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_789" parent="BGCont/Bg5/RichTextLabel" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 6.30221
 
@@ -1479,10 +1479,10 @@ offset_left = -200.0
 offset_top = -23.0
 offset_right = -78.0
 offset_bottom = 73.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhwi6")
 
-[node name="Tweenable_709" parent="BGCont/bgTitle/Panel10" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_709" parent="BGCont/bgTitle/Panel10" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 6.01314
 
@@ -1491,10 +1491,10 @@ offset_left = 796.0
 offset_top = 82.0
 offset_right = 856.0
 offset_bottom = 137.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhwi6")
 
-[node name="Tweenable_566" parent="BGCont/bgTitle/Panel11" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_566" parent="BGCont/bgTitle/Panel11" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 1.33055
 
@@ -1503,10 +1503,10 @@ offset_left = -193.0
 offset_top = -10.0
 offset_right = -84.0
 offset_bottom = 65.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_e21aq")
 
-[node name="Tweenable_103" parent="BGCont/bgTitle/Panel" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_103" parent="BGCont/bgTitle/Panel" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 4.59461
 
@@ -1515,10 +1515,10 @@ offset_left = 24.0
 offset_top = 63.0
 offset_right = 163.0
 offset_bottom = 138.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_854" parent="BGCont/bgTitle/Panel2" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_854" parent="BGCont/bgTitle/Panel2" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 4.87924
 
@@ -1527,10 +1527,10 @@ offset_left = 807.0
 offset_top = 91.0
 offset_right = 850.0
 offset_bottom = 127.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_149" parent="BGCont/bgTitle/Panel3" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_149" parent="BGCont/bgTitle/Panel3" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 0.192076
 
@@ -1539,10 +1539,10 @@ offset_left = 832.0
 offset_top = 81.0
 offset_right = 863.0
 offset_bottom = 106.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_981" parent="BGCont/bgTitle/Panel4" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_981" parent="BGCont/bgTitle/Panel4" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 0.182308
 
@@ -1551,10 +1551,10 @@ offset_left = -20.1854
 offset_top = 32.6894
 offset_right = 10.8146
 offset_bottom = 57.6894
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_786" parent="BGCont/bgTitle/Panel13" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_786" parent="BGCont/bgTitle/Panel13" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 0.730876
 
@@ -1563,10 +1563,10 @@ offset_left = 92.0
 offset_top = 107.0
 offset_right = 624.0
 offset_bottom = 119.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_690" parent="BGCont/bgTitle/Panel8" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_690" parent="BGCont/bgTitle/Panel8" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 0.194017
 
@@ -1575,10 +1575,10 @@ offset_left = 541.0
 offset_top = 109.0
 offset_right = 745.0
 offset_bottom = 114.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_405" parent="BGCont/bgTitle/Panel9" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_405" parent="BGCont/bgTitle/Panel9" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 0.354909
 
@@ -1587,10 +1587,10 @@ offset_left = -81.0
 offset_top = 71.0
 offset_right = 131.0
 offset_bottom = 126.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhwi6")
 
-[node name="Tweenable_193" parent="BGCont/bgTitle/Panel14" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_193" parent="BGCont/bgTitle/Panel14" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 0.0584761
 
@@ -1599,10 +1599,10 @@ offset_left = -59.3488
 offset_top = 141.534
 offset_right = -16.3488
 offset_bottom = 177.534
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_133" parent="BGCont/bgTitle/Panel12" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_133" parent="BGCont/bgTitle/Panel12" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 4.93136
 
@@ -1611,10 +1611,10 @@ offset_left = -90.0
 offset_top = 110.0
 offset_right = -55.0
 offset_bottom = 135.0
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_908" parent="BGCont/bgTitle/Panel15" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_908" parent="BGCont/bgTitle/Panel15" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 0.0320149
 
@@ -1623,10 +1623,10 @@ offset_left = -82.2078
 offset_top = 94.8604
 offset_right = -47.2078
 offset_bottom = 119.86
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_365" parent="BGCont/bgTitle/Panel16" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_365" parent="BGCont/bgTitle/Panel16" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 0.561008
 
@@ -1635,10 +1635,10 @@ offset_left = -116.915
 offset_top = 14.0911
 offset_right = -56.9148
 offset_bottom = 69.0911
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhwi6")
 
-[node name="Tweenable_109" parent="BGCont/bgTitle/Panel20" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_109" parent="BGCont/bgTitle/Panel20" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 9.48472
 
@@ -1647,10 +1647,10 @@ offset_left = -109.834
 offset_top = 21.1633
 offset_right = -35.8336
 offset_bottom = 84.1633
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_43" parent="BGCont/bgTitle/Panel17" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_43" parent="BGCont/bgTitle/Panel17" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 8.54511
 
@@ -1659,10 +1659,10 @@ offset_left = -119.486
 offset_top = 56.1912
 offset_right = -74.4864
 offset_bottom = 89.1912
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhwi6")
 
-[node name="Tweenable_92" parent="BGCont/bgTitle/Panel21" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_92" parent="BGCont/bgTitle/Panel21" instance=ExtResource("3_rekq7")]
 dir = Vector2(-1, 0)
 speed = 2.309
 
@@ -1671,10 +1671,10 @@ offset_left = -149.834
 offset_top = 34.1633
 offset_right = -98.8336
 offset_bottom = 78.1633
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhwi6")
 
-[node name="Tweenable_803" parent="BGCont/bgTitle/Panel22" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_803" parent="BGCont/bgTitle/Panel22" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 0.978562
 
@@ -1683,10 +1683,10 @@ offset_left = -144.834
 offset_top = 41.1633
 offset_right = -102.834
 offset_bottom = 70.1633
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_944" parent="BGCont/bgTitle/Panel18" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_944" parent="BGCont/bgTitle/Panel18" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, -1)
 speed = 4.93138
 
@@ -1695,10 +1695,10 @@ offset_left = -149.834
 offset_top = 47.1633
 offset_right = -97.8336
 offset_bottom = 64.1633
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_421" parent="BGCont/bgTitle/Panel23" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_421" parent="BGCont/bgTitle/Panel23" instance=ExtResource("3_rekq7")]
 dir = Vector2(1, 0)
 speed = 0.808678
 
@@ -1707,10 +1707,10 @@ offset_left = -126.07
 offset_top = 61.0611
 offset_right = -84.0701
 offset_bottom = 90.0611
-theme = ExtResource("5_w47e6")
+theme = ExtResource("5_b3uvp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmms7")
 
-[node name="Tweenable_740" parent="BGCont/bgTitle/Panel19" instance=ExtResource("2_uxybw")]
+[node name="Tweenable_740" parent="BGCont/bgTitle/Panel19" instance=ExtResource("3_rekq7")]
 dir = Vector2(0, 1)
 speed = 8.21703
 
@@ -1724,7 +1724,7 @@ scale = Vector2(21.261, 43.0711)
 texture = SubResource("GradientTexture2D_3t0gy")
 expand_mode = 1
 
-[node name="ScrollingCredits" parent="." instance=ExtResource("1_1mbxv")]
+[node name="ScrollingCredits" parent="." instance=ExtResource("6_wmqu1")]
 layout_mode = 1
 mouse_filter = 1
 
@@ -1831,7 +1831,7 @@ mouse_filter = 1
 custom_minimum_size = Vector2(0, 486)
 mouse_filter = 1
 
-[node name="EndPanel" parent="." instance=ExtResource("7_w7us0")]
+[node name="EndPanel" parent="." instance=ExtResource("7_rge4c")]
 layer = 2
 
 [node name="bgblack" parent="EndPanel/Control/Panel1" index="0"]

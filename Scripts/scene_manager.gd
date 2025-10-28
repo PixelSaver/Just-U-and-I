@@ -10,4 +10,5 @@ enum Menus {
 	
 }
 
-func handoff()
+func handoff():
+	pass

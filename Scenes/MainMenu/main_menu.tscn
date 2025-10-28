@@ -1,25 +1,25 @@
 [gd_scene load_steps=26 format=3 uid="uid://875cs4fxe4ua"]
 
-[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_48xlc"]
-[ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scripts/main_menu.gd" id="2_n45e2"]
-[ext_resource type="PackedScene" uid="uid://osk1uxa28atn" path="res://Scenes/button_menu.tscn" id="3_ce3w2"]
-[ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="3_m3bi6"]
-[ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="3_n45e2"]
-[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scripts/tweenable.gd" id="3_opfnp"]
-[ext_resource type="Texture2D" uid="uid://8x5p8ruijw82" path="res://Assets/Art/icons-keyboard-16x16-1bit-ansdor.png" id="3_wyh8j"]
-[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/tweenable.tscn" id="5_opfnp"]
-[ext_resource type="AudioStream" uid="uid://71rjec1w1n4" path="res://Assets/Audio/generic-error.wav" id="8_5egv6"]
-[ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_ui_sound_controller/base/scripts/ui_sound_controller.gd" id="8_trj04"]
-[ext_resource type="AudioStream" uid="uid://pd3linxa4406" path="res://Assets/Audio/glass_002.ogg" id="9_16hvj"]
-[ext_resource type="PackedScene" uid="uid://4fssmywe5ib3" path="res://Scenes/notification.tscn" id="10_vr1f0"]
-[ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scripts/notification_manager_menu.gd" id="11_t1dhk"]
-[ext_resource type="AudioStream" uid="uid://dynsjq8f7g8yf" path="res://Assets/Audio/key-caps.mp3" id="11_vtepg"]
-[ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="13_5egv6"]
-[ext_resource type="AudioStream" uid="uid://l6cc3rqf54w8" path="res://Assets/Audio/menu-back-hover.wav" id="13_vtepg"]
-[ext_resource type="AudioStream" uid="uid://drcibr17x7iie" path="res://Assets/Audio/ruleset-select-osu.wav" id="17_wyh8j"]
+[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_43m2q"]
+[ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scenes/MainMenu/main_menu.gd" id="2_xt57n"]
+[ext_resource type="Texture2D" uid="uid://8x5p8ruijw82" path="res://Assets/Art/icons-keyboard-16x16-1bit-ansdor.png" id="3_os7au"]
+[ext_resource type="Shader" uid="uid://bvldc2rmt5yhq" path="res://Shaders/stripes.gdshader" id="4_n0kcp"]
+[ext_resource type="Script" uid="uid://4egkkeg4db5e" path="res://Scenes/Tweens/tweenable.gd" id="5_37xt4"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://Scenes/Tweens/tweenable.tscn" id="6_mdh17"]
+[ext_resource type="PackedScene" uid="uid://c6dcu7qjtged8" path="res://Scenes/coin.tscn" id="7_x3jur"]
+[ext_resource type="Theme" uid="uid://dlw3e1fp52umb" path="res://Assets/settings_theme.tres" id="8_sixgq"]
+[ext_resource type="PackedScene" uid="uid://osk1uxa28atn" path="res://Scenes/button_menu.tscn" id="9_bjx7c"]
+[ext_resource type="AudioStream" uid="uid://71rjec1w1n4" path="res://Assets/Audio/generic-error.wav" id="10_3o84h"]
+[ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_ui_sound_controller/base/scripts/ui_sound_controller.gd" id="11_4jfpt"]
+[ext_resource type="AudioStream" uid="uid://pd3linxa4406" path="res://Assets/Audio/glass_002.ogg" id="12_gxpfx"]
+[ext_resource type="Script" uid="uid://1qwue7drogl6" path="res://Scenes/MainMenu/notification_manager_menu.gd" id="13_c56bm"]
+[ext_resource type="PackedScene" uid="uid://4fssmywe5ib3" path="res://Scenes/notification.tscn" id="14_sx58f"]
+[ext_resource type="AudioStream" uid="uid://l6cc3rqf54w8" path="res://Assets/Audio/menu-back-hover.wav" id="15_6capf"]
+[ext_resource type="AudioStream" uid="uid://dynsjq8f7g8yf" path="res://Assets/Audio/key-caps.mp3" id="16_mtk40"]
+[ext_resource type="AudioStream" uid="uid://drcibr17x7iie" path="res://Assets/Audio/ruleset-select-osu.wav" id="17_qy48e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wyh8j"]
-shader = ExtResource("3_m3bi6")
+shader = ExtResource("4_n0kcp")
 shader_parameter/angle_degrees = -32.96
 shader_parameter/stripe_width = 0.136
 shader_parameter/separation = 0.1
@@ -67,8 +67,8 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
-theme = ExtResource("1_48xlc")
-script = ExtResource("2_n45e2")
+theme = ExtResource("1_43m2q")
+script = ExtResource("2_xt57n")
 button_placement_container = NodePath("TiltControl/VBoxContainer/ButtonCont")
 ui_reject_audio = NodePath("UIReject")
 ui_enter = NodePath("UIEnterSettings")
@@ -88,7 +88,7 @@ texture_filter = 1
 position = Vector2(1200, 700)
 rotation = -0.261799
 scale = Vector2(30, 30)
-texture = ExtResource("3_wyh8j")
+texture = ExtResource("3_os7au")
 region_enabled = true
 region_rect = Rect2(144, 16, 16, 16)
 
@@ -98,7 +98,7 @@ texture_filter = 1
 position = Vector2(102, 639)
 rotation = 0.785397
 scale = Vector2(14, 14)
-texture = ExtResource("3_wyh8j")
+texture = ExtResource("3_os7au")
 region_enabled = true
 region_rect = Rect2(176, 16, 16, 16)
 
@@ -160,7 +160,7 @@ offset_bottom = 1270.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(-1, 0)
 speed = 0.4
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
@@ -174,7 +174,7 @@ offset_bottom = 867.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect4"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(-1, 0)
 speed = 4.0
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
@@ -188,7 +188,7 @@ offset_bottom = 867.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect6"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(1, 0)
 speed = 7.0
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
@@ -202,7 +202,7 @@ offset_bottom = 867.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect5"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(1, 0)
 speed = 3.0
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
@@ -215,7 +215,7 @@ offset_bottom = 1115.0
 color = Color(0, 0, 0, 1)
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect2"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(-1, 0)
 speed = 6.3
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
@@ -228,7 +228,7 @@ offset_bottom = 1117.93
 color = Color(0, 0, 0, 1)
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect3"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(1, 0.2)
 speed = 1.5
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
@@ -250,7 +250,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Tweenable_950" parent="TiltControl/LineSide/ColorRect2" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_950" parent="TiltControl/LineSide/ColorRect2" instance=ExtResource("6_mdh17")]
 dir = Vector2(1, 0)
 speed = 1.17063
 
@@ -262,7 +262,7 @@ offset_bottom = 135.269
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
 
-[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect3" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect3" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 4.0
 
@@ -274,11 +274,11 @@ offset_bottom = 150.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ce3w2")
 
-[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 4.8
 
-[node name="Coin" parent="TiltControl/LineSide/ColorRect" instance=ExtResource("13_5egv6")]
+[node name="Coin" parent="TiltControl/LineSide/ColorRect" instance=ExtResource("7_x3jur")]
 show_behind_parent = true
 layout_mode = 0
 anchors_preset = 0
@@ -297,10 +297,10 @@ offset_left = 876.113
 offset_top = 101.918
 offset_right = 1001.11
 offset_bottom = 116.918
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_160" parent="TiltControl/LineSide/Panel5" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_160" parent="TiltControl/LineSide/Panel5" instance=ExtResource("6_mdh17")]
 dir = Vector2(1, 0)
 speed = 0.272228
 
@@ -309,10 +309,10 @@ offset_left = 1011.11
 offset_top = 101.918
 offset_right = 1136.11
 offset_bottom = 116.918
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_249" parent="TiltControl/LineSide/Panel6" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_249" parent="TiltControl/LineSide/Panel6" instance=ExtResource("6_mdh17")]
 dir = Vector2(-1, 0)
 speed = 11.9636
 
@@ -321,10 +321,10 @@ offset_left = 1145.11
 offset_top = 101.918
 offset_right = 1270.11
 offset_bottom = 116.918
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_617" parent="TiltControl/LineSide/Panel7" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_617" parent="TiltControl/LineSide/Panel7" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, 1)
 speed = 1.97383
 
@@ -336,10 +336,10 @@ offset_left = -200.0
 offset_top = -23.0
 offset_right = -78.0
 offset_bottom = 73.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
 
-[node name="Tweenable_709" parent="TiltControl/bgTitle/Panel10" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_709" parent="TiltControl/bgTitle/Panel10" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, 1)
 speed = 6.01314
 
@@ -348,10 +348,10 @@ offset_left = -10.0
 offset_top = -99.0
 offset_right = 50.0
 offset_bottom = -44.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
 
-[node name="Tweenable_566" parent="TiltControl/bgTitle/Panel11" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_566" parent="TiltControl/bgTitle/Panel11" instance=ExtResource("6_mdh17")]
 dir = Vector2(-1, 0)
 speed = 1.33055
 
@@ -360,10 +360,10 @@ offset_left = -193.0
 offset_top = -10.0
 offset_right = -84.0
 offset_bottom = 65.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cp0ys")
 
-[node name="Tweenable_103" parent="TiltControl/bgTitle/Panel" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_103" parent="TiltControl/bgTitle/Panel" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 4.59461
 
@@ -372,10 +372,10 @@ offset_left = 24.0
 offset_top = 63.0
 offset_right = 163.0
 offset_bottom = 138.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_854" parent="TiltControl/bgTitle/Panel2" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_854" parent="TiltControl/bgTitle/Panel2" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, 1)
 speed = 4.87924
 
@@ -384,10 +384,10 @@ offset_left = 1.0
 offset_top = -90.0
 offset_right = 44.0
 offset_bottom = -54.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_149" parent="TiltControl/bgTitle/Panel3" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_149" parent="TiltControl/bgTitle/Panel3" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, 1)
 speed = 0.192076
 
@@ -396,10 +396,10 @@ offset_left = 26.0
 offset_top = -100.0
 offset_right = 57.0
 offset_bottom = -75.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_981" parent="TiltControl/bgTitle/Panel4" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_981" parent="TiltControl/bgTitle/Panel4" instance=ExtResource("6_mdh17")]
 dir = Vector2(-1, 0)
 speed = 0.182308
 
@@ -408,10 +408,10 @@ offset_left = -20.1854
 offset_top = 32.6894
 offset_right = 10.8146
 offset_bottom = 57.6894
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_786" parent="TiltControl/bgTitle/Panel13" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_786" parent="TiltControl/bgTitle/Panel13" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, 1)
 speed = 0.730876
 
@@ -420,10 +420,10 @@ offset_left = 92.0
 offset_top = 107.0
 offset_right = 624.0
 offset_bottom = 119.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_690" parent="TiltControl/bgTitle/Panel8" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_690" parent="TiltControl/bgTitle/Panel8" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 0.194017
 
@@ -432,10 +432,10 @@ offset_left = 541.0
 offset_top = 109.0
 offset_right = 745.0
 offset_bottom = 114.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_405" parent="TiltControl/bgTitle/Panel9" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_405" parent="TiltControl/bgTitle/Panel9" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 0.354909
 
@@ -444,10 +444,10 @@ offset_left = -81.0
 offset_top = 71.0
 offset_right = 131.0
 offset_bottom = 126.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
 
-[node name="Tweenable_193" parent="TiltControl/bgTitle/Panel14" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_193" parent="TiltControl/bgTitle/Panel14" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 0.0584761
 
@@ -456,10 +456,10 @@ offset_left = -59.3488
 offset_top = 141.534
 offset_right = -16.3488
 offset_bottom = 177.534
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_133" parent="TiltControl/bgTitle/Panel12" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_133" parent="TiltControl/bgTitle/Panel12" instance=ExtResource("6_mdh17")]
 dir = Vector2(1, 0)
 speed = 4.93136
 
@@ -468,10 +468,10 @@ offset_left = -90.0
 offset_top = 110.0
 offset_right = -55.0
 offset_bottom = 135.0
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_908" parent="TiltControl/bgTitle/Panel15" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_908" parent="TiltControl/bgTitle/Panel15" instance=ExtResource("6_mdh17")]
 dir = Vector2(1, 0)
 speed = 0.0320149
 
@@ -480,10 +480,10 @@ offset_left = -82.2078
 offset_top = 94.8604
 offset_right = -47.2078
 offset_bottom = 119.86
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_365" parent="TiltControl/bgTitle/Panel16" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_365" parent="TiltControl/bgTitle/Panel16" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 0.561008
 
@@ -492,10 +492,10 @@ offset_left = -116.915
 offset_top = 14.0911
 offset_right = -56.9148
 offset_bottom = 69.0911
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
 
-[node name="Tweenable_109" parent="TiltControl/bgTitle/Panel20" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_109" parent="TiltControl/bgTitle/Panel20" instance=ExtResource("6_mdh17")]
 dir = Vector2(-1, 0)
 speed = 9.48472
 
@@ -504,10 +504,10 @@ offset_left = -109.834
 offset_top = 21.1633
 offset_right = -35.8336
 offset_bottom = 84.1633
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_43" parent="TiltControl/bgTitle/Panel17" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_43" parent="TiltControl/bgTitle/Panel17" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 8.54511
 
@@ -516,10 +516,10 @@ offset_left = -119.486
 offset_top = 56.1912
 offset_right = -74.4864
 offset_bottom = 89.1912
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
 
-[node name="Tweenable_92" parent="TiltControl/bgTitle/Panel21" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_92" parent="TiltControl/bgTitle/Panel21" instance=ExtResource("6_mdh17")]
 dir = Vector2(-1, 0)
 speed = 2.309
 
@@ -528,10 +528,10 @@ offset_left = -149.834
 offset_top = 34.1633
 offset_right = -98.8336
 offset_bottom = 78.1633
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
 
-[node name="Tweenable_803" parent="TiltControl/bgTitle/Panel22" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_803" parent="TiltControl/bgTitle/Panel22" instance=ExtResource("6_mdh17")]
 dir = Vector2(1, 0)
 speed = 0.978562
 
@@ -540,10 +540,10 @@ offset_left = -144.834
 offset_top = 41.1633
 offset_right = -102.834
 offset_bottom = 70.1633
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_944" parent="TiltControl/bgTitle/Panel18" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_944" parent="TiltControl/bgTitle/Panel18" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, -1)
 speed = 4.93138
 
@@ -552,10 +552,10 @@ offset_left = -149.834
 offset_top = 47.1633
 offset_right = -97.8336
 offset_bottom = 64.1633
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_421" parent="TiltControl/bgTitle/Panel23" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_421" parent="TiltControl/bgTitle/Panel23" instance=ExtResource("6_mdh17")]
 dir = Vector2(1, 0)
 speed = 0.808678
 
@@ -564,10 +564,10 @@ offset_left = -126.07
 offset_top = 61.0611
 offset_right = -84.0701
 offset_bottom = 90.0611
-theme = ExtResource("3_n45e2")
+theme = ExtResource("8_sixgq")
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
 
-[node name="Tweenable_740" parent="TiltControl/bgTitle/Panel19" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_740" parent="TiltControl/bgTitle/Panel19" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, 1)
 speed = 8.21703
 
@@ -585,7 +585,6 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Control" type="Control" parent="TiltControl/VBoxContainer/Title"]
-layout_mode = 2
 anchors_preset = 0
 offset_left = 120.0
 offset_right = 514.0
@@ -601,25 +600,25 @@ offset_bottom = 135.0
 mouse_filter = 2
 color = Color(0.168627, 0.564706, 0.992157, 1)
 
-[node name="Tweenable_695" parent="TiltControl/VBoxContainer/Title/Control/ColorRect" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_695" parent="TiltControl/VBoxContainer/Title/Control/ColorRect" instance=ExtResource("6_mdh17")]
 dir = Vector2(-1, 0)
 speed = 2.5
 
 [node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 120.0
 offset_right = 514.0
 offset_bottom = 130.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Tweenable_820" parent="TiltControl/VBoxContainer/Title/ColorRect" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_820" parent="TiltControl/VBoxContainer/Title/ColorRect" instance=ExtResource("6_mdh17")]
 dir = Vector2(0, 1)
 speed = 0.186913
 
 [node name="MarginContainer" type="Panel" parent="TiltControl/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 130)
-layout_mode = 2
+layout_mode = 0
 offset_left = 120.0
 offset_right = 514.0
 offset_bottom = 130.0
@@ -627,19 +626,19 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t1dhk")
 
 [node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 2.47046
 offset_top = 24.3314
 offset_right = 393.47
 offset_bottom = 189.331
 mouse_filter = 2
-theme = ExtResource("1_48xlc")
+theme = ExtResource("1_43m2q")
 bbcode_enabled = true
 text = "[font_size=65]JUST A UI"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Tweenable_186" parent="TiltControl/VBoxContainer/Title/MarginContainer" instance=ExtResource("5_opfnp")]
+[node name="Tweenable_186" parent="TiltControl/VBoxContainer/Title/MarginContainer" instance=ExtResource("6_mdh17")]
 dir = Vector2(1, 0)
 speed = 4.0
 
@@ -651,7 +650,7 @@ mouse_filter = 2
 [node name="ButtonCont" type="Node2D" parent="TiltControl/VBoxContainer"]
 position = Vector2(423.448, 208.716)
 
-[node name="ButtonMenu" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("3_ce3w2")]
+[node name="ButtonMenu" parent="TiltControl/VBoxContainer/ButtonCont" instance=ExtResource("9_bjx7c")]
 offset_left = -400.0
 offset_top = 140.0
 offset_bottom = 250.0
@@ -684,41 +683,41 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="Tweenable" type="Node" parent="RestOfIt/ColorRect2/MarginContainer/ColorRect"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(-1, 0)
 speed = 1.7
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="Tweenable" type="Node" parent="RestOfIt/ColorRect2"]
-script = ExtResource("3_opfnp")
+script = ExtResource("5_37xt4")
 dir = Vector2(-1, 0)
 speed = 1.3
 metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="UIReject" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_5egv6")
+stream = ExtResource("10_3o84h")
 bus = &"SFX"
 
 [node name="UISoundController" type="Node" parent="." node_paths=PackedStringArray("exceptions")]
-script = ExtResource("8_trj04")
+script = ExtResource("11_4jfpt")
 exceptions = [NodePath("../TiltControl/LineSide/ColorRect/Coin")]
-button_hovered = ExtResource("9_16hvj")
+button_hovered = ExtResource("12_gxpfx")
 metadata/_custom_type_script = "uid://b5oej1q4h7jvh"
 
 [node name="NotificationManager" type="Node2D" parent="."]
 position = Vector2(1401, 853)
-script = ExtResource("11_t1dhk")
-notification_scene = ExtResource("10_vr1f0")
+script = ExtResource("13_c56bm")
+notification_scene = ExtResource("14_sx58f")
 
 [node name="UIEnterSettings" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_vtepg")
+stream = ExtResource("15_6capf")
 
 [node name="UIPressed" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_vtepg")
+stream = ExtResource("16_mtk40")
 
 [node name="UIEnterOS" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_wyh8j")
+stream = ExtResource("17_qy48e")
 volume_db = -19.605
 
 [node name="UIExit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_vtepg")
+stream = ExtResource("15_6capf")
