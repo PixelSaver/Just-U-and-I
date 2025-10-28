@@ -1,21 +1,21 @@
 extends Control
 
 const LINES := [
-	"[BOOT] JUIOS v7.3.1 - JULIUS UI/OS",
-	"[...initializing subsystems...]",
-	"[OK] DISPLAY        : framebuffer@0x00ff1a",
-	"[OK] INPUT          : polled HID devices (4)",
-	"[WARN] QA_SUBSYS     : missing unit-tests — applying band-aid",
-	"[INFO] AUTH         -> kernel handshake... OK",
-	"[SCAN] NETWORK      : scanning 12 nets",
-	"[SPOOF] MAC_ADDR    : 94:FA:3C:5B:xx:xx",
-	"[CRACK] PASSPHRASE  : attempting dictionary (leetspeak mode)",
-	"[GLITCH] JUIOS.CORE : injecting caffeine.dll -> status: ☕️",
-	"[TRACE] /usr/juios/secret -> read 0xDEADBEEF bytes... readable?",
-	"[ACCESS GRANTED] user: root.juice",
-	"[LAUNCH] /usr/juios/party_mode --flags=🎉 --tempo=1337",
-	"[!] Unexpected: karaoke module loaded. Singing in 3...2...1...",
-    "[OUTPUT] SYSTEM --> \"All your widgets are belong to us.\""
+	"[color=#00FF00][BOOT][/color] JUIOS v7.3.1 - JULIUS UI/OS",
+	"[color=#888888][...initializing subsystems...][/color]",
+	"[color=#00FF00][OK][/color] DISPLAY        : framebuffer@0x00ff1a",
+	"[color=#00FF00][OK][/color] INPUT          : polled HID devices (4)",
+	"[color=#FFAA00][WARN][/color] QA_SUBSYS     : missing unit-tests — applying band-aid",
+	"[color=#00AAFF][INFO][/color] AUTH         -> kernel handshake... OK",
+	"[color=#00AAFF][SCAN][/color] NETWORK      : scanning 12 nets",
+	"[color=#FF00FF][SPOOF][/color] MAC_ADDR    : 94:FA:3C:5B:xx:xx",
+	"[color=#FF00FF][CRACK][/color] PASSPHRASE  : attempting dictionary (leetspeak mode)",
+	"[color=#FFAA00][GLITCH][/color] JUIOS.CORE : injecting caffeine.dll -> status: ☕️",
+	"[color=#888888][TRACE][/color] /usr/juios/secret -> read 0xDEADBEEF bytes... readable?",
+	"[color=#00FF00][ACCESS GRANTED][/color] user: [color=#00FF00][b]root.juice[/b][/color]",
+	"[color=#FF00FF][LAUNCH][/color] /usr/juios/party_mode --flags=🎉 --tempo=1337",
+	"[color=#FF0000][!][/color] Unexpected: karaoke module loaded. Singing in 3...2...1...",
+	"[color=#00AAFF][OUTPUT][/color] SYSTEM --> [color=#FFFF00]\"All your widgets are belong to us.\"[/color]"
 ]
 var rng := RandomNumberGenerator.new()
 @export var terminal : RichTextLabel
