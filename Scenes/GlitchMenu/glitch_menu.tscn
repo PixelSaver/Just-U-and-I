@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtqtgw0owlb5a"]
+[gd_scene load_steps=8 format=3 uid="uid://dtqtgw0owlb5a"]
 
-[ext_resource type="Script" uid="uid://6etav7csmjnv" path="res://Scenes/GlitchMenu/glitch_menu.gd" id="1_spho1"]
+[ext_resource type="Theme" uid="uid://dpu7seewbpu2e" path="res://Assets/glitch.tres" id="1_0aijt"]
+[ext_resource type="Script" uid="uid://6etav7csmjnv" path="res://Scenes/GlitchMenu/glitch_menu.gd" id="2_6chg5"]
+[ext_resource type="Texture2D" uid="uid://dsj8o8s37ttiy" path="res://Media/J.png" id="3_0aijt"]
+[ext_resource type="Shader" uid="uid://dkj07vne1bj55" path="res://Shaders/glitch.gdshader" id="3_6chg5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pupqb"]
+shader = ExtResource("3_6chg5")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="Gradient" id="Gradient_6chg5"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pupqb"]
+gradient = SubResource("Gradient_6chg5")
+width = 1
 
 [node name="GlitchMenu" type="Control"]
 layout_mode = 3
@@ -9,4 +28,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_spho1")
+theme = ExtResource("1_0aijt")
+script = ExtResource("2_6chg5")
+
+[node name="Glitch" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_pupqb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_pupqb")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 988.0
+offset_bottom = 988.0
+texture = ExtResource("3_0aijt")

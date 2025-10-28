@@ -15,8 +15,8 @@ var buttons : Array[Control] = []
 @export var title : RichTextLabel
 @export var ui_exit : AudioStreamPlayer
 const TITLES = ["PLAY", "OPTIONS", "EXTRAS", "QUIT"]
-const SETTINGS_MENU = preload("res://Scenes/settings_menu.tscn")
-const OS_MENU = preload("res://Scenes/os_menu.tscn")
+const SETTINGS_MENU = preload("res://Scenes/Settings/settings_menu.tscn")
+const OS_MENU = preload("res://Scenes/OSMenu/os_menu.tscn")
 
 func _ready() -> void:
 	Global.state = Global.States.MAIN_MENU

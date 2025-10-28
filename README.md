@@ -223,6 +223,10 @@ Many thanks for these people for letting me use their work for free! See 'ATTRIB
 * Ansdor for the [button icons](https://ansdor.itch.io/button-icons)
 * Nikoichu for the [pixel icons](https://nikoichu.itch.io/pixel-icons)
 * [Claude](https://claude.ai/) and [ChatGPT](https://chatgpt.com) who helped me write the editor scripts for tweenables (find them at `/Scripts/Editor/')
+
+https://godotshaders.com/shader/pseudo-pixel-sorting-v2/
+https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/
+
 <!--
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)

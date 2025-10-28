@@ -9,7 +9,7 @@ class_name SettingsMenu
 var buttons : Array[ButtonSettings] = []
 const TITLES = ["SOUND VOLUME", "AUDIO VOLUME", "FULLSCREEN", "HOW TO PLAY"]
 const TIPS = ["BUTTONS ARE FOR CLICKING", "YOUR MOUSE IS FOR CLICKING", "THIS SCREEN IS FOR NOTHING", "CLICK Q OR ESC TO LEAVE!"]
-const MAIN_MENU : PackedScene = preload("res://Scenes/main_menu.tscn")
+const MAIN_MENU : PackedScene = preload("res://Scenes/MainMenu/main_menu.tscn")
 var duration : float = 0.15
 
 func _ready() -> void:
