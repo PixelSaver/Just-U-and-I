@@ -1,9 +1,40 @@
-[gd_scene format=3 uid="uid://cc45yihu5l1s8"]
+[gd_scene load_steps=2 format=3 uid="uid://cc45yihu5l1s8"]
 
-[node name="GlitchPage" type="Control"]
+[ext_resource type="Script" uid="uid://v8sb371757bm" path="res://Scenes/GlitchMenu/glitch_page.gd" id="1_exxui"]
+
+[node name="GlitchPage" type="Control" node_paths=PackedStringArray("terminal")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_exxui")
+terminal = NodePath("MarginContainer/RichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "HACKHACK"
+fit_content = true
