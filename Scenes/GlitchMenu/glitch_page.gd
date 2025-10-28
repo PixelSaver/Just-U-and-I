@@ -88,8 +88,8 @@ func _type_line(line:String):
 		
 		# Typo Logic 
 		if not made_typo and char.is_valid_identifier() and rng.randf() < typo_chance:
-			var removed_self = TYPO_CHARS.erase(TYPO_CHARS.find(char))
-			var wrong_char = removed_self[randi_range(0,removed_self.length())]
+			var removed_self = TYPO_CHARS.replace(char, "")
+			var wrong_char = removed_self[randi_range(0, removed_self.length() - 1)]
 			buffer += wrong_char
 			_update_terminal_line(buffer)
 			await get_tree().create_timer(base_delay + 0.15).timeout
