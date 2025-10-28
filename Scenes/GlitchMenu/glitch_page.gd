@@ -36,13 +36,15 @@ var rng := RandomNumberGenerator.new()
 @export var terminal : RichTextLabel
 @export_category("Hackerman Tweaks")
 ## Seconds between characters
-@export var base_delay = 0.025
+@export var base_delay = 0.01
 ## Max jitter to add to base_delay
 @export var jitter = 0.04
 ## Delay between lines
 @export var inter_line_delay = 0.5
 ## Requires BBCode
 @export var cursor_char = "[color=#00FF00]█[/color]"
+## Random chance to typo
+@export_range(0.0, 1.0) var typo_chance := 0.03
 
 func _ready():
 	rng.randomize()
@@ -60,6 +62,7 @@ func _type_lines():
 func _type_line(line:String):
 	var buffer := ""
 	var chars_to_type := line
+	var made_typo := false
 	
 	var i = 0
 	while i < chars_to_type.length():
@@ -81,6 +84,20 @@ func _type_line(line:String):
 		await get_tree().create_timer(delay).timeout
 		i+=1
 		#TODO Add thinking bewteen lines randomly?
+		
+		# Typo Logic 
+		if not made_typo and char.is_valid_identifier() and rng.randf() < typo_chance:
+			var wrong_char = char.to_upper() if char == char.to_lower() else char.to_lower()
+			buffer += wrong_char
+			_update_terminal_line(buffer)
+			await get_tree().create_timer(base_delay + 0.15).timeout
+			
+			# DELETE mwahahha 
+			#TODO Maybe make this timer variable? or have the person realize they made a mistake?
+			buffer = buffer.substr(0, buffer.length() - 1)
+			_update_terminal_line(buffer)
+			await get_tree().create_timer(0.05).timeout
+			#made_typo = true
 		
 	# Remove cursor, new line.
 	var bb = terminal.text 
