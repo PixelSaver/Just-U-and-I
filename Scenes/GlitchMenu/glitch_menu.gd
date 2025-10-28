@@ -16,6 +16,7 @@ func _input(event: InputEvent) -> void:
 		anim()
 
 func anim():
+	get_tree().paused = true
 	if t: t.kill()
 	
 	t = create_tween().set_ease(Tween.EASE_IN)

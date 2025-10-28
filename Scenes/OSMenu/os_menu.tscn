@@ -254,6 +254,7 @@ Left = NodePath("../ProgramCont/Program13")
 metadata/_custom_type_script = "uid://dfo8ktpwj1lkm"
 
 [node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin", "focus_first", "ui_exit")]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

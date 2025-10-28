@@ -59,6 +59,7 @@ bg_color = Color(0.168627, 0.564706, 0.992157, 1)
 draw_center = false
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "ui_pressed", "ui_enter_os", "notif_man", "ui_sound_cont", "coin", "title", "ui_exit", "all_parents", "scale_parent") groups=["MainMenu"]]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

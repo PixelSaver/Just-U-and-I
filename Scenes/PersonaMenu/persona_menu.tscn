@@ -138,6 +138,7 @@ Up = NodePath("../ButtonCont/PersonaMenuButton2")
 Right = NodePath("../ButtonCont/PersonaMenuButton2")
 
 [node name="PersonaMenu" type="Control" node_paths=PackedStringArray("selector", "bg", "all_parents", "coin", "butn_foc") groups=["PersonaMenu"]]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

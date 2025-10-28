@@ -41,6 +41,7 @@ bg_color = Color(0, 0, 0, 0.239216)
 skew = Vector2(-1, 0)
 
 [node name="SettingsMenu" type="Control" node_paths=PackedStringArray("title", "button", "all_parents", "ui_exit")]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

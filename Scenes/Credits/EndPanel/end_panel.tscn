@@ -55,6 +55,7 @@ skew = Vector2(0.4, 0)
 bg_color = Color(0.878361, 0.58002, 0.80208, 1)
 
 [node name="EndPanel" type="CanvasLayer" node_paths=PackedStringArray("panel1", "panel2")]
+process_mode = 1
 follow_viewport_enabled = true
 script = ExtResource("1_g0hxy")
 panel1 = NodePath("Control/Panel1")

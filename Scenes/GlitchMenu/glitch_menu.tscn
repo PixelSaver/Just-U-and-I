@@ -29,6 +29,7 @@ shader_parameter/direction_g = Vector2(-0.695, -1.14)
 shader_parameter/direction_b = Vector2(-3.25, 1.355)
 
 [node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_effect", "pixel_sort", "glitch_transition")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
