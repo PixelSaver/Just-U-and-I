@@ -32,6 +32,7 @@ const LINES := [
 	"[color=#FFFFFF] 14:23:47 up 2 min, 1 user, load average: 0.52, 0.24, 0.09[/color]",
 	"[color=#FFFFFF]root@debian-server:~#[/color]"
 ]
+const TYPO_CHARS := "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ1234567890~!@#$%^&*()_+`[]]\\;',./<>?:\"{}|"
 var rng := RandomNumberGenerator.new()
 @export var terminal : RichTextLabel
 @export_category("Hackerman Tweaks")
@@ -87,7 +88,8 @@ func _type_line(line:String):
 		
 		# Typo Logic 
 		if not made_typo and char.is_valid_identifier() and rng.randf() < typo_chance:
-			var wrong_char = char.to_upper() if char == char.to_lower() else char.to_lower()
+			var removed_self = TYPO_CHARS.erase(TYPO_CHARS.find(char))
+			var wrong_char = removed_self[randi_range(0,removed_self.length())]
 			buffer += wrong_char
 			_update_terminal_line(buffer)
 			await get_tree().create_timer(base_delay + 0.15).timeout
