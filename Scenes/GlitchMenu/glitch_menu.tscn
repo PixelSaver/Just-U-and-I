@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtqtgw0owlb5a"]
+[gd_scene load_steps=10 format=3 uid="uid://dtqtgw0owlb5a"]
 
 [ext_resource type="Script" uid="uid://6etav7csmjnv" path="res://Scenes/GlitchMenu/glitch_menu.gd" id="2_6chg5"]
 [ext_resource type="Texture2D" uid="uid://dsj8o8s37ttiy" path="res://Media/J.png" id="3_0aijt"]
 [ext_resource type="Shader" uid="uid://dkj07vne1bj55" path="res://Shaders/glitch.gdshader" id="3_6chg5"]
 [ext_resource type="Texture2D" uid="uid://curd2517h0tlg" path="res://Media/J (1).png" id="3_pupqb"]
 [ext_resource type="Shader" uid="uid://cjona2v6bwxsp" path="res://Shaders/pixel_sort.gdshader" id="5_pupqb"]
+[ext_resource type="Shader" uid="uid://c1l6if2e06poe" path="res://Shaders/glitch_transition.gdshader" id="6_jub80"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pupqb"]
 shader = ExtResource("3_6chg5")
@@ -16,11 +17,20 @@ shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jub80"]
 shader = ExtResource("5_pupqb")
-shader_parameter/mask_softness = 0.85
-shader_parameter/mask_threshold = 1.0
+shader_parameter/mask_softness = 1.4
+shader_parameter/mask_threshold = 0.6
 shader_parameter/sort = 0.0
 
-[node name="GlitchMenu" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olpan"]
+shader = ExtResource("6_jub80")
+shader_parameter/shake_power = 0.05
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 0.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(-0.695, -1.14)
+shader_parameter/direction_b = Vector2(-3.25, 1.355)
+
+[node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_effect", "pixel_sort", "glitch_transition")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +38,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_6chg5")
+glitch_effect = NodePath("GlitchRenderer/Glitch")
+pixel_sort = NodePath("GlitchRenderer/PixelSort")
+glitch_transition = NodePath("GlitchRenderer/GlitchTransition")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -47,7 +60,6 @@ copy_mode = 2
 layer = 10
 
 [node name="Glitch" type="ColorRect" parent="GlitchRenderer"]
-visible = false
 material = SubResource("ShaderMaterial_pupqb")
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,6 +70,14 @@ color = Color(1, 1, 1, 0)
 
 [node name="PixelSort" type="ColorRect" parent="GlitchRenderer"]
 material = SubResource("ShaderMaterial_jub80")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GlitchTransition" type="ColorRect" parent="GlitchRenderer"]
+material = SubResource("ShaderMaterial_olpan")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

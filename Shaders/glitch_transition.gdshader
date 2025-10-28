@@ -41,5 +41,5 @@ void fragment()
 	,	textureLod(screen_texture, fixed_uv + normalize(direction_b) * fade, 0.0).b
 	,	0.0
 	) * (1.0 - fade);
-	COLOR.a = 1.0;
+	COLOR.a = 1.;
 }
