@@ -1,6 +1,6 @@
 @tool
 extends EditorScript
-var child_scene : PackedScene = preload("res://Scenes/tweenable.tscn")
+var child_scene : PackedScene = preload("res://Scenes/Tweens/tweenable.tscn")
 
 func _run() -> void:
 	randomize()  # ensure randi()/randf() produce different values
