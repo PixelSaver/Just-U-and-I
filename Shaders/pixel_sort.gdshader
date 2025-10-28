@@ -1,15 +1,13 @@
 shader_type canvas_item;
 
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
-
-uniform float mask_softness = 1.4; // negative values result in mask being inverted
+uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
+uniform float mask_softness = 1.4;
 uniform float mask_threshold = 0.6;
 uniform float sort : hint_range(0.0, 2.0) = 0.0;
 
 void fragment() {
-    // Correctly normalized screen UVs
     vec2 uv = SCREEN_UV;
-    vec4 tex = texture(SCREEN_TEXTURE, uv);
+    vec4 tex = texture(screen_texture, uv);
 
     // Masking
     float f = mask_softness / 2.0;
@@ -28,12 +26,10 @@ void fragment() {
     transition_uv.y += pow(sort, 2.0 + (sort * 2.0)) * mask * turbulance;
 
     vec4 final_color;
-
-    // Draw pixel sorting effect behind the melting transition
     if (transition_uv.y > 1.0) {
-        final_color = texture(SCREEN_TEXTURE, sort_uv);
+        final_color = texture(screen_texture, sort_uv);
     } else {
-        final_color = texture(SCREEN_TEXTURE, transition_uv);
+        final_color = texture(screen_texture, transition_uv);
     }
 
     COLOR = final_color;

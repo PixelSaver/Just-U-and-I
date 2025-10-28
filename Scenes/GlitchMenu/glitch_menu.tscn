@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://curd2517h0tlg" path="res://Media/J (1).png" id="3_pupqb"]
 [ext_resource type="Shader" uid="uid://cjona2v6bwxsp" path="res://Shaders/pixel_sort.gdshader" id="5_pupqb"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jub80"]
+shader = ExtResource("5_pupqb")
+shader_parameter/mask_softness = 1.4
+shader_parameter/mask_threshold = 0.6
+shader_parameter/sort = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pupqb"]
 shader = ExtResource("3_6chg5")
 shader_parameter/shake_power = 0.03
@@ -13,12 +19,6 @@ shader_parameter/shake_rate = 0.2
 shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jub80"]
-shader = ExtResource("5_pupqb")
-shader_parameter/mask_softness = 1.4
-shader_parameter/mask_threshold = 0.6
-shader_parameter/sort = 0.0
 
 [node name="GlitchMenu" type="Control"]
 layout_mode = 3
@@ -39,6 +39,18 @@ texture = ExtResource("3_0aijt")
 position = Vector2(891, 527)
 texture = ExtResource("3_pupqb")
 
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
+[node name="PixelSort" type="Control" parent="."]
+material = SubResource("ShaderMaterial_jub80")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="GlitchRenderer" type="CanvasLayer" parent="."]
 layer = 10
 
@@ -50,8 +62,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PixelSort" type="ColorRect" parent="GlitchRenderer"]
-material = SubResource("ShaderMaterial_jub80")
-offset_right = 40.0
-offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
