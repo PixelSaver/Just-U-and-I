@@ -27,7 +27,7 @@ var rng := RandomNumberGenerator.new()
 ## Delay between lines
 @export var inter_line_delay = 0.5
 ## Requires BBCode
-@export var cursor_char = "[color=#00FF00]|[/color]"
+@export var cursor_char = "[color=#00FF00]█[/color]"
 
 func _ready():
 	rng.randomize()
