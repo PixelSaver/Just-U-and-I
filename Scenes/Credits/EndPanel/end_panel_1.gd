@@ -22,7 +22,7 @@ func all_t():
 		for thing in child.get_children():
 			if thing is Tweenable:
 				tweenables.append(thing)
-func _gui_input(event: InputEvent) -> void:
+func _gui_input(_event: InputEvent) -> void:
 	print("gui input")
 var dur = 0.3
 var t = null

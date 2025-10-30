@@ -5,7 +5,7 @@ var child_scene : PackedScene = preload("res://Scenes/Tweens/tweenable.tscn")
 func _run() -> void:
 	randomize()  # ensure randi()/randf() produce different values
 	
-	var editor := get_editor_interface()
+	var editor := EditorInterface
 	var selection: Array = editor.get_selection().get_selected_nodes()
 	var root := editor.get_edited_scene_root()
 	var undo_redo = editor.get_editor_undo_redo()

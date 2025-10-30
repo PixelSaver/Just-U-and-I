@@ -7,14 +7,14 @@ func _run():
 var all_nodes = []
 func randomize_all_tweenable_speeds():
 	var scene_root = get_scene()
-	var selection: Array = get_editor_interface().get_selection().get_selected_nodes()
+	var selection: Array = EditorInterface.get_selection().get_selected_nodes()
 	if selection.size() == 0:
 		all_nodes = get_all_children(scene_root)
 	else:
 		for node in selection:
 			all_nodes.append(node.get_children()[0])
 	
-	var undo_redo = get_editor_interface().get_editor_undo_redo()
+	var undo_redo = EditorInterface.get_editor_undo_redo()
 	undo_redo.create_action("Randomize Tweenable Speeds")
 	
 	for node in all_nodes:

@@ -8,7 +8,7 @@ func randomize_all_tweenable_directions():
 	var scene_root = get_scene()
 	var all_nodes = get_all_children(scene_root)
 	
-	var undo_redo = get_editor_interface().get_editor_undo_redo()
+	var undo_redo = EditorInterface.get_editor_undo_redo()
 	undo_redo.create_action("Randomize Tweenable Directions")
 	
 	for node in all_nodes:

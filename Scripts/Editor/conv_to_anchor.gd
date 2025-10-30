@@ -5,10 +5,10 @@ extends EditorScript
 
 func _run():
 	# Get the editor selection and undo/redo
-	var editor_interface = get_editor_interface()
-	var selection = editor_interface.get_selection()
+	# var editor_interface = get_editor_interface()
+	var selection = EditorInterface.get_selection()
 	var selected_nodes = selection.get_selected_nodes()
-	var undo_redo = get_editor_interface().get_editor_undo_redo()
+	var undo_redo = EditorInterface.get_editor_undo_redo()
 	
 	if selected_nodes.is_empty():
 		print("No nodes selected!")
