@@ -52,7 +52,7 @@ func _shatter_colorrect(rect):
 	for i in num_points:
 		points.append(Vector2(randf_range(0, rect_size.x), randf_range(0, rect_size.y)))
 
-	for i in range(points.size() / 3):
+	for i in range(points.size() / 3.):
 		var tri: Array[Vector2] = []
 		for j in range(3):
 			tri.append(points.pick_random())

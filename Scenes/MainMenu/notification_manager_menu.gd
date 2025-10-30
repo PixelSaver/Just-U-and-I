@@ -12,7 +12,7 @@ var notification_queue: Array[Node2D] = []
 func _ready():
 	Global.blue_coin_collected.connect(_on_bc_collected)
 
-func _on_bc_collected(bc_name:String):
+func _on_bc_collected(_bc_name:String):
 	show_notification("You just collected [color=#0cb0ff]1 blue coin!")
 
 func show_notification(message: String):
@@ -66,8 +66,8 @@ func all_tweenables(notif:Node2D) -> Array[Tweenable]:
 		var n = child as Control
 		if child.get_child_count() == 0: continue
 		var tweenable_index = n.get_children().find_custom(
-			func(child) -> bool:
-				return child is Tweenable
+			func(_child) -> bool:
+				return _child is Tweenable
 		)
 		if tweenable_index == -1: continue
 		var tweenable = n.get_children()[tweenable_index]

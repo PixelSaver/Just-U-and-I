@@ -37,7 +37,7 @@ func _ready():
 	input_handler.input_handler_disabled = true
 	
 
-func flash(rect:Vector2, i, dur=1):
+func _flash(rect:Vector2, i:int, dur:float=1):
 	var flash = ColorRect.new()
 	flash.name = "flash"
 	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -50,7 +50,7 @@ func flash(rect:Vector2, i, dur=1):
 	flash.show_behind_parent = true
 	add_child(flash)
 	var t = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	t.tween_property(flash, "size:x", 0, dur - i/6)
+	t.tween_property(flash, "size:x", 0., dur - float(i)/6.)
 	t.finished.connect(func(): 
 		if flash and is_instance_valid(flash):
 			flash.queue_free()
@@ -96,7 +96,7 @@ func apply_hover_state():
 		idle_tween.kill()
 	if hover_tween:
 		hover_tween.kill()
-	flash(size, 0, 0.5)
+	_flash(size, 0, 0.5)
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(program_sprite, "position", sprite_og_pos, 0.3)
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
@@ -115,7 +115,7 @@ func apply_idle_state(forced:=false):
 	if idle_tween:
 		idle_tween.kill()
 	idle_tween = create_tween().set_loops()
-	var rand = randf_range(0,10) if forced else 0
+	var rand = randf_range(0.,10.) if forced else 0.
 	var time = (Time.get_ticks_msec() * 0.001) * spin_speed + rand
 	var radius = 5.0
 	var duration = 2.0

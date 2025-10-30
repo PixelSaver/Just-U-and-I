@@ -22,7 +22,7 @@ func _ready() -> void:
 	tip_panel.modulate = Color(Color.WHITE, 0.5)
 	is_ready.emit(self)
 
-func _gui_input(event: InputEvent) -> void:
+func _gui_input(_event: InputEvent) -> void:
 	#TODO Implement keyboard navigable for settings menu
 	#input_handler.manual_gui_input(event)
 	pass

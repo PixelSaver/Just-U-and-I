@@ -55,7 +55,7 @@ func _on_pressed() -> void:
 	await t.finished
 	queue_free()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if follow_modulate:
 		modulate.a = follow_modulate.modulate.a 
 		if modulate.a != 1:
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 		else:
 			disabled = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not clicked: return
 	if rigidbody.position.y > floor_dist:
 		rigidbody.position.y = floor_dist

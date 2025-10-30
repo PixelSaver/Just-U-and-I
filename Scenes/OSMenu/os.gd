@@ -32,7 +32,7 @@ func _ready() -> void:
 	
 	start_anim()
 
-func _on_coin_collected(coin:Coin):
+func _on_coin_collected(_coin:Coin):
 	notif_man.show_notification("You just collected [color=#ffa506]1 coin!")
 
 var is_start_animating = false
@@ -87,8 +87,8 @@ func all_t():
 			var n = child as Control
 			if child.get_child_count() == 0: continue
 			var tweenable_index = n.get_children().find_custom(
-				func(child) -> bool:
-					return child is Tweenable
+				func(_child) -> bool:
+					return _child is Tweenable
 			)
 			if tweenable_index == -1: continue
 			var tweenable = n.get_children()[tweenable_index]
@@ -127,7 +127,7 @@ func load_programs():
 				is_animating_programs = false
 			)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Global.state != Global.States.OS_MENU or is_start_animating: return
 	if Input.is_action_pressed("scroll_down"): 
 		scroll += 185

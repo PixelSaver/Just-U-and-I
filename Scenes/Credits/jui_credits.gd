@@ -24,7 +24,7 @@ func all_t() -> Array[Tweenable]:
 					thing.get_parent().global_position = thing.get_final_pos()
 	return out
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_tweens(scroll_cont.scroll_vertical)
 
 var tween_index = 0;

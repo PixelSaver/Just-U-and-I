@@ -81,10 +81,10 @@ func _type_line(line:String):
 	
 	var i = 0
 	while i < chars_to_type.length():
-		var char = chars_to_type[i]
+		var _char = chars_to_type[i]
 		
 		# Skip BBCode tags - don't type them character by character
-		if char == '[':
+		if _char == '[':
 			var close_bracket = chars_to_type.find("]", i)
 			if close_bracket != -1:
 				# Add entire tag at once
@@ -93,7 +93,7 @@ func _type_line(line:String):
 				continue
 		
 		#TODO Maybe add mistakes or glitches here? Those random changing asci characters?
-		buffer += char
+		buffer += _char
 		_update_terminal_line(buffer)
 		var delay = base_delay + rng.randf_range(-jitter, jitter)/2
 		await get_tree().create_timer(delay).timeout
@@ -101,8 +101,8 @@ func _type_line(line:String):
 		#TODO Add thinking bewteen lines randomly?
 		
 		# Typo Logic 
-		if not made_typo and char.is_valid_identifier() and rng.randf() < typo_chance:
-			var removed_self = TYPO_CHARS.replace(char, "")
+		if not made_typo and _char.is_valid_identifier() and rng.randf() < typo_chance:
+			var removed_self = TYPO_CHARS.replace(_char, "")
 			var wrong_char = removed_self[randi_range(0, removed_self.length() - 1)]
 			buffer += wrong_char
 			_update_terminal_line(buffer)

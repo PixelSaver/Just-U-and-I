@@ -56,11 +56,11 @@ func _on_pressed():
 		pressed_sound.play()
 	
 	if button_title == "Quit":
-		var menu : PersonaMenu
+		var _menu : PersonaMenu
 		for child in Global.root.get_children():
 			if child is PersonaMenu:
-				menu = child
-		menu.end_anim()
+				_menu = child
+		_menu.end_anim()
 	else:
 		Global.collect_blue_coin(self)
 

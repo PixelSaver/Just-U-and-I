@@ -26,7 +26,7 @@ func _ready() -> void:
 	#start_main_menu()
 	
 
-func _on_coin_collected(coin:Coin):
+func _on_coin_collected(_coin:Coin):
 	notif_man.show_notification("You just collected [color=#ffa506]1 coin!")
 	notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 
@@ -40,7 +40,7 @@ func _on_pressed(val:ButtonMenu):
 			end_main_menu()
 			ui_enter_os.play()
 			#var tw = create_tween().tween_property(os, "modulate:a", 1, 1.4).set_ease(Tween.EASE_OUT)
-			await get_tree().create_timer(0.5)
+			await get_tree().create_timer(0.5).timeout
 			Global.go_os()
 		TITLES[1]: # Options
 			ui_enter.play()
@@ -83,8 +83,8 @@ func all_tweenables() -> Array[Tweenable]:
 			var n = child as Control
 			if child.get_child_count() == 0: continue
 			var tweenable_index = n.get_children().find_custom(
-				func(child) -> bool:
-					return child is Tweenable
+				func(_child) -> bool:
+					return _child is Tweenable
 			)
 			if tweenable_index == -1: continue
 			var tweenable = n.get_children()[tweenable_index]
@@ -179,7 +179,7 @@ func start_main_menu():
 	await tmenu.finished
 	is_animating = false
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Global.state != Global.States.MAIN_MENU or is_animating: return
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))

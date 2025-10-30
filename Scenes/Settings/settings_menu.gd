@@ -43,7 +43,7 @@ func _ready() -> void:
 			buttons[i].focus_neighbor_top = buttons[i-1].get_path()
 			buttons[i].focus_neighbor_bottom = buttons[i+1].get_path()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Global.state == Global.States.SETTINGS and Input.is_action_just_pressed("esc") and not is_animating:
 		ui_exit.play()
 		settings_hide()
@@ -122,8 +122,8 @@ func all_tweenables() -> Array[Tweenable]:
 			var n = child as Node
 			if child.get_child_count() == 0: continue
 			var tweenable_index = n.get_children().find_custom(
-				func(child) -> bool:
-					return child is Tweenable
+				func(_child) -> bool:
+					return _child is Tweenable
 			)
 			if tweenable_index == -1: continue
 			var tweenable = n.get_children()[tweenable_index]
