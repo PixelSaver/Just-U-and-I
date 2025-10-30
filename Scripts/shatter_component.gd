@@ -12,7 +12,6 @@ func _ready():
 
 ## Call this to trigger shattering for all ColorRect and Panel children
 func shatter_all():
-	par.disabled
 	var targets = _find_shatterables(par)
 	print(targets)
 	for rect in targets:
