@@ -16,7 +16,6 @@ terminal = NodePath("MarginContainer/RichTextLabel")
 base_delay = 0.0
 jitter = 0.001
 inter_line_delay = 0.01
-typo_chance = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

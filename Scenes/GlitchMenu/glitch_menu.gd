@@ -1,6 +1,7 @@
 extends Control
 
-signal anim_finished
+signal first_anim_finished
+@export var glitch_page : GlitchPage
 @export var glitch_effect : ColorRect
 @export var pixel_sort : ColorRect
 @export var glitch_transition : ColorRect
@@ -10,25 +11,32 @@ func _ready():
 	glitch_effect_t(0)
 	pixel_sort_t(0)
 	glitch_trans_t(0)
+	glitch_page.hide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("glitch_debug"):
-		anim()
+		first_anim()
 
-func anim():
+func first_anim():
+	Global.state = Global.States.GLITCH
 	get_tree().paused = true
 	if t: t.kill()
 	
-	t = create_tween().set_ease(Tween.EASE_IN)
-	t.set_parallel(true).set_trans(Tween.TRANS_QUINT)
+	t = create_tween()
+	t.set_parallel(true).set_trans(Tween.TRANS_BOUNCE)
 	
-	t.tween_method(glitch_effect_t, 0., 1., 0.6)
-	t.tween_method(pixel_sort_t, 0., 1., 1)
+	#t.tween_method(glitch_effect_t, 0., 1., 0.6)
+	#t.tween_method(pixel_sort_t, 0., 1., 1)
 	
-	t.tween_method(glitch_trans_t, -0.2, 1., 1.2)
+	t.tween_method(glitch_trans_t, 0., 1., 3.)
 	
 	await t.finished
-	anim_finished.emit()
+	first_anim_finished.emit()
+
+func _on_first_anim_finished() -> void:
+	glitch_page.show()
+	glitch_page.anim()
+	pass
 
 func glitch_effect_t(val:float):
 	var shader_mat = glitch_effect.material as ShaderMaterial

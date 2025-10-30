@@ -10,6 +10,7 @@ enum States {
 	EXTRAS,
 	OS_MENU,
 	PROGRAM,
+	GLITCH,
 }
 
 #TODO start from logo

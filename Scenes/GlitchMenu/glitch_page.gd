@@ -1,4 +1,5 @@
 extends Control
+class_name GlitchPage
 
 const LINES := [
 	"[color=#00FF00][ OK ][/color] Reached target Basic System.",
@@ -44,13 +45,17 @@ var rng := RandomNumberGenerator.new()
 @export var inter_line_delay = 0.5
 ## Requires BBCode
 @export var cursor_char = "[color=#00FF00]█[/color]"
+@export var cursor_blink_interval := 0.3
 ## Random chance to typo
 @export_range(0.0, 1.0) var typo_chance := 0.03
+var is_blinking = false
 
 func _ready():
 	rng.randomize()
 	terminal.clear()
 	terminal.bbcode_enabled = true
+
+func anim():
 	_type_lines()
 
 func _type_lines():
@@ -59,6 +64,8 @@ func _type_lines():
 		#TODO Add randomized capitalizations / errors
 		await _type_line(line)
 		await get_tree().create_timer(inter_line_delay).timeout
+	is_blinking = true
+	_cursor_blink()
 
 func _type_line(line:String):
 	var buffer := ""
@@ -67,7 +74,7 @@ func _type_line(line:String):
 	
 	var i = 0
 	while i < chars_to_type.length():
-		var char := chars_to_type[i]
+		var char = chars_to_type[i]
 		
 		# Skip BBCode tags - don't type them character by character
 		if char == '[':
@@ -118,3 +125,21 @@ func _update_terminal_line(new_text:String):
 	
 	await get_tree().process_frame
 	terminal.scroll_to_line(terminal.get_line_count())
+
+func stop_cursor_blink():
+	is_blinking = false
+	var bb = terminal.text 
+	if bb.ends_with(cursor_char):
+		bb = bb.substr(0, bb.length() - cursor_char.length()	)
+	terminal.text = bb
+
+func _cursor_blink():
+	var bb = terminal.text 
+	if bb.ends_with(cursor_char):
+		bb = bb.substr(0, bb.length() - cursor_char.length()	)
+	else:
+		bb = bb + cursor_char
+	terminal.text = bb
+	await get_tree().create_timer(cursor_blink_interval).timeout
+	if is_blinking:
+		_cursor_blink()

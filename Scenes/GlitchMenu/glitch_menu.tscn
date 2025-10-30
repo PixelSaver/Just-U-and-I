@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtqtgw0owlb5a"]
+[gd_scene load_steps=9 format=3 uid="uid://dtqtgw0owlb5a"]
 
 [ext_resource type="Script" uid="uid://6etav7csmjnv" path="res://Scenes/GlitchMenu/glitch_menu.gd" id="2_6chg5"]
 [ext_resource type="Shader" uid="uid://dkj07vne1bj55" path="res://Shaders/glitch.gdshader" id="3_6chg5"]
+[ext_resource type="PackedScene" uid="uid://cc45yihu5l1s8" path="res://Scenes/GlitchMenu/glitch_page.tscn" id="5_jub80"]
 [ext_resource type="Shader" uid="uid://cjona2v6bwxsp" path="res://Shaders/pixel_sort.gdshader" id="5_pupqb"]
 [ext_resource type="Shader" uid="uid://c1l6if2e06poe" path="res://Shaders/glitch_transition.gdshader" id="6_jub80"]
 
@@ -28,7 +29,7 @@ shader_parameter/direction_r = Vector2(1, 0)
 shader_parameter/direction_g = Vector2(-0.695, -1.14)
 shader_parameter/direction_b = Vector2(-3.25, 1.355)
 
-[node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_effect", "pixel_sort", "glitch_transition")]
+[node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_page", "glitch_effect", "pixel_sort", "glitch_transition")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -38,6 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_6chg5")
+glitch_page = NodePath("CanvasLayer3/GlitchPage")
 glitch_effect = NodePath("GlitchRenderer/Glitch")
 pixel_sort = NodePath("CanvasLayer/PixelSort")
 glitch_transition = NodePath("CanvasLayer2/GlitchTransition")
@@ -81,3 +83,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 15
+
+[node name="GlitchPage" parent="CanvasLayer3" instance=ExtResource("5_jub80")]
+visible = false
+
+[connection signal="first_anim_finished" from="." to="." method="_on_first_anim_finished"]
