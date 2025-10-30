@@ -130,5 +130,5 @@ func all_tweenables() -> Array[Tweenable]:
 			out.append(tweenable)
 	return out
 
-func _on_pressed(but:ButtonSettings):
+func _on_pressed(_but:ButtonSettings):
 	pass

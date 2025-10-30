@@ -75,9 +75,9 @@ func start_anim():
 	t.tween_property(bt2, "scale", Vector2.ONE, dur)
 	bt2.disabled = false
 	
-func _break_tween(t:Tween):
-	t.set_parallel(false)
-	t.tween_callback(_noop)
-	t.set_parallel(true)
+func _break_tween(_t:Tween):
+	_t.set_parallel(false)
+	_t.tween_callback(_noop)
+	_t.set_parallel(true)
 func _noop():
 	pass

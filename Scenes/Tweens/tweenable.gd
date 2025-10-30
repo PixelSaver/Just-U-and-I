@@ -12,7 +12,7 @@ func _ready() -> void:
 	og_gl_pos = par.global_position
 	og_pos = par.position
 
-func custom_tween(t:Tween, dur:float, is_inverse:bool=false):
+func custom_tween(_t:Tween, _dur:float, _is_inverse:bool=false):
 	pass
 
 func get_final_pos():
