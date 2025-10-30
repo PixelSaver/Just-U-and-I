@@ -4,13 +4,16 @@ class_name ShatterComponent
 @export var num_points := 20
 @export var shatter_force := 150.0
 @export var fade_time := 1.0
+var par : Control
 
 func _ready():
 	randomize()
+	par = get_parent() as Control
 
 ## Call this to trigger shattering for all ColorRect and Panel children
 func shatter_all():
-	var targets = _find_shatterables(get_parent())
+	par.disabled
+	var targets = _find_shatterables(par)
 	print(targets)
 	for rect in targets:
 		_shatter_colorrect(rect)
@@ -41,7 +44,6 @@ func _shatter_colorrect(rect):
 	else:
 		rect_color = Color.WHITE
 
-	# --- same as before ---
 	var points: Array[Vector2] = []
 	var rect_area = Rect2(Vector2.ZERO, rect_size)
 	points.append(rect_area.position)

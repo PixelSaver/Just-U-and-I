@@ -2,8 +2,8 @@ extends Control
 class_name InputHandler
 
 signal activated()
-signal deactivated()
-signal clicked()
+signal deactivated
+signal clicked
 
 enum InputMode { MOUSE, KEYBOARD }
 

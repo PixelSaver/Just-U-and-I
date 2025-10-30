@@ -121,7 +121,7 @@ func load_programs():
 		p.hide()
 		p.spin_speed = [-0.1,0.1][randi() % 2]
 		
-		p.flash(rect[i], i)
+		p._flash(rect[i], i)
 		if p == programs.back():
 			p.connect("flash_finished", func():
 				is_animating_programs = false
