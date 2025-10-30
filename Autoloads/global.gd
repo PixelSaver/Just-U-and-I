@@ -17,7 +17,7 @@ enum States {
 #var state : States = States.LOGO
 var state : States = States.MAIN_MENU
 
-		
+var glitched : bool = false
 
 var root : Node
 

@@ -2,12 +2,16 @@ extends Control
 class_name Program
 
 signal flash_finished
+@export_category("Shatter Component")
+@export var shatter_comp : ShatterComponent
+@export_category("Program")
 @export var program_sprite : Sprite2D 
 @export var program_label : RichTextLabel
 @export var program_desc : String
 @export var spr_offset : Vector2 = Vector2(3, 18)
 @export var program_hov : AudioStreamPlayer
 @export var scene : PackedScene
+@export_category("Misc")
 @onready var input_handler : InputHandler = $InputHandler
 @export var pressed_sound : AudioStreamPlayer
 
@@ -20,7 +24,9 @@ var hover_tween : Tween
 enum InputMode { MOUSE, KEYBOARD }
 var current_input_mode : InputMode = InputMode.MOUSE
 var last_mouse_pos : Vector2 = Vector2.ZERO
-
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("d"):
+		shatter_comp.shatter_all()
 func _ready():
 	sprite_og_pos = program_sprite.position
 	apply_idle_state(true)

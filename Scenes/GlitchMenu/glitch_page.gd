@@ -1,6 +1,7 @@
 extends Control
 class_name GlitchPage
 
+signal terminal_finished
 const LINES := [
 	"[color=#00FF00][ OK ][/color] Reached target Basic System.",
 	"[color=#00FF00][ OK ][/color] Started D-Bus System Message Bus.",
@@ -70,6 +71,8 @@ func _type_lines():
 		await get_tree().create_timer(inter_line_delay).timeout
 	is_blinking = true
 	_cursor_blink()
+	await get_tree().create_timer(1., true).timeout
+	terminal_finished.emit()
 
 func _type_line(line:String):
 	var buffer := ""
@@ -139,7 +142,6 @@ func stop_cursor_blink():
 	terminal.text = bb
 
 func _cursor_blink():
-	print("blinking")
 	var bb = terminal.text 
 	if bb.ends_with(cursor_char):
 		bb = bb.substr(0, bb.length() - cursor_char.length()	)

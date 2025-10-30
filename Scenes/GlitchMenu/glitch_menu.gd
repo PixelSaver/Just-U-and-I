@@ -12,6 +12,7 @@ func _ready():
 	pixel_sort_t(0)
 	glitch_trans_t(0)
 	glitch_page.hide()
+	glitch_page.terminal_finished.connect(_on_term_fin)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("glitch_debug"):
@@ -43,6 +44,13 @@ func _on_first_anim_finished() -> void:
 	await tg.finished
 	await get_tree().create_timer(1., true).timeout
 	glitch_page.anim()
+
+func _on_term_fin() -> void:
+	var end_t = create_tween().set_ease(Tween.EASE_OUT)
+	end_t.set_parallel(true).set_trans(Tween.TRANS_QUINT)
+	end_t.tween_property(self, "modulate:a", 0, 0.9)
+	await end_t.finished
+	Global.go_main_menu()
 
 func glitch_effect_t(val:float):
 	var shader_mat = glitch_effect.material as ShaderMaterial

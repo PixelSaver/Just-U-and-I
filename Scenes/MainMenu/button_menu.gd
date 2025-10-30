@@ -2,20 +2,29 @@ extends Button
 class_name ButtonMenu
 
 signal self_pressed(val:ButtonMenu)
+@export_category("Shatter")
+@export var shatter_comp : ShatterComponent
+@export_category("Button")
 @export var has_blue_coin : bool = true
 @export var button_border: Panel 
 @export var button_text: RichTextLabel 
 @export var button_bg: ColorRect 
 
+@export_category("Tween")
 @export var tween_duration : float = 0.2
 @export var pos_offset : Vector2 = Vector2(70,0)
 var original_pos : Vector2
 @export var trans : Tween.TransitionType = Tween.TRANS_QUINT
 @export var tween_ease : Tween.EaseType = Tween.EASE_OUT
 @export var hbox : Control
+@export_category("Mouse")
 @export var mouse_catch : Control
 
 @onready var input_handler : InputHandler = $InputHandler
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("d"):
+		shatter_comp.shatter_all()
 
 func init_position() -> void:
 	original_pos = position
