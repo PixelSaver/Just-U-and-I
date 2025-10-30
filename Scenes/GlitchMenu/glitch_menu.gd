@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		first_anim()
 
 func first_anim():
+	if Global.state == Global.States.GLITCH: return
 	Global.state = Global.States.GLITCH
 	get_tree().paused = true
 	if t: t.kill()
@@ -34,9 +35,14 @@ func first_anim():
 	first_anim_finished.emit()
 
 func _on_first_anim_finished() -> void:
+	glitch_page.modulate.a = 0.
 	glitch_page.show()
+	var tg = create_tween().set_ease(Tween.EASE_IN)
+	tg.set_trans(Tween.TRANS_QUINT)
+	tg.tween_property(glitch_page, "modulate:a", 1, 1.6)
+	await tg.finished
+	await get_tree().create_timer(1., true).timeout
 	glitch_page.anim()
-	pass
 
 func glitch_effect_t(val:float):
 	var shader_mat = glitch_effect.material as ShaderMaterial

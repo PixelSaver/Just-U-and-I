@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://dpu7seewbpu2e" path="res://Assets/glitch.tres" id="1_q7xis"]
 
 [node name="GlitchPage" type="Control" node_paths=PackedStringArray("terminal")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +15,7 @@ theme = ExtResource("1_q7xis")
 script = ExtResource("1_exxui")
 terminal = NodePath("MarginContainer/RichTextLabel")
 base_delay = 0.0
-jitter = 0.001
+jitter = 0.0
 inter_line_delay = 0.01
 
 [node name="ColorRect" type="ColorRect" parent="."]
