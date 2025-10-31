@@ -203,7 +203,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.3254902, 0.1764706, 0.15294118, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -227,6 +227,7 @@ custom_minimum_size = Vector2(960, 960)
 layout_mode = 0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="White" type="Sprite2D" parent="Center/Clip/Control"]
 texture_filter = 1
