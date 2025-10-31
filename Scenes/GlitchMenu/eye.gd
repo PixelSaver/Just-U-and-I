@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 class_name Eye
 
 @export_category("Eye Sprites")
@@ -16,7 +16,7 @@ func _ready() -> void:
 	blood_anim.play("blank")
 
 func _process(delta: float) -> void:
-	eye_target = get_global_mouse_position()
+	eye_target = get_viewport().get_mouse_position()
 	_update_pupil(delta)
 	if Input.is_action_just_pressed("a"):
 		anim_blood()

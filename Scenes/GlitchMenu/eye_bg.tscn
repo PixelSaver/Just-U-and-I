@@ -181,13 +181,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EyeBG" type="Control" node_paths=PackedStringArray("pupil", "white", "blood_anim", "shading")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="EyeBG" type="CanvasLayer" node_paths=PackedStringArray("pupil", "white", "blood_anim", "shading")]
+layer = 0
 script = ExtResource("1_nnqny")
 pupil = NodePath("Center/Clip/Control/Pupil")
 white = NodePath("Center/Clip/Control/White")
@@ -197,7 +192,6 @@ pupil_mult = Vector2(0.4, 0.25)
 pupil_speed = 4.484
 
 [node name="BG" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -206,7 +200,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Center" type="CenterContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
