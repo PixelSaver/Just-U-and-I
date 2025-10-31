@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dmkxm5o4hgma1"]
+[gd_scene load_steps=31 format=3 uid="uid://dmkxm5o4hgma1"]
 
 [ext_resource type="Script" uid="uid://1crune1wwl83" path="res://Scenes/GlitchMenu/eye.gd" id="1_nnqny"]
 [ext_resource type="Texture2D" uid="uid://crkmvjjqw3tqo" path="res://Assets/Art/Spooky/eye_white_nopupil.png" id="2_pvjgp"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dvypgsbv5530q" path="res://Assets/Art/Spooky/eye_pupil.png" id="4_t858a"]
 [ext_resource type="Texture2D" uid="uid://b6byobecvt0e7" path="res://Assets/Art/Spooky/eye_blood_spritesheet.png" id="5_nef1a"]
 [ext_resource type="Texture2D" uid="uid://cdpk6684d6dur" path="res://Assets/Art/Spooky/eye_outside.png" id="6_oi68g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnqny"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(128, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3oiku"]
 atlas = ExtResource("5_nef1a")
@@ -97,8 +101,11 @@ region = Rect2(64, 256, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p45n7"]
 animations = [{
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnqny")
+}],
+"loop": false,
 "name": &"blank",
 "speed": 5.0
 }, {
@@ -169,12 +176,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qo3g8")
 }],
-"loop": true,
+"loop": false,
 "name": &"blood",
 "speed": 5.0
 }]
 
-[node name="EyeBG" type="Control" node_paths=PackedStringArray("pupil", "white", "blood_anim")]
+[node name="EyeBG" type="Control" node_paths=PackedStringArray("pupil", "white", "blood_anim", "shading")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,6 +192,7 @@ script = ExtResource("1_nnqny")
 pupil = NodePath("Center/Clip/Control/Pupil")
 white = NodePath("Center/Clip/Control/White")
 blood_anim = NodePath("Center/Clip/Control/BloodAnim")
+shading = NodePath("Center/Clip/Control/Shading")
 pupil_mult = Vector2(0.4, 0.25)
 pupil_speed = 4.484
 
@@ -214,6 +222,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Center/Clip/Control"]
+visible = false
 custom_minimum_size = Vector2(960, 960)
 layout_mode = 0
 grow_horizontal = 2
