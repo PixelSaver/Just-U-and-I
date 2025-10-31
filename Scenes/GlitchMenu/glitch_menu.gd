@@ -5,6 +5,7 @@ signal first_anim_finished
 @export var glitch_effect : ColorRect
 @export var pixel_sort : ColorRect
 @export var glitch_transition : ColorRect
+@export var bg : ColorRect
 var t : Tween
 
 func _ready():
@@ -13,6 +14,7 @@ func _ready():
 	glitch_trans_t(0)
 	glitch_page.hide()
 	glitch_page.terminal_finished.connect(_on_term_fin)
+	bg.hide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("glitch_debug"):
@@ -36,6 +38,9 @@ func first_anim():
 	first_anim_finished.emit()
 
 func _on_first_anim_finished() -> void:
+	glitch_transition.hide()
+	bg.show()
+	
 	glitch_page.modulate.a = 0.
 	glitch_page.show()
 	var tg = create_tween().set_ease(Tween.EASE_IN)
@@ -46,11 +51,16 @@ func _on_first_anim_finished() -> void:
 	glitch_page.anim()
 
 func _on_term_fin() -> void:
+	get_tree().paused = false
+	print("term fin")
 	var end_t = create_tween().set_ease(Tween.EASE_OUT)
 	end_t.set_parallel(true).set_trans(Tween.TRANS_QUINT)
-	end_t.tween_property(self, "modulate:a", 0, 0.9)
+	end_t.tween_property(self, "modulate:a", 0., 0.9)
 	await end_t.finished
+	self.hide()
 	Global.go_main_menu()
+	Global.setup_eye()
+	queue_free()
 
 func glitch_effect_t(val:float):
 	var shader_mat = glitch_effect.material as ShaderMaterial

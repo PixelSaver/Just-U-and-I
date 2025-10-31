@@ -18,6 +18,10 @@ enum States {
 var state : States = States.MAIN_MENU
 
 var glitched : bool = false
+const EYE_BG = preload("uid://dmkxm5o4hgma1")
+func setup_eye():
+	var inst = EYE_BG.instantiate()
+	add_child(inst)
 
 var root : Node
 

@@ -29,7 +29,7 @@ shader_parameter/direction_r = Vector2(1, 0)
 shader_parameter/direction_g = Vector2(-0.695, -1.14)
 shader_parameter/direction_b = Vector2(-3.25, 1.355)
 
-[node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_page", "glitch_effect", "pixel_sort", "glitch_transition")]
+[node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_page", "glitch_effect", "pixel_sort", "glitch_transition", "bg")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -43,6 +43,7 @@ glitch_page = NodePath("CanvasLayer3/GlitchPage")
 glitch_effect = NodePath("GlitchRenderer/Glitch")
 pixel_sort = NodePath("CanvasLayer/PixelSort")
 glitch_transition = NodePath("CanvasLayer2/GlitchTransition")
+bg = NodePath("CanvasLayer3/BG")
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 copy_mode = 2
@@ -85,7 +86,15 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
-layer = 15
+
+[node name="BG" type="ColorRect" parent="CanvasLayer3"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="GlitchPage" parent="CanvasLayer3" instance=ExtResource("5_jub80")]
 visible = false
