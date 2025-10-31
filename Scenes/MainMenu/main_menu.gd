@@ -67,10 +67,10 @@ func try_ending(val:ButtonMenu):
 		notif_man.show_notification("Content [color=#2b90fd]LOCKED[/color]: [color=#ffa506]3 coins[/color] needed")
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 	else:
-		Global.go_credits()
-		end_main_menu()
-		#notif_man.show_notification("Content [color=#2b90fd]UNIFINISHED[/color]")
-		#notif_man.show_notification("DM PixelSaver your feedback.[color=#2b90fd]Thanks for playing![/color]")
+		Global.glitch_menu.first_anim()
+		#Global.go_credits()
+		#end_main_menu()
+		
 
 var duration : float = 0.8
 @export var all_parents : Array[Node] = []

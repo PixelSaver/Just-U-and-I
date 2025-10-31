@@ -1,4 +1,5 @@
 extends Control
+class_name GlitchMenu
 
 signal first_anim_finished
 @export var glitch_page : GlitchPage
@@ -9,6 +10,7 @@ signal first_anim_finished
 var t : Tween
 
 func _ready():
+	Global.glitch_menu = self
 	glitch_effect_t(0)
 	pixel_sort_t(0)
 	glitch_trans_t(0)
@@ -17,7 +19,7 @@ func _ready():
 	bg.hide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("glitch_debug"):
+	if event.is_action_pressed("glitch_debug") and OS.is_debug_build():
 		first_anim()
 
 func first_anim():
