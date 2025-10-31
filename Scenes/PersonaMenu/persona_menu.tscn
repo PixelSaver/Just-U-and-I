@@ -156,9 +156,21 @@ coin = NodePath("Bg/Coin")
 butn_foc = NodePath("ButtonCont/PersonaMenuButton")
 
 [node name="Screenshot2025-10-02165431" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.76862746)
 position = Vector2(878.304, 477)
 scale = Vector2(2.11392, 2.11392)
 texture = ExtResource("3_ckf1w")
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="Black" type="ColorRect" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Bg" type="Control" parent="."]
 layout_mode = 1

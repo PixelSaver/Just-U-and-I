@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://duvac1i3fyvly" path="res://Assets/persona_theme.tres" id="1_s2wmk"]
 [ext_resource type="Texture2D" uid="uid://cwgtuin4u5txs" path="res://Assets/Art/settings.png" id="2_epj5s"]
-[ext_resource type="Script" uid="uid://mqk1ld67b1iq" path="res://Scenes/OSMenu/persona_button.gd" id="2_j8wfi"]
+[ext_resource type="Script" uid="uid://mqk1ld67b1iq" path="res://Scenes/PersonaMenu/persona_button.gd" id="2_j8wfi"]
 [ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_j8wfi"]
 [ext_resource type="AudioStream" uid="uid://cykwywm8kxcxd" path="res://Assets/Audio/click-short.wav" id="5_2cu8n"]
 [ext_resource type="AudioStream" uid="uid://dynsjq8f7g8yf" path="res://Assets/Audio/key-caps.mp3" id="6_2cu8n"]

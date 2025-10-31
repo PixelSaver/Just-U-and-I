@@ -274,8 +274,19 @@ coin = NodePath("ProgramCont/Program13/MarginContainer2/Coin")
 focus_first = NodePath("ProgramCont/Program")
 ui_exit = NodePath("UIExit")
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="BGRect" type="ColorRect" parent="."]
 layout_mode = 0
+offset_left = -563.0
+offset_top = -585.0
+offset_right = 8449.0
+offset_bottom = 2336.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.59607846)
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -3
+
+[node name="BGRect" type="ColorRect" parent="BG"]
 offset_left = -563.0
 offset_top = -585.0
 offset_right = 8449.0
