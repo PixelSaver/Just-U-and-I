@@ -185,8 +185,8 @@ script = ExtResource("1_nnqny")
 pupil = NodePath("Center/Clip/Control/Pupil")
 white = NodePath("Center/Clip/Control/White")
 blood_anim = NodePath("Center/Clip/Control/BloodAnim")
-pupil_mult = Vector2(0.4, 0.3)
-white_mult = Vector2(0.2, 0.1)
+pupil_mult = Vector2(0.4, 0.25)
+pupil_speed = 4.484
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -221,7 +221,7 @@ grow_vertical = 2
 
 [node name="White" type="Sprite2D" parent="Center/Clip/Control"]
 texture_filter = 1
-scale = Vector2(15, 15)
+scale = Vector2(22, 22)
 texture = ExtResource("2_pvjgp")
 
 [node name="Shading" type="Sprite2D" parent="Center/Clip/Control"]
