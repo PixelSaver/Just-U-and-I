@@ -83,6 +83,17 @@ ui_exit = NodePath("UIExit")
 all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.168627, 0.564706, 0.992157, 0.133333)
 texture_filter = 1

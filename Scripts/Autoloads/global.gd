@@ -40,6 +40,11 @@ func collect_blue_coin(node:Node):
 	bc_scene.rotation = -bc_scene.get_global_transform().get_rotation()
 	bc_scene.global_position = node.global_position
 
+func kill_scenes_except_canvas():
+	for child in root.get_children():
+		if child is Control:
+			child.queue_free()
+
 func go_main_menu():
 	for child in root.get_children():
 		if child is MainMenu:

@@ -52,6 +52,7 @@ func _on_first_anim_finished() -> void:
 
 func _on_term_fin() -> void:
 	get_tree().paused = false
+	Global.kill_scenes_except_canvas()
 	print("term fin")
 	var end_t = create_tween().set_ease(Tween.EASE_OUT)
 	end_t.set_parallel(true).set_trans(Tween.TRANS_QUINT)

@@ -21,7 +21,7 @@ config/icon="res://Assets/Art/icon.svg"
 [autoload]
 
 ProjectUISoundController="*res://addons/maaacks_ui_sound_controller/base/scenes/autoloads/project_ui_sound_controller.tscn"
-Global="*res://Autoloads/global.gd"
+Global="*res://Scripts/Autoloads/global.gd"
 
 [display]
 
