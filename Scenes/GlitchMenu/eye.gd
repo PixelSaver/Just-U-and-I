@@ -39,6 +39,10 @@ func _update_pupil(delta:float):
 	var lerp_val = lerp(pupil.global_position, target, delta * pupil_speed)
 	pupil.global_position = lerp_val
 	white.global_position = lerp_val
+	
+	var pupil_pos_normalized = (lerp_val - viewport_center) * pupil_mult
+	pupil.global_scale = Vector2(15, (15-pow(abs(pupil_pos_normalized.y/15), 2)))
+	#print("scale: %s" % Vector2(15, (15-abs(pupil_pos_normalized.y)/10)))
 
 func anim_blood():
 	var t = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT)
