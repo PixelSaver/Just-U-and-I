@@ -1,0 +1,245 @@
+[gd_scene load_steps=30 format=3 uid="uid://dmkxm5o4hgma1"]
+
+[ext_resource type="Script" uid="uid://1crune1wwl83" path="res://Scenes/GlitchMenu/eye.gd" id="1_nnqny"]
+[ext_resource type="Texture2D" uid="uid://crkmvjjqw3tqo" path="res://Assets/Art/Spooky/eye_white_nopupil.png" id="2_pvjgp"]
+[ext_resource type="Texture2D" uid="uid://b5svhcant1yft" path="res://Assets/Art/Spooky/eye_shading.png" id="3_ctib6"]
+[ext_resource type="Texture2D" uid="uid://dvypgsbv5530q" path="res://Assets/Art/Spooky/eye_pupil.png" id="4_t858a"]
+[ext_resource type="Texture2D" uid="uid://b6byobecvt0e7" path="res://Assets/Art/Spooky/eye_blood_spritesheet.png" id="5_nef1a"]
+[ext_resource type="Texture2D" uid="uid://cdpk6684d6dur" path="res://Assets/Art/Spooky/eye_outside.png" id="6_oi68g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oiku"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12u6i"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pet6y"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y52sg"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy0ax"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxo1i"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg175"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_begm3"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7d7a"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6e3n"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_howub"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vei8v"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfag1"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6wft"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3xlg"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muls1"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26cg6"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajse8"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b32la"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27tib"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5stm6"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo3g8"]
+atlas = ExtResource("5_nef1a")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p45n7"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"blank",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oiku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12u6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pet6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y52sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy0ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxo1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg175")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_begm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7d7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6e3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_howub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vei8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfag1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6wft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3xlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26cg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajse8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b32la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27tib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5stm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo3g8")
+}],
+"loop": true,
+"name": &"blood",
+"speed": 5.0
+}]
+
+[node name="EyeBG" type="Control" node_paths=PackedStringArray("pupil", "white", "blood_anim")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nnqny")
+pupil = NodePath("Center/Clip/Control/Pupil")
+white = NodePath("Center/Clip/Control/White")
+blood_anim = NodePath("Center/Clip/Control/BloodAnim")
+pupil_mult = Vector2(0.4, 0.3)
+white_mult = Vector2(0.2, 0.1)
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3254902, 0.1764706, 0.15294118, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clip" type="CenterContainer" parent="Center"]
+clip_contents = true
+custom_minimum_size = Vector2(960, 960)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Center/Clip"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Center/Clip/Control"]
+custom_minimum_size = Vector2(960, 960)
+layout_mode = 0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="White" type="Sprite2D" parent="Center/Clip/Control"]
+texture_filter = 1
+scale = Vector2(15, 15)
+texture = ExtResource("2_pvjgp")
+
+[node name="Shading" type="Sprite2D" parent="Center/Clip/Control"]
+texture_filter = 1
+scale = Vector2(15, 15)
+texture = ExtResource("3_ctib6")
+
+[node name="Pupil" type="Sprite2D" parent="Center/Clip/Control"]
+texture_filter = 1
+scale = Vector2(15, 15)
+texture = ExtResource("4_t858a")
+
+[node name="BloodAnim" type="AnimatedSprite2D" parent="Center/Clip/Control"]
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_p45n7")
+animation = &"blank"
+
+[node name="Outside" type="Sprite2D" parent="Center/Clip/Control"]
+texture_filter = 1
+scale = Vector2(15, 15)
+texture = ExtResource("6_oi68g")
