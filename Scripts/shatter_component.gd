@@ -1,6 +1,7 @@
 extends Node
 class_name ShatterComponent
 
+signal shatter_finished
 @export var num_points := 20
 @export var shatter_force := 150.0
 @export var fade_time := 1.0
@@ -11,11 +12,16 @@ func _ready():
 	par = get_parent() as Control
 
 ## Call this to trigger shattering for all ColorRect and Panel children
-func shatter_all():
-	var targets = _find_shatterables(par)
-	print(targets)
+func shatter_all(node:Node=null):
+	var targets
+	if node: 
+		targets = _find_shatterables(node)
+	else:
+		targets = _find_shatterables(par)
 	for rect in targets:
 		_shatter_colorrect(rect)
+
+
 
 ## find all ColorRects and Panels recursively
 func _find_shatterables(node: Node) -> Array:
@@ -74,5 +80,8 @@ func _spawn_triangle(origin: Vector2, color: Color, tri_points: Array[Vector2]):
 
 	var tween = get_tree().create_tween()
 	tween.tween_property(poly, "position", poly.position + dir * speed, fade_time)
-	tween.tween_property(poly, "modulate:a", 0.0, fade_time)
+	tween.tween_property(par, "modulate:a", 0.0, fade_time)
 	tween.tween_callback(poly.queue_free)
+	
+	await tween.finished
+	shatter_finished.emit()

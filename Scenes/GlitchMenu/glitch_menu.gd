@@ -25,6 +25,7 @@ func _input(event: InputEvent) -> void:
 func first_anim():
 	if Global.state == Global.States.GLITCH: return
 	Global.state = Global.States.GLITCH
+	Global.glitched = true
 	get_tree().paused = true
 	if t: t.kill()
 	

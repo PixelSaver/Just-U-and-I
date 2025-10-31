@@ -11,6 +11,8 @@ class_name OSMenu
 @export var coin : Coin
 @export var focus_first: Control
 @export var ui_exit : AudioStreamPlayer
+@export_category("Break")
+@export var shatter_comp : ShatterComponent
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -24,6 +26,7 @@ var time_since_start = 0.0
 var animated_programs = [] 
 var is_animating_programs = false
 
+var is_broken := false
 
 func _ready() -> void:
 	tweenables = all_t()
@@ -134,6 +137,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("scroll_up"): 
 		scroll -= 185
 	if Input.is_action_just_pressed("esc") and Global.state == Global.States.OS_MENU:
+		if Global.glitched: return
 		end_anim(true)
 
 func _gui_input(event: InputEvent) -> void:
@@ -164,8 +168,11 @@ func _physics_process(delta: float) -> void:
 				pow(0.6, layer_index+1)
 	
 	if programs.size() > 0:
-		var last_program = programs.back() as Program
-		scroll += (clamp(scroll, 0, last_program.position.x + last_program.size.x - 450) - scroll) * 0.3
+		var last_program = programs.back()
+		if last_program: 
+			scroll += (clamp(scroll, 0, last_program.position.x + last_program.size.x - 450) - scroll) * 0.3
+		if Global.glitched and programs.size() < 4:
+			os_break()
 	
 	if pos.is_empty(): 
 		return
@@ -192,3 +199,13 @@ func _physics_process(delta: float) -> void:
 			#)
 		
 		animated_programs.append(i)
+
+func os_break():
+	if is_broken: return
+	is_broken = true
+	print("shattering all os")
+	shatter_comp.shatter_all(self)
+	await shatter_comp.shatter_finished
+	Global.os_broken_emit()
+	#queue_free()
+	self.hide()

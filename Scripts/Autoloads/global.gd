@@ -19,10 +19,19 @@ var state : States = States.MAIN_MENU
 
 var glitched : bool = false
 var glitch_menu : GlitchMenu
+signal os_broken
 const EYE_BG = preload("uid://dmkxm5o4hgma1")
 func setup_eye():
 	var inst = EYE_BG.instantiate()
 	add_child(inst)
+var eye : Eye
+func os_broken_emit():
+	print(os_broken.get_connections())
+	os_broken.emit()
+func kill_scenes_except_canvas():
+	for child in root.get_children():
+		if child is Control:
+			child.queue_free()
 
 var root : Node
 
@@ -41,10 +50,6 @@ func collect_blue_coin(node:Node):
 	bc_scene.rotation = -bc_scene.get_global_transform().get_rotation()
 	bc_scene.global_position = node.global_position
 
-func kill_scenes_except_canvas():
-	for child in root.get_children():
-		if child is Control:
-			child.queue_free()
 
 func go_main_menu():
 	for child in root.get_children():

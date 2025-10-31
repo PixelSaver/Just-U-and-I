@@ -24,6 +24,9 @@ var hover_tween : Tween
 enum InputMode { MOUSE, KEYBOARD }
 var current_input_mode : InputMode = InputMode.MOUSE
 var last_mouse_pos : Vector2 = Vector2.ZERO
+var disabled := false
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("d"):
 		shatter_comp.shatter_all()
@@ -63,32 +66,43 @@ func _gui_input(event: InputEvent) -> void:
 	else:
 		input_handler.input_handler_disabled = false
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("click_left") or Input.is_action_just_pressed("ui_select")) and has_focus():
-		modulate = og_mod * .7 + Color.DARK_ORCHID * .3
-		scale = Vector2.ONE
-		var t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
-		t.tween_property(self, "scale", Vector2.ONE * 1.1, 0.2)
-		
-		t.tween_property(self, "modulate", og_mod, 0.2)
-		Global.collect_blue_coin(self)
-		
-		if pressed_sound:
-			pressed_sound.play()
-		
-		if scene:
-			var os : OSMenu
-			for child in Global.root.get_children():
-				if child is OSMenu:
-					os = child
-			if os.is_start_animating or os.is_animating_programs: return
-			os.end_anim()
-			var inst = scene.instantiate()
-			Global.root.add_child(inst)
-			inst.start_anim()
-			Global.state = Global.States.PROGRAM
+		click()
 	input_handler.manual_gui_input(event)
+
+func click():
+	if Global.glitched:
+		shatter_comp.shatter_all()
+		disabled = true
+		await shatter_comp.shatter_finished
+		Global.get_os().programs.erase(self)
+		queue_free()
+		return
+	modulate = og_mod * .7 + Color.DARK_ORCHID * .3
+	scale = Vector2.ONE
+	var t = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
+	t.tween_property(self, "scale", Vector2.ONE * 1.1, 0.2)
 	
+	t.tween_property(self, "modulate", og_mod, 0.2)
+	Global.collect_blue_coin(self)
+		
+	if pressed_sound:
+		pressed_sound.play()
+	
+	if scene:
+		var os : OSMenu
+		for child in Global.root.get_children():
+			if child is OSMenu:
+				os = child
+		if os.is_start_animating or os.is_animating_programs: return
+		os.end_anim()
+		var inst = scene.instantiate()
+		Global.root.add_child(inst)
+		inst.start_anim()
+		Global.state = Global.States.PROGRAM
 
 func apply_hover_state():
+	if disabled: return
+	
 	if z_index == 1 or Global.state != Global.States.OS_MENU: return
 	program_hov.play()
 	z_index = 1
@@ -104,6 +118,8 @@ func apply_hover_state():
 	man_focus_entered()
 
 func apply_idle_state(forced:=false):
+	if disabled: return
+	
 	if z_index == 0: 
 		if forced: pass
 		else: return
@@ -126,6 +142,8 @@ func apply_idle_state(forced:=false):
 		idle_tween.tween_property(program_sprite, "position", target, duration / 12.0)
 
 func man_focus_entered() -> void:
+	if disabled: return
+	
 	if input_handler.current_input_mode == input_handler.InputMode.KEYBOARD: 
 		var par : OSMenu = null
 		for child in Global.root.get_children():

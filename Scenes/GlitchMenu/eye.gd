@@ -1,6 +1,7 @@
 extends CanvasLayer
 class_name Eye
 
+signal blood_anim_finished
 @export_category("Eye Sprites")
 @export var pupil : Sprite2D
 @export var white : Sprite2D
@@ -14,7 +15,16 @@ var eye_target : Vector2 = Vector2.ZERO
 var is_mouse : bool = true
 
 func _ready() -> void:
+	Global.eye = self
 	blood_anim.play("blank")
+	Global.os_broken.connect(_on_broken)
+
+func _on_broken():
+	print("Glitch menu realized os is broken")
+	var eye = Global.eye
+	if not eye: return
+	await get_tree().create_timer(.5).timeout
+	eye.anim_blood()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -67,8 +77,16 @@ func _update_pupil(delta: float):
 
 
 func anim_blood():
+	print("blood animating")
 	var t = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT)
 	t.tween_property(pupil, "modulate", Color.BLACK, 3.)
 	t.tween_property(white, "modulate", Color.BLACK, 3.)
 	t.tween_property(shading, "modulate", Color.BLACK, 3.)
 	blood_anim.play("blood")
+	await blood_anim.animation_finished
+	t.kill()
+	t = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT)
+	t.tween_property(get_child(0), "modulate", Color.BLACK, 1.)
+	await t.finished
+	Global.go_credits()
+	blood_anim_finished.emit()

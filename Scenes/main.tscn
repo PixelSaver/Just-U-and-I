@@ -8,6 +8,7 @@ process_mode = 3
 script = ExtResource("1_bo1nx")
 
 [node name="GlitchLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 layer = 9
 
 [node name="GlitchMenu" parent="GlitchLayer" instance=ExtResource("2_bo1nx")]
