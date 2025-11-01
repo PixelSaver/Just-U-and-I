@@ -36,12 +36,18 @@ func _on_pressed(val:ButtonMenu):
 	var text = val.button_text.text
 	match text:
 		TITLES[0]: # Play
+			
 			Global.state = Global.States.OS_MENU
-			end_main_menu()
-			ui_enter_os.play()
-			#var tw = create_tween().tween_property(os, "modulate:a", 1, 1.4).set_ease(Tween.EASE_OUT)
-			await get_tree().create_timer(0.5).timeout
-			Global.go_os()
+			if Global.glitched:
+				end_main_menu_glitch()
+				await get_tree().create_timer(1.).timeout
+				Global.go_os()
+				ui_enter_os.play()
+			else:
+				end_main_menu()
+				ui_enter_os.play()
+				await get_tree().create_timer(0.5).timeout
+				Global.go_os()
 		TITLES[1]: # Options
 			ui_enter.play()
 			handoff_to_setting()
@@ -120,6 +126,30 @@ func end_main_menu():
 		tmenu.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), duration)
 	
 	await tmenu.finished
+	queue_free()
+
+func end_main_menu_glitch():
+	if is_animating: return
+	is_animating = true;
+	ui_sound_cont.disabled = true
+	
+	var tmenu = create_tween()
+	tmenu.set_trans(Tween.TRANS_QUINT).set_parallel(true)
+	tmenu.set_ease(Tween.EASE_OUT)
+	for but in buttons:
+		if !but: 
+			tmenu.kill()
+			return
+		tmenu.tween_property(but, "position", but.position + (buttons[0].position - but.position)*.7, duration)
+	tmenu.tween_property(self, "modulate", Color(Color.WHITE,0), duration*1.5)
+	tmenu.tween_method(Global.glitch_menu.pixel_sort_t, 0., 1., duration*1.5)
+	
+	var all_t = all_tweenables()
+	for tween in all_t:
+		tmenu.tween_property(tween.get_parent(), "global_position", tween.get_final_pos(), duration)
+	
+	await tmenu.finished
+	Global.glitch_menu.pixel_sort_t(0)
 	queue_free()
 
 var is_animating = false;

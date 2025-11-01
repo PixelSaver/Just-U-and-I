@@ -62,14 +62,16 @@ func _on_term_fin() -> void:
 	end_t.tween_property(self, "modulate:a", 0., 0.9)
 	await end_t.finished
 	self.hide()
+	glitch_page.hide()
+	bg.hide()
 	Global.go_main_menu()
 	Global.setup_eye()
-	queue_free()
 
 func glitch_effect_t(val:float):
 	var shader_mat = glitch_effect.material as ShaderMaterial
 	shader_mat.set_shader_parameter("shake_rate", val)
 func pixel_sort_t(val:float):
+	self.show()
 	var shader_mat = pixel_sort.material as ShaderMaterial
 	shader_mat.set_shader_parameter("sort", val)
 func glitch_trans_t(val:float):

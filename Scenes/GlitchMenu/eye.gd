@@ -20,7 +20,6 @@ func _ready() -> void:
 	Global.os_broken.connect(_on_broken)
 
 func _on_broken():
-	print("Glitch menu realized os is broken")
 	var eye = Global.eye
 	if not eye: return
 	await get_tree().create_timer(.5).timeout
@@ -77,7 +76,6 @@ func _update_pupil(delta: float):
 
 
 func anim_blood():
-	print("blood animating")
 	var t = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT)
 	t.tween_property(pupil, "modulate", Color.BLACK, 3.)
 	t.tween_property(white, "modulate", Color.BLACK, 3.)
