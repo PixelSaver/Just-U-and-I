@@ -157,7 +157,6 @@ func _gui_input(event: InputEvent) -> void:
 	print("Event type: ", event.get_class()) 
 	if Global.state != Global.States.OS_MENU or is_start_animating: return
 	
-	
 	if Input.is_action_just_pressed("coin"):
 		notif_man.show_notification("You have collected [color=#ffa506]%s coins!" % str(Global.coins_collected.size()))
 	if Input.is_action_just_pressed("blue_coin"):
