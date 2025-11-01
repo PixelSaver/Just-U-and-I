@@ -22,6 +22,7 @@ config/icon="res://Assets/Art/icon.svg"
 
 ProjectUISoundController="*res://addons/maaacks_ui_sound_controller/base/scenes/autoloads/project_ui_sound_controller.tscn"
 Global="*res://Scripts/Autoloads/global.gd"
+Voronoi="*res://Scripts/Autoloads/voronoi.gd"
 
 [display]
 

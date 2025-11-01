@@ -49,39 +49,47 @@ func _shatter_colorrect(rect):
 	else:
 		rect_color = Color.WHITE
 
-	var points: Array[Vector2] = []
-	var rect_area = Rect2(Vector2.ZERO, rect_size)
-	points.append(rect_area.position)
-	points.append(rect_area.position + Vector2(rect_area.size.x, 0))
-	points.append(rect_area.position + Vector2(0, rect_area.size.y))
-	points.append(rect_area.position + rect_area.size)
-
-	for i in num_points:
-		points.append(Vector2(randf_range(0, rect_size.x), randf_range(0, rect_size.y)))
-
-	for i in range(points.size() / 3.):
-		var tri: Array[Vector2] = []
-		for j in range(3):
-			tri.append(points.pick_random())
-		_spawn_triangle(rect_global_pos, rect_color, tri)
+	# Generate random points within the rectangle
+	var bounds = Rect2(rect_global_pos, rect_size)
+	var points: Array[Vector2] = Voronoi.generate_random_points(num_points, bounds)
+	
+	# Generate Voronoi cells
+	var cells = Voronoi.generate_voronoi_cells(points, bounds)
+	
+	# Spawn a polygon for each Voronoi cell
+	for cell in cells:
+		_spawn_polygon(rect_global_pos, rect_color, cell)
 
 	rect.visible = false
 
-func _spawn_triangle(origin: Vector2, color: Color, tri_points: Array[Vector2]):
+func _spawn_polygon(origin: Vector2, color: Color, poly_points: Array[Vector2]):
 	var poly := Polygon2D.new()
-	poly.polygon = tri_points
+	poly.polygon = poly_points
 	poly.color = color
 	poly.position = origin
 	get_parent().add_child(poly)
-
-	var centroid = (tri_points[0] + tri_points[1] + tri_points[2]) / 3.0
+	
+	# Calculate centroid
+	var centroid = Vector2.ZERO
+	for p in poly_points:
+		centroid += p
+	centroid /= poly_points.size()
+	
+	# Direction from center of rect to centroid
+	var rect_center = Vector2(poly.position.x, poly.position.y)
 	var dir = (centroid - Vector2.ZERO).normalized()
 	var speed = randf_range(shatter_force * 0.5, shatter_force)
-
+	
+	# Add some rotation
+	var rotation_speed = randf_range(-3.0, 3.0)
+	
 	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
 	tween.tween_property(poly, "position", poly.position + dir * speed, fade_time)
-	tween.tween_property(par, "modulate:a", 0.0, fade_time)
-	tween.tween_callback(poly.queue_free)
+	tween.tween_property(poly, "rotation", rotation_speed, fade_time)
+	tween.tween_property(poly, "modulate:a", 0.0, fade_time)
+	
+	tween.chain().tween_callback(poly.queue_free)
 	
 	await tween.finished
 	shatter_finished.emit()
