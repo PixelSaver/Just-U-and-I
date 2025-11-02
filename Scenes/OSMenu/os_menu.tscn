@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cph0pd7hvoen1"]
+[gd_scene load_steps=71 format=3 uid="uid://cph0pd7hvoen1"]
 
 [ext_resource type="Theme" uid="uid://dxdst3fbdsr64" path="res://Assets/os_theme.tres" id="1_8yt1f"]
 [ext_resource type="Script" uid="uid://d3vplgtg2sir3" path="res://Scenes/OSMenu/os.gd" id="2_ydafb"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://c815yjtktsf4h" path="res://Assets/Art/RPG_Coin_Gold_Currency_Money_GP.png" id="15_oltf8"]
 [ext_resource type="AudioStream" uid="uid://wyrq4mjnvt2v" path="res://Assets/Audio/dropdown-close.wav" id="28_2l8m2"]
 [ext_resource type="Script" uid="uid://bipc024nm7jxt" path="res://Scripts/shatter_component.gd" id="29_bessx"]
+[ext_resource type="AudioStream" uid="uid://d2ao1u3y8tyhp" path="res://Assets/Audio/glass_shatter_fast.mp3" id="30_wfo51"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -3455,6 +3456,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="ShatterFastSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_wfo51")
+volume_db = 22.048
+pitch_scale = 1.28
+max_polyphony = 20
+bus = &"SFX"
 
 [editable path="ProgramCont/Program"]
 [editable path="ProgramCont/Program2"]

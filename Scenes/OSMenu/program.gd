@@ -15,6 +15,7 @@ signal flash_finished
 @onready var input_handler : InputHandler = $InputHandler
 @export var pressed_sound : AudioStreamPlayer
 @export var glitch_effect : ColorRect
+@export var shatter_fast : AudioStreamPlayer
 
 var sprite_og_pos : Vector2
 var og_mod : Color
@@ -83,6 +84,7 @@ func _gui_input(event: InputEvent) -> void:
 func click():
 	if Global.glitched:
 		shatter_comp.shatter_all()
+		shatter_fast.play()
 		disabled = true
 		await shatter_comp.shatter_finished
 		Global.get_os().programs.erase(self)

@@ -14,6 +14,7 @@ class_name OSMenu
 @export_category("Glitch")
 @export var shatter_comp : ShatterComponent
 @export var glitch_effect : ColorRect
+@export var shatter_stream : AudioStreamPlayer
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -38,7 +39,7 @@ func _ready() -> void:
 	if Global.glitched:
 		glitch_effect.show()
 		var shader_mat = glitch_effect.material.duplicate() as ShaderMaterial
-		shader_mat.set_shader_parameter("shake_rate", randf_range(.03, .5))
+		shader_mat.set_shader_parameter("shake_rate", randf_range(.03, .2))
 		glitch_effect.material = shader_mat
 	else:
 		glitch_effect.hide()
@@ -223,5 +224,5 @@ func os_break():
 	shatter_comp.shatter_all(self)
 	await shatter_comp.shatter_finished
 	Global.os_broken_emit()
-	#queue_free()
+	shatter_stream.play()
 	self.hide()

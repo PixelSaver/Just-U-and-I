@@ -221,6 +221,12 @@ Many thanks for these people for letting me use their work for free! See 'ATTRIB
 * glass_002.ogg by [Kenney.nl](www.kenney.nl)
 * ui_reject.mp3 Sound Effect by <a href="https://pixabay.com/users/audley_fergine-32337609/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Hanifi Şahin</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=327756">Pixabay</a>
 * Ansdor for the [button icons](https://ansdor.itch.io/button-icons)
+
+* glitch_1.mp3, glitch_intro.mp3, glitch_logo.mp3 Sound Effect by <a href="https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=397982">DRAGON-STUDIO</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=397982">Pixabay</a>
+* glitch_2.mp3 Sound Effect by <a href="https://pixabay.com/users/kakaist-48093450/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=312910">kave msri</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=312910">Pixabay</a>
+* glitch_3.mp3, glitch_4.mp3, glitch_reverb.mp3 Sound Effect by <a href="https://pixabay.com/users/sound_garage-47313534/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=311803">SOUND_GARAGE</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=311803">Pixabay</a>
+* glass_shatter.mp3 Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6898">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6898">Pixabay</a>
+
 * Nikoichu for the [pixel icons](https://nikoichu.itch.io/pixel-icons)
 * [Claude](https://claude.ai/) and [ChatGPT](https://chatgpt.com) who helped me write the editor scripts for tweenables (find them at `/Scripts/Editor/')
 
