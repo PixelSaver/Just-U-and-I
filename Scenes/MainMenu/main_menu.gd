@@ -55,7 +55,12 @@ func _on_pressed(val:ButtonMenu):
 			t.tween_property(val, "modulate", Color("#2b91ff"), 0.1)
 			t.tween_property(val, "modulate", Color.WHITE, 0.3)
 		TITLES[2]: # Extras
-			try_ending(val)
+			if Global.glitched:
+				ui_reject_audio.play()
+				val.reject_anim()
+				notif_man.show_notification("Content [color=#2b90fd]OUT OF ORDER[/color]")
+			else:
+				try_ending(val)
 		TITLES[3]: # Quit
 			end_main_menu()
 			ui_exit.play()

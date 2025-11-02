@@ -84,8 +84,10 @@ func _gui_input(event: InputEvent) -> void:
 func click():
 	if Global.glitched:
 		shatter_comp.shatter_all()
+		shatter_fast.pitch_scale = randf_range(1.02, 1.4)
 		shatter_fast.play()
 		disabled = true
+		Global.glitch_menu.up_heartbeat_vol()
 		await shatter_comp.shatter_finished
 		Global.get_os().programs.erase(self)
 		queue_free()

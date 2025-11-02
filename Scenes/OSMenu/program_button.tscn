@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="5_236nq"]
 [ext_resource type="AudioStream" uid="uid://7amhs6th1dof" path="res://Assets/Audio/check-off.wav" id="6_not2c"]
 [ext_resource type="Script" uid="uid://bipc024nm7jxt" path="res://Scripts/shatter_component.gd" id="7_ev3up"]
-[ext_resource type="AudioStream" uid="uid://3if74ogev7w8" path="res://Assets/Audio/glass_shatter.mp3" id="8_jlpuj"]
+[ext_resource type="AudioStream" uid="uid://d2ao1u3y8tyhp" path="res://Assets/Audio/glass_shatter_fast.mp3" id="8_jlpuj"]
 
 [sub_resource type="Shader" id="Shader_ev3up"]
 code = "/*
@@ -72,7 +72,7 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.0
 shader_parameter/shake_color_rate = 0.01
 
-[node name="Program" type="Control" node_paths=PackedStringArray("shatter_comp", "program_sprite", "program_label", "program_hov", "pressed_sound", "glitch_effect")]
+[node name="Program" type="Control" node_paths=PackedStringArray("shatter_comp", "program_sprite", "program_label", "program_hov", "pressed_sound", "glitch_effect", "shatter_fast")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -89,6 +89,7 @@ program_label = NodePath("MarginContainer/RichTextLabel")
 program_hov = NodePath("ProgramHover")
 pressed_sound = NodePath("PressedSound")
 glitch_effect = NodePath("CanvasLayer/GlitchEffect")
+shatter_fast = NodePath("ShatterFastSound")
 
 [node name="Border" type="Panel" parent="."]
 clip_contents = true
@@ -174,11 +175,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ShatterSound" type="AudioStreamPlayer" parent="."]
+[node name="ShatterFastSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_jlpuj")
 volume_db = 22.048
 pitch_scale = 1.28
-max_polyphony = 9
+max_polyphony = 20
 bus = &"SFX"
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

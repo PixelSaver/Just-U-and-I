@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtqtgw0owlb5a"]
+[gd_scene load_steps=11 format=3 uid="uid://dtqtgw0owlb5a"]
 
 [ext_resource type="Script" uid="uid://6etav7csmjnv" path="res://Scenes/GlitchMenu/glitch_menu.gd" id="2_6chg5"]
 [ext_resource type="Shader" uid="uid://dkj07vne1bj55" path="res://Shaders/glitch.gdshader" id="3_6chg5"]
 [ext_resource type="PackedScene" uid="uid://cc45yihu5l1s8" path="res://Scenes/GlitchMenu/glitch_page.tscn" id="5_jub80"]
 [ext_resource type="Shader" uid="uid://cjona2v6bwxsp" path="res://Shaders/pixel_sort.gdshader" id="5_pupqb"]
+[ext_resource type="AudioStream" uid="uid://cdghmu3boikj6" path="res://Assets/Audio/glitch_intro.mp3" id="6_h0upt"]
 [ext_resource type="Shader" uid="uid://c1l6if2e06poe" path="res://Shaders/glitch_transition.gdshader" id="6_jub80"]
+[ext_resource type="AudioStream" uid="uid://djvlmntmr0gh6" path="res://Assets/Audio/heartbeat.mp3" id="7_h0upt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pupqb"]
 shader = ExtResource("3_6chg5")
@@ -29,7 +31,7 @@ shader_parameter/direction_r = Vector2(1, 0)
 shader_parameter/direction_g = Vector2(-0.695, -1.14)
 shader_parameter/direction_b = Vector2(-3.25, 1.355)
 
-[node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_page", "glitch_effect", "pixel_sort", "glitch_transition", "bg")]
+[node name="GlitchMenu" type="Control" node_paths=PackedStringArray("glitch_page", "glitch_effect", "pixel_sort", "glitch_transition", "bg", "glitch_trans_stream", "heartbeat")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -44,6 +46,8 @@ glitch_effect = NodePath("GlitchRenderer/Glitch")
 pixel_sort = NodePath("CanvasLayer/PixelSort")
 glitch_transition = NodePath("CanvasLayer2/GlitchTransition")
 bg = NodePath("CanvasLayer3/BG")
+glitch_trans_stream = NodePath("GlitchTrans")
+heartbeat = NodePath("Heartbeat")
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 copy_mode = 2
@@ -98,5 +102,12 @@ color = Color(0, 0, 0, 1)
 
 [node name="GlitchPage" parent="CanvasLayer3" instance=ExtResource("5_jub80")]
 visible = false
+
+[node name="GlitchTrans" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_h0upt")
+volume_db = -3.273
+
+[node name="Heartbeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_h0upt")
 
 [connection signal="first_anim_finished" from="." to="." method="_on_first_anim_finished"]

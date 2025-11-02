@@ -7,6 +7,9 @@ signal first_anim_finished
 @export var pixel_sort : ColorRect
 @export var glitch_transition : ColorRect
 @export var bg : ColorRect
+@export var glitch_trans_stream : AudioStreamPlayer
+@export var heartbeat : AudioStreamPlayer
+@onready var heartbeat_target_vol = heartbeat.volume_db
 var t : Tween
 
 func _ready():
@@ -27,6 +30,9 @@ func first_anim():
 	Global.state = Global.States.GLITCH
 	Global.glitched = true
 	get_tree().paused = true
+	
+	glitch_trans_stream.play()
+	
 	if t: t.kill()
 	
 	t = create_tween()
@@ -43,6 +49,7 @@ func first_anim():
 func _on_first_anim_finished() -> void:
 	glitch_transition.hide()
 	bg.show()
+	heartbeat.play()
 	
 	glitch_page.modulate.a = 0.
 	glitch_page.show()
@@ -66,6 +73,12 @@ func _on_term_fin() -> void:
 	bg.hide()
 	Global.go_main_menu()
 	Global.setup_eye()
+
+
+func up_heartbeat_vol():
+	heartbeat_target_vol += 1.
+func _process(delta: float) -> void:
+	heartbeat.volume_db = lerp(heartbeat.volume_db, heartbeat_target_vol, delta * 2.)
 
 func glitch_effect_t(val:float):
 	var shader_mat = glitch_effect.material as ShaderMaterial

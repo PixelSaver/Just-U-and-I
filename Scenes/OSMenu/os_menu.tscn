@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://c815yjtktsf4h" path="res://Assets/Art/RPG_Coin_Gold_Currency_Money_GP.png" id="15_oltf8"]
 [ext_resource type="AudioStream" uid="uid://wyrq4mjnvt2v" path="res://Assets/Audio/dropdown-close.wav" id="28_2l8m2"]
 [ext_resource type="Script" uid="uid://bipc024nm7jxt" path="res://Scripts/shatter_component.gd" id="29_bessx"]
-[ext_resource type="AudioStream" uid="uid://d2ao1u3y8tyhp" path="res://Assets/Audio/glass_shatter_fast.mp3" id="30_wfo51"]
+[ext_resource type="AudioStream" uid="uid://3if74ogev7w8" path="res://Assets/Audio/glass_shatter.mp3" id="30_wfo51"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00ff"]
 bg_color = Color(0.780392, 0.34902, 0.886275, 0.439216)
@@ -318,7 +318,7 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.0
 shader_parameter/shake_color_rate = 0.01
 
-[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin", "focus_first", "ui_exit", "shatter_comp", "glitch_effect")]
+[node name="OSMenu" type="Control" node_paths=PackedStringArray("program_parent", "tween_parents", "bg_arr", "title", "notif_man", "coin", "focus_first", "ui_exit", "shatter_comp", "glitch_effect", "shatter_stream")]
 process_mode = 1
 layout_mode = 3
 anchors_preset = 15
@@ -340,6 +340,7 @@ focus_first = NodePath("ProgramCont/Program")
 ui_exit = NodePath("UIExit")
 shatter_comp = NodePath("ShatterComponent")
 glitch_effect = NodePath("CanvasLayer/GlitchEffect")
+shatter_stream = NodePath("ShatterSound")
 
 [node name="BGRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -3457,11 +3458,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ShatterFastSound" type="AudioStreamPlayer" parent="."]
+[node name="ShatterSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_wfo51")
 volume_db = 22.048
-pitch_scale = 1.28
-max_polyphony = 20
+pitch_scale = 1.41
+max_polyphony = 9
 bus = &"SFX"
 
 [editable path="ProgramCont/Program"]
