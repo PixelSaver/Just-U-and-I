@@ -14,6 +14,7 @@ signal flash_finished
 @export_category("Misc")
 @onready var input_handler : InputHandler = $InputHandler
 @export var pressed_sound : AudioStreamPlayer
+@export var glitch_effect : ColorRect
 
 var sprite_og_pos : Vector2
 var og_mod : Color
@@ -39,6 +40,16 @@ func _ready():
 	og_mod = modulate
 	input_handler.input_handler_disabled = true
 	
+	
+	var shader_mat = glitch_effect.material.duplicate() as ShaderMaterial
+	glitch_effect.material = shader_mat
+	if Global.glitched:
+		randomize()
+		shader_mat.set_shader_parameter("shake_rate", randf_range(0.2,0.5))
+		glitch_effect.show()
+	else:
+		shader_mat.set_shader_parameter("shake_rate", 0.)
+		glitch_effect.hide()
 
 func _flash(rect:Vector2, i:int, dur:float=1):
 	var flash = ColorRect.new()
@@ -114,6 +125,8 @@ func apply_hover_state():
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(program_sprite, "position", sprite_og_pos, 0.3)
 	hover_tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.3)
+	if Global.glitched:
+		hover_tween.tween_method(glitch_effect_t, 0., 1., 0.5)
 	
 	man_focus_entered()
 
@@ -128,6 +141,8 @@ func apply_idle_state(forced:=false):
 		hover_tween.kill()
 	hover_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 	hover_tween.tween_property(self, "scale", Vector2.ONE, 0.3)
+	if Global.glitched:
+		hover_tween.tween_method(glitch_effect_t, 1., randf_range(0.01,0.3), 0.3)
 	if idle_tween:
 		idle_tween.kill()
 	idle_tween = create_tween().set_loops()
@@ -157,6 +172,10 @@ func man_focus_entered() -> void:
 	#is_hovered = false
 	apply_hover_state()
 
+func _process(_delta: float) -> void:
+	glitch_effect.set_global_position(global_position)
+	glitch_effect.set_size(size)
+	glitch_effect.scale = scale
 
 func check_out_of_bounds(control: Control) -> Vector2:
 	var view_rect: Rect2 = get_viewport_rect()
@@ -168,3 +187,8 @@ func check_out_of_bounds(control: Control) -> Vector2:
 	if rect.end.x > view_rect.end.x:
 		return Vector2(1, rect.end.x - view_rect.end.x)
 	return Vector2.ZERO
+
+func glitch_effect_t(val:float):
+	var shader_mat = glitch_effect.material as ShaderMaterial
+	shader_mat.set_shader_parameter("shake_power", val/10.)
+	shader_mat.set_shader_parameter("shake_rate", val + randf_range(-.1,.1))

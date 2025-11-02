@@ -11,8 +11,9 @@ class_name OSMenu
 @export var coin : Coin
 @export var focus_first: Control
 @export var ui_exit : AudioStreamPlayer
-@export_category("Break")
+@export_category("Glitch")
 @export var shatter_comp : ShatterComponent
+@export var glitch_effect : ColorRect
 
 var scroll = 0.0
 var last_scroll = 0.0
@@ -34,6 +35,13 @@ func _ready() -> void:
 	focus_first.call_deferred("grab_focus")
 	
 	start_anim()
+	if Global.glitched:
+		glitch_effect.show()
+		var shader_mat = glitch_effect.material.duplicate() as ShaderMaterial
+		shader_mat.set_shader_parameter("shake_rate", randf_range(.03, .5))
+		glitch_effect.material = shader_mat
+	else:
+		glitch_effect.hide()
 
 func _on_coin_collected(_coin:Coin):
 	notif_man.show_notification("You just collected [color=#ffa506]1 coin!")
