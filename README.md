@@ -69,21 +69,35 @@
 ## About The Project
 
 ### Overall
+(Siege W5)
 Built for Hackclub Siege, this was a rather enormous undertaking for me. I thought I could just find some references, whip up some UI, and then be done for the day but... Scope creep caught up to me. Thank gosh Siege only allows for a week, otherwise this project would have been blown out of proportion. I will say that I have taken heavy inspiration from one person in particular, but this was also a testament to what I can do in Godot with my current skillset (and what I can do UI-wise). 
+(Siege W9)
+Glitched OS... GET HACKED LOL I don't know how clicking coins and clicking the 'click me' button gets you hacked but... who cares about rationale? THe hacking is cool and I got a lot of stuff done in 10 hours as compared to 40 hours last time yay.
 
 ### What even is this?
 A very simple UI-based game where the user explores, finds coins, and then unlocks the ending! Bonus points if they get all the blue coins! I will leave the question of how to get blue coins up to exploration since it's not difficult. Here's a nice feature list:
+(Siege W5)
 * 4 themed user interfaces to interact with
 * Smooth transitions in between all menus
 * Collectible gold and blue coins (3 of gold, and ? of blue)
 * Nice sounds to go with the experience (see <a href="#acknowledgments">Acknowledgments</a> or 'ATTRIBUTIONS')
 * Keyboard navigable user interface (currently doesn't work to pick up coins... that would be too easy!)
-* A hidden ending that won't surprise you
+(Siege W9)
+* A glitched button that gives a hacker direct access to the OS
+* Glitched sound effects
+* Glitch transitions 
+* Shatter effect for OS breaking scene
+* An eyeball to watch you as your OS is being taken over (it looks at your cursor :D)
+* A creepy ending scene...
+* Credits!!!
 
 ### What do I take out of this?
+(Siege W5)
 Scope creep is definitely one. I came into this with big plans, and only got 4 sections done... The ending makes 5 but that doesn't really count. I did try making a mood board and a plan, but I found myself polishing features while the game wasn't finished yet. I think I should go with minimum viable product before going for polishing rounds, even if I feel like I have a time limit. 
 Also, I learned a lot about how the Godot User Interface Nodes work: mouse_filter, containers, clip_contents, _gui_input(), etc. If we're talking strictly about Godot though, tweens are now my best friend. They do so much and are so nice (even though I don't do a good job of cleaning them up). 
 Lastly, there was a moment when I woke up, opened up my code editor, and didn't comprehend what I had written at 12 am the night before. I gave myself the task of turning the code into a component, but it was so jank and slapped together that it took many hours to rewrite code that had taken barely an hour to initially put down. From now on, I will do my best to look ahead and compartmentalize things that will be used again, like the input system I made or the (lack of) a scene manager.
+(Siege W9)
+Horror is a lot easier than making smooth ui. Give the player a lot less to do and cutscene the heck out of them. Honestly it feels worse since its a lot more sit around than interact... I wish i could have made some sort of way to defeat the hacker maybe, but alas. I did plan out the features I wanted, and got most of them done by the end. Nice job! (especially compared to what I wrote above) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,17 +125,39 @@ They’re fairly large, so I’ve tucked them into expandable sections:
   <img src="Media/persona.png" alt="Screenshot of one of the 'apps' in my game">
 </details>
 
+<details>
+  <summary><strong>Glitch Main Menu</strong></summary>
+  <img src="Media/glitch_1.png" alt="Eyeball in the main menu :D">
+</details>
+
+<details>
+  <summary><strong>Persona App</strong></summary>
+  <img src="Media/glitch_2.png" alt="yeball in the main menu :D">
+</details>
+
+<details>
+  <summary><strong>OS Glitch</strong></summary>
+  <img src="Media/glitch_3.png" alt="On of the programs glitching in the game (theres more effects if you play it)">
+</details>
+
+<details>
+  <summary><strong>OS Shatter</strong></summary>
+  <img src="Media/glitch_4.png" alt="One frame of the procedural shatter effect done on the OS menu. Eyeball is watching!!! ">
+</details>
+
 #### Notes
 - The main menu has some subtle hints to encourage clicking, though I’m not sure they’re strong enough.  
 - The settings screen isn’t a real settings menu—it’s just for show (like much of this project).  
 - The OS has one more tile in-game, but I’ll let you discover that yourself—I spent a while on the shader.  
 - The Persona app is named after the Persona-inspired UI. None of the buttons work (except quit), but they look neat.
+- There's way more glitched transitions and also some cool sounds in the game if you play it!!!
+- The eyeball is so cool and watches you move your cursor around!!
 
 > [!TIP]  
 > Press `B` or `C` to see your blue and gold coin counts in the OS and Menu screens.  
 
 > [!TIP]  
-> Press `Q` or `ESC` to exit certain menus.  
+> Press `Q` or `ESC` to exit certain menus.
 
 > [!TIP]  
 > Use arrow keys + Space/Enter to fully navigate menus with your keyboard.  
@@ -129,9 +165,6 @@ They’re fairly large, so I’ve tucked them into expandable sections:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -157,9 +190,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ### Play 
 
-If you'd like to build it yourself, I used Godot 4.4.1. I do have a pre-built web version available [here on my itch](https://pixelsaver.itch.io/just-u-and-i), but if you still insist on building this unoptimized mess, go ahead.
+If you'd like to build it yourself, I used Godot 4.5. I do have a pre-built web version available [here on my itch](https://pixelsaver.itch.io/just-u-and-i), but if you still insist on building this unoptimized mess, go ahead.
 
-1. Install Godot 4.4
+1. Install Godot 4.5
 2. Download and unzip the code
 3. Open the file with Godot project manager
 4. Go to Project > Export, add whichever platform you're on (MacOS, Windows) and then click export.
@@ -174,13 +207,20 @@ If you'd like to build it yourself, I used Godot 4.4.1. I do have a pre-built we
 - [x] Make the Settings
 - [x] Make the OS
 - [X] Add coins
-- [ ] Finish sounds (pull from Osu Lazer)
+- [ ] Finish sounds (pull from Osu Lazer) 
+  - [X] Add glitched sounds (still missing glitch sounds on hover for program and typing sounds for the terminal)
 - [ ] Add tutorial / teach the user how to play
 - [ ] Extra apps in the OS
   - [X] Persona looking ui for whatever in an app
   - [ ] Osu lazer main menu clone
   - [ ] Osu lazer radial menu clone
   - [ ] Mochibot
+- [X] Add the spookiness
+  - [x] Terminal to hack the os
+  - [x] Glitch effects and transitions 
+  - [x] Eyeball to watch your os get hacked
+  - [x] Shatter effect to break the OS
+  - [x] Animation at the end... 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

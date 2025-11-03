@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b43fqqt4uebd6"
-path="res://.godot/imported/glitch_1.png-4278e4304371cc0bbc597e1f13b36edf.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Media/glitch_1.png"
-dest_files=["res://.godot/imported/glitch_1.png-4278e4304371cc0bbc597e1f13b36edf.ctex"]
 
 [params]
 
