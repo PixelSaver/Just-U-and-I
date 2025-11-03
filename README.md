@@ -204,20 +204,15 @@ If you're stuck, I have left a list of hints below to help you out :)
 <details>
 <summary><strong>If you don't have 3 coins yet</strong></summary>
 
-&nbsp;&nbsp;&nbsp;&nbsp;<details>
-&nbsp;&nbsp;&nbsp;&nbsp;<summary><strong>Main Menu Coin</strong></summary>
-&nbsp;&nbsp;&nbsp;&nbsp;<p>Right side, on the bar</p>
-&nbsp;&nbsp;&nbsp;&nbsp;</details>
+> <details>
+> <summary><strong>Main Menu Coin</strong></summary>
+> <p>Right side, on the bar</p>
+> </details>
 
-&nbsp;&nbsp;&nbsp;&nbsp;<details>
-&nbsp;&nbsp;&nbsp;&nbsp;<summary><strong>OS Menu Coin</strong></summary>
-&nbsp;&nbsp;&nbsp;&nbsp;<p>Scroll to the right, and then click on the center of the spinning boxes</p>
-&nbsp;&nbsp;&nbsp;&nbsp;</details>
-
-&nbsp;&nbsp;&nbsp;&nbsp;<details>
-&nbsp;&nbsp;&nbsp;&nbsp;<summary><strong>Persona Menu Coin</strong></summary>
-&nbsp;&nbsp;&nbsp;&nbsp;<p>Once in the persona menu (the top left button in the OS Menu), don't hover over the top right button and the coin should be visible behind it</p>
-&nbsp;&nbsp;&nbsp;&nbsp;</details>
+> <details>
+> <summary><strong>OS Menu Coin</strong></summary>
+> <p>Scroll to the right, and then click on the center of the spinning boxes</p>
+> </details>
 </details>
 <details>
   <summary><strong>Once you have 3 coins</strong></summary>
