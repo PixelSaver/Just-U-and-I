@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 		first_anim()
 
 func first_anim():
-	if Global.state == Global.States.GLITCH: return
+	if Global.state == Global.States.GLITCH or Global.glitched: return
 	Global.state = Global.States.GLITCH
 	Global.glitched = true
 	get_tree().paused = true
@@ -76,7 +76,9 @@ func _on_term_fin() -> void:
 
 
 func up_heartbeat_vol():
-	heartbeat_target_vol += 1.
+	heartbeat_target_vol += 3.
+func silence_heartbeat():
+	heartbeat.stop()
 func _process(delta: float) -> void:
 	heartbeat.volume_db = lerp(heartbeat.volume_db, heartbeat_target_vol, delta * 2.)
 

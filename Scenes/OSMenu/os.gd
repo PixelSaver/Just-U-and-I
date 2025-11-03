@@ -222,7 +222,8 @@ func os_break():
 	is_broken = true
 	print("shattering all os")
 	shatter_comp.shatter_all(self)
+	shatter_stream.play()
+	Global.glitch_menu.silence_heartbeat()
 	await shatter_comp.shatter_finished
 	Global.os_broken_emit()
-	shatter_stream.play()
 	self.hide()
