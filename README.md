@@ -213,6 +213,11 @@ If you're stuck, I have left a list of hints below to help you out :)
 > <summary><strong>OS Menu Coin</strong></summary>
 > <p>Scroll to the right, and then click on the center of the spinning boxes</p>
 > </details>
+
+> <details>
+>     <summary><strong>Persona Menu Coin</strong></summary>
+>     <p>Once in the persona menu (the top left button in the OS Menu), don't hover over the top right button and the coin should be visible behind it</p>
+>   </details>
 </details>
 <details>
   <summary><strong>Once you have 3 coins</strong></summary>
