@@ -148,12 +148,13 @@ speed_scale = 5.0
 
 [node name="CoinCollected" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_h2p6v")
-volume_db = -10.505
+volume_db = -0.339
 bus = &"SFX"
 
 [node name="CoinBounce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ffmqm")
-volume_db = -32.686
+volume_db = -7.231
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

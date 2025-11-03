@@ -54,15 +54,35 @@ Author: [Hanifi Şahin](https://pixabay.com/users/audley_fergine-32337609/)
 Source: [Pixabay Sound Effects](https://pixabay.com/sound-effects//)  
 License: [Pixabay License](https://pixabay.com/service/license/)  
 
+### glitch_1.mp3, glitch_intro.mp3, glitch_logo.mp3, heartbeat.mp3  
+Author: [DRAGON-STUDIO](https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=397982)  
+Source: [Pixabay Sound Effects](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=397982)  
+License: [Pixabay License](https://pixabay.com/service/license/)  
+
+### glitch_2.mp3  
+Author: [kave msri](https://pixabay.com/users/kakaist-48093450/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=312910)  
+Source: [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=312910)  
+License: [Pixabay License](https://pixabay.com/service/license/)  
+
+### glitch_3.mp3, glitch_4.mp3, glitch_reverb.mp3  
+Author: [SOUND_GARAGE](https://pixabay.com/users/sound_garage-47313534/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=311803)  
+Source: [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=311803)  
+License: [Pixabay License](https://pixabay.com/service/license/)  
+sdfds
+### glass_shatter.mp3  
+Author: [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6898)  
+Source: [Pixabay Sound Effects](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6898)  
+License: [Pixabay License](https://pixabay.com/service/license/)  
+
 ### Button Icons
 Author: [Ansdor](https://ansdor.itch.io/)  
 Source: [Itch.io Pack](https://ansdor.itch.io/button-icons)  
-License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)  
 
 ### Pixel Icons
 Author: [Nikoichu](https://nikoichu.itch.io/)  
 Source: [Itch.io Pack](https://nikoichu.itch.io/pixel-icons)  
-License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)  
 
 ---
 

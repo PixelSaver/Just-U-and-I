@@ -710,6 +710,7 @@ metadata/_custom_type_script = "uid://4egkkeg4db5e"
 
 [node name="UIReject" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_3o84h")
+volume_db = 4.727
 bus = &"SFX"
 
 [node name="UISoundController" type="Node" parent="." node_paths=PackedStringArray("exceptions")]
@@ -728,15 +729,17 @@ stream = ExtResource("15_6capf")
 
 [node name="UIPressed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_mtk40")
+volume_db = -8.0
 
 [node name="UIEnterOS" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_qy48e")
-volume_db = -19.605
+volume_db = 0.335
+bus = &"SFX"
 
 [node name="UIExit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6capf")
 
 [node name="UIGlitched" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_xt57n")
-volume_db = 9.774
+volume_db = 12.511
 bus = &"SFX"

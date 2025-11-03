@@ -184,10 +184,10 @@ metadata/_edit_group_ = true
 
 [node name="Coin" parent="Bg" instance=ExtResource("4_ffww0")]
 layout_mode = 1
-offset_left = 1388.0
-offset_top = 137.0
-offset_right = -278.0
-offset_bottom = -773.0
+offset_left = 1409.0
+offset_top = 134.0
+offset_right = -257.0
+offset_bottom = -776.0
 coin_id = "persona_menu"
 
 [node name="ColorRect10" type="ColorRect" parent="Bg"]
