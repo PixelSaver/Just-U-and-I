@@ -2,37 +2,56 @@ extends Control
 class_name GlitchPage
 
 signal terminal_finished
+
 const LINES := [
-	"[color=#00FF00][ OK ][/color] Reached target Basic System.",
-	#"[color=#00FF00][ OK ][/color] Started D-Bus System Message Bus.",
-	#"[color=#888888]         Starting Network Manager...[/color]",
-	#"[color=#00FF00][ OK ][/color] Started Network Manager.",
-	#"[color=#888888]         Starting WPA supplicant...[/color]",
-	#"[color=#FFAA00][WARN][/color] wlan0: authentication timed out",
-	#"[color=#888888]         Retrying connection (attempt 2/3)...[/color]",
-	#"[color=#00AAFF][ INFO ][/color] wlan0: associated with AP 94:FA:3C:5B:xx:xx",
-	#"[color=#00FF00][ OK ][/color] wlan0: link is up (54 Mbps)",
-	#"[color=#00FF00][ OK ][/color] Reached target Network is Online.",
-	#"[color=#888888]         Starting SSH daemon...[/color]",
-	#"[color=#00FF00][ OK ][/color] Started OpenSSH server daemon.",
-	#"[color=#888888]         Loading kernel modules...[/color]",
-	#"[color=#00AAFF][ INFO ][/color] Loading module: video_core (proprietary)",
-	#"[color=#FFAA00][WARN][/color] video_core: unsigned driver loaded (tainted kernel)",
-	#"[color=#888888]         Starting Display Manager...[/color]",
-	#"[color=#00FF00][ OK ][/color] Started Display Manager Service.",
-	#"[color=#00AAFF][ INFO ][/color] systemd[1]: Startup finished in 4.821s (kernel) + 8.342s (userspace)",
-	#"",
-	#"[color=#00FF00]debian-server login:[/color] [color=#FFFFFF]root[/color]",
-	#"[color=#00FF00]Password:[/color]",
-	#"[color=#00FF00]Last login:[/color] Mon Oct 27 23:14:08 2025 from 192.168.1.105",
-	#"[color=#FFFFFF]root@debian-server:~#[/color] [color=#FFAA00]dmesg | tail[/color]",
-	#"[color=#888888][ 12.483921] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready[/color]",
-	#"[color=#888888][ 12.553104] wlan0: Limiting TX power to 23 (23 - 0) dBm[/color]",
-	#"[color=#FFFFFF]root@debian-server:~#[/color] [color=#FFAA00]systemctl status --failed[/color]",
-	#"[color=#00FF00]● 0 loaded units listed.[/color]",
-	#"[color=#FFFFFF]root@debian-server:~#[/color] [color=#FFAA00]uptime[/color]",
-	#"[color=#FFFFFF] 14:23:47 up 2 min, 1 user, load average: 0.52, 0.24, 0.09[/color]",
-	#"[color=#FFFFFF]root@debian-server:~#[/color]"
+	"[color=#00FF00][ OK ][/color] Initializing system scan...",
+	"[color=#888888]         Detecting network interfaces...[/color]",
+	"[color=#00AAFF][ INFO ][/color] Found wireless adapter: Intel(R) Wi-Fi 6",
+	"[color=#00FF00][ OK ][/color] Network connection established.",
+	"",
+	"[color=#FF0000][ ALERT ][/color] Unauthorized access detected from IP: 185.220.101.47",
+	"[color=#FFAA00][WARN][/color] Firewall bypass attempt in progress...",
+	"[color=#888888]         Analyzing security protocols...[/color]",
+	"[color=#FF0000][ CRITICAL ][/color] Password hash cracking: 23% complete",
+	"DELETE_PREV",
+	"[color=#FF0000][ CRITICAL ][/color] Password hash cracking: 67% complete",
+	"DELETE_PREV",
+	"[color=#FF0000][ CRITICAL ][/color] Password hash cracking: 100% complete",
+	"[color=#00FF00][ OK ][/color] Administrator credentials obtained.",
+	"",
+	"[color=#888888]         Establishing remote connection...[/color]",
+	"[color=#00AAFF][ INFO ][/color] SSH tunnel created on port 4444",
+	"[color=#00FF00][ OK ][/color] Remote access granted.",
+	"",
+	"download --file spy_malware.exe",
+	"HACKER",
+	"[color=#888888]         Transfer progress: [████░░░░░░] 40% (2.3 MB/5.8 MB)[/color]",
+	"DELETE_PREV",
+	"[color=#888888]         Transfer progress: [███████░░░] 70% (4.1 MB/5.8 MB)[/color]",
+	"DELETE_PREV",
+	"[color=#00FF00][ OK ][/color] Download complete: spy_malware.exe",
+	"",
+	"[color=#888888]         Installing malware to system32...[/color]",
+	"[color=#00AAFF][ INFO ][/color] Disabling antivirus software...",
+	"[color=#00FF00][ OK ][/color] Windows Defender has been disabled.",
+	"[color=#888888]         Creating backdoor access...[/color]",
+	"[color=#00FF00][ OK ][/color] Backdoor installed successfully.",
+	"",
+	"HACKER:extracting passwords and credit cards",
+	"[color=#888888]         Scanning documents folder...[/color]",
+	"[color=#888888]         Scanning downloads folder...[/color]",
+	"[color=#888888]         Extracting browser passwords...[/color]",
+	"[color=#00AAFF][ INFO ][/color] Found 47 saved passwords",
+	"[color=#00AAFF][ INFO ][/color] Found 12 credit card numbers",
+	"[color=#888888]         Uploading data to remote server...[/color]",
+	"[color=#00FF00][ OK ][/color] Data exfiltration complete.",
+	"",
+	"HACKER:rm -rf /var/log/*",
+	"[color=#888888]         Removing log files...[/color]",
+	"[color=#00FF00][ OK ][/color] All evidence erased.",
+	"",
+	"[color=#00FF00]HACK COMPLETE - YOUR COMPUTER HAS BEEN COMPROMISED[/color]",
+	"[color=#FFAA00]Panic, but do nothing. Because you can't do anything.[/color]"
 ]
 const TYPO_CHARS := "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ1234567890~!@#$%^&*()_+`[]]\\;',./<>?:\"{}|"
 var rng := RandomNumberGenerator.new()
@@ -64,17 +83,26 @@ func anim():
 	_type_lines()
 
 func _type_lines():
-	for l_idx in range(LINES.size()):
+	var l_idx = 0
+	while l_idx < LINES.size():
 		var line = LINES[l_idx]
-		#TODO Add randomized capitalizations / errors
-		await _type_line(line)
+		var has_typo = false
+		match line:
+			"DELETE_PREV":
+				_delete_terminal_line(LINES[l_idx-1])
+				l_idx += 1
+				continue
+			"HACKER":
+				has_typo = true
+		await _type_line(line, has_typo)
 		await get_tree().create_timer(inter_line_delay).timeout
+		l_idx += 1
 	is_blinking = true
 	_cursor_blink()
 	await get_tree().create_timer(1., true).timeout
 	terminal_finished.emit()
 
-func _type_line(line:String):
+func _type_line(line:String, has_typo:bool):
 	var buffer := ""
 	var chars_to_type := line
 	var made_typo := false
@@ -101,7 +129,7 @@ func _type_line(line:String):
 		#TODO Add thinking bewteen lines randomly?
 		
 		# Typo Logic 
-		if not made_typo and _char.is_valid_identifier() and rng.randf() < typo_chance:
+		if not made_typo and _char.is_valid_identifier() and has_typo and rng.randf() < typo_chance:
 			var removed_self = TYPO_CHARS.replace(_char, "")
 			var wrong_char = removed_self[randi_range(0, removed_self.length() - 1)]
 			buffer += wrong_char
@@ -133,7 +161,11 @@ func _update_terminal_line(new_text:String):
 	
 	await get_tree().process_frame
 	terminal.scroll_to_line(terminal.get_line_count())
-
+func _delete_terminal_line(last_line):
+	var all_bb := terminal.text
+	var idx := all_bb.rfind(last_line)
+	all_bb.replace(all_bb[idx], "")
+	
 func stop_cursor_blink():
 	is_blinking = false
 	var bb = terminal.text 
