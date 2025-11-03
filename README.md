@@ -56,6 +56,7 @@
 	<li><a href="#built-with">Built With</a></li>
 	</ul>
 	<li><a href="#play">How to play?</a></li>
+	<li><a href="#tutorial">If you're stuck, a tutorial</a></li>
 	<li><a href="#roadmap">Roadmap</a></li>
 	<li><a href="#license">License</a></li>
 	<li><a href="#contact">Contact</a></li>
@@ -197,6 +198,33 @@ If you'd like to build it yourself, I used Godot 4.5. I do have a pre-built web 
 3. Open the file with Godot project manager
 4. Go to Project > Export, add whichever platform you're on (MacOS, Windows) and then click export.
 5. You're good to go!
+
+#### Tutorial
+If you're stuck, I have left a list of hints below to help you out :)
+<details>
+  <summary><strong>If you don't have 3 coins yet</strong></summary>
+  <details>
+    <summary><strong>Main Menu Coin</strong></summary>
+    <p>Right side, on the bar</p>
+  </details>
+  <details>
+    <summary><strong>OS Menu Coin</strong></summary>
+    <p>Scroll to the right, and then click on the center of the spinning boxes</p>
+  </details>
+  <details>
+    <summary><strong>Persona Menu Coin</strong></summary>
+    <p>Once in the persona menu (the top left button in the OS Menu), don't hover over the top right button and the coin should be visible behind it</p>
+  </details>
+</details>
+<details>
+  <summary><strong>Once you have 3 coins</strong></summary>
+  <p>Go back to the main menu and click the "Click :)" button (should be the third one)</p>
+</details>
+<details>
+  <summary><strong>Once you get to glitches</strong></summary>
+  <p>Click on the "Play" button in the Main Menu, and then click on all the programs</p>
+</details>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
