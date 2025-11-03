@@ -202,19 +202,22 @@ If you'd like to build it yourself, I used Godot 4.5. I do have a pre-built web 
 #### Tutorial
 If you're stuck, I have left a list of hints below to help you out :)
 <details>
-    <summary><strong>If you don't have 3 coins yet</strong></summary>
-    <details>
-        <summary><strong>Main Menu Coin</strong></summary>
-        <p>Right side, on the bar</p>
-    </details>
-    <details>
-        <summary><strong>OS Menu Coin</strong></summary>
-        <p>Scroll to the right, and then click on the center of the spinning boxes</p>
-    </details>
-    <details>
-        <summary><strong>Persona Menu Coin</strong></summary>
-        <p>Once in the persona menu (the top left button in the OS Menu), don't hover over the top right button and the coin should be visible behind it</p>
-    </details>
+  <summary><strong>If you don't have 3 coins yet</strong></summary>
+  
+  <details style="margin-left: 20px;">
+    <summary><strong>Main Menu Coin</strong></summary>
+    <p>Right side, on the bar</p>
+  </details>
+  
+  <details style="margin-left: 20px;">
+    <summary><strong>OS Menu Coin</strong></summary>
+    <p>Scroll to the right, and then click on the center of the spinning boxes</p>
+  </details>
+  
+  <details style="margin-left: 20px;">
+    <summary><strong>Persona Menu Coin</strong></summary>
+    <p>Once in the persona menu (the top left button in the OS Menu), don't hover over the top right button and the coin should be visible behind it</p>
+  </details>
 </details>
 <details>
   <summary><strong>Once you have 3 coins</strong></summary>
