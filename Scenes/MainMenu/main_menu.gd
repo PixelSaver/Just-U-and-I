@@ -14,6 +14,7 @@ var buttons : Array[Control] = []
 @export var coin : Coin
 @export var title : RichTextLabel
 @export var ui_exit : AudioStreamPlayer
+@export var ui_glitched : AudioStreamPlayer
 const TITLES = ["PLAY", "OPTIONS", "CLICK :)", "QUIT"]
 const SETTINGS_MENU = preload("res://Scenes/Settings/settings_menu.tscn")
 const OS_MENU = preload("res://Scenes/OSMenu/os_menu.tscn")
@@ -40,6 +41,7 @@ func _on_pressed(val:ButtonMenu):
 			Global.state = Global.States.OS_MENU
 			if Global.glitched:
 				end_main_menu_glitch()
+				ui_glitched.play()
 				await get_tree().create_timer(1.).timeout
 				Global.go_os()
 				ui_enter_os.play()
@@ -146,8 +148,8 @@ func end_main_menu_glitch():
 			tmenu.kill()
 			return
 		tmenu.tween_property(but, "position", but.position + (buttons[0].position - but.position)*.7, duration)
-	tmenu.tween_property(self, "modulate", Color(Color.WHITE,0), duration*1.5)
-	tmenu.tween_method(Global.glitch_menu.pixel_sort_t, 0., 1., duration*1.5)
+	tmenu.tween_property(self, "modulate", Color(Color.WHITE,0), 2.4)
+	tmenu.tween_method(Global.glitch_menu.pixel_sort_t, 0., 1., 2.4)
 	
 	var all_t = all_tweenables()
 	for tween in all_t:

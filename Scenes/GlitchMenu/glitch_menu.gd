@@ -76,7 +76,7 @@ func _on_term_fin() -> void:
 
 
 func up_heartbeat_vol():
-	heartbeat_target_vol += 3.
+	heartbeat_target_vol += 2.
 func silence_heartbeat():
 	heartbeat.stop()
 func _process(delta: float) -> void:

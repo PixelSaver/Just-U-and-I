@@ -11,6 +11,8 @@ signal blood_anim_finished
 @export var pupil_mult : Vector2 = Vector2(0.3, 0.1)
 #@export var white_mult : Vector2 = Vector2(0.3, 0.1)
 @export_range(1., 10.) var pupil_speed : float = 1
+@export_category("Audio")
+@export var glitch_sound : AudioStreamPlayer
 var eye_target : Vector2 = Vector2.ZERO
 var is_mouse : bool = true
 
@@ -76,6 +78,7 @@ func _update_pupil(delta: float):
 
 
 func anim_blood():
+	glitch_sound.play()
 	var t = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT)
 	t.tween_property(pupil, "modulate", Color.BLACK, 3.)
 	t.tween_property(white, "modulate", Color.BLACK, 3.)

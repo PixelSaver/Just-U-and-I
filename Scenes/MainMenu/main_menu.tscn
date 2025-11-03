@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://875cs4fxe4ua"]
+[gd_scene load_steps=27 format=3 uid="uid://875cs4fxe4ua"]
 
 [ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_43m2q"]
 [ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://Scenes/MainMenu/main_menu.gd" id="2_xt57n"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://l6cc3rqf54w8" path="res://Assets/Audio/menu-back-hover.wav" id="15_6capf"]
 [ext_resource type="AudioStream" uid="uid://dynsjq8f7g8yf" path="res://Assets/Audio/key-caps.mp3" id="16_mtk40"]
 [ext_resource type="AudioStream" uid="uid://drcibr17x7iie" path="res://Assets/Audio/ruleset-select-osu.wav" id="17_qy48e"]
+[ext_resource type="AudioStream" uid="uid://crn7jemr8taev" path="res://Assets/Audio/glitch_reverb.mp3" id="18_xt57n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wyh8j"]
 shader = ExtResource("4_n0kcp")
@@ -58,7 +59,7 @@ bg_color = Color(0.168627, 0.564706, 0.992157, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1dhk"]
 draw_center = false
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "ui_pressed", "ui_enter_os", "notif_man", "ui_sound_cont", "coin", "title", "ui_exit", "all_parents", "scale_parent") groups=["MainMenu"]]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_placement_container", "ui_reject_audio", "ui_enter", "ui_pressed", "ui_enter_os", "notif_man", "ui_sound_cont", "coin", "title", "ui_exit", "ui_glitched", "all_parents", "scale_parent") groups=["MainMenu"]]
 process_mode = 1
 layout_mode = 3
 anchors_preset = 15
@@ -80,6 +81,7 @@ ui_sound_cont = NodePath("UISoundController")
 coin = NodePath("TiltControl/LineSide/ColorRect/Coin")
 title = NodePath("TiltControl/VBoxContainer/Title/MarginContainer/GameLabel")
 ui_exit = NodePath("UIExit")
+ui_glitched = NodePath("UIGlitched")
 all_parents = [NodePath("Extrabg"), NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineSide"), NodePath("TiltControl/bgTitle"), NodePath("TiltControl/VBoxContainer/Title/Control"), NodePath("TiltControl/VBoxContainer/Title"), NodePath("TiltControl/VBoxContainer/Title/MarginContainer"), NodePath("RestOfIt")]
 scale_parent = NodePath("Extrabg")
 
@@ -733,3 +735,8 @@ volume_db = -19.605
 
 [node name="UIExit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6capf")
+
+[node name="UIGlitched" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_xt57n")
+volume_db = 9.774
+bus = &"SFX"

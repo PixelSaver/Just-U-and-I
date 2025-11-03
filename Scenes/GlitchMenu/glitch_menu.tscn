@@ -105,9 +105,10 @@ visible = false
 
 [node name="GlitchTrans" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_h0upt")
-volume_db = -3.273
+volume_db = -27.423
 
 [node name="Heartbeat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_h0upt")
+volume_db = -22.909
 
 [connection signal="first_anim_finished" from="." to="." method="_on_first_anim_finished"]

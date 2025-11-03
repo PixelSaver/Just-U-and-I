@@ -6,14 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dvypgsbv5530q" path="res://Assets/Art/Spooky/eye_pupil.png" id="4_t858a"]
 [ext_resource type="Texture2D" uid="uid://b6byobecvt0e7" path="res://Assets/Art/Spooky/eye_blood_spritesheet.png" id="5_nef1a"]
 [ext_resource type="Texture2D" uid="uid://cdpk6684d6dur" path="res://Assets/Art/Spooky/eye_outside.png" id="6_oi68g"]
+[ext_resource type="AudioStream" uid="uid://cidus3bxnakb4" path="res://Assets/Audio/glitch_logo.mp3" id="7_pvjgp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnqny"]
 atlas = ExtResource("5_nef1a")
 region = Rect2(128, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3oiku"]
-atlas = ExtResource("5_nef1a")
-region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12u6i"]
 atlas = ExtResource("5_nef1a")
@@ -111,9 +108,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3oiku")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_12u6i")
 }, {
 "duration": 1.0,
@@ -178,10 +172,10 @@ animations = [{
 }],
 "loop": false,
 "name": &"blood",
-"speed": 5.0
+"speed": 2.5
 }]
 
-[node name="EyeBG" type="CanvasLayer" node_paths=PackedStringArray("pupil", "white", "blood_anim", "shading")]
+[node name="EyeBG" type="CanvasLayer" node_paths=PackedStringArray("pupil", "white", "blood_anim", "shading", "glitch_sound")]
 layer = 0
 script = ExtResource("1_nnqny")
 pupil = NodePath("Center/Clip/Control/Pupil")
@@ -190,6 +184,7 @@ blood_anim = NodePath("Center/Clip/Control/BloodAnim")
 shading = NodePath("Center/Clip/Control/Shading")
 pupil_mult = Vector2(0.4, 0.25)
 pupil_speed = 4.484
+glitch_sound = NodePath("GlitchLogo")
 
 [node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -241,9 +236,15 @@ texture = ExtResource("4_t858a")
 [node name="BloodAnim" type="AnimatedSprite2D" parent="Center/Clip/Control"]
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_p45n7")
-animation = &"blank"
+animation = &"blood"
+frame = 20
+frame_progress = 1.0
 
 [node name="Outside" type="Sprite2D" parent="Center/Clip/Control"]
 texture_filter = 1
 scale = Vector2(15, 15)
 texture = ExtResource("6_oi68g")
+
+[node name="GlitchLogo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pvjgp")
+volume_db = -20.727
